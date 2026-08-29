@@ -60,25 +60,25 @@ style: |
         position: absolute;
         top: 150px;
         left: 70px;
-        width: 48%;
+        width: 42%;
     }
     section.practice-check > pre {
         position: absolute;
         top: 205px;
         left: 70px;
-        width: 48%;
+        width: 42%;
     }
     section.practice-check > p:nth-of-type(2) {
         position: absolute;
         top: 150px;
         right: 70px;
-        width: 38%;
+        width: 46%;
     }
     section.practice-check > ol {
         position: absolute;
         top: 205px;
         right: 70px;
-        width: 38%;
+        width: 46%;
     }
 ---
 
@@ -2547,7 +2547,7 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 
 ---
 
-## 語法 → 專案對照總表
+## 語法 → 專案對照總表（1/2）
 
 | 語法 | 章節 | 出現處（LearnBoard／LearnMart） |
 |---|---:|---|
@@ -2559,6 +2559,13 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 | `*args` `**kwargs` | 6 | `get_context_data(self, **kwargs)` |
 | try/except ValueError | 7 | `int(request.POST.get(...))` |
 | 相對 import | 8 | `from .models import Message`／`Product` |
+
+---
+
+## 語法 → 專案對照總表（2/2）
+
+| 語法 | 章節 | 出現處（LearnBoard／LearnMart） |
+|---|---:|---|
 | `__init__`/self/method | 9 | 所有 model class |
 | `class Meta` / TextChoices | 9 | `ordering`、`Role.choices` |
 | `@property` | 9 | `is_seller`、`subtotal` |
@@ -2585,7 +2592,7 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 - [ ] 看到 `@require_POST` 能說出「包一層先擋 method」
 - [ ] 看到 `-> QuerySet` 知道那是回傳值標註而非魔法
 
-全部打勾 → 進入 [00b HTML/CSS 先備](../00b_html_css_page_basics/00_overview.md)，然後開始 [Deck 01：兩個 Django 專案的共通基礎](../01_django_foundations_and_two_projects/00_overview.md)。
+全部打勾 → 進入 [HTML/CSS 先備](../00b_html_css_page_basics/00_overview.md)，然後開始 [Deck 01：兩個 Django 專案的共通基礎](../01_django_foundations_and_two_projects/00_overview.md)。
 
 **配套指令複習：**
 
