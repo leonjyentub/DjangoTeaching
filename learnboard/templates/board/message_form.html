@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{% if object %}編輯留言{% else %}發表留言{% endif %}｜學言板{% endblock %}
+{% block content %}
+<div class="card border-0 shadow-sm mx-auto form-card">
+  <div class="card-body p-4 p-md-5">
+    <h1 class="h3 mb-4">{% if object %}編輯留言{% else %}發表留言{% endif %}</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary">{% if object %}更新{% else %}發布{% endif %}</button>
+        <a class="btn btn-outline-secondary" href="{% url 'board:list' %}">取消</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

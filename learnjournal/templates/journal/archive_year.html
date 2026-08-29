@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">{{ year|date:"Y" }} 年的文章</h1>
+  {% regroup articles by published_at.month as month_list %}
+  {% for month in month_list %}
+    <h2 class="h5 mt-3">{{ month.grouper }} 月</h2>
+    <ul>
+      {% for article in month.list %}
+        <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a> <span class="text-secondary small">{{ article.published_at|date:"n/j" }}</span></li>
+      {% endfor %}
+    </ul>
+  {% empty %}
+    <p class="text-secondary">這一年沒有文章。</p>
+  {% endfor %}
+{% endblock %}

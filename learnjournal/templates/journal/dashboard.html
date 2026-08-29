@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">我的文章</h1>
+    <a class="btn btn-warning btn-sm" href="{% url 'journal:article-create' %}">寫文章</a>
+  </div>
+  <table class="table">
+    <thead><tr><th>標題</th><th>狀態</th><th>發佈時間</th><th>瀏覽</th><th></th></tr></thead>
+    <tbody>
+    {% for article in articles %}
+      <tr>
+        <td>{{ article.title }}</td>
+        <td>{{ article.get_status_display }}</td>
+        <td>{{ article.published_at|date:"Y-m-d H:i"|default:"—" }}</td>
+        <td>{{ article.view_count }}</td>
+        <td>
+          <a href="{% url 'journal:article-update' article.pk %}">編輯</a>
+          {% if article.is_live %}· <a href="{{ article.get_absolute_url }}">檢視</a>
+          {% else %}· <a href="{% url 'journal:article-preview' article.pk %}">預覽</a>{% endif %}
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5" class="text-secondary">還沒有文章。</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

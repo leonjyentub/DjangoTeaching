@@ -1,0 +1,16 @@
+{% load journal_extras humanize %}
+<article class="card mb-3">
+  <div class="card-body">
+    <div class="small text-secondary mb-1">
+      <a href="{{ article.category.get_absolute_url }}">{{ article.category.name }}</a>
+      · <a href="{{ article.author.get_absolute_url }}">{{ article.author.username }}</a>
+      · {{ article.published_at|naturaltime }}
+      · {% reading_time article %}
+    </div>
+    <h2 class="h4"><a class="text-decoration-none" href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+    <p class="mb-2">{{ article.excerpt|default:article.body|truncatewords:30 }}</p>
+    {% for tag in article.tags.all %}
+      <a class="badge rounded-pill text-bg-light text-decoration-none" href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
+</article>

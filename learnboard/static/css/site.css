@@ -1,0 +1,14 @@
+:root { --lb-blue: #3b5bdb; --lb-deep: #1e3a8a; --lb-bg: #f5f7fb; }
+body { background: var(--lb-bg); color: #23262d; }
+.navbar { background: linear-gradient(90deg, var(--lb-deep), var(--lb-blue)); }
+.hero { background: linear-gradient(120deg, rgba(23, 37, 84, .95), rgba(59, 91, 219, .88)), radial-gradient(circle at top right, #c7d2fe, transparent 45%); }
+.post-card { transition: transform .18s ease, box-shadow .18s ease; }
+.post-card:hover { transform: translateY(-3px); box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .12) !important; }
+.avatar { width: 34px; height: 34px; color: #fff; background: linear-gradient(135deg, var(--lb-blue), #7048e8); font-size: .9rem; }
+.auth-card { max-width: 520px; }
+.form-card { max-width: 720px; }
+.post-content { white-space: normal; }
+form p label { display: block; margin-bottom: .35rem; font-weight: 600; }
+form p .helptext { display: block; margin-top: .25rem; color: #6c757d; font-size: .875rem; }
+.errorlist { color: #b02a37; padding-left: 1.25rem; }
+@media (max-width: 575.98px) { .display-6 { font-size: 1.6rem; } .hero { border-radius: 1rem !important; } }

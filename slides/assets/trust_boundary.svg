@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 680" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <style>
+    .zoneClient { fill: #f3f4f6; stroke: #6b7280; stroke-width: 2; }
+    .zoneServer { fill: #faf1f2; stroke: #8f1d2c; stroke-width: 2.5; }
+    .zoneHead { font-size: 18px; font-weight: bold; }
+    .card { fill: #ffffff; stroke: #9ca3af; stroke-width: 1.5; }
+    .cardS { fill: #ffffff; stroke: #a52a3a; stroke-width: 2; }
+    .cardText { font-size: 14px; fill: #374151; text-anchor: middle; }
+    .layerTitle { font-size: 16px; font-weight: bold; fill: #7d1726; }
+    .layerSub { font-size: 13px; fill: #6b7280; font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', monospace; }
+    .boundary { stroke: #b91c1c; stroke-width: 3; stroke-dasharray: 12 8; }
+    .note { font-size: 14px; fill: #4b5563; text-anchor: middle; }
+    .flow { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arr); }
+  </style>
+
+  <!-- Client zone -->
+  <rect class="zoneClient" x="40" y="70" width="370" height="500" rx="14"/>
+  <text class="zoneHead" x="225" y="104" text-anchor="middle" fill="#374151">瀏覽器／Client</text>
+  <text x="225" y="128" text-anchor="middle" font-size="14" fill="#b91c1c" font-weight="bold">完全不可信任的區域</text>
+
+  <rect class="card" x="70" y="150" width="310" height="58" rx="8"/>
+  <text class="cardText" x="225" y="175">使用者可用開發者工具改 HTML</text>
+  <text class="cardText" x="225" y="196">移除 required、改掉 min/max</text>
+
+  <rect class="card" x="70" y="222" width="310" height="58" rx="8"/>
+  <text class="cardText" x="225" y="247">可以改 hidden input 的 value</text>
+  <text class="cardText" x="225" y="268">例如把 seller 改成別人的 id</text>
+
+  <rect class="card" x="70" y="294" width="310" height="58" rx="8"/>
+  <text class="cardText" x="225" y="319">可以不經過你的頁面</text>
+  <text class="cardText" x="225" y="340">用 curl／Postman 直接送 POST</text>
+
+  <rect class="card" x="70" y="366" width="310" height="58" rx="8"/>
+  <text class="cardText" x="225" y="391">可以看到所有原始碼與請求內容</text>
+  <text class="cardText" x="225" y="412">任何「只藏在前端」的規則都擋不住</text>
+
+  <text x="225" y="470" text-anchor="middle" font-size="15" font-weight="bold" fill="#b91c1c">UI 隱藏按鈕 ≠ 安全</text>
+  <text x="225" y="494" text-anchor="middle" font-size="13.5" fill="#6b7280">不顯示只是介面設計，不是防線</text>
+
+  <!-- Boundary -->
+  <line class="boundary" x1="475" y1="60" x2="475" y2="580"/>
+  <rect x="395" y="20" width="160" height="34" rx="17" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="475" y="43" text-anchor="middle" font-size="14" font-weight="bold" fill="#b91c1c">網路（HTTPS）</text>
+  <text x="475" y="610" text-anchor="middle" font-size="13.5" fill="#6b7280">所有請求資料跨過這條線前</text>
+  <text x="475" y="632" text-anchor="middle" font-size="13.5" fill="#6b7280">都要當成「可能是假的」</text>
+
+  <!-- CSRF crossing arrow -->
+  <path class="flow" d="M 350 560 H 465" style="stroke:#a52a3a; marker-end: url(#arr);"/>
+  <text x="408" y="546" text-anchor="middle" font-size="13" fill="#a52a3a">CSRF token</text>
+
+  <!-- Server zone -->
+  <rect class="zoneServer" x="545" y="70" width="595" height="500" rx="14"/>
+  <text class="zoneHead" x="842" y="104" text-anchor="middle" fill="#7d1726">Server：每一層各自把關，不可互相替代</text>
+
+  <rect class="cardS" x="580" y="132" width="530" height="64" rx="8"/>
+  <text class="layerTitle" x="845" y="158" text-anchor="middle">① URL 分派</text>
+  <text class="layerSub" x="845" y="180" text-anchor="middle">route 只比對路徑形狀，不做安全判斷</text>
+  <path class="flow" x1="845" y1="196" x2="845" y2="216" d="M 845 196 V 214"/>
+
+  <rect class="cardS" x="580" y="218" width="530" height="78" rx="8"/>
+  <text class="layerTitle" x="845" y="244" text-anchor="middle">② View：身份 → 角色 → 擁有權</text>
+  <text class="layerSub" x="845" y="266" text-anchor="middle">login_required / is_seller / filter(seller=request.user)</text>
+  <text class="layerSub" x="845" y="286" text-anchor="middle">查不到就 404，越權就 403</text>
+
+  <rect class="cardS" x="580" y="316" width="530" height="78" rx="8"/>
+  <text class="layerTitle" x="845" y="342" text-anchor="middle">③ Form：型別轉換與欄位驗證</text>
+  <text class="layerSub" x="845" y="364" text-anchor="middle">is_valid() → cleaned_data；Meta.fields 是 allowlist</text>
+  <text class="layerSub" x="845" y="384" text-anchor="middle">server-owned 欄位（seller/buyer）不由 client 決定</text>
+
+  <rect class="cardS" x="580" y="414" width="530" height="64" rx="8"/>
+  <text class="layerTitle" x="845" y="440" text-anchor="middle">④ ORM：參數化 SQL</text>
+  <text class="layerSub" x="845" y="462" text-anchor="middle">filter(name=query) 自動 escaping，防 SQL injection</text>
+
+  <rect class="cardS" x="580" y="498" width="530" height="56" rx="8"/>
+  <text class="layerTitle" x="845" y="522" text-anchor="middle">⑤ Database constraints（最後防線）</text>
+  <text class="layerSub" x="845" y="543" text-anchor="middle">UNIQUE / CHECK / FK — 就算程式有漏洞也擋住壞資料</text>
+
+  <!-- Bottom banner -->
+  <rect x="40" y="600" width="1100" height="50" rx="10" fill="#fdf7f8" stroke="#d69aa3" stroke-width="1.5"/>
+  <text class="note" x="590" y="631" font-size="16" font-weight="bold" fill="#7d1726">鐵律：client 送來的一切都重新驗證——身份、角色、擁有權、資料格式，一層都不能省。</text>
+</svg>

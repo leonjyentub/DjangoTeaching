@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">註冊</h1>
+  <form method="post" class="col-md-8">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">建立帳號</button>
+  </form>
+{% endblock %}

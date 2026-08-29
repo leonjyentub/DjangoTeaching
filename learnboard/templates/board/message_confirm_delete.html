@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}刪除留言｜學言板{% endblock %}
+{% block content %}
+<div class="card border-0 shadow-sm mx-auto form-card">
+  <div class="card-body p-4 p-md-5">
+    <h1 class="h4 mb-3">確定要刪除這則留言嗎？</h1>
+    <p class="border-start border-3 ps-3 text-secondary">{{ object.content|linebreaksbr }}</p>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger">確認刪除</button>
+      <a class="btn btn-outline-secondary" href="{% url 'board:list' %}">取消</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

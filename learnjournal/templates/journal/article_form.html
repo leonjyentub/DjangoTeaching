@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">{% if form.instance.pk %}編輯文章{% else %}寫新文章{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">儲存</button>
+    <a class="btn btn-link" href="{% url 'journal:dashboard' %}">取消</a>
+  </form>
+{% endblock %}

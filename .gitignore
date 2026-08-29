@@ -1,0 +1,32 @@
+# Python / local env
+.venv/
+__pycache__/
+*.py[cod]
+.coverage
+.coverage.*
+htmlcov/
+
+# Django local data
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+.env
+.env.*
+local_settings.py
+
+# Tooling / generated files
+node_modules/
+.cache/
+.tmp/
+tmp/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local AI tooling noise
+.claude/
+.codex/
+.antrigravity/

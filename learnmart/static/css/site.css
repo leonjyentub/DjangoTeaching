@@ -1,0 +1,16 @@
+:root { --lm-red: #d7195a; --lm-deep: #9d1244; --lm-bg: #f7f7f9; }
+body { background: var(--lm-bg); color: #24262b; }
+.navbar { background: linear-gradient(90deg, var(--lm-deep), var(--lm-red)); }
+.hero { background: linear-gradient(120deg, rgba(111, 8, 52, .95), rgba(215, 25, 90, .88)), radial-gradient(circle at top right, #ffccdf, transparent 40%); }
+.product-card { transition: transform .18s ease, box-shadow .18s ease; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .12) !important; }
+.placeholder-product { width: 100%; color: #8c8f95; background: linear-gradient(135deg, #eceef1, #fafafa); }
+.price { color: var(--lm-red); }
+.auth-card { max-width: 520px; }
+.form-card { max-width: 760px; }
+.cart-quantity { width: 90px; }
+.product-description { white-space: normal; }
+form p label { display: block; margin-bottom: .35rem; font-weight: 600; }
+form p .helptext { display: block; margin-top: .25rem; color: #6c757d; font-size: .875rem; }
+.errorlist { color: #b02a37; padding-left: 1.25rem; }
+@media (max-width: 575.98px) { .display-5 { font-size: 2rem; } .hero { border-radius: 1rem !important; } }

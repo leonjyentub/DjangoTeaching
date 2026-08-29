@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">登入</h1>
+  <form method="post" class="col-md-8">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn btn-primary">登入</button>
+    <a class="btn btn-link" href="{% url 'journal:register' %}">還沒有帳號？註冊</a>
+  </form>
+{% endblock %}

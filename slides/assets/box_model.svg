@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <style>
+    .lbl { font-size: 17px; font-weight: bold; }
+    .desc { font-size: 13px; fill: #6b7280; }
+    .mono { font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', 'Courier New', monospace; font-size: 13px; fill: #1f2937; }
+  </style>
+
+  <!-- margin layer -->
+  <rect x="100" y="80" width="700" height="360" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="lbl" x="115" y="66" fill="#6b7280">margin</text>
+  <text class="desc" x="195" y="66">與其他元素保持距離 · 透明 · 不算進點擊範圍外框</text>
+
+  <!-- border layer -->
+  <rect x="160" y="126" width="580" height="268" fill="#fbf4f0" stroke="#8f1d2c" stroke-width="7"/>
+  <text class="lbl" x="176" y="116" fill="#8f1d2c">border</text>
+  <text class="desc" x="250" y="116">框線本身有粗細與顏色</text>
+
+  <!-- padding layer -->
+  <rect x="220" y="172" width="460" height="176" fill="#f7ecee" stroke="#a52a3a" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="lbl" x="236" y="163" fill="#a52a3a">padding</text>
+  <text class="desc" x="322" y="163">內容與框線之間的留白 · 含背景色</text>
+
+  <!-- content -->
+  <rect x="300" y="215" width="300" height="90" fill="#ffffff" stroke="#a52a3a" stroke-width="2"/>
+  <text x="450" y="252" text-anchor="middle" font-size="18" font-weight="bold" fill="#7d1726">content</text>
+  <text class="mono" x="450" y="278" text-anchor="middle">width × height（實際內容）</text>
+
+  <!-- dimension example -->
+  <rect x="100" y="470" width="700" height="54" rx="8" fill="#fdf7f8" stroke="#d69aa3" stroke-width="1.5"/>
+  <text class="mono" x="450" y="492" text-anchor="middle">佔位寬 = content 300 + padding 左右 48 + border 左右 8 + margin 左右 0 = 356px</text>
+  <text class="desc" x="450" y="512" text-anchor="middle">Chrome DevTools 的 Computed 面板畫的就是這張圖（右下角）</text>
+</svg>

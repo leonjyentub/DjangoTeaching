@@ -1,0 +1,20 @@
+{% load journal_extras %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="h6">最新文章</h2>
+    {% latest_articles 5 %}
+  </div>
+</div>
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="h6">熱門標籤</h2>
+    {% tag_cloud 20 %}
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h2 class="h6">訂閱電子報</h2>
+    <p class="small text-secondary">每週精選，直接寄到信箱。</p>
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'journal:subscribe' %}">前往訂閱</a>
+  </div>
+</div>

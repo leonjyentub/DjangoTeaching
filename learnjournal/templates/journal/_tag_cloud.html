@@ -1,0 +1,5 @@
+{% for tag in tags %}
+  <a class="badge rounded-pill text-bg-light text-decoration-none me-1 mb-1" href="{{ tag.get_absolute_url }}">{{ tag.name }} <span class="text-secondary">{{ tag.count }}</span></a>
+{% empty %}
+  <p class="small text-secondary mb-0">還沒有標籤。</p>
+{% endfor %}

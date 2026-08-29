@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">訂閱電子報</h1>
+  <form method="post" class="col-md-8">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">送出</button>
+  </form>
+  <p class="small text-secondary mt-2">送出後我們會寄一封確認信（double opt-in）；點信中連結才正式生效。</p>
+{% endblock %}

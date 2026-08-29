@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="h3 mb-3">
+    {% if category %}分類：{{ category.name }}
+    {% elif tag %}標籤：{{ tag.name }}
+    {% elif author %}作者：{{ author.username }}
+    {% elif query %}搜尋「{{ query }}」
+    {% else %}最新文章{% endif %}
+  </h1>
+
+  {% for article in articles %}
+    {% include "journal/_article_card.html" %}
+  {% empty %}
+    <p class="text-secondary">目前沒有符合的文章。</p>
+  {% endfor %}
+
+  {% include "journal/_pagination.html" %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}留言牆｜學言板{% endblock %}
+{% block content %}
+<div class="hero rounded-3 p-4 p-md-5 text-white mb-4">
+  <h1 class="display-6 fw-bold">學言板</h1>
+  <p class="mb-3">Django 課程的留言板：註冊帳號、發布留言，並管理你自己的內容。</p>
+  <form class="row row-cols-sm-auto g-2 align-items-center" action="{% url 'board:list' %}" method="get" role="search">
+    <div class="col-12"><label class="visually-hidden" for="q">搜尋留言</label><input class="form-control" id="q" name="q" value="{{ query }}" placeholder="搜尋留言內容"></div>
+    <div class="col-12"><button class="btn btn-light w-100" type="submit">搜尋</button></div>
+  </form>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4 mb-0">{% if query %}「{{ query }}」的搜尋結果{% else %}最新留言{% endif %}</h1>
+  {% if user.is_authenticated %}<a class="btn btn-primary" href="{% url 'board:create' %}">發表留言</a>{% endif %}
+</div>
+
+{% for post in posts %}
+<article class="card border-0 shadow-sm mb-3 post-card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start gap-2">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span class="avatar rounded-circle d-inline-flex align-items-center justify-content-center fw-bold">{% if post.author %}{{ post.author.username|first|upper }}{% else %}?{% endif %}</span>
+        <div>
+          <div class="fw-semibold small">{% if post.author %}{{ post.author.username }}{% else %}訪客{% endif %}{% if post.updated_at != post.created_at %} <span class="badge text-bg-secondary">已編輯</span>{% endif %}</div>
+          <div class="text-secondary small">{{ post.created_at|date:"Y/m/d H:i" }}</div>
+        </div>
+      </div>
+      {% if post.author == user %}
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-primary btn-sm" href="{% url 'board:update' post.pk %}">編輯</a>
+          <a class="btn btn-outline-danger btn-sm" href="{% url 'board:delete' post.pk %}">刪除</a>
+        </div>
+      {% elif user.is_staff %}
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'board:delete' post.pk %}">刪除</a>
+      {% endif %}
+    </div>
+    <p class="mb-0 post-content">{{ post.content|linebreaksbr }}</p>
+  </div>
+</article>
+{% empty %}
+<div class="alert alert-light border">{% if query %}找不到符合「{{ query }}」的留言。{% else %}目前還沒有留言，來寫下第一句話吧！{% endif %}</div>
+{% endfor %}
+{% include "board/pagination.html" %}
+{% endblock %}

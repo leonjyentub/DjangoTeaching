@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}｜學購{% endblock %}
+{% block content %}
+<div class="row g-4 g-lg-5">
+  <div class="col-md-6"><div class="ratio ratio-1x1 bg-white rounded-4 shadow-sm overflow-hidden">{% if product.image %}<img src="{{ product.image.url }}" class="object-fit-contain" alt="{{ product.name }}">{% else %}<div class="placeholder-product d-flex align-items-center justify-content-center">尚未上傳圖片</div>{% endif %}</div></div>
+  <div class="col-md-6"><div class="text-secondary">{{ product.category.name }} · 賣家 {{ product.seller.username }}</div><h1 class="mt-2">{{ product.name }}</h1><div class="price display-6 fw-bold my-3">NT$ {{ product.price }}</div><p class="product-description">{{ product.description|linebreaksbr }}</p><p>庫存：{{ product.stock }}</p>
+    <form method="post" action="{% url 'marketplace:add-to-cart' product.pk %}" class="d-flex gap-2 align-items-end">{% csrf_token %}<div><label class="form-label" for="quantity">數量</label><input id="quantity" class="form-control" type="number" name="quantity" min="1" max="{{ product.stock }}" value="1"></div><button class="btn btn-danger btn-lg" {% if product.stock == 0 %}disabled{% endif %}>加入購物車</button></form>
+  </div>
+</div>
+<hr class="my-5"><div class="row g-4"><section class="col-lg-7"><h2 class="h4">買家評價 {% if product.average_rating %}<span class="text-warning">★ {{ product.average_rating }}</span>{% endif %}</h2>{% for review in product.reviews.all %}<article class="border-bottom py-3"><div class="text-warning">{{ review.rating }} / 5 ★</div><div>{{ review.comment|linebreaksbr }}</div><small class="text-secondary">{{ review.author.username }} · {{ review.created_at|date:"Y/m/d" }}</small></article>{% empty %}<p class="text-secondary">還沒有評價，成為第一位分享心得的買家吧。</p>{% endfor %}</section>
+<section class="col-lg-5"><div class="card border-0 shadow-sm"><div class="card-body"><h2 class="h5">留下評價</h2>{% if user.is_authenticated %}<form method="post" action="{% url 'marketplace:add-review' product.pk %}">{% csrf_token %}{{ review_form.as_p }}<button class="btn btn-dark">送出評價</button></form>{% else %}<a href="{% url 'login' %}?next={{ request.path }}">登入後評價</a>{% endif %}</div></div></section></div>
+{% endblock %}

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 660" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f7d4f"/>
+    </marker>
+    <marker id="arrX" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <style>
+    .step { fill: #ffffff; stroke: #8f1d2c; stroke-width: 2; }
+    .stepTitle { font-size: 16px; font-weight: bold; fill: #7d1726; text-anchor: middle; }
+    .mono { font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', 'Courier New', monospace; font-size: 12.5px; fill: #1f2937; text-anchor: middle; }
+    .flow { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arr); }
+    .atomic { fill: #fdf7f8; stroke: #a52a3a; stroke-width: 2.5; stroke-dasharray: 8 6; }
+    .atomicTab { fill: #a52a3a; }
+    .atomicTabText { font-size: 16px; font-weight: bold; fill: #ffffff; font-family: 'SF Mono', Consolas, monospace; }
+    .ok { fill: #eef7f0; stroke: #2f7d4f; stroke-width: 2.5; }
+    .okText { font-size: 17px; font-weight: bold; fill: #2f7d4f; }
+    .okBody { font-size: 14px; fill: #14532d; }
+    .bad { fill: #fbeeee; stroke: #b91c1c; stroke-width: 2.5; }
+    .badText { font-size: 17px; font-weight: bold; fill: #b91c1c; }
+    .badBody { font-size: 14px; fill: #7f1d1d; }
+    .rollback { stroke: #b91c1c; stroke-width: 3; stroke-dasharray: 10 7; fill: none; marker-end: url(#arrX); }
+  </style>
+
+  <!-- atomic container -->
+  <rect class="atomic" x="60" y="70" width="1060" height="290" rx="14"/>
+  <rect class="atomicTab" x="90" y="52" width="420" height="36" rx="8"/>
+  <text class="atomicTabText" x="300" y="76" text-anchor="middle">@transaction.atomic　checkout()</text>
+  <text x="1105" y="76" text-anchor="end" font-size="13.5" fill="#a52a3a">任一步驟拋出例外 → 整組寫入一起取消</text>
+
+  <!-- Steps -->
+  <g>
+    <rect class="step" x="100" y="150" width="170" height="96" rx="10"/>
+    <text class="stepTitle" x="185" y="182">① 鎖定並讀取</text>
+    <text class="mono" x="185" y="208">cart_items</text>
+    <text class="mono" x="185" y="228">select_for_update()</text>
+
+    <line class="flow" x1="270" y1="198" x2="306" y2="198"/>
+
+    <rect class="step" x="310" y="150" width="170" height="96" rx="10"/>
+    <text class="stepTitle" x="395" y="182">② 建立 Order</text>
+    <text class="mono" x="395" y="210">order.save()</text>
+    <text class="mono" x="395" y="230">buyer / total 快照</text>
+
+    <line class="flow" x1="480" y1="198" x2="516" y2="198"/>
+
+    <rect class="step" x="520" y="150" width="170" height="96" rx="10"/>
+    <text class="stepTitle" x="605" y="182">③ 建立 OrderItem</text>
+    <text class="mono" x="605" y="210">product_name</text>
+    <text class="mono" x="605" y="230">unit_price 快照</text>
+
+    <line class="flow" x1="690" y1="198" x2="726" y2="198"/>
+
+    <rect class="step" x="730" y="150" width="170" height="96" rx="10"/>
+    <text class="stepTitle" x="815" y="182">④ 扣庫存</text>
+    <text class="mono" x="815" y="210">stock -= quantity</text>
+    <text class="mono" x="815" y="230">save(update_fields)</text>
+
+    <line class="flow" x1="900" y1="198" x2="936" y2="198"/>
+
+    <rect class="step" x="940" y="150" width="150" height="96" rx="10"/>
+    <text class="stepTitle" x="1015" y="182">⑤ 清空購物車</text>
+    <text class="mono" x="1015" y="212">cart_items.all()</text>
+    <text class="mono" x="1015" y="232">.delete()</text>
+  </g>
+
+  <!-- Failure burst on step 4 -->
+  <circle cx="815" cy="130" r="15" fill="#b91c1c"/>
+  <text x="815" y="136" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">!</text>
+  <text x="840" y="122" font-size="14" fill="#b91c1c" font-weight="bold">例：庫存不足 → raise</text>
+
+  <!-- Rollback dashed arrow -->
+  <path class="rollback" d="M 800 258 C 720 330, 500 330, 412 262"/>
+  <text x="600" y="344" text-anchor="middle" font-size="16" font-weight="bold" fill="#b91c1c">ROLLBACK：②③④⑤ 全部取消，資料回到交易前的狀態</text>
+
+  <!-- Outcomes -->
+  <line x1="590" y1="360" x2="590" y2="360" class="flow"/>
+
+  <rect class="ok" x="120" y="450" width="400" height="140" rx="12"/>
+  <text class="okText" x="320" y="486" text-anchor="middle">✓ 全部成功 → COMMIT</text>
+  <text class="okBody" x="320" y="516" text-anchor="middle">訂單與明細已建立、庫存已扣、購物車已清空</text>
+  <text class="okBody" x="320" y="542" text-anchor="middle">redirect 到買家自己的訂單詳情頁</text>
+  <text class="okBody" x="320" y="568" text-anchor="middle">五個步驟「要嘛全部生效，要嘛全部不算」</text>
+
+  <rect class="bad" x="640" y="450" width="430" height="140" rx="12"/>
+  <text class="badText" x="855" y="486" text-anchor="middle">✗ 中途失敗 → 自動 ROLLBACK</text>
+  <text class="badBody" x="855" y="516" text-anchor="middle">不會發生「訂單建了但庫存沒扣」的半套狀態</text>
+  <text class="badBody" x="855" y="542" text-anchor="middle">購物車完好無缺，使用者被導回 cart 調整數量</text>
+  <text class="badBody" x="855" y="568" text-anchor="middle">這就是 transaction.atomic 的核心保證</text>
+
+  <!-- Branch arrows -->
+  <path d="M 380 380 C 340 410, 320 425, 320 444" class="flow" style="marker-end: url(#arrG); stroke:#2f7d4f;" />
+  <path d="M 800 358 C 830 390, 850 415, 853 444" class="flow" style="marker-end: url(#arrX); stroke:#b91c1c;" />
+</svg>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero rounded-4 p-4 p-md-5 mb-4 text-white">
+  <div class="col-lg-7"><span class="badge text-bg-warning mb-2">本週精選</span><h1 class="display-5 fw-bold">學習 Django，也學會打造購物網站</h1><p class="lead mb-0">從商品瀏覽、購物車到訂單出貨，每個功能都是一堂實作課。</p></div>
+</section>
+<div class="d-flex gap-2 flex-wrap mb-4">
+  <a class="btn {% if not selected_category %}btn-danger{% else %}btn-outline-secondary{% endif %}" href="{% url 'marketplace:home' %}{% if query %}?q={{ query|urlencode }}{% endif %}">全部</a>
+  {% for category in categories %}<a class="btn {% if selected_category == category.slug %}btn-danger{% else %}btn-outline-secondary{% endif %}" href="?category={{ category.slug }}{% if query %}&q={{ query|urlencode }}{% endif %}">{{ category.name }}</a>{% endfor %}
+</div>
+{% if query %}<p>「{{ query }}」的搜尋結果：{{ page_obj.paginator.count }} 項</p>{% endif %}
+<div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3 g-lg-4">
+  {% for product in products %}
+  <div class="col"><article class="card product-card h-100 border-0 shadow-sm">
+    <a href="{{ product.get_absolute_url }}" class="ratio ratio-1x1 bg-light rounded-top overflow-hidden">{% if product.image %}<img src="{{ product.image.url }}" class="object-fit-cover" alt="{{ product.name }}">{% else %}<div class="placeholder-product d-flex align-items-center justify-content-center">商品圖片</div>{% endif %}</a>
+    <div class="card-body"><div class="small text-secondary">{{ product.category.name }}</div><h2 class="h6 mt-1"><a class="stretched-link text-decoration-none text-dark" href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2><div class="price fs-5 fw-bold">NT$ {{ product.price }}</div><div class="small text-secondary mt-1">{{ product.seller.username }} · 庫存 {{ product.stock }}</div></div>
+  </article></div>
+  {% empty %}<div class="col-12"><div class="alert alert-light border text-center py-5">目前找不到符合條件的商品。</div></div>{% endfor %}
+</div>
+{% include "marketplace/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load journal_extras humanize %}
+{% block title %}{{ article.title }} · 學誌 LearnJournal{% endblock %}
+
+{% block content %}
+  {% if preview %}
+    <div class="alert alert-warning">這是草稿預覽，只有你看得到。狀態：{{ article.get_status_display }}</div>
+  {% endif %}
+
+  <article>
+    <h1 class="h2">{{ article.title }}</h1>
+    <p class="text-secondary small">
+      <a href="{{ article.author.get_absolute_url }}">{{ article.author.username }}</a>
+      {% for c in article.coauthors.all %}、<a href="{{ c.get_absolute_url }}">{{ c.username }}</a>{% endfor %}
+      · <a href="{{ article.category.get_absolute_url }}">{{ article.category.name }}</a>
+      · {{ article.published_at|date:"Y年n月j日" }}
+      · {% reading_time article %}
+      · 瀏覽 {{ article.view_count|intcomma }}
+    </p>
+
+    <div class="article-body">{{ article.body_html|safe }}</div>
+
+    <p class="mt-3">
+      {% for tag in article.tags.all %}
+        <a class="badge rounded-pill text-bg-light text-decoration-none" href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+      {% endfor %}
+    </p>
+
+    {% if user == article.author %}
+      <a class="btn btn-sm btn-outline-secondary" href="{% url 'journal:article-update' article.pk %}">編輯</a>
+    {% endif %}
+  </article>
+
+  <section id="comments" class="mt-5">
+    <h2 class="h4">留言</h2>
+    {% for comment in top_comments %}
+      <div class="border-start ps-3 mb-3">
+        <div class="small text-secondary">{{ comment.author.username }} · {{ comment.created_at|naturaltime }}</div>
+        <p class="mb-1">{{ comment.body|linebreaksbr }}</p>
+        {% for reply in comment.replies.all %}
+          {% if reply.is_approved %}
+          <div class="border-start ps-3 mt-2">
+            <div class="small text-secondary">{{ reply.author.username }} · {{ reply.created_at|naturaltime }}</div>
+            <p class="mb-0">{{ reply.body|linebreaksbr }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% empty %}
+      <p class="text-secondary">還沒有留言，來當第一個。</p>
+    {% endfor %}
+
+    {% if user.is_authenticated and not preview %}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary btn-sm">送出留言</button>
+      </form>
+    {% elif not preview %}
+      <p><a href="{% url 'login' %}?next={{ request.path }}">登入</a>後即可留言。</p>
+    {% endif %}
+  </section>
+{% endblock %}

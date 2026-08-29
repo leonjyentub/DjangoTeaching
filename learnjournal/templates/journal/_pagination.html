@@ -1,0 +1,13 @@
+{% if is_paginated %}
+<nav aria-label="分頁">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.previous_page_number }}">上一頁</a></li>
+    {% endif %}
+    <li class="page-item disabled"><span class="page-link">第 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 頁</span></li>
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?{% if query %}q={{ query }}&{% endif %}page={{ page_obj.next_page_number }}">下一頁</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}

@@ -1,0 +1,17 @@
+[project]
+name = "learnboard"
+version = "0.1.0"
+description = "A teaching-oriented Django message board project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2,<5.3",
+]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.6",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,7 @@
+<ul class="list-unstyled mb-0">
+{% for article in articles %}
+  <li class="mb-2"><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+{% empty %}
+  <li class="small text-secondary">還沒有已發佈的文章。</li>
+{% endfor %}
+</ul>
