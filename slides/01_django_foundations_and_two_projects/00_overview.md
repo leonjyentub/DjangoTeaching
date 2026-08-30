@@ -54,7 +54,7 @@ style: |
 | `ListView`＋分頁 | `ListView`＋分頁＋圖片／分類 |
 | `templates/board/` | `templates/marketplace/` |
 
-本冊以共通 Django 心智模型為主，商城的額外欄位與查詢則作為加深案例；若某些步驟覺得眼熟，那是設計好的。
+本冊以共通 Django 模型為主，商城的額外欄位與查詢則作為加深案例；若某些步驟覺得眼熟，那是設計好的。
 
 <!--
 授課提示：開場用這頁做前測——請學生在兩個專案中各指出一個 URL、View、Template 與 Model。答得出的共通內容快速帶過，把時間留給差異。
@@ -102,35 +102,6 @@ style: |
 
 ---
 
-## 程式碼來源標籤：先知道「能否直接對照」
-
-### 教學用最小範例
-一次隔離一個新概念；可能省略權限、最佳化或 class-based view，且不一定存在於 repository。
-
-### 目前專案實作
-兩個 repository 都有自己的「目前實作」：LearnBoard 以 `board/` 留言板為主，LearnMart 以 `marketplace/` 商城為主。
-
-### 目前 LearnMart 實作
-與 repository 的檔案、名稱、流程一致，未省略影響理解的內容。
-
-### 目前 LearnMart 節錄／重排
-來自目前 source，但為版面省略或換行；會顯示檔名與 symbol，不能誤認為完整檔案。
-
-本冊第 1～6 章的長篇 source 範例以 LearnMart 為主，LearnBoard 的同概念落點集中在「LearnBoard 對照實作」頁與開場索引；兩者都以目前 repository 為準。
-
----
-
-## 教學導航標籤：知道這頁要怎麼使用
-
-- **補充／進階**：重要但不是第一次實作的必要前置；可先建立邊界。
-- **常見錯誤**：指出容易混淆、會造成例外或安全問題的寫法。
-- **配套實作手冊**：投影片只留問題；答案、修改步驟與驗收放在 workbook。
-- **你應該看到**：網址、狀態碼、頁面文字、shell 物件、資料筆數或 test result。
-
-後續 source snippet 會選用上述來源標籤；章末一律連到相同章名的配套手冊。
-
----
-
 ## 學習方式：每章都走同一個循環
 
 1. **問題**：為什麼需要這個機制？
@@ -159,4 +130,4 @@ style: |
 | 搜尋 | `Message.content__icontains` | `Product.name/description__icontains` |
 | 依賴 | Django | Django＋Pillow（`ImageField`） |
 
-**課堂建議：**先在 LearnBoard 完成最小 vertical slice，再用 LearnMart 的對照欄找出「相同骨架、更多資料規則」的部分。
+**課堂建議：** 先在 LearnBoard 完成最小 vertical slice，再用 LearnMart 的對照欄找出「相同骨架、更多資料規則」的部分。

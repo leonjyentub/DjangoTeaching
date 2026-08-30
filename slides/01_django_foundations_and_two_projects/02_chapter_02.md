@@ -163,8 +163,8 @@ DATABASES = {
 
 - SQLite 把本機 database 放在 repository root 的 `db.sqlite3`
 - `migrate` 改 schema；`seed_demo` 改 rows，兩者不是 package installation
-- **目前 LearnMart 實作：**適合單機課堂與小型練習
-- **補充／進階：**production 常改用獨立 database server、備份、權限與監控；不能只複製本機檔案設定
+- **目前 LearnMart 實作：** 適合單機課堂與小型練習
+- **補充／進階：** production 常改用獨立 database server、備份、權限與監控；不能只複製本機檔案設定
 
 ---
 

@@ -33,7 +33,7 @@ style: |
   strong { color: #7d1726; }
 ---
 
-# Django 課程先備 00b
+# Django 課程先備
 ## HTML / CSS 先備
 
 給「沒寫過網頁」就要學 Django template 的你。
@@ -125,6 +125,9 @@ practice/
 <!--
 授課提示：告訴學生第 6 章是驗收站——能讀懂真實專案的模板才算過關。
 -->
+
+---
+
 # 第 1 章
 ## HTML 文件結構
 
@@ -167,6 +170,9 @@ href=    屬性名稱        屬性值一律用引號包住
 
 ## 1-2 最小 HTML 文件
 
+<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div style="flex: 1;">
+
 ```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -180,6 +186,9 @@ href=    屬性名稱        屬性值一律用引號包住
 </html>
 ```
 
+</div>
+<div style="flex: 1;">
+
 | 區塊 | 角色 |
 |---|---|
 | `<!DOCTYPE html>` | 宣告「我是現代 HTML」（固定寫法） |
@@ -187,7 +196,10 @@ href=    屬性名稱        屬性值一律用引號包住
 | `<head>` | 給瀏覽器看的資訊（不顯示在畫面） |
 | `<body>` | 使用者看到的內容 |
 
-**你應該看到：**分頁標題變成「我的練習頁」——那就是 `<title>`。
+</div>
+</div>
+
+**你應該看到：** 分頁標題變成「我的練習頁」——那就是 `<title>`。
 
 <!--
 授課提示：DOCTYPE 和 lang 不必深究原因，當成固定咒語；
@@ -284,10 +296,13 @@ Deck 01 6-14 會完整回收。
 <!--
 授課提示：三分鐘小關卡，全部通過才進第 2 章。
 -->
+
+---
+
 # 第 2 章
 ## 常用標籤
 
-**本章成果：**能認出課程專案模板中九成的標籤，並知道各自語意。
+**本章成果：** 能認出課程專案模板中九成的標籤，並知道各自語意。
 
 <!--
 授課提示：本節用「商品卡」貫穿：一張卡片就會用到
@@ -477,6 +492,9 @@ article、img、h2、p、a、button——教完直接能讀 home.html。
 授課提示：第 3 題是 Deck 02 安全章節的遠因，
 現在答對的人之後學 POST-only 會特別快。
 -->
+
+---
+
 # 第 3 章
 ## 表單標籤：資料回傳伺服器的橋
 
@@ -529,7 +547,7 @@ name 屬性（3-2）是最容易被忽略卻最關鍵的一顆螺絲，務必重
 
 hidden 一樣會被送出——也一樣能被使用者竄改（安全伏筆）。
 
-**你應該看到：**刪掉 `name="q"` 後再搜尋，網址列不再出現 q 參數。
+**你應該看到：** 刪掉 `name="q"` 後再搜尋，網址列不再出現 q 參數。
 
 <!--
 授課提示：兩件事必做：(1) 刪 name 看 GET 參數消失；
@@ -571,7 +589,7 @@ id vs name 的對比請學生抄進筆記。
 - select：下拉選單；value 才是送出的值，標籤文字只是顯示
 - textarea：多行文字；用 rows 控制高度
 
-**課程專案對照：**第一階段留言板的發表表單就是 textarea；第二階段商城的評分選單才是 select。
+**課程專案對照：** 第一階段留言板的發表表單就是 textarea；第二階段商城的評分選單才是 select。
 
 ---
 
@@ -618,6 +636,9 @@ id vs name 的對比請學生抄進筆記。
 <!--
 授課提示：第 1 題務必實作驗證，這是 form 最常見的初學者翻車點。
 -->
+
+---
+
 # 第 4 章
 ## CSS 基礎
 
@@ -672,7 +693,7 @@ h1 {                        /* 選擇器 */
 - 一條規則可多個屬性；值有單位（px、rem、%）
 - 註解用 `/* ... */`
 
-**你應該看到：**改 `color` 存檔重新整理，標題變色——CSS 的回饋迴圈就是這麼快。
+**你應該看到：** 改 `color` 存檔重新整理，標題變色——CSS 的回饋迴圈就是這麼快。
 
 <!--
 授課提示：讓每個學生把 site.css 某個顏色改錯一版再改回來，
@@ -811,6 +832,9 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 <!--
 授課提示：四題全對代表第 4 章過關，可以進 RWD。
 -->
+
+---
+
 # 第 5 章
 ## RWD：同一份 HTML，各種螢幕都好看
 
@@ -860,7 +884,7 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 - `md` 不是「只有 md 時」，而是「md 起持續生效」
 - 沒寫前綴的 class 是所有寬度的基底
 
-**你應該看到：**把手機模擬調到 767px 與 768px 各看一次——欄數在邊界切換。
+**你應該看到：** 把手機模擬調到 767px 與 768px 各看一次——欄數在邊界切換。
 
 <!--
 授課提示：「以上生效」是 Deck 01 3-19 的檢核題，
@@ -898,10 +922,13 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 授課提示：第 1 題最容易錯——正確心智：
 沒有 md 前綴的基底 class 才管小螢幕。
 -->
+
+---
+
 # 第 6 章
 ## 實查 LearnBoard：把所學對號入座
 
-**本章成果：**能逐段讀懂 `templates/base.html`，分清 HTML 與 Django template 語法的界線。
+**本章成果：** 能逐段讀懂 `templates/base.html`，分清 HTML 與 Django template 語法的界線。
 
 <!--
 授課提示：本章請務必投影真實檔案逐段走讀，
@@ -938,6 +965,9 @@ HTML 與 Django 各一色，混淆立刻現形。
 
 ## 6-2 base.html 下半部：骨架與洞
 
+<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div style="flex: 1;">
+
 ```html
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
@@ -953,11 +983,17 @@ HTML 與 Django 各一色，混淆立刻現形。
 </body>
 ```
 
+</div>
+<div style="flex: 1;">
+
 - navbar 由 Bootstrap classes 排版（`d-flex` 心智的進化版）
 - `{% block content %}` 是一個「洞」：每頁把自己的內容填進來
 - `py-4` = padding-top/bottom utility（box model 的 class 化）
 
-**你應該看到：**子模板只寫 `{% extends "base.html" %}` ＋填洞，導覽列自動出現在每一頁。
+</div>
+</div>
+
+**你應該看到：** 子模板只寫 `{% extends "base.html" %}` ＋填洞，導覽列自動出現在每一頁。
 
 <!--
 授課提示：block 機制屬於 Deck 01 第 3 章；
@@ -995,7 +1031,7 @@ class 是視覺大小，兩者獨立。此題值得當場點名。
 
 ---
 
-## 00b 完成檢查清單
+## 完成檢查清單
 
 - [ ] 能畫出 HTML 文件的樹狀結構並說出 head/body 分工
 - [ ] 認得留言卡會用到的全部標籤（a/p/div/span/article…）
@@ -1006,8 +1042,6 @@ class 是視覺大小，兩者獨立。此題值得當場點名。
 - [ ] 打開 base.html 能區分 HTML 與 `{% %}`／`{{ }}`
 
 全部打勾 → 你已準備好進入 [Deck 01：兩個 Django 專案的共通基礎](../01_django_foundations_and_two_projects/00_overview.md)。
-
-**本冊需要額外圖片嗎？**僅 box model 一張（已內嵌）；其餘皆可用 F12 即時演示取代。
 
 <!--
 授課提示：checklist 可當闖關單。全冊授課時間建議 2~3 小時。

@@ -79,7 +79,7 @@ ls
 | virtual environment | 專案專用的 package 安裝空間，通常是 `.venv/` |
 | lockfile | 記錄解析後精確版本，本專案是 `uv.lock` |
 
-**虛擬環境負責隔離；鎖檔才負責精確重現。**兩者不是同一件事。
+**虛擬環境負責隔離；鎖檔才負責精確重現。** 兩者不是同一件事。
 
 <!--
 授課提示：快問快答：「鎖檔和虛擬環境哪個負責精確重現？」此題是期末常見題。
@@ -109,9 +109,51 @@ ls
 
 ---
 
+## Git 補充說明
+
+**專案管什麼、不管什麼？**
+
+| 類別 | 包含項目 | 處理方式 |
+|---|---|---|
+| **要管理** | `manage.py`、`config/`、App 目錄、`templates/`、`pyproject.toml`、`uv.lock` | 納入 Git 版本控制（`git add`） |
+| **不管理** | `.venv/`、`__pycache__/`、`db.sqlite3`、`media/`、`.env` | 寫入 `.gitignore` 忽略 |
+
+**常見的 `.gitignore` 內容**
+
+<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div style="flex: 1;">
+
+```gitignore
+# Python / 虛擬環境
+__pycache__/
+*.py[cod]
+.venv/
+# Django 本機資料庫與媒體檔
+*.sqlite3
+/media/
+# 環境變數與系統檔
+.env
+```
+
+</div>
+<div style="flex: 1;">
+
+- **`.venv/`**：可透過 `uv sync` 重建，不提交
+- **`db.sqlite3` / `media/`**：本機開發資料與上傳檔，免版控
+- **`.env`**：含敏感密鑰與設定，切勿 commit
+- **快取與暫存檔**：避免污染 commit 紀錄
+
+</div>
+</div>
+
+---
+
 ## 1-4 傳統 venv：先理解底層概念
 
-**教學用最小範例｜POSIX shell（Linux／macOS）**
+<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div style="flex: 1;">
+
+**macOS / Linux (POSIX Shell)**
 
 ```bash
 python -m venv .venv
@@ -119,11 +161,25 @@ source .venv/bin/activate
 python -m pip install django
 ```
 
-- 第一行建立 `.venv/`；第二行讓目前 shell 優先使用其中的 Python
+</div>
+<div style="flex: 1;">
+
+**Windows (CMD)**
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install django
+```
+
+</div>
+</div>
+
+- 第一行建立 `.venv/`；第二行讓目前 shell / 終端機優先使用其中的 Python
 - 第三行把 Django 安裝進目前 interpreter 的環境
 - activation 只影響目前終端機工作階段
 
-**補充／進階：**PowerShell activation 通常使用 `.venv\\Scripts\\Activate.ps1`；若課程平台提供預建 terminal，依平台指示即可。本課程使用 `uv run`，通常不必手動 activate。
+**補充／進階：** 本課程使用 `uv run`，通常不必手動 activate。
 
 ---
 
@@ -294,6 +350,7 @@ Starting development server at http://127.0.0.1:8000/
 
 `127.0.0.1` 代表自己的電腦；`8000` 是 port。
 
+
 ---
 
 ## 第 1 章｜觀念檢核與實作
@@ -304,9 +361,9 @@ Starting development server at http://127.0.0.1:8000/
 4. `uv run python manage.py seed_demo` 中，誰負責選環境？誰是 Django 指令入口？
 5. 為什麼 `runserver` 成功仍不代表 production ready？
 
-**實作任務：**從專案根目錄完成同步、migration、示範資料與啟動，記錄每步可觀察結果。
+**實作任務：** 從專案根目錄完成同步、migration、示範資料與啟動，記錄每步可觀察結果。
 
-**配套實作手冊：**LearnMart [第 1 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-1)；LearnBoard [第 1 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-1)
+**配套實作手冊：** LearnMart [第 1 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-1)；LearnBoard [第 1 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-1)
 
 <!--
 授課提示：建議當 10 分鐘隨堂筆試；解答在 workbook 對應章節，驗收以完成檢查表為準。
