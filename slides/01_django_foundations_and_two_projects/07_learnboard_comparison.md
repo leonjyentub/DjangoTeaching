@@ -1,36 +1,10 @@
 ---
 marp: true
-theme: default
+theme: django-teal
 size: 16:9
 paginate: true
 header: "Django 01｜共通基礎：LearnBoard × LearnMart"
 footer: "初學者教材｜共通觀念 → 兩個專案對照"
-style: |
-  section {
-    font-family: 'Noto Sans CJK TC', 'Noto Serif CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
-    font-size: 28px;
-    line-height: 1.35;
-    padding: 58px 70px;
-  }
-  h1, h2 {
-    font-family: 'Noto Sans CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  }
-  h1 { color: #8f1d2c; }
-  h2 { color: #a52a3a; }
-  blockquote {
-    border-left: 6px solid #d69aa3; padding-left: 18px; color: #4c3438;
-    font-family: 'Noto Serif CJK TC', 'Noto Sans CJK TC', 'WenQuanYi Zen Hei', serif;
-  }
-  code, kbd {
-    font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas,
-                 'WenQuanYi Zen Hei Mono', 'Courier New', monospace;
-    font-size: 0.92em;
-  }
-  pre { font-size: 0.72em; line-height: 1.28; }
-  table { font-size: 0.78em; }
-  strong { color: #7d1726; }
 ---
 
 # LearnBoard 對照實作

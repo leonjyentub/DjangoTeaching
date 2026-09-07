@@ -1,119 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <title id="title">Django request flow</title>
+  <desc id="desc">瀏覽器請求依序經過根路由、App 路由、View、Model 與資料庫，再由 Template 組成 HTTP response 回到瀏覽器。</desc>
+
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
-    </marker>
-    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#a52a3a"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#768f94"/>
     </marker>
   </defs>
 
   <style>
-    .box { fill: #ffffff; stroke: #8f1d2c; stroke-width: 2; rx: 10; }
-    .boxTint { fill: #faf1f2; }
-    .title { font-size: 19px; font-weight: bold; fill: #7d1726; }
-    .sub { font-size: 14px; fill: #374151; }
-    .mono { font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', 'Courier New', monospace; font-size: 13px; fill: #1f2937; }
-    .file { font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', 'Courier New', monospace; font-size: 12px; fill: #a52a3a; }
-    .arrowLabel { font-size: 14px; fill: #4b5563; }
-    .step { fill: #a52a3a; }
-    .stepNum { font-size: 12px; font-weight: bold; fill: #ffffff; text-anchor: middle; }
-    .flow { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arr); }
-    .flowR { stroke: #a52a3a; stroke-width: 2.5; fill: none; marker-end: url(#arrR); }
+    .box { fill: #ffffff; stroke: #367d8a; stroke-width: 2.5; }
+    .soft { fill: #f0f5f6; }
+    .title { fill: #1a4d57; font-size: 20px; font-weight: 700; text-anchor: middle; }
+    .file { fill: #276774; font-family: 'Noto Sans Mono CJK TC','SF Mono',Consolas,monospace; font-size: 13px; text-anchor: middle; }
+    .mono { fill: #1e2d30; font-family: 'Noto Sans Mono CJK TC','SF Mono',Consolas,monospace; font-size: 13px; text-anchor: middle; }
+    .sub { fill: #40585c; font-size: 14px; text-anchor: middle; }
+    .label { fill: #5d777c; font-size: 13px; font-weight: 600; text-anchor: middle; }
+    .flow { fill: none; stroke: #768f94; stroke-width: 2.5; marker-end: url(#arrow); }
+    .step { fill: #d96b27; }
+    .stepNum { fill: #ffffff; font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .caption { fill: #5d777c; font-size: 15px; font-weight: 600; text-anchor: middle; }
   </style>
 
-  <!-- Row 1 -->
-  <rect class="box boxTint" x="30" y="70" width="180" height="100" rx="10"/>
-  <text class="title" x="120" y="108" text-anchor="middle">瀏覽器</text>
-  <text class="sub" x="120" y="132" text-anchor="middle">使用者輸入網址</text>
-  <text class="mono" x="120" y="152" text-anchor="middle">GET /products/3/</text>
+  <!-- request: browser to View -->
+  <rect class="box soft" x="60" y="34" width="170" height="96" rx="13"/>
+  <text class="title" x="145" y="68">瀏覽器</text>
+  <text class="sub" x="145" y="92">使用者輸入網址</text>
+  <text class="mono" x="145" y="114">GET /products/3/</text>
 
-  <line class="flow" x1="210" y1="120" x2="296" y2="120"/>
-  <circle class="step" cx="253" cy="98" r="11"/>
-  <text class="stepNum" x="253" y="102">1</text>
-  <text class="arrowLabel" x="253" y="140" text-anchor="middle">HTTP request</text>
+  <path class="flow" d="M 230 82 H 296"/>
+  <circle class="step" cx="263" cy="58" r="12"/><text class="stepNum" x="263" y="63">1</text>
+  <text class="label" x="263" y="108">HTTP request</text>
 
-  <rect class="box" x="300" y="70" width="220" height="100" rx="10"/>
-  <text class="title" x="410" y="100" text-anchor="middle">根路由</text>
-  <text class="file" x="410" y="122" text-anchor="middle">config/urls.py</text>
-  <text class="mono" x="410" y="144" text-anchor="middle">include("marketplace.urls")</text>
+  <rect class="box" x="300" y="34" width="205" height="96" rx="13"/>
+  <text class="title" x="403" y="68">根路由</text>
+  <text class="file" x="403" y="92">config/urls.py</text>
+  <text class="mono" x="403" y="114">include("marketplace.urls")</text>
 
-  <line class="flow" x1="520" y1="120" x2="606" y2="120"/>
-  <circle class="step" cx="563" cy="98" r="11"/>
-  <text class="stepNum" x="563" y="102">2</text>
-  <text class="arrowLabel" x="563" y="140" text-anchor="middle">轉交 App</text>
+  <path class="flow" d="M 505 82 H 571"/>
+  <circle class="step" cx="538" cy="58" r="12"/><text class="stepNum" x="538" y="63">2</text>
+  <text class="label" x="538" y="108">轉交 App</text>
 
-  <rect class="box" x="610" y="70" width="250" height="100" rx="10"/>
-  <text class="title" x="735" y="100" text-anchor="middle">App 路由</text>
-  <text class="file" x="735" y="122" text-anchor="middle">marketplace/urls.py</text>
-  <text class="mono" x="735" y="144" text-anchor="middle">path("&lt;int:pk&gt;/", ...)</text>
+  <rect class="box" x="575" y="34" width="230" height="96" rx="13"/>
+  <text class="title" x="690" y="68">App 路由</text>
+  <text class="file" x="690" y="92">marketplace/urls.py</text>
+  <text class="mono" x="690" y="114">path("&lt;int:pk&gt;/", ...)</text>
 
-  <line class="flow" x1="860" y1="120" x2="946" y2="120"/>
-  <circle class="step" cx="903" cy="98" r="11"/>
-  <text class="stepNum" x="903" y="102">3</text>
-  <text class="arrowLabel" x="903" y="140" text-anchor="middle">呼叫 View</text>
+  <path class="flow" d="M 805 82 H 871"/>
+  <circle class="step" cx="838" cy="58" r="12"/><text class="stepNum" x="838" y="63">3</text>
+  <text class="label" x="838" y="108">呼叫 View</text>
 
-  <rect class="box" x="950" y="70" width="200" height="100" rx="10"/>
-  <text class="title" x="1050" y="100" text-anchor="middle">View 函式</text>
-  <text class="file" x="1050" y="122" text-anchor="middle">marketplace/views.py</text>
-  <text class="mono" x="1050" y="146" text-anchor="middle">product_detail(request, pk)</text>
+  <rect class="box" x="875" y="34" width="300" height="96" rx="13"/>
+  <text class="title" x="1025" y="68">View 函式</text>
+  <text class="file" x="1025" y="92">marketplace/views.py</text>
+  <text class="mono" x="1025" y="114">product_detail(request, pk)</text>
 
-  <!-- Down to model -->
-  <line class="flow" x1="1050" y1="170" x2="1050" y2="236"/>
-  <circle class="step" cx="1078" cy="203" r="11"/>
-  <text class="stepNum" x="1078" y="207">4</text>
-  <text class="arrowLabel" x="1040" y="208" text-anchor="end">查詢資料</text>
+  <!-- query: View to Model and database -->
+  <path class="flow" d="M 1025 130 V 164 H 1315 V 200"/>
+  <circle class="step" cx="1096" cy="164" r="12"/><text class="stepNum" x="1096" y="169">4</text>
+  <text class="label" x="1174" y="154">查詢資料</text>
 
-  <rect class="box" x="920" y="240" width="230" height="95" rx="10"/>
-  <text class="title" x="1035" y="270" text-anchor="middle">Model / ORM</text>
-  <text class="file" x="1035" y="292" text-anchor="middle">marketplace/models.py</text>
-  <text class="mono" x="1035" y="315" text-anchor="middle">Product.objects.get(pk=pk)</text>
+  <rect class="box" x="1170" y="204" width="290" height="100" rx="13"/>
+  <text class="title" x="1315" y="238">Model / ORM</text>
+  <text class="file" x="1315" y="262">marketplace/models.py</text>
+  <text class="mono" x="1315" y="284">Product.objects.get(pk=pk)</text>
 
-  <line class="flow" x1="1035" y1="335" x2="1035" y2="401"/>
-  <line class="flow" x1="1010" y1="401" x2="1010" y2="335"/>
-  <text class="arrowLabel" x="1058" y="373">SQL</text>
+  <path class="flow" d="M 1315 304 V 356"/>
+  <path class="flow" d="M 1283 356 V 304"/>
+  <text class="label" x="1350" y="337">SQL</text>
 
-  <rect class="box boxTint" x="920" y="405" width="230" height="75" rx="10"/>
-  <text class="title" x="1035" y="435" text-anchor="middle">SQLite 資料庫</text>
-  <text class="mono" x="1035" y="458" text-anchor="middle">SELECT … WHERE id=3</text>
+  <rect class="box soft" x="1170" y="362" width="290" height="78" rx="13"/>
+  <text class="title" x="1315" y="394">SQLite 資料庫</text>
+  <text class="mono" x="1315" y="419">SELECT … WHERE id=3</text>
 
-  <!-- Left to context -->
-  <line class="flow" x1="920" y1="287" x2="806" y2="287"/>
-  <circle class="step" cx="863" cy="265" r="11"/>
-  <text class="stepNum" x="863" y="269">5</text>
-  <text class="arrowLabel" x="863" y="307" text-anchor="middle">查到的物件</text>
+  <!-- render: Model to Template to response -->
+  <path class="flow" d="M 1170 254 H 1104"/>
+  <circle class="step" cx="1137" cy="230" r="12"/><text class="stepNum" x="1137" y="235">5</text>
+  <text class="label" x="1137" y="282">查到的物件</text>
 
-  <rect class="box" x="540" y="240" width="260" height="95" rx="10"/>
-  <text class="title" x="670" y="270" text-anchor="middle">context（dict）</text>
-  <text class="sub" x="670" y="292" text-anchor="middle">View 組好要給模板的資料</text>
-  <text class="mono" x="670" y="315" text-anchor="middle">{"product": &lt;Product&gt;}</text>
+  <rect class="box" x="760" y="204" width="340" height="100" rx="13"/>
+  <text class="title" x="930" y="238">context（dict）</text>
+  <text class="sub" x="930" y="262">View 組好要給模板的資料</text>
+  <text class="mono" x="930" y="284">{"product": &lt;Product&gt;}</text>
 
-  <line class="flow" x1="540" y1="287" x2="446" y2="287"/>
-  <circle class="step" cx="493" cy="265" r="11"/>
-  <text class="stepNum" x="493" y="269">6</text>
-  <text class="arrowLabel" x="493" y="307" text-anchor="middle">render()</text>
+  <path class="flow" d="M 760 254 H 694"/>
+  <circle class="step" cx="727" cy="230" r="12"/><text class="stepNum" x="727" y="235">6</text>
+  <text class="label" x="727" y="282">render()</text>
 
-  <rect class="box" x="150" y="240" width="290" height="95" rx="10"/>
-  <text class="title" x="295" y="270" text-anchor="middle">Template</text>
-  <text class="file" x="295" y="292" text-anchor="middle">templates/marketplace/product_detail.html</text>
-  <text class="mono" x="295" y="315" text-anchor="middle">{{ product.name }}　{% %} 標籤</text>
+  <rect class="box" x="350" y="204" width="340" height="100" rx="13"/>
+  <text class="title" x="520" y="238">Template</text>
+  <text class="file" x="520" y="262">templates/marketplace/product_detail.html</text>
+  <text class="mono" x="520" y="284">{{ product.name }}　{% %}</text>
 
-  <!-- Down to response -->
-  <line class="flow" x1="295" y1="335" x2="295" y2="401"/>
-  <circle class="step" cx="323" cy="368" r="11"/>
-  <text class="stepNum" x="323" y="372">7</text>
-  <text class="arrowLabel" x="318" y="395" text-anchor="end">合成 HTML</text>
+  <path class="flow" d="M 520 304 V 360"/>
+  <circle class="step" cx="552" cy="332" r="12"/><text class="stepNum" x="552" y="337">7</text>
+  <text class="label" x="520" y="350">合成 HTML</text>
 
-  <rect class="box" x="150" y="405" width="290" height="85" rx="10"/>
-  <text class="title" x="295" y="438" text-anchor="middle">HttpResponse</text>
-  <text class="mono" x="295" y="462" text-anchor="middle">status 200 · text/html</text>
+  <rect class="box soft" x="350" y="364" width="340" height="76" rx="13"/>
+  <text class="title" x="520" y="395">HttpResponse</text>
+  <text class="mono" x="520" y="420">status 200 · text/html</text>
 
-  <!-- Return to browser -->
-  <path class="flowR" d="M 150 447 H 110 V 174"/>
-  <circle class="step" cx="110" cy="310" r="0"/>
-  <text class="arrowLabel" x="88" y="320" text-anchor="middle" transform="rotate(-90 88 320)" fill="#a52a3a">HTTP response 回到瀏覽器</text>
-  <circle class="step" cx="110" cy="240" r="11"/>
-  <text class="stepNum" x="110" y="244">8</text>
+  <!-- dedicated return path: outside all nodes -->
+  <path class="flow" d="M 350 402 H 30 V 82 H 60"/>
+  <circle class="step" cx="30" cy="235" r="12"/><text class="stepNum" x="30" y="240">8</text>
+  <text class="label" x="175" y="348">HTTP response 回到瀏覽器</text>
 
-  <text class="sub" x="590" y="540" text-anchor="middle" fill="#6b7280" font-size="15">每一格都能對應到一個真實檔案；出錯時先問：「卡在第幾步？」</text>
+  <text class="caption" x="930" y="480">每一格都對應一個檔案；出錯時先問：「卡在第幾步？」</text>
 </svg>

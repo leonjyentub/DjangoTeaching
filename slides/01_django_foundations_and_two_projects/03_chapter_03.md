@@ -1,42 +1,16 @@
 ---
 marp: true
-theme: default
+theme: django-teal
 size: 16:9
 paginate: true
 header: "Django 01｜共通基礎：LearnBoard × LearnMart"
 footer: "初學者教材｜共通觀念 → 兩個專案對照"
-style: |
-  section {
-    font-family: 'Noto Sans CJK TC', 'Noto Serif CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
-    font-size: 28px;
-    line-height: 1.35;
-    padding: 58px 70px;
-  }
-  h1, h2 {
-    font-family: 'Noto Sans CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  }
-  h1 { color: #8f1d2c; }
-  h2 { color: #a52a3a; }
-  blockquote {
-    border-left: 6px solid #d69aa3; padding-left: 18px; color: #4c3438;
-    font-family: 'Noto Serif CJK TC', 'Noto Sans CJK TC', 'WenQuanYi Zen Hei', serif;
-  }
-  code, kbd {
-    font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas,
-                 'WenQuanYi Zen Hei Mono', 'Courier New', monospace;
-    font-size: 0.92em;
-  }
-  pre { font-size: 0.72em; line-height: 1.28; }
-  table { font-size: 0.78em; }
-  strong { color: #7d1726; }
 ---
 
 # 第 3 章
 ## Template、static 與響應式頁面
 
-**本章成果：**把 Python 資料安全地放入共用版型，並在手機與桌面形成可讀商品頁。
+**本章成果：** 把 Python 資料安全地放入共用版型，並在手機與桌面形成可讀商品頁。
 
 <!--
 授課提示：提醒 HTML/CSS 先備需求：沒基礎的學生先讀 00b 教材第 1、4 章，否則節奏會吃力。
@@ -64,6 +38,9 @@ Template 把責任分開：
 
 ## 3-2 `render()` 的三個核心參數
 
+<div class="two-column">
+<div>
+
 **教學用最小範例｜`marketplace/views.py`**
 
 ```python
@@ -71,39 +48,38 @@ from django.shortcuts import render
 
 
 def catalog(request):
-    products = ["鍵盤", "筆記本"]
-    return render(
-        request,
-        "marketplace/catalog.html",
-        {"products": products},
-    )
+  products = ["鍵盤", "筆記本"]
+  return render(
+    request,
+    "marketplace/catalog.html",
+    {"products": products},
+  )
 ```
+
+</div>
+<div>
+
+**三個核心參數**
 
 - `request`：目前 request
 - template name：由設定好的搜尋路徑尋找
 - context dict：key 會成為 template 變數名
-- `render()` 最後仍回傳 `HttpResponse`
+
+`render()` 最後仍回傳 `HttpResponse`。
+
+</div>
+</div>
 
 ---
 
 ## 3-2A MVT 心智模型：不是三個字母各自運作
 
-```text
-Request
-  │
-  ▼
-View ──用 ORM 查詢／更新──> Model ──> Database
-  │
-  ├──建立 context
-  ▼
-Template ──render──> HTML Response
-```
+![w:1120](../assets/mvt_mental_model_flow.svg)
 
 - **Model**：資料結構、關聯與查詢入口
-- **View**：接 request、協調 Model、選 template、回 response
+- **View**：接 request、協調 Model、選 template、回 response　（Function View 可只回 `HttpResponse`；使用 template 的完整頁面也不一定每次查 Model。）
 - **Template**：使用 context 描述輸出 HTML
 
-Function View 可只回 `HttpResponse`；使用 template 的完整頁面也不一定每次查 Model。MVT 是責任分工，不是強迫每個 request 經過所有層。
 
 ---
 

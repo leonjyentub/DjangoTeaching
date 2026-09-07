@@ -1,86 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 600" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 600" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <title id="title">Django MVT 分工圖</title>
+  <desc id="desc">瀏覽器的 request 經 URLs 分派至 View。View 透過 ORM 與 Model 及資料庫互動，建立 context 傳至 Template，合成 HTML response 後回到瀏覽器。</desc>
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
-    </marker>
-    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#a52a3a"/>
-    </marker>
+    <linearGradient id="softFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f5fafb"/><stop offset="1" stop-color="#e8f2f3"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#768f94"/></marker>
+    <marker id="return-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d96b27"/></marker>
   </defs>
-
   <style>
-    .box { fill: #ffffff; stroke: #8f1d2c; stroke-width: 2; }
-    .tint { fill: #faf1f2; }
-    .title { font-size: 20px; font-weight: bold; fill: #7d1726; }
-    .role { font-size: 15px; fill: #4b5563; }
-    .file { font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas, 'WenQuanYi Zen Hei Mono', 'Courier New', monospace; font-size: 13px; fill: #a52a3a; }
-    .lbl { font-size: 14px; fill: #4b5563; }
-    .flow { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arr); }
-    .flow2 { stroke: #6b7280; stroke-width: 2; fill: none; marker-end: url(#arr); marker-start: url(#arr); }
-    .flowR { stroke: #a52a3a; stroke-width: 2.5; fill: none; marker-end: url(#arrR); }
-    .note { font-size: 15px; fill: #6b7280; }
+    .node { fill: #fff; stroke: #367d8a; stroke-width: 2.5; } .soft { fill: url(#softFill); }
+    .title { fill: #1a4d57; font-size: 20px; font-weight: 700; text-anchor: middle; } .body { fill: #40585c; font-size: 14px; text-anchor: middle; }
+    .file { fill: #276774; font-family: 'Noto Sans Mono CJK TC','SF Mono',Consolas,monospace; font-size: 12px; text-anchor: middle; }
+    .label { fill: #5d777c; font-size: 13px; font-weight: 600; text-anchor: middle; } .flow { fill: none; stroke: #768f94; stroke-width: 2.5; marker-end: url(#arrow); }
+    .bidirectional { fill: none; stroke: #768f94; stroke-width: 2.5; marker-start: url(#arrow); marker-end: url(#arrow); } .response { fill: none; stroke: #d96b27; stroke-width: 3; marker-end: url(#return-arrow); }
+    .orange { fill: #b45309; } .note { fill: #40585c; font-size: 14px; text-anchor: middle; }
   </style>
 
-  <!-- Browser -->
-  <rect class="box tint" x="480" y="20" width="220" height="58" rx="29"/>
-  <text class="title" x="590" y="50" text-anchor="middle" font-size="18">瀏覽器</text>
-  <text class="lbl" x="590" y="68" text-anchor="middle" font-size="12">送出 request、顯示 HTML</text>
+  <rect class="node soft" x="470" y="20" width="240" height="62" rx="31"/>
+  <text class="title" x="590" y="49">瀏覽器</text><text class="body" x="590" y="69">送出 request、顯示 HTML</text>
+  <path class="flow" d="M590 82 V123"/><text class="label" x="621" y="107">HTTP request</text>
 
-  <line class="flow" x1="590" y1="78" x2="590" y2="126"/>
-  <text class="lbl" x="604" y="106">HTTP</text>
+  <rect class="node" x="350" y="128" width="480" height="66" rx="14"/>
+  <text class="title" x="590" y="156">URLs 分派</text><text class="file" x="590" y="179">config/urls.py  →  marketplace/urls.py</text>
+  <path class="flow" d="M590 194 V239"/><text class="label" x="662" y="222">比對成功才呼叫</text>
 
-  <!-- URLs -->
-  <rect class="box" x="340" y="130" width="500" height="62" rx="10"/>
-  <text class="title" x="590" y="158" text-anchor="middle" font-size="17">URLs 分派</text>
-  <text class="file" x="590" y="180" text-anchor="middle">config/urls.py → marketplace/urls.py</text>
+  <rect class="node soft" x="340" y="244" width="500" height="106" rx="16"/>
+  <text class="title" x="590" y="278">View：控制流程的廚師</text><text class="body" x="590" y="303">讀 request → 決定查什麼資料 → 準備 context → 選模板</text><text class="file" x="590" y="329">marketplace/views.py</text>
 
-  <line class="flow" x1="590" y1="192" x2="590" y2="240"/>
-  <text class="lbl" x="604" y="222">比對成功才呼叫</text>
+  <rect class="node" x="35" y="238" width="245" height="122" rx="16"/>
+  <text class="title" x="158" y="272">Model</text><text class="body" x="158" y="296">資料結構與商業規則</text><text class="body" x="158" y="317">欄位、關聯、驗證</text><text class="file" x="158" y="342">marketplace/models.py</text>
+  <path class="bidirectional" d="M284 299 H336"/><text class="label" x="310" y="283">ORM</text>
 
-  <!-- View -->
-  <rect class="box" x="340" y="244" width="500" height="96" rx="10"/>
-  <text class="title" x="590" y="280" text-anchor="middle">View：控制流程的廚師</text>
-  <text class="role" x="590" y="304" text-anchor="middle">讀 request → 決定查什麼資料 → 準備 context → 選模板</text>
-  <text class="file" x="590" y="327" text-anchor="middle">marketplace/views.py</text>
+  <ellipse cx="158" cy="450" rx="122" ry="18" fill="#e8f2f3" stroke="#367d8a" stroke-width="2.5"/>
+  <path d="M36 450 V514 C36 524 91 532 158 532 C225 532 280 524 280 514 V450" fill="#e8f2f3" stroke="#367d8a" stroke-width="2.5"/><ellipse cx="158" cy="514" rx="122" ry="18" fill="#e8f2f3" stroke="#367d8a" stroke-width="2.5"/>
+  <text class="title" x="158" y="486">SQLite 資料庫</text><text class="body" x="158" y="507">保存應用程式資料</text>
+  <path class="bidirectional" d="M158 364 V427"/><text class="label" x="193" y="403">SQL</text>
 
-  <!-- Model (left) -->
-  <rect class="box" x="40" y="226" width="220" height="130" rx="10"/>
-  <text class="title" x="150" y="262" text-anchor="middle" font-size="18">Model</text>
-  <text class="role" x="150" y="286" text-anchor="middle">資料結構與商業規則</text>
-  <text class="role" x="150" y="308" text-anchor="middle">欄位、關聯、驗證</text>
-  <text class="file" x="150" y="334" text-anchor="middle">marketplace/models.py</text>
+  <rect class="node" x="900" y="238" width="245" height="122" rx="16"/>
+  <text class="title" x="1023" y="272">Template</text><text class="body" x="1023" y="296">只負責畫面版型</text><text class="body" x="1023" y="317">{{ 變數 }}　{% 標籤 %}</text><text class="file" x="1023" y="342">templates/…/*.html</text>
+  <path class="flow" d="M844 297 H896"/><text class="label" x="870" y="282">context</text>
 
-  <line class="flow2" x1="264" y1="291" x2="336" y2="291"/>
-  <text class="lbl" x="300" y="280" text-anchor="middle">ORM</text>
+  <path class="response" d="M1023 238 V51 H714"/><text class="label orange" x="1083" y="126">render 後的</text><text class="label orange" x="1083" y="146">HTML response</text>
 
-  <!-- DB under Model -->
-  <ellipse cx="150" cy="448" rx="110" ry="16" fill="#faf1f2" stroke="#8f1d2c" stroke-width="2"/>
-  <rect x="40" y="448" width="220" height="64" fill="#faf1f2" stroke="#8f1d2c" stroke-width="2"/>
-  <rect x="40" y="448" width="220" height="34" fill="#faf1f2"/>
-  <ellipse cx="150" cy="512" rx="110" ry="16" fill="#faf1f2" stroke="#8f1d2c" stroke-width="2"/>
-  <line x1="40" y1="448" x2="40" y2="512" stroke="#8f1d2c" stroke-width="2"/>
-  <line x1="260" y1="448" x2="260" y2="512" stroke="#8f1d2c" stroke-width="2"/>
-  <text class="title" x="150" y="484" text-anchor="middle" font-size="16">SQLite</text>
-
-  <line class="flow2" x1="150" y1="360" x2="150" y2="430"/>
-  <text class="lbl" x="164" y="400">SQL</text>
-
-  <!-- Template (right) -->
-  <rect class="box" x="920" y="226" width="220" height="130" rx="10"/>
-  <text class="title" x="1030" y="262" text-anchor="middle" font-size="18">Template</text>
-  <text class="role" x="1030" y="286" text-anchor="middle">只負責畫面版型</text>
-  <text class="role" x="1030" y="308" text-anchor="middle">{{ 變數 }}　{% 標籤 %}</text>
-  <text class="file" x="1030" y="334" text-anchor="middle">templates/…/*.html</text>
-
-  <line class="flow" x1="844" y1="278" x2="916" y2="278"/>
-  <text class="lbl" x="880" y="268" text-anchor="middle">context</text>
-
-  <!-- HTML back to browser -->
-  <path class="flowR" d="M 1030 226 V 49 H 706"/>
-  <text class="lbl" x="1044" y="140" fill="#a52a3a">合成後的</text>
-  <text class="lbl" x="1044" y="160" fill="#a52a3a">HTML response</text>
-
-  <!-- MVC note -->
-  <rect x="40" y="540" width="1100" height="44" rx="8" fill="#fdf7f8" stroke="#d69aa3" stroke-width="1.5"/>
-  <text class="note" x="590" y="567" text-anchor="middle">名詞對照：Django 的「View」相當於 MVC 的 Controller；Django 的「Template」相當於 MVC 的 View。本課程一律用 Django 的用法。</text>
+  <rect x="35" y="555" width="1110" height="30" rx="10" fill="#f7fafb" stroke="#c6d8dc" stroke-width="1.5"/>
+  <text class="note" x="590" y="576">名詞對照：Django 的 View ≈ MVC Controller；Django 的 Template ≈ MVC View。</text>
 </svg>

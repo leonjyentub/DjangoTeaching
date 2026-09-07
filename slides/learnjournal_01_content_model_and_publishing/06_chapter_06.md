@@ -1,41 +1,10 @@
 ---
 marp: true
-theme: default
+theme: django-teal
 size: 16:9
 paginate: true
 header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
-style: |
-  section {
-    font-family: 'Noto Sans CJK TC', 'Noto Serif CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
-    font-size: 28px;
-    line-height: 1.35;
-    padding: 58px 70px;
-  }
-  h1, h2 {
-    font-family: 'Noto Sans CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  }
-  h1 { color: #1f5c3d; }
-  h2 { color: #2e7d51; }
-  blockquote {
-    border-left: 6px solid #9ccbb3; padding-left: 18px; color: #2f4038;
-    font-family: 'Noto Serif CJK TC', 'Noto Sans CJK TC', 'WenQuanYi Zen Hei', serif;
-  }
-  code, kbd {
-    font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas,
-                 'WenQuanYi Zen Hei Mono', 'Courier New', monospace;
-    font-size: 0.92em;
-  }
-  pre { font-size: 0.72em; line-height: 1.28; }
-  table { font-size: 0.78em; }
-  strong { color: #17633a; }
-  .label { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.72em; font-weight: 700; background: #e6efe9; color: #1f5c3d; }
-  .current { background: #e5f4ea; color: #17633a; }
-  .warning { background: #fff0d9; color: #8a4b08; }
-  .check { background: #f3e8ff; color: #6b21a8; }
-  .small { font-size: 0.78em; }
 ---
 
 # 第 6 章

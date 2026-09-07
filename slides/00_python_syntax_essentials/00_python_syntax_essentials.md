@@ -1,36 +1,11 @@
 ---
 marp: true
-theme: default
+theme: django-teal
 size: 16:9
 paginate: true
 header: "Django 課程先備 ｜Python 語法"
 footer: "先備自學教材｜你應該需要的 Python"
 style: |
-  section {
-    font-family: 'Noto Sans CJK TC', 'Noto Serif CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
-    font-size: 28px;
-    line-height: 1.35;
-    padding: 58px 70px;
-  }
-  h1, h2 {
-    font-family: 'Noto Sans CJK TC', 'WenQuanYi Zen Hei',
-                 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  }
-  h1 { color: #8f1d2c; }
-  h2 { color: #a52a3a; }
-  blockquote {
-    border-left: 6px solid #d69aa3; padding-left: 18px; color: #4c3438;
-    font-family: 'Noto Serif CJK TC', 'Noto Sans CJK TC', 'WenQuanYi Zen Hei', serif;
-  }
-  code, kbd {
-    font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas,
-                 'WenQuanYi Zen Hei Mono', 'Courier New', monospace;
-    font-size: 0.92em;
-  }
-  pre { font-size: 0.72em; line-height: 1.28; }
-  table { font-size: 0.78em; }
-  strong { color: #7d1726; }
   section.container-nesting pre {
     width: 64%;
   }
@@ -47,39 +22,39 @@ style: |
     right: 70px;
     width: 26%;
     margin: 0;
-    color: #7d1726;
+    color: #1a4d57;
     font-weight: 700;
   }
-    section.practice-check > h2 {
-        position: absolute;
-        top: 58px;
-        left: 70px;
-        z-index: 1;
-    }
-    section.practice-check > p:nth-of-type(1) {
-        position: absolute;
-        top: 150px;
-        left: 70px;
-        width: 42%;
-    }
-    section.practice-check > pre {
-        position: absolute;
-        top: 205px;
-        left: 70px;
-        width: 42%;
-    }
-    section.practice-check > p:nth-of-type(2) {
-        position: absolute;
-        top: 150px;
-        right: 70px;
-        width: 46%;
-    }
-    section.practice-check > ol {
-        position: absolute;
-        top: 205px;
-        right: 70px;
-        width: 46%;
-    }
+  section.practice-check > h2 {
+    position: absolute;
+    top: 58px;
+    left: 70px;
+    z-index: 1;
+  }
+  section.practice-check > p:nth-of-type(1) {
+    position: absolute;
+    top: 150px;
+    left: 70px;
+    width: 42%;
+  }
+  section.practice-check > pre {
+    position: absolute;
+    top: 205px;
+    left: 70px;
+    width: 42%;
+  }
+  section.practice-check > p:nth-of-type(2) {
+    position: absolute;
+    top: 150px;
+    right: 70px;
+    width: 46%;
+  }
+  section.practice-check > ol {
+    position: absolute;
+    top: 205px;
+    right: 70px;
+    width: 46%;
+  }
 ---
 
 # Django 課程先備

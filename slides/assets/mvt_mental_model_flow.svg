@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 460" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <title id="title">Django MVT 流程</title>
+  <desc id="desc">Request 進入 View；View 透過 ORM 與 Model 和 Database 互動，並建立 context 傳給 Template，最後 render 成 HTML Response。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#768f94"/>
+    </marker>
+    <marker id="response-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d96b27"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #fff; stroke: #367d8a; stroke-width: 3; }
+    .soft { fill: #f0f5f6; }
+    .accent { fill: #fff4eb; stroke: #d96b27; stroke-width: 3; }
+    .title { fill: #1a4d57; font-size: 25px; font-weight: 700; text-anchor: middle; }
+    .subtitle { fill: #40585c; font-size: 17px; text-anchor: middle; }
+    .label { fill: #5d777c; font-size: 17px; font-weight: 600; text-anchor: middle; }
+    .flow { fill: none; stroke: #768f94; stroke-width: 3; marker-end: url(#arrow); }
+    .return { fill: none; stroke: #d96b27; stroke-width: 3; marker-end: url(#response-arrow); }
+    .response-label { fill: #b45309; }
+  </style>
+
+  <rect class="box soft" x="80" y="36" width="210" height="86" rx="18"/>
+  <text class="title" x="185" y="76">Request</text>
+  <text class="subtitle" x="185" y="102">使用者送來的請求</text>
+
+  <path class="flow" d="M290 79 H365"/>
+
+  <rect class="box" x="370" y="36" width="230" height="86" rx="18"/>
+  <text class="title" x="485" y="76">View</text>
+  <text class="subtitle" x="485" y="102">協調流程與資料</text>
+
+  <path class="flow" d="M600 79 H698"/>
+  <text class="label" x="651" y="151">用 ORM 查詢／更新</text>
+
+  <rect class="box" x="703" y="36" width="210" height="86" rx="18"/>
+  <text class="title" x="808" y="76">Model</text>
+  <text class="subtitle" x="808" y="102">資料結構與查詢入口</text>
+
+  <path class="flow" d="M913 79 H990"/>
+
+  <rect class="box soft" x="995" y="36" width="210" height="86" rx="18"/>
+  <text class="title" x="1100" y="76">Database</text>
+  <text class="subtitle" x="1100" y="102">持久保存資料</text>
+
+  <path class="flow" d="M485 122 V205"/>
+  <text class="label" x="579" y="174">建立 context</text>
+
+  <rect class="box" x="370" y="210" width="230" height="86" rx="18"/>
+  <text class="title" x="485" y="250">Template</text>
+  <text class="subtitle" x="485" y="276">用 context 描述畫面</text>
+
+  <path class="return" d="M600 253 H735"/>
+  <text class="label response-label" x="667" y="200">render</text>
+
+  <rect class="accent" x="740" y="210" width="290" height="86" rx="18"/>
+  <text class="title" x="885" y="250" fill="#a84713">HTML Response</text>
+  <text class="subtitle" x="885" y="276">回傳給瀏覽器的 HTML</text>
+
+  <rect x="80" y="352" width="1125" height="58" rx="12" fill="#f7fafb" stroke="#c6d8dc" stroke-width="2"/>
+  <text class="subtitle" x="642" y="388">MVT 說明責任如何分工；單一 request 不必一定同時走過 Model 與 Template。</text>
+</svg>
