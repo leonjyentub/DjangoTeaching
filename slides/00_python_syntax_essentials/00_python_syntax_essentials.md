@@ -416,7 +416,7 @@ print("5" + 5)       # ?（先想，再執行看錯誤）
 # 第 2 章
 ## 字串與 f-string
 
-**本章成果：**能串接、格式化字串，並使用 `strip()`、`split()` 等高頻方法。
+**本章成果：** 能串接、格式化字串，並使用 `strip()`、`split()` 等高頻方法。
 
 <!--
 授課提示：f-string 是本章唯一的新知識點，其餘是複習。
@@ -524,7 +524,7 @@ name[:5]         # 'Learn'：切片 [起:止)，含頭不含尾
 
 **你應該看到：**`name[5]` 是 `'M'`——因為第 0 位是 `'L'`。
 
-**常見錯誤：**索引超出範圍 → `IndexError: string index out of range`。
+**常見錯誤：** 索引超出範圍 → `IndexError: string index out of range`。
 
 ---
 
@@ -544,7 +544,7 @@ return obj.content[:30]
 物件顯示文字只取前面一段。這裡的 `icontains` 則是 Django ORM 的查詢 lookup，
 不是 Python 的 `in` 運算子。
 
-**專案盤點：**兩個專案的 Python 原始碼目前沒有直接呼叫 `len()`；模板裡的
+**專案盤點：** 兩個專案的 Python 原始碼目前沒有直接呼叫 `len()`；模板裡的
 `.count()`、分頁筆數等是 Django／模板 API，不等同於本頁的 Python `len()`。
 
 <!--
@@ -569,8 +569,10 @@ if query:
 2. 用 `strip()` 移除使用者不小心輸入的頭尾空白
 3. 有搜尋文字時，交給 Django 的 `icontains` 查找留言內容
 
-因此，使用者輸入 `"  Django  "` 後，查詢使用的是 `"Django"`。`query` 是 Python
-的字串；`Q(content__icontains=query)` 則是 Django ORM 的查詢表達式。
+因此，使用者輸入 `"  Django  "` 後，查詢使用的是 `"Django"`。
+`query` 是 Python的字串；
+
+`Q(content__icontains=query)` 則是 Django ORM 的查詢表達式。
 
 ---
 
@@ -588,14 +590,14 @@ messages.success(request, f"已將「{product.name}」加入購物車。")
 - f-string 把商品物件的 `name` 放進使用者看得到的訊息
 - 同一個 view 也使用 `f"「{item.product.name}」庫存不足，請調整數量。"` 等訊息
 
-**對照重點：**字串方法處理輸入，f-string 處理輸出；兩者都只是普通 Python
+**對照重點：** 字串方法處理輸入，f-string 處理輸出；兩者都只是普通 Python
 運算式，Django 只是把它們放進 request／response 的工作流程。
 
 ---
 
 ## 第 2 章｜動手試與觀念檢核
 
-**動手試：**把使用者輸入整理成搜尋字串：
+**動手試：** 把使用者輸入整理成搜尋字串：
 
 ```python
 raw = "   鍵盤  "
@@ -791,7 +793,7 @@ unique = set(["a", "b", "a"])   # 從 list 轉 set 去重 → {"a", "b"}
 但「去重」思維在 SellerOrderListView.distinct() 會以 SQL 形式再出現，先埋點。
 -->
 
-**目前專案盤點：**兩個專案的 Python 原始碼沒有直接建立 `set`。LearnMart 的
+**目前專案盤點：** 兩個專案的 Python 原始碼沒有直接建立 `set`。LearnMart 的
 `.distinct()` 是 Django ORM 要求資料庫去除重複列，不是 Python 的 set。
 
 ```python
@@ -849,7 +851,7 @@ for name, slug, price, stock, description in products:
 
 ## 第 3 章｜動手試與觀念檢核
 
-**動手試：**組出一個迷你 context 並取值：
+**動手試：** 出一個迷你 context 並取值：
 
 ```python
 context = {
@@ -973,7 +975,7 @@ if average == None:      # 能動，但不合慣例
 
 > 口訣：**is 問身份，== 問內容**。
 
-**目前專案盤點：**兩個專案會回傳 `None`，但 Python 原始碼目前沒有直接寫
+**目前專案盤點：** 兩個專案會回傳 `None`，但 Python 原始碼目前沒有直接寫
 `if value is None`；常見的是 `if self.author`、`if result` 或 `if not items`。
 這些寫法是在判斷 truthy/falsy，並不只專指 `None`。
 
@@ -1050,7 +1052,7 @@ else:
 
 ## 第 4 章｜動手試與觀念檢核
 
-**動手試：**寫一個庫存判斷：
+**動手試：** 寫一個庫存判斷：
 
 ```python
 stock, qty = 5, 3
@@ -1077,7 +1079,7 @@ print(stock)     # ?
 # 第 5 章
 ## 迴圈：for 與它的朋友們
 
-**本章成果：**能用 for 走訪容器，讀懂 comprehension 與 `sum(... for ...)` 寫法。
+**本章成果：** 能用 for 走訪容器，讀懂 comprehension 與 `sum(... for ...)` 寫法。
 
 <!--
 授課提示：本章最後要能讀懂 cart view 的
@@ -1145,7 +1147,7 @@ while stock > 0:        # 條件成立就一直跑
     ...
 ```
 
-Web 程式九成用 for；while 在「倒扣直到歸零」這類場景才出現。
+Web 程式**九成**用 for；while 在「倒扣直到歸零」這類場景才出現。
 
 <!--
 授課提示：continue/break 各舉一個生活比喻即可（跳過本題／提前交卷）。
@@ -1260,7 +1262,7 @@ print(sum(subtotals))     # ?（530）
 # 第 6 章
 ## 函式：def、參數與 `*args`／`**kwargs`
 
-**本章成果：**能定義函式、分辨參數形式，讀懂 view function 與 `get_context_data(self, **kwargs)`。
+**本章成果：** 能定義函式、分辨參數形式，讀懂 view function 與 `get_context_data(self, **kwargs)`。
 
 <!--
 授課提示：*args/**kwargs 是 Django 原始碼隨處可見的記號，
@@ -1496,7 +1498,7 @@ print(subtotal(350, 2, discount=100))  # ?
 # 第 7 章
 ## 例外處理：try / except
 
-**本章成果：**能讀 traceback、用 `try/except ValueError` 保護轉型，並理解 `raise`。
+**本章成果：** 能讀 traceback、用 `try/except ValueError` 保護轉型，並理解 `raise`。
 
 <!--
 授課提示：以 views.py add_to_cart 的 int() 轉型為錨點：
@@ -1574,7 +1576,7 @@ except ValueError as e:
 - `raise 例外類型("訊息")` 中斷流程並向上回報
 - `as e` 把例外物件接起來讀訊息
 
-**LearnMart 對照概念：**checkout 沒有手寫 `raise`；若 ORM 或其他程式錯誤向外拋出，
+**LearnMart 對照概念：** checkout 沒有手寫 `raise`；若 ORM 或其他程式錯誤向外拋出，
 `transaction.atomic` 才能讓交易回滾（Deck 02 第 5 章）。
 
 <!--
@@ -1810,7 +1812,7 @@ from django.utils import timezone
 # 第 9 章
 ## 類別基礎：class、self 與 `__init__`
 
-**本章成果：**能建立類別與物件、定義 method，讀懂 Model class 與巢狀 `class Meta`。
+**本章成果：** 能建立類別與物件、定義 method，讀懂 Model class 與巢狀 `class Meta`。
 
 <!--
 授課提示：零基礎學生的第一個物件章節。放慢。
@@ -1882,6 +1884,9 @@ print(item.subtotal())    # 700（注意有括號——它在「呼叫」）
 
 **LearnMart 對照：**
 
+<div style="display: flex; gap: 36px; align-items: center;">
+<div style="flex: 1.2;">
+
 ```python
 class CartItem(models.Model):
     ...
@@ -1890,7 +1895,13 @@ class CartItem(models.Model):
         return self.product.price * self.quantity
 ```
 
-幾乎一樣！差別只在 `@property`——下一章揭曉。
+</div>
+<div style="flex: 0.8;">
+
+> 幾乎一樣！差別只在 `@property`——下一章揭曉。
+
+</div>
+</div>
 
 <!--
 授課提示：刻意把本頁範例寫得跟 models.py 的 subtotal 幾乎相同，
@@ -1982,11 +1993,14 @@ u.is_seller()     # TypeError：它不是普通方法
 
 ## 9-7 LearnBoard：`Message` 也是普通 Python class 加上 Django 能力
 
+<div style="display: flex; gap: 28px; align-items: flex-start;">
+<div style="flex: 1.25; font-size: 0.9em;">
+
 ```python
 # learnboard/board/models.py
 class Message(models.Model):
     content = models.TextField("留言內容", max_length=500)
-    # author、created_at、updated_at 等欄位省略
+    # author、created_at 等欄位省略
 
     class Meta:
         ordering = ["-created_at"]
@@ -1999,12 +2013,18 @@ class Message(models.Model):
         return reverse("board:list")
 ```
 
-- `Message` 是 class，`content` 是欄位，`__str__()` 與 `get_absolute_url()` 是方法
-- `class Meta` 是放在 `Message` 裡面的巢狀 class，提供 Django 設定
-- `self` 代表目前這一筆留言；因此可以讀取 `self.author`、`self.content`
+</div>
+<div style="flex: 0.95; font-size: 0.82em; line-height: 1.55;">
 
-這段與 LearnMart 的 `Product`、`Order` model 使用同一種「class + method + Meta」
-結構，領域資料不同，但 Python 物件觀念相同。
+- `Message` 是 class，`content` 是欄位
+- `__str__()` 與 `get_absolute_url()` 是方法
+- `class Meta` 是巢狀 class，提供 Django 設定
+- `self` 代表目前這筆留言（如 `self.author`）
+
+> 與 LearnMart 的 `Product`、`Order` 結構完全一致，皆為「class + method + Meta」。
+
+</div>
+</div>
 
 ---
 
@@ -2028,9 +2048,10 @@ def subtotal(self):
 
 ---
 
-<!-- _class: practice-check -->
-
 ## 第 9 章｜動手試與觀念檢核
+
+<div style="display: flex; gap: 32px; align-items: flex-start;">
+<div style="flex: 1.05;">
 
 **動手試：**
 
@@ -2047,13 +2068,24 @@ r = Review(4)
 print(r.stars)      # ?
 ```
 
+</div>
+<div style="flex: 1.15; font-size: 0.88em; line-height: 1.5;">
+
 **觀念檢核：**
 
-1. `__init__` 何時執行？　**答：建立 instance 時自動**
-2. 方法定義第一個參數？　**答：self**
-3. `{{ post.title }}` 對應 Python 哪種語法？　**答：屬性存取（或 @property）**
-4. `class Meta` 會變成資料庫表格嗎？　**答：不會，它是設定集**
+1. `__init__` 何時執行？  
+   **答：建立 instance 時自動**
+2. 方法定義第一個參數？  
+   **答：self**
+3. `{{ post.title }}` 對應 Python 哪種語法？  
+   **答：屬性存取（或 @property）**
+4. `class Meta` 會變成資料庫表格嗎？  
+   **答：不會，它是設定集**
 
+</div>
+</div>
+
+---
 <!--
 授課提示："★" * 4 這種字串乘法順便複習第 2 章運算子多載的直覺。
 -->
@@ -2061,7 +2093,7 @@ print(r.stars)      # ?
 # 第 10 章
 ## 繼承、override、`super()` 與 mixin
 
-**本章成果：**能讀懂 `User(AbstractUser)` 與 CBV mixin 的繼承鏈，知道 `super()` 在排隊叫誰。
+**本章成果：** 能讀懂 `User(AbstractUser)` 與 CBV mixin 的繼承鏈，知道 `super()` 在排隊叫誰。
 
 <!--
 授課提示：本章是零基礎學生與 Django 之間最後一道高牆。
@@ -2160,7 +2192,7 @@ class ProductForm(BootstrapFormMixin, forms.ModelForm):
 
 > 順序有意義：沒先呼叫 `super().__init__()`，`self.fields` 還不存在。
 
-**常見錯誤：**override `__init__` 忘記呼叫 `super().__init__()` → 物件初始化不完整，錯誤往往在很遠的地方爆炸。
+**常見錯誤：** override `__init__` 忘記呼叫 `super().__init__()` → 物件初始化不完整，錯誤往往在很遠的地方爆炸。
 
 <!--
 授課提示：用 forms.py 這段當主範例逐行念。
@@ -2200,6 +2232,9 @@ class SellerRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 
 ## 10-5 LearnBoard：同樣的 CBV 繼承鏈
 
+<div style="display: flex; gap: 28px; align-items: flex-start;">
+<div style="flex: 1.45; font-size: 0.95em;">
+
 ```python
 # learnboard/board/views.py
 class MessageCreateView(LoginRequiredMixin, CreateView):
@@ -2208,19 +2243,24 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
 
 class OwnerOrStaffMixin(LoginRequiredMixin, UserPassesTestMixin):
     def test_func(self):
-        obj = self.get_object()
-        return obj.author_id == self.request.user.pk or self.request.user.is_staff
+        user = self.request.user
+        return self.get_object().author_id == user.pk or user.is_staff
 
 class MessageDeleteView(OwnerOrStaffMixin, DeleteView):
     model = Message
 ```
 
-- `MessageCreateView` 把登入限制與新增流程組合在一起
-- `OwnerOrStaffMixin` 再加上「作者本人或管理員」的權限判斷
-- `MessageDeleteView` 繼承自訂 mixin 與 Django 的 `DeleteView`
+</div>
+<div style="flex: 0.85; font-size: 0.8em; line-height: 1.5;">
 
-LearnMart 的 `SellerRequiredMixin` 是「賣家才能操作」；LearnBoard 的 mixin 是
-「作者或管理員才能操作」，兩者都是把可重用規則包成 class。
+- `MessageCreateView`：登入限制 ＋ 新增流程
+- `OwnerOrStaffMixin`：作者本人或管理員權限
+- `MessageDeleteView`：自訂 mixin ＋ 刪除流程
+
+> LearnMart 的 `SellerRequiredMixin` 亦同，皆是將規則封裝成 class。
+
+</div>
+</div>
 
 ---
 
@@ -2300,7 +2340,7 @@ print(Child().label())    # ?
 # 第 11 章
 ## decorator：`@` 開頭的那一行
 
-**本章成果：**能解釋 `@require_POST`、`@login_required` 做了什麼，不再把 `@` 當裝飾花紋。
+**本章成果：** 能解釋 `@require_POST`、`@login_required` 做了什麼，不再把 `@` 當裝飾花紋。
 
 <!--
 授課提示：目標是「讀懂並敢用」，自己設計 decorator factory 不在本冊範圍。
@@ -2388,7 +2428,7 @@ def add_to_cart(request, pk):
 
 ## 第 11 章｜動手試與觀念檢核
 
-**動手試：**預測輸出：
+**動手試：** 預測輸出：
 
 ```python
 def trace(func):
@@ -2422,7 +2462,7 @@ work()
 # 第 12 章
 ## 型別標註：`-> QuerySet` 在寫什麼？
 
-**本章成果：**能讀懂參數與回傳值的標註語法，並知道它不會被 Python 強制執行。
+**本章成果：** 能讀懂參數與回傳值的標註語法，並知道它不會被 Python 強制執行。
 
 <!--
 授課提示：本章只求讀懂。本專案程式碼幾乎不寫標註，
@@ -2513,7 +2553,7 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 # 第 13 章
 ## 對照總表與自我檢查
 
-**本章成果：**把十三個章節收斂成一張「看到語法 → 回哪一章查」的地圖。
+**本章成果：** 把十三個章節收斂成一張「看到語法 → 回哪一章查」的地圖。
 
 <!--
 授課提示：這頁適合列印發給學生當 cheat sheet。
