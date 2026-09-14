@@ -22,7 +22,7 @@ style: |
     right: 70px;
     width: 26%;
     margin: 0;
-    color: #1a4d57;
+    color: #234c52;
     font-weight: 700;
   }
   section.practice-check > h2 {
@@ -57,12 +57,14 @@ style: |
   }
 ---
 
+<!-- _class: cover -->
+
 # Django 課程先備
 ## Python 語法先備
 
-給「只學過一點或沒學過 Python」就要開始 Django 的你。
+<div class="box">讀得懂 LearnBoard 留言板 與 LearnMart 商城 的每一行程式碼</div>
 
-**目標不是精通 Python，而是讀得懂接下來的兩個專案（LearnBoard 留言板、LearnMart 商城）的每一行程式碼。**
+給「只學過一點或沒學過 Python」就要開始 Django 的你。
 
 <!--
 授課提示：開場先做班級普查——舉手調查誰寫過 Python、誰寫過任何程式。
@@ -162,10 +164,12 @@ uv run python scratch.py
 -->
 
 ---
+<!-- _class: cover -->
+
 # 第 1 章
 ## 變數與基本型別
 
-**本章成果：** 能建立變數、分辨四個基本型別與 `None`，並讀懂賦值陳述句。
+<div class="box">能建立變數、分辨四個基本型別與 `None`，並讀懂賦值陳述句</div>
 
 <!--
 授課提示：本章節奏要快，多半是複習。唯一需要停下來的是 1-3 None
@@ -412,11 +416,12 @@ print("5" + 5)       # ?（先想，再執行看錯誤）
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 2 章
 ## 字串與 f-string
 
-**本章成果：** 能串接、格式化字串，並使用 `strip()`、`split()` 等高頻方法。
+<div class="box">能串接、格式化字串，並使用 `strip()`、`split()` 等高頻方法</div>
 
 <!--
 授課提示：f-string 是本章唯一的新知識點，其餘是複習。
@@ -619,11 +624,12 @@ print(f"搜尋：{query}（{len(query)} 個字）")
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 3 章
 ## 容器：list、tuple、dict、set
 
-**本章成果：** 能選對容器裝資料，並讀懂課程專案的 context dict 與 choices tuple。
+<div class="box">能選對容器裝資料，並讀懂課程專案的 context dict 與 choices tuple</div>
 
 <!--
 授課提示：本章是全冊最重要的資料結構章節。dict 一節（3-5、3-6）
@@ -874,11 +880,12 @@ print(context["products"][0]["name"])
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 4 章
 ## 流程控制與真偽值
 
-**本章成果：** 能寫 if/elif/else 分支，並用 truthy/falsy 解釋 `request.POST or None` 這類慣用法。
+<div class="box">能寫 if/elif/else 分支，並用 truthy/falsy 解釋 `request.POST or None` 這類慣用法</div>
 
 <!--
 授課提示：truthy/falsy（4-3）是本章靈魂。Django 的
@@ -1075,11 +1082,12 @@ print(stock)     # ?
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 5 章
 ## 迴圈：for 與它的朋友們
 
-**本章成果：** 能用 for 走訪容器，讀懂 comprehension 與 `sum(... for ...)` 寫法。
+<div class="box">能用 for 走訪容器，讀懂 comprehension 與 `sum(... for ...)` 寫法</div>
 
 <!--
 授課提示：本章最後要能讀懂 cart view 的
@@ -1258,11 +1266,12 @@ print(sum(subtotals))     # ?（530）
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 6 章
 ## 函式：def、參數與 `*args`／`**kwargs`
 
-**本章成果：** 能定義函式、分辨參數形式，讀懂 view function 與 `get_context_data(self, **kwargs)`。
+<div class="box">能定義函式、分辨參數形式，讀懂 view function 與 `get_context_data(self, **kwargs)`</div>
 
 <!--
 授課提示：*args/**kwargs 是 Django 原始碼隨處可見的記號，
@@ -1494,11 +1503,12 @@ print(subtotal(350, 2, discount=100))  # ?
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 7 章
 ## 例外處理：try / except
 
-**本章成果：** 能讀 traceback、用 `try/except ValueError` 保護轉型，並理解 `raise`。
+<div class="box">能讀 traceback、用 `try/except ValueError` 保護轉型，並理解 `raise`</div>
 
 <!--
 授課提示：以 views.py add_to_cart 的 int() 轉型為錨點：
@@ -1649,11 +1659,12 @@ for raw in ["3", "abc", ""]:
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 8 章
 ## 模組與 import
 
-**本章成果：** 能分辨三種 import 寫法，讀懂兩個專案開頭的每一行 import。
+<div class="box">能分辨三種 import 寫法，讀懂兩個專案開頭的每一行 import</div>
 
 <!--
 授課提示：本章短，重點只有兩個：標準庫 from-import、
@@ -1808,11 +1819,12 @@ from django.utils import timezone
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 9 章
 ## 類別基礎：class、self 與 `__init__`
 
-**本章成果：** 能建立類別與物件、定義 method，讀懂 Model class 與巢狀 `class Meta`。
+<div class="box">能建立類別與物件、定義 method，讀懂 Model class 與巢狀 `class Meta`</div>
 
 <!--
 授課提示：零基礎學生的第一個物件章節。放慢。
@@ -2085,15 +2097,17 @@ print(r.stars)      # ?
 </div>
 </div>
 
----
 <!--
 授課提示："★" * 4 這種字串乘法順便複習第 2 章運算子多載的直覺。
 -->
 
+---
+<!-- _class: cover -->
+
 # 第 10 章
 ## 繼承、override、`super()` 與 mixin
 
-**本章成果：** 能讀懂 `User(AbstractUser)` 與 CBV mixin 的繼承鏈，知道 `super()` 在排隊叫誰。
+<div class="box">能讀懂 `User(AbstractUser)` 與 CBV mixin 的繼承鏈，知道 `super()` 在排隊叫誰</div>
 
 <!--
 授課提示：本章是零基礎學生與 Django 之間最後一道高牆。
@@ -2336,11 +2350,12 @@ print(Child().label())    # ?
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 11 章
 ## decorator：`@` 開頭的那一行
 
-**本章成果：** 能解釋 `@require_POST`、`@login_required` 做了什麼，不再把 `@` 當裝飾花紋。
+<div class="box">能解釋 `@require_POST`、`@login_required` 做了什麼，不再把 `@` 當裝飾花紋</div>
 
 <!--
 授課提示：目標是「讀懂並敢用」，自己設計 decorator factory 不在本冊範圍。
@@ -2458,11 +2473,12 @@ work()
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 12 章
 ## 型別標註：`-> QuerySet` 在寫什麼？
 
-**本章成果：** 能讀懂參數與回傳值的標註語法，並知道它不會被 Python 強制執行。
+<div class="box">能讀懂參數與回傳值的標註語法，並知道它不會被 Python 強制執行</div>
 
 <!--
 授課提示：本章只求讀懂。本專案程式碼幾乎不寫標註，
@@ -2549,11 +2565,12 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 13 章
 ## 對照總表與自我檢查
 
-**本章成果：** 把十三個章節收斂成一張「看到語法 → 回哪一章查」的地圖。
+<div class="box">把十三個章節收斂成一張「看到語法 → 回哪一章查」的地圖</div>
 
 <!--
 授課提示：這頁適合列印發給學生當 cheat sheet。

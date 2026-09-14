@@ -7,12 +7,14 @@ header: "Django 課程先備｜HTML/CSS"
 footer: "先備自學教材｜看懂網頁的骨架與化妝，再進 Django"
 ---
 
+<!-- _class: cover -->
+
 # Django 課程先備
 ## HTML / CSS 先備
 
-給「沒寫過網頁」就要學 Django template 的你。
+<div class="box">看得懂 templates/base.html 的每一行 ｜ 掌握 Bootstrap 網格與元件</div>
 
-**目標：看得懂 `templates/base.html` 的每一行，並知道 Bootstrap 在幫你做什麼。**
+給「沒寫過網頁」就要學 Django template 的你。
 
 <!--
 授課提示：開場可請學生打開任一常用網站按 F12，
@@ -101,11 +103,12 @@ practice/
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 1 章
 ## HTML 文件結構
 
-**本章成果：**能畫出一份 HTML 文件的層級，說出 head 與 body 各放什麼。
+<div class="box">能畫出一份 HTML 文件的層級，說出 head 與 body 各放什麼</div>
 
 <!--
 授課提示：本章目標只有兩個：標籤解剖圖、head/body 分工。
@@ -272,11 +275,12 @@ Deck 01 6-14 會完整回收。
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 2 章
 ## 常用標籤
 
-**本章成果：** 能認出課程專案模板中九成的標籤，並知道各自語意。
+<div class="box">能認出課程專案模板中九成的標籤，並知道各自語意</div>
 
 <!--
 授課提示：本節用「商品卡」貫穿：一張卡片就會用到
@@ -468,11 +472,12 @@ article、img、h2、p、a、button——教完直接能讀 home.html。
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 3 章
 ## 表單標籤：資料回傳伺服器的橋
 
-**本章成果：**能組出 GET 搜尋表單與 POST 資料表單，說出每個屬性的角色。
+<div class="box">能組出 GET 搜尋表單與 POST 資料表單，說出每個屬性的角色</div>
 
 <!--
 授課提示：本章是 Deck 02 第 1 章的直接地基。
@@ -612,11 +617,12 @@ id vs name 的對比請學生抄進筆記。
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 4 章
 ## CSS 基礎
 
-**本章成果：**能讀懂選擇器與規則、看懂 box model，並知道 Bootstrap utility class 在做什麼。
+<div class="box">能讀懂選擇器與規則、看懂 box model，並知道 Bootstrap utility class 在做什麼</div>
 
 <!--
 授課提示：目標是「讀懂」而非「從零手刻」。
@@ -808,11 +814,12 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 5 章
 ## RWD：同一份 HTML，各種螢幕都好看
 
-**本章成果：**能解讀 Bootstrap 斷點 class，理解 mobile-first 的「以上生效」規則。
+<div class="box">能解讀 Bootstrap 斷點 class，理解 mobile-first 的「以上生效」規則</div>
 
 <!--
 授課提示：本章是 Deck 01 3-18、3-19 的先修。
@@ -898,11 +905,12 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 -->
 
 ---
+<!-- _class: cover -->
 
 # 第 6 章
 ## 實查 LearnBoard：把所學對號入座
 
-**本章成果：** 能逐段讀懂 `templates/base.html`，分清 HTML 與 Django template 語法的界線。
+<div class="box">能逐段讀懂 `templates/base.html`，分清 HTML 與 Django template 語法的界線</div>
 
 <!--
 授課提示：本章請務必投影真實檔案逐段走讀，

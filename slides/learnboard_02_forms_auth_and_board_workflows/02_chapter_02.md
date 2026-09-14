@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 2 章
 ## 身份驗證：註冊、登入與 session
 
-目標：理解「使用者是誰」如何被伺服器記住，以及密碼為何不能存明文。
+<div class="box">理解「使用者是誰」如何被伺服器記住，以及密碼為何不能存明文</div>
 
 <!--
 授課提示：本章的三個心智模型——session 是旅館櫃台、cookie 是房卡、密碼雜湊是單向碎紙機——值得板書。

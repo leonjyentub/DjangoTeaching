@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 6 章
 ## 巢狀留言、`FormMixin` 與 signal 入門
 
-**本章成果：**能用自我關聯 FK 做巢狀留言、用 `FormMixin` 讓 `DetailView` 收 POST，並解釋 signal 的用途與取捨。
+<div class="box">能用自我關聯 FK 做巢狀留言、用 `FormMixin` 讓 `DetailView` 收 POST，並解釋 signal 的用途與取捨</div>
 
 <!--
 授課提示：回扣 LearnMart 的 add_review 手工 function view——本章展示「同一件事，用 CBV 的組合方式」。

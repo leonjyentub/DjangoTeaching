@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 2 章
 ## 多對多、中介模型與 data migration
 
-**本章成果：**能設計多對多關聯、判斷何時需要中介模型、用自我關聯做樹狀結構，並寫一支把舊資料轉成新關聯的 migration。
+<div class="box">能設計多對多關聯、判斷何時需要中介模型、用自我關聯做樹狀結構，並寫一支把舊資料轉成新關聯的 migration</div>
 
 <!--
 授課提示：本章資訊量大，建議拆兩次課：2-1～2-9（M2M 與 through）一次、2-10～2-15（自我關聯與 data migration）一次。

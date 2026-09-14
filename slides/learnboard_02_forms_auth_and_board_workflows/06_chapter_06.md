@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 6 章
 ## 測試與回歸防護
 
-目標：把前面所有行為規格化成 TestCase，讓未來的重構有安全網。
+<div class="box">把前面所有行為規格化成 TestCase，讓未來的重構有安全網</div>
 
 <!--
 授課提示：測試不是額外作業，是把「手動實測」變成「機器代跑」。第 4 章的四身份實測就是現成的測試藍圖。

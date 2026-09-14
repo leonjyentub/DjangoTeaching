@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 3 章
 ## Model 演進：把留言連回作者
 
-目標：體驗一次真實的 schema 演進——資料表已經有資料了，還能加欄位嗎？
+<div class="box">體驗一次真實的 schema 演進——資料表已經有資料了，還能加欄位嗎？</div>
 
 <!--
 授課提示：本章是本冊的靈魂頁之一。repository 裡的 0002_message_author.py 就是這一章的歷史化石，請務必打開來看。

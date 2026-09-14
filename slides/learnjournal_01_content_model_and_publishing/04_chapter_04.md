@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 4 章
 ## Slug、日期網址與日期型 View
 
-**本章成果：**能設計 `/2026/08/29/<slug>/` 這種網址、用日期型 generic view 做年／月彙整，並解釋時區如何影響「哪一天」。
+<div class="box">能設計 `/2026/08/29/<slug>/` 這種網址、用日期型 generic view 做年／月彙整，並解釋時區如何影響「哪一天」</div>
 
 <!--
 授課提示：時區那幾頁最容易卡。準備一個 UTC 晚上、台北已隔天的例子現場示範。

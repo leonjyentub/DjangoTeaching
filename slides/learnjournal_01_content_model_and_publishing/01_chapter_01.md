@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 1 章
 ## 專案骨架與 Python 語法補充
 
-**本章成果：**能啟動 LearnJournal，讀懂它的 app 結構，並補齊後續章節會用到但先備教材沒教的 Python 語法。
+<div class="box">能啟動 LearnJournal，讀懂它的 app 結構，並補齊後續章節會用到但先備教材沒教的 Python 語法</div>
 
 <!--
 授課提示：本章一半是環境（可課前自學），一半是 Python 語法快閃。

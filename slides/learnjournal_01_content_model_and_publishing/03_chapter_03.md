@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 3 章
 ## 自訂 Manager、`F()` 與資料庫約束
 
-**本章成果：**能把重複的查詢條件收斂成具名 QuerySet 方法，用 `F()` 做原子更新，並用 `CheckConstraint` 把規則放到資料庫層。
+<div class="box">能把重複的查詢條件收斂成具名 QuerySet 方法，用 `F()` 做原子更新，並用 `CheckConstraint` 把規則放到資料庫層</div>
 
 <!--
 授課提示：先複習 LearnMart 第 5 章 QuerySet lazy 與 N+1；本章的 Manager 全建立在那之上。

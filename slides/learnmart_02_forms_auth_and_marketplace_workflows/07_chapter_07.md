@@ -7,10 +7,12 @@ header: "LearnMart 02｜表單、身份驗證與商城工作流程"
 footer: "Django 初學者課程｜LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # 第 7 章
 ## 安全與回歸測試整合
 
-目標：把每個防線放回它保護的 trust boundary，並用測試防止日後退步。
+<div class="box">把每個防線放回它保護的 trust boundary，並用測試防止日後退步</div>
 
 <!--
 授課提示：安全章不是附加品，是把前面各章的防線串成地圖；trust_boundary.svg 務必配合使用。

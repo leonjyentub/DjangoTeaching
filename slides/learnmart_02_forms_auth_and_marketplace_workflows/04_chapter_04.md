@@ -7,10 +7,12 @@ header: "LearnMart 02｜表單、身份驗證與商城工作流程"
 footer: "Django 初學者課程｜LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # 第 4 章
 ## 購物車、POST 操作與第一批流程測試
 
-目標：把 mutation 的 method、身份、ownership、驗證與測試放在同一條流程。
+<div class="box">把 mutation 的 method、身份、ownership、驗證與測試放在同一條流程</div>
 
 <!--
 授課提示：第一批正式 mutation 測試，節奏放慢；測試慣例在 workbook「如何使用本手冊」。

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 420" role="img" aria-labelledby="title desc">
+  <title id="title">LearnMart 領域關係圖</title>
+  <desc id="desc">每一列清楚顯示一條一對多關係。圓圈中的 1 與星號分別代表一端與多端；重複出現的 User 或 Product 是同一個 Model 在不同關係中的角色。</desc>
+  <style>
+    .node{stroke-width:2.5}.name{font-family:Arial,'Noto Sans TC',sans-serif;font-size:18px;font-weight:700;fill:#123B3A}.sub{font-family:Arial,'Noto Sans TC',sans-serif;font-size:13px;fill:#406461}.line{stroke:#7A9693;stroke-width:3;stroke-linecap:round}.count{font-family:Arial,sans-serif;font-size:16px;font-weight:700;fill:#0F766E;text-anchor:middle}.caption{font-family:Arial,'Noto Sans TC',sans-serif;font-size:14px;font-weight:700;fill:#0F766E}.hint{font-family:Arial,'Noto Sans TC',sans-serif;font-size:13px;fill:#52716E}
+  </style>
+  <rect x="30" y="14" width="1080" height="34" rx="12" fill="#F0FDFA"/>
+  <text class="caption" x="52" y="36">讀法</text><circle cx="100" cy="31" r="13" fill="#FFF" stroke="#14B8A6" stroke-width="2"/><text class="count" x="100" y="37">1</text><text class="hint" x="121" y="36">一端</text><circle cx="180" cy="31" r="13" fill="#FFF" stroke="#14B8A6" stroke-width="2"/><text class="count" x="180" y="37">*</text><text class="hint" x="201" y="36">多端</text><text class="hint" x="315" y="36">每一列是一條 ForeignKey 關係；重複卡片表示同一個 Model。</text>
+
+  <text class="caption" x="31" y="81">商品</text>
+  <rect class="node" x="106" y="56" width="150" height="48" rx="14" fill="#F0FDFA" stroke="#14B8A6"/><text class="name" x="181" y="79" text-anchor="middle">Category</text><text class="sub" x="181" y="96" text-anchor="middle">商品分類</text>
+  <line class="line" x1="256" y1="80" x2="370" y2="80"/><circle cx="276" cy="80" r="13" fill="#FFF" stroke="#14B8A6" stroke-width="2"/><text class="count" x="276" y="86">1</text><circle cx="350" cy="80" r="13" fill="#FFF" stroke="#14B8A6" stroke-width="2"/><text class="count" x="350" y="86">*</text>
+  <rect class="node" x="370" y="56" width="150" height="48" rx="14" fill="#ECFDF5" stroke="#22C55E"/><text class="name" x="445" y="79" text-anchor="middle">Product</text><text class="sub" x="445" y="96" text-anchor="middle">商品</text>
+  <line class="line" x1="520" y1="80" x2="780" y2="80"/><circle cx="540" cy="80" r="13" fill="#FFF" stroke="#22C55E" stroke-width="2"/><text class="count" x="540" y="86">*</text><circle cx="760" cy="80" r="13" fill="#FFF" stroke="#22C55E" stroke-width="2"/><text class="count" x="760" y="86">1</text>
+  <rect class="node" x="780" y="56" width="210" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="885" y="79" text-anchor="middle">User</text><text class="sub" x="885" y="96" text-anchor="middle">seller（賣家）</text>
+
+  <text class="caption" x="31" y="137">購物車</text>
+  <rect class="node" x="106" y="112" width="170" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="191" y="135" text-anchor="middle">User</text><text class="sub" x="191" y="152" text-anchor="middle">buyer（買家）</text>
+  <line class="line" x1="276" y1="136" x2="410" y2="136"/><circle cx="296" cy="136" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="296" y="142">1</text><circle cx="390" cy="136" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="390" y="142">*</text>
+  <rect class="node" x="410" y="112" width="160" height="48" rx="14" fill="#FFFBEB" stroke="#F59E0B"/><text class="name" x="490" y="135" text-anchor="middle">CartItem</text><text class="sub" x="490" y="152" text-anchor="middle">購物車項目</text>
+  <line class="line" x1="570" y1="136" x2="780" y2="136"/><circle cx="590" cy="136" r="13" fill="#FFF" stroke="#F59E0B" stroke-width="2"/><text class="count" x="590" y="142">*</text><circle cx="760" cy="136" r="13" fill="#FFF" stroke="#F59E0B" stroke-width="2"/><text class="count" x="760" y="142">1</text>
+  <rect class="node" x="780" y="112" width="150" height="48" rx="14" fill="#ECFDF5" stroke="#22C55E"/><text class="name" x="855" y="135" text-anchor="middle">Product</text><text class="sub" x="855" y="152" text-anchor="middle">商品</text>
+
+  <text class="caption" x="31" y="193">訂單</text>
+  <rect class="node" x="106" y="168" width="155" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="184" y="191" text-anchor="middle">User</text><text class="sub" x="184" y="208" text-anchor="middle">buyer（買家）</text>
+  <line class="line" x1="261" y1="192" x2="350" y2="192"/><circle cx="281" cy="192" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="281" y="198">1</text><circle cx="330" cy="192" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="330" y="198">*</text>
+  <rect class="node" x="350" y="168" width="125" height="48" rx="14" fill="#FFF7ED" stroke="#F97316"/><text class="name" x="413" y="191" text-anchor="middle">Order</text><text class="sub" x="413" y="208" text-anchor="middle">訂單</text>
+  <line class="line" x1="475" y1="192" x2="570" y2="192"/><circle cx="495" cy="192" r="13" fill="#FFF" stroke="#F97316" stroke-width="2"/><text class="count" x="495" y="198">1</text><circle cx="550" cy="192" r="13" fill="#FFF" stroke="#F97316" stroke-width="2"/><text class="count" x="550" y="198">*</text>
+  <rect class="node" x="570" y="168" width="170" height="48" rx="14" fill="#FFF7ED" stroke="#F97316"/><text class="name" x="655" y="191" text-anchor="middle">OrderItem</text><text class="sub" x="655" y="208" text-anchor="middle">訂單商品快照</text>
+  <line class="line" x1="740" y1="192" x2="855" y2="192"/><circle cx="760" cy="192" r="13" fill="#FFF" stroke="#F97316" stroke-width="2"/><text class="count" x="760" y="198">*</text><circle cx="835" cy="192" r="13" fill="#FFF" stroke="#F97316" stroke-width="2"/><text class="count" x="835" y="198">1</text>
+  <rect class="node" x="855" y="168" width="150" height="48" rx="14" fill="#ECFDF5" stroke="#22C55E"/><text class="name" x="930" y="191" text-anchor="middle">Product</text><text class="sub" x="930" y="208" text-anchor="middle">商品</text>
+
+  <text class="caption" x="31" y="249">出貨</text>
+  <rect class="node" x="106" y="224" width="170" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="191" y="247" text-anchor="middle">User</text><text class="sub" x="191" y="264" text-anchor="middle">seller（賣家）</text>
+  <line class="line" x1="276" y1="248" x2="470" y2="248"/><circle cx="296" cy="248" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="296" y="254">1</text><circle cx="450" cy="248" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="450" y="254">*</text>
+  <rect class="node" x="470" y="224" width="170" height="48" rx="14" fill="#FFF7ED" stroke="#F97316"/><text class="name" x="555" y="247" text-anchor="middle">OrderItem</text><text class="sub" x="555" y="264" text-anchor="middle">訂單商品快照</text>
+
+  <text class="caption" x="31" y="305">評論</text>
+  <rect class="node" x="106" y="280" width="170" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="191" y="303" text-anchor="middle">User</text><text class="sub" x="191" y="320" text-anchor="middle">author（作者）</text>
+  <line class="line" x1="276" y1="304" x2="410" y2="304"/><circle cx="296" cy="304" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="296" y="310">1</text><circle cx="390" cy="304" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="390" y="310">*</text>
+  <rect class="node" x="410" y="280" width="150" height="48" rx="14" fill="#FDF4FF" stroke="#D946EF"/><text class="name" x="485" y="303" text-anchor="middle">Review</text><text class="sub" x="485" y="320" text-anchor="middle">商品評論</text>
+  <line class="line" x1="560" y1="304" x2="780" y2="304"/><circle cx="580" cy="304" r="13" fill="#FFF" stroke="#D946EF" stroke-width="2"/><text class="count" x="580" y="310">*</text><circle cx="760" cy="304" r="13" fill="#FFF" stroke="#D946EF" stroke-width="2"/><text class="count" x="760" y="310">1</text>
+  <rect class="node" x="780" y="280" width="150" height="48" rx="14" fill="#ECFDF5" stroke="#22C55E"/><text class="name" x="855" y="303" text-anchor="middle">Product</text><text class="sub" x="855" y="320" text-anchor="middle">商品</text>
+
+  <text class="caption" x="31" y="361">看板</text>
+  <rect class="node" x="106" y="336" width="170" height="48" rx="14" fill="#EFF6FF" stroke="#3B82F6"/><text class="name" x="191" y="359" text-anchor="middle">User</text><text class="sub" x="191" y="376" text-anchor="middle">author（作者）</text>
+  <line class="line" x1="276" y1="360" x2="470" y2="360"/><circle cx="296" cy="360" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="296" y="366">1</text><circle cx="450" cy="360" r="13" fill="#FFF" stroke="#3B82F6" stroke-width="2"/><text class="count" x="450" y="366">*</text>
+  <rect class="node" x="470" y="336" width="160" height="48" rx="14" fill="#F5F3FF" stroke="#8B5CF6"/><text class="name" x="550" y="359" text-anchor="middle">BoardPost</text><text class="sub" x="550" y="376" text-anchor="middle">討論貼文</text>
+</svg>

@@ -7,10 +7,12 @@ header: "LearnJournal 01｜內容模型與發佈"
 footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 ---
 
+<!-- _class: cover -->
+
 # 第 5 章
 ## 自訂 template tag、filter 與輸出安全
 
-**本章成果：**能寫三種形式的自訂 template tag，用 GROUP BY 做標籤雲，並解釋 `mark_safe` 的安全邊界。
+<div class="box">能寫三種形式的自訂 template tag，用 GROUP BY 做標籤雲，並解釋 `mark_safe` 的安全邊界</div>
 
 <!--
 授課提示：先複習 LearnBoard/LearnMart Deck 02 第 7 章的 autoescaping 與 XSS；本章的 mark_safe 是那一課的延伸。

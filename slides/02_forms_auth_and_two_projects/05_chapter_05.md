@@ -7,10 +7,12 @@ header: "Django 02｜表單、身份驗證與工作流程"
 footer: "初學者教材｜LearnBoard × LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # 第 5 章
 ## 訂單、結帳、Transaction 與鎖定
 
-目標：讓一個 checkout 不是「做了很多 save」，而是可說明其資料一致性與失敗行為。
+<div class="box">讓一個 checkout 不是「做了很多 save」，而是可說明其資料一致性與失敗行為</div>
 
 <!--
 授課提示：全冊技術高峰，完整一堂課；transaction_rollback.svg 圖解頁務必停留 3 分鐘。

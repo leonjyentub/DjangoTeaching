@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 1 章
 ## 完整表單生命週期
 
-目標：能從 HTML 表單一路追到 Django 驗證、儲存、redirect 與提示訊息。
+<div class="box">能從 HTML 表單一路追到 Django 驗證、儲存、redirect 與提示訊息</div>
 
 <!--
 授課提示：本章要背的是「生命週期」而非 API 清單；每個語法都要求學生說出它在週期的哪一站。

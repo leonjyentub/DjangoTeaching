@@ -7,10 +7,12 @@ header: "LearnMart 02｜表單、身份驗證與商城工作流程"
 footer: "Django 初學者課程｜LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # 第 3 章
 ## Class-based View、Mixin 與物件權限
 
-目標：理解 CBV 的生命週期，並在顯示或修改物件前先套用正確授權範圍。
+<div class="box">理解 CBV 的生命週期，並在顯示或修改物件前先套用正確授權範圍</div>
 
 <!--
 授課提示：Python 先備不足者先回到 00a 第 9～11 章（類別/繼承/decorator）再進本章。

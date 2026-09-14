@@ -7,10 +7,12 @@ header: "LearnMart 02｜表單、身份驗證與商城工作流程"
 footer: "Django 初學者課程｜LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # 第 2 章
 ## 身份驗證、Session 與帳號流程
 
-目標：知道「你是誰」如何跨 request 保留，並把 authentication 與 authorization 分開。
+<div class="box">知道「你是誰」如何跨 request 保留，並把 authentication 與 authorization 分開</div>
 
 <!--
 授課提示：回收 Deck 01 4-4 的 AUTH_USER_MODEL 伏筆；本章結束後角色模型全部到位。

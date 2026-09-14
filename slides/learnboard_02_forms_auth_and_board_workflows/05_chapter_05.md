@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 5 章
 ## 安全三課：CSRF、XSS、IDOR
 
-目標：能指出每一種攻擊「利用什麼信任」以及「哪一行程式碼擋住它」。
+<div class="box">能指出每一種攻擊「利用什麼信任」以及「哪一行程式碼擋住它」</div>
 
 <!--
 授課提示：本章建議搭配 trust_boundary 圖解。三課的共同句型：「攻擊者濫用了＿＿的信任，防線是＿＿。」

@@ -8,14 +8,14 @@ header: "LearnBoard 01｜專屬實作補充"
 footer: "共通講解請見 Django 01 整合教材"
 ---
 
+<!-- _class: cover -->
+
 # LearnBoard 01
 ## 留言板專屬實作補充
 
-共通的 uv、Django 骨架、HTTP、URL、Template、Model、ORM 與列表頁講解，已集中在：
+<div class="box">留言板專屬實作 ｜ 留言牆與示範資料 ｜ 搜尋與 ListView</div>
 
-`../01_django_foundations_and_two_projects/01_django_from_zero_to_project_comparison.md`
-
-本資料夾只保留 LearnBoard 的實際檔案、資料形狀與 UI 行為；請將它當作整合教材的對照索引，而不是第二次閱讀共通概念。
+共通概念請參見 Django 01 整合教材
 
 ---
 

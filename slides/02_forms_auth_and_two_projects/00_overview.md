@@ -7,10 +7,14 @@ header: "Django 02｜表單、身份驗證與工作流程"
 footer: "初學者教材｜LearnBoard × LearnMart"
 ---
 
+<!-- _class: cover -->
+
 # Django 02
 ## 兩個專案的表單、身份驗證與工作流程
 
-從「能查詢資料」前進到「能安全地改變資料，並用測試守住規則」。
+<div class="box">能安全地改變資料 ｜ 用測試守住規則 ｜ 貫通 LearnBoard 與 LearnMart</div>
+
+從「能查詢資料」前進到「能安全地改變資料，並用測試守住規則」
 
 ---
 

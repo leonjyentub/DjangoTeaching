@@ -7,10 +7,12 @@ header: "LearnBoard 02｜表單、帳號與留言權限"
 footer: "Django 初學者課程｜LearnBoard"
 ---
 
+<!-- _class: cover -->
+
 # 第 4 章
 ## CBV 與物件擁有權
 
-目標：實作「只能編輯／刪除自己的留言」，並分辨兩種拒絕方式（404 vs 403）。
+<div class="box">實作「只能編輯／刪除自己的留言」，並分辨兩種拒絕方式（404 vs 403）</div>
 
 <!--
 授課提示：本章的防禦是雙層的——QuerySet 過濾與 test_func。請學生各用一句話說出兩層各自擋下誰。

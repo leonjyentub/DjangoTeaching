@@ -2,18 +2,23 @@
 @import 'default';
 
 /* ===================================================
-   Django 教學教材專用主題：灰藍綠 (Teal) × 柔和微漸層
+   Django 教學教材專用主題：版本 3 沉靜鼠尾灰綠 (Sage Teal)
    =================================================== */
 
-/* 1. 簡報投影片主體與雙色溫微漸層背景 */
+/* 1. 簡報投影片主體與雙色溫柔和米灰微漸層背景 */
 section {
-  background: linear-gradient(130deg, #ecf4fa 0%, #f6f8f6 48%, #fcf8ed 100%);
-  color: #1e2d30;
+  background: linear-gradient(125deg, #eff5f5 0%, #f8f8f6 55%, #faf6ee 100%);
+  color: #273336;
   font-family: 'Noto Sans CJK TC', 'Noto Serif CJK TC', 'WenQuanYi Zen Hei',
                'PingFang TC', 'Microsoft JhengHei', 'Heiti TC', sans-serif;
   font-size: 28px;
-  line-height: 1.38;
-  padding: 56px 72px;
+  line-height: 1.4;
+  padding: 68px 72px 52px 72px; /* 上下留白配合 header/footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; /* 關鍵：使 table、h1、blockquote 滿寬展開 */
+  box-sizing: border-box;
 }
 
 /* 2. PDF 列印與匯出保真（確保背景微漸層與表格底色不被瀏覽器或 PDF 引擎過濾） */
@@ -24,55 +29,106 @@ section {
   }
 }
 
-/* 3. 標題樣式（取樣 Medical Science 深灰藍綠） */
+/* 3. 頁首頁尾 Header & Footer（貫穿全寬的精緻細線） */
+header {
+  position: absolute;
+  top: 26px;
+  left: 72px;
+  right: 72px;
+  height: 24px;
+  border-bottom: 1px solid rgba(130, 149, 152, 0.28);
+  padding-bottom: 6px;
+  font-size: 13px;
+  color: #829598;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+footer {
+  position: absolute;
+  bottom: 26px;
+  left: 72px;
+  right: 72px;
+  height: 24px;
+  border-top: 1px solid rgba(130, 149, 152, 0.28);
+  padding-top: 6px;
+  font-size: 13px;
+  color: #829598;
+  font-weight: 500;
+}
+
+section::after {
+  position: absolute;
+  right: 72px;
+  bottom: 26px;
+  padding-top: 6px;
+  font-size: 13px;
+  color: #829598;
+  font-weight: 500;
+}
+
+/* 4. 一般頁面標題樣式 */
 h1, h2 {
   font-family: 'Noto Sans CJK TC', 'WenQuanYi Zen Hei',
                'PingFang TC', 'Microsoft JhengHei', sans-serif;
 }
 h1 {
-  color: #1a4d57;
-  border-bottom: 3px solid #367d8a;
+  color: #234c52;
+  border-bottom: 3px solid #4a7c85;
   padding-bottom: 6px;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.85em;
+  font-weight: 800;
+  width: 100%;
 }
 h2 {
-  color: #276774;
+  color: #3b6b73;
   margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.58em; /* 放大約 1.3 倍（原 1.22em ≈ 34px，調整後為 1.58em ≈ 44.5px） */
+  line-height: 1.25;
+  font-weight: 700;
 }
 
-/* 4. 區塊引言 blockquote */
+/* 5. 區塊引言 blockquote */
 blockquote {
-  border-left: 5px solid #367d8a;
-  background: rgba(54, 125, 138, 0.08);
-  color: #154049;
+  border-left: 4px solid #4a7c85;
+  background: rgba(74, 124, 133, 0.08);
+  color: #1b393e;
   padding: 10px 18px;
   border-radius: 0 8px 8px 0;
   font-family: 'Noto Serif CJK TC', 'Noto Sans CJK TC', 'WenQuanYi Zen Hei', serif;
-  margin: 16px 0;
+  margin: 14px 0;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* 5. 行內代碼 code & kbd */
+/* 6. 行內代碼 code & kbd */
 code, kbd {
   font-family: 'Noto Sans Mono CJK TC', 'SF Mono', Consolas,
                'WenQuanYi Zen Hei Mono', 'Courier New', monospace;
   font-size: 0.9em;
-  color: #1a4d57;
-  background: rgba(54, 125, 138, 0.12);
-  border: 1px solid rgba(54, 125, 138, 0.22);
+  color: #234c52;
+  background: #e9f0f1;
+  border: 1px solid #cbdcdf;
   padding: 2px 6px;
   border-radius: 4px;
 }
 
-/* 6. 程式碼區塊 pre（淺冰藍綠霧面底，高對比易讀） */
+/* 7. 程式碼區塊 pre（淡雅霧面底，高對比易讀） */
 pre {
   font-size: 0.72em;
   line-height: 1.32;
-  background: #f0f5f6;
-  color: #1a3c42;
+  background: #eef3f4;
+  color: #1c3539;
   border-radius: 8px;
   padding: 16px;
-  border: 1px solid #cde0e3;
+  border: 1px solid #c9d9dc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  box-sizing: border-box;
 }
 pre code {
   background: transparent;
@@ -94,53 +150,66 @@ pre code .hljs-comment {
   font-style: italic;
 }
 
-/* 7. 表格樣式（對照表美化） */
+/* 8. 表格樣式（全寬度、圓角、深色表頭、精緻斑馬列） */
 table {
-  width: 100%;
+  width: 100% !important;
+  display: table !important;
+  align-self: stretch !important;
   font-size: 0.76em;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 14px 0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid #dce8ea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  table-layout: auto;
 }
 th {
-  background: #2b6c77;
+  background: #3a6c75;
   color: #ffffff;
   font-weight: 600;
-  padding: 9px 14px;
-  border-bottom: 2px solid #1a4d57;
+  padding: 10px 16px;
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid #234c52;
 }
 th code {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 td {
-  padding: 8px 14px;
-  border-bottom: 1px solid rgba(54, 125, 138, 0.16);
+  padding: 10px 16px;
+  border-bottom: 1px solid #dce8ea;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  vertical-align: middle;
+}
+tr:last-child td {
+  border-bottom: none;
 }
 tr:nth-child(even) td {
   background: rgba(255, 255, 255, 0.65);
 }
-
-/* 8. 強調文字 strong（互補暖橘） */
-strong {
-  color: #d96b27;
-  font-weight: 700;
+tr:hover td {
+  background: rgba(255, 255, 255, 0.9);
 }
 
-/* 9. 頁首頁尾 Header & Footer */
-header, footer {
-  font-size: 13px;
-  color: #768f94;
+/* 9. 強調文字 strong（互補陶土暖橘） */
+strong {
+  color: #cf662d;
+  font-weight: 700;
 }
 
 /* 10. 全教材通用小標籤與強調框 */
 .box {
-  border: 2.5px solid #e08b26;
-  background: rgba(255, 255, 255, 0.65);
-  color: #1a4d57;
+  border: 2px solid #cf662d;
+  background: rgba(255, 255, 255, 0.7);
+  color: #234c52;
   padding: 8px 18px;
   border-radius: 8px;
   display: inline-block;
@@ -171,16 +240,77 @@ header, footer {
   font-size: 0.78em;
 }
 
-/* 左側放程式碼、右側放概念說明的投影片版型 */
+/* 11. 左側放程式碼、右側放概念說明的投影片版型（保留使用者自訂左右排版） */
 .two-column {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 28px;
   align-items: start;
+  width: 100%;
 }
 .two-column > div {
   min-width: 0;
 }
 .two-column pre {
   margin-top: 0;
+}
+
+/* ===================================================
+   12. 章首封面專用排版（<!-- _class: cover --> 或 lead）
+   =================================================== */
+section.cover,
+section.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 80px;
+}
+
+section.cover h1,
+section.lead h1 {
+  font-size: 2.05em;
+  font-weight: 800;
+  color: #234c52;
+  border-bottom: 3.5px solid #4a7c85;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+}
+
+section.cover h2,
+section.lead h2 {
+  font-size: 1.25em;
+  color: #3b6b73;
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+section.cover p,
+section.lead p {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+section.cover .box,
+section.lead .box {
+  border: 2px solid #cf662d;
+  background: rgba(255, 255, 255, 0.75);
+  color: #234c52;
+  padding: 10px 24px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.96em;
+  margin: 18px auto;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
