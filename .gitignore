@@ -31,3 +31,5 @@ Thumbs.db
 .codex/
 .antrigravity/
 *.pdf
+
+!output/pdf/*.pdf
