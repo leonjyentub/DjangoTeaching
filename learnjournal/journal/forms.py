@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.utils import timezone
 
 from journal.models import Article, Comment, Subscription, User
 
@@ -55,6 +56,14 @@ class ArticleForm(BootstrapFormMixin, forms.ModelForm):
 
         if status == Article.Status.SCHEDULED and not published_at:
             self.add_error("published_at", "排程文章必須指定發佈時間。")
+
+        if status == Article.Status.PUBLISHED and not published_at:
+            # Django 6.1 validates model constraints during ModelForm validation.
+            # Supply the same default that Article.save() uses so the
+            # published_article_has_timestamp constraint is already true at
+            # form-validation time rather than only after save().
+            published_at = timezone.now()
+            cleaned["published_at"] = published_at
 
         if status in {Article.Status.SCHEDULED, Article.Status.PUBLISHED}:
             if self.user is None or not self.user.has_perm("journal.publish_article"):
