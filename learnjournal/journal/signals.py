@@ -12,11 +12,17 @@ to reason about synchronously should still live in normal functions/services.
 import markdown as md
 from django.core.cache import cache
 from django.core.mail import send_mail
+from django.core.cache.utils import make_template_fragment_key
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
 from journal.context_processors import NAV_CACHE_KEY
 from journal.models import Article, Category, Comment
+
+SIDEBAR_CACHE_KEYS = [
+    make_template_fragment_key("sidebar_latest"),
+    make_template_fragment_key("sidebar_tags"),
+]
 
 
 @receiver(post_save, sender=Article)
@@ -25,14 +31,12 @@ def render_markdown(sender, instance, **kwargs):
     if html != instance.body_html:
         # update() does not emit post_save, which avoids an infinite signal loop.
         Article.objects.filter(pk=instance.pk).update(body_html=html)
-
-    # Template-fragment cache keys used by the sidebar.
-    cache.delete_many(["template.cache.sidebar_latest", "template.cache.sidebar_tags"])
+    cache.delete_many(SIDEBAR_CACHE_KEYS)
 
 
 @receiver(post_delete, sender=Article)
 def invalidate_article_fragments_on_delete(sender, instance, **kwargs):
-    cache.delete_many(["template.cache.sidebar_latest", "template.cache.sidebar_tags"])
+    cache.delete_many(SIDEBAR_CACHE_KEYS)
 
 
 @receiver(post_save, sender=Category)
@@ -46,7 +50,7 @@ def notify_author_on_comment(sender, instance, created, **kwargs):
     if not created:
         return
     author = instance.article.author
-    if not author.email or author_id_equals_commenter(instance, author):
+    if not author.email or comment_is_by_author(instance, author):
         return
     send_mail(
         subject=f"你的文章有新留言：{instance.article.title}",
@@ -57,7 +61,7 @@ def notify_author_on_comment(sender, instance, created, **kwargs):
     )
 
 
-def author_id_equals_commenter(comment, author):
+def comment_is_by_author(comment, author):
     """Named helper makes the self-notification rule easy to unit test/read."""
 
     return comment.author_id == author.pk
