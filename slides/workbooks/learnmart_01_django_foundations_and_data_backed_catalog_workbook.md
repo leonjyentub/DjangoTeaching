@@ -38,7 +38,7 @@ uv run python manage.py migrate
 
 「套件已安裝」與「database schema 已套用」是兩種不同狀態。
 
-### 3. `django>=5.2,<5.3` 接受哪些版本？
+### 3. `django>=6.1.1,<6.2` 接受哪些版本？
 
 同時符合大於等於 5.2 且小於 5.3 的版本，例如 5.2、5.2.1、5.2.9。它不接受 5.1.x，也不接受 5.3.0。實際安裝哪個精確版本再由 `uv.lock` 決定。
 
@@ -120,7 +120,7 @@ seller / buyer         示範資料已建立
    uv run python -m django --version
    ```
 
-   Python 應符合 3.13 以上；Django 應在 5.2.x 範圍。
+   Python 應符合 3.13 以上；Django 應在 6.1.x 範圍。
 
 4. 查看 migration 狀態並套用：
 
@@ -1027,7 +1027,7 @@ context["low_stock"] = self.request.GET.get("low_stock") == "1"
 
 ### 步驟 3：用 `{% querystring %}` 建立低庫存切換
 
-`request` context processor 已啟用；Django 5.2 的 tag 可保留目前參數並只改指定 keys。
+`request` context processor 已啟用；Django 6.1.1 的 tag 可保留目前參數並只改指定 keys。
 
 ```django
 {% if low_stock %}

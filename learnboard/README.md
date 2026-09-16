@@ -4,8 +4,8 @@
 
 ## 技術選擇
 
-- Python 3.13，由 uv 管理 `.venv`、依賴與 `uv.lock`
-- Django 5.2 LTS
+- Python 3.14.7，由 uv 管理 `.venv`、依賴與 `uv.lock`
+- Django 6.1.1
 - SQLite
 - Bootstrap 5.3 CDN + 少量自訂 CSS，採 mobile-first RWD
 - 共用根目錄 `../slides/` 的 Marp 教材與配套實作手冊
@@ -120,13 +120,13 @@ uv run python manage.py test
 
 ## 主要參考資料
 
-- [Django 5.2 官方文件](https://docs.djangoproject.com/en/5.2/)
-- [Django 官方入門教學](https://docs.djangoproject.com/en/5.2/intro/tutorial01/)
-- [Django Authentication](https://docs.djangoproject.com/en/5.2/topics/auth/)
-- [Django Forms](https://docs.djangoproject.com/en/5.2/topics/forms/)
-- [Django Class-based views](https://docs.djangoproject.com/en/5.2/topics/class-based-views/)
-- [Django Migrations](https://docs.djangoproject.com/en/5.2/topics/migrations/)
-- [Django Testing](https://docs.djangoproject.com/en/5.2/topics/testing/)
+- [Django 6.1.1 官方文件](https://docs.djangoproject.com/en/6.1/)
+- [Django 官方入門教學](https://docs.djangoproject.com/en/6.1/intro/tutorial01/)
+- [Django Authentication](https://docs.djangoproject.com/en/6.1/topics/auth/)
+- [Django Forms](https://docs.djangoproject.com/en/6.1/topics/forms/)
+- [Django Class-based views](https://docs.djangoproject.com/en/6.1/topics/class-based-views/)
+- [Django Migrations](https://docs.djangoproject.com/en/6.1/topics/migrations/)
+- [Django Testing](https://docs.djangoproject.com/en/6.1/topics/testing/)
 - [uv Projects](https://docs.astral.sh/uv/guides/projects/)
 - [Bootstrap 5.3 Introduction](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Marp](https://marp.app/)

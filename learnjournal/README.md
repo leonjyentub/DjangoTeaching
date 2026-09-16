@@ -8,8 +8,8 @@
 
 ## 技術選擇
 
-- Python 3.13，由 uv 管理 `.venv`、依賴與 `uv.lock`
-- Django 5.2 LTS
+- Python 3.14.7，由 uv 管理 `.venv`、依賴與 `uv.lock`
+- Django 6.1.1
 - SQLite（零設定課堂預設）
 - PostgreSQL（03B optional 路線，用 `SearchVector` / `SearchRank`）
 - `markdown`（內文渲染）
@@ -161,15 +161,15 @@ python ../scripts/check_material_links.py --root ..
 
 ## 主要參考資料
 
-- [Django 5.2 官方文件](https://docs.djangoproject.com/en/5.2/)
-- [Many-to-many relationships](https://docs.djangoproject.com/en/5.2/topics/db/examples/many_to_many/)
-- [Managers](https://docs.djangoproject.com/en/5.2/topics/db/managers/)
-- [Custom template tags and filters](https://docs.djangoproject.com/en/5.2/howto/custom-template-tags/)
-- [Sessions](https://docs.djangoproject.com/en/5.2/topics/http/sessions/)
-- [Cache framework](https://docs.djangoproject.com/en/5.2/topics/cache/)
-- [Middleware](https://docs.djangoproject.com/en/5.2/topics/http/middleware/)
-- [Authentication / permissions](https://docs.djangoproject.com/en/5.2/topics/auth/)
-- [Email](https://docs.djangoproject.com/en/5.2/topics/email/)
-- [Syndication feed framework](https://docs.djangoproject.com/en/5.2/ref/contrib/syndication/)
-- [Sitemap framework](https://docs.djangoproject.com/en/5.2/ref/contrib/sitemaps/)
-- [PostgreSQL full text search](https://docs.djangoproject.com/en/5.2/ref/contrib/postgres/search/)
+- [Django 6.1.1 官方文件](https://docs.djangoproject.com/en/6.1/)
+- [Many-to-many relationships](https://docs.djangoproject.com/en/6.1/topics/db/examples/many_to_many/)
+- [Managers](https://docs.djangoproject.com/en/6.1/topics/db/managers/)
+- [Custom template tags and filters](https://docs.djangoproject.com/en/6.1/howto/custom-template-tags/)
+- [Sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/)
+- [Cache framework](https://docs.djangoproject.com/en/6.1/topics/cache/)
+- [Middleware](https://docs.djangoproject.com/en/6.1/topics/http/middleware/)
+- [Authentication / permissions](https://docs.djangoproject.com/en/6.1/topics/auth/)
+- [Email](https://docs.djangoproject.com/en/6.1/topics/email/)
+- [Syndication feed framework](https://docs.djangoproject.com/en/6.1/ref/contrib/syndication/)
+- [Sitemap framework](https://docs.djangoproject.com/en/6.1/ref/contrib/sitemaps/)
+- [PostgreSQL full text search](https://docs.djangoproject.com/en/6.1/ref/contrib/postgres/search/)

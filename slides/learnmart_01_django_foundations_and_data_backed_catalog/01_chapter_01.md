@@ -13,7 +13,7 @@ footer: "共通講解請見 Django 01 整合教材"
 ```toml
 [project]
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=6.1.1,<6.2",
     "pillow>=11.0",
 ]
 ```

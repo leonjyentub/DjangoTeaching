@@ -118,7 +118,7 @@ footer: "初學者教材｜共通觀念 → 兩個專案對照"
 <div class="box">建立環境 ｜ 產生 Project 與 App ｜ 讀懂 Settings ｜ 啟動開發伺服器</div>
 
 先完成自己的練習，再讀 LearnBoard × LearnMart 對照
-本教材使用 Python 3.13、Django 5.2 系列與 uv
+本教材使用 Python 3.14.7、Django 6.1.1 系列與 uv
 
 <!-- 編輯範圍：整合原 01_chapter_01.md 與 02_chapter_02.md；原檔及其他章節保留。原知識點對應表位於文末。 -->
 
@@ -201,7 +201,7 @@ winget install --id=astral-sh.uv -e
 先用 uv 準備本課程的 Python：
 
 ```bash
-uv python install 3.13
+uv python install 3.14.7
 ```
 
 - **interpreter（直譯器）**：讀取並執行 Python 程式。
@@ -237,16 +237,16 @@ cd django_lab
 ## 1-6 初始化 Python 專案與虛擬環境
 
 ```bash
-uv init --bare --python 3.13 --vcs none
-uv python pin 3.13
-uv venv --python 3.13
+uv init --bare --python 3.14.7 --vcs none
+uv python pin 3.14.7
+uv venv --python 3.14.7
 uv run python --version
 ```
 
 - **步驟 A（`init --bare`）**：建立最小的 `pyproject.toml`。
 - **步驟 B（`python pin`）**：建立 `.python-version`，記下 Python 版本。
 - **步驟 C（`venv`）**：建立 `.venv/`，存放這份練習使用的環境。
-- **步驟 D（`run`）**：在專案環境執行 Python，應顯示 `Python 3.13.x`。
+- **步驟 D（`run`）**：在專案環境執行 Python，應顯示 `Python 3.14.7.x`。
 
 `--vcs none` 讓本次練習稍後再自行初始化 Git。
 `uv run` 會準備、同步專案環境，也會產生需要的鎖檔。
@@ -273,7 +273,7 @@ uv run python -c "print('Python 環境準備完成')"
 ## 1-8 安裝 Django，確認 django-admin 可用
 
 ```bash
-uv add "django>=5.2,<5.3"
+uv add "django>=6.1.1,<6.2"
 uv run django-admin --version
 uv run python -m django --version
 ```
@@ -282,7 +282,7 @@ uv run python -m django --version
 - 版本條件加上引號，避免終端機把 `<`、`>` 當成特殊符號。
 - `django-admin` 是安裝 Django 時一併提供的命令列工具。
 - 正確名稱有連字號：`django-admin`，不是 `django admin`。
-- 後兩行應顯示相同的 `5.2.x` 版本。
+- 後兩行應顯示相同的 `6.1.x` 版本。
 
 目前只裝好框架，還沒有 `manage.py`、project 或 app。
 
@@ -317,7 +317,7 @@ python -m pip install django
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install "django>=5.2,<5.3"
+python -m pip install "django>=6.1.1,<6.2"
 ```
 
 </div>
@@ -328,7 +328,7 @@ python -m pip install "django>=5.2,<5.3"
 ```cmd
 python -m venv .venv
 .venv\Scripts\activate.bat
-python -m pip install "django>=5.2,<5.3"
+python -m pip install "django>=6.1.1,<6.2"
 ```
 
 </div>
@@ -546,9 +546,9 @@ uv.lock           uv 解析後的完整、精確依賴結果
 [project]
 name = "django-lab"
 version = "0.1.0"
-requires-python = ">=3.13"
+requires-python = ">=3.14,<3.15"
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=6.1.1,<6.2",
 ]
 ```
 
@@ -561,8 +561,8 @@ dependencies = [
 ## 1-23 版本範圍與鎖檔的精確版本
 
 ```text
-requires-python = ">=3.13"
-django>=5.2,<5.3
+requires-python = ">=3.14,<3.15"
+django>=6.1.1,<6.2
 ```
 
 - `>=3.13`：3.13 或更高版本；不是「只能 3.13」
@@ -1316,7 +1316,7 @@ DjangoTeaching/          目前整份教材的 Git repository
 |---|---|---|
 | `.python-version` | `3.13` | `3.13` |
 | `requires-python` | `>=3.13` | `>=3.13` |
-| Django | `django>=5.2,<5.3` | `django>=5.2,<5.3` |
+| Django | `django>=6.1.1,<6.2` | `django>=6.1.1,<6.2` |
 | 圖片套件 | 無 Pillow 依賴 | `pillow>=11.0` |
 | 開發群組 | `coverage>=7.6` | `coverage>=7.6` |
 | uv 設定 | `package = false` | `package = false` |
@@ -1333,8 +1333,8 @@ LearnBoard 沒有圖片上傳功能，LearnMart 的 `ImageField` 需要 Pillow�
 ```toml
 [project]
 name = "learnboard"
-requires-python = ">=3.13"
-dependencies = ["django>=5.2,<5.3"]
+requires-python = ">=3.14,<3.15"
+dependencies = ["django>=6.1.1,<6.2"]
 ```
 
 **LearnMart 的 `[project]` 依賴節錄：**
@@ -1342,8 +1342,8 @@ dependencies = ["django>=5.2,<5.3"]
 ```toml
 [project]
 name = "learnmart"
-requires-python = ">=3.13"
-dependencies = ["django>=5.2,<5.3", "pillow>=11.0"]
+requires-python = ">=3.14,<3.15"
+dependencies = ["django>=6.1.1,<6.2", "pillow>=11.0"]
 ```
 
 這是兩份檔案的節錄，不能把兩個 `[project]` 合貼到同一份檔案。
@@ -1584,7 +1584,7 @@ MVT 分別是 Model、View、Template。
 
 1. `.venv` 與 `uv.lock` 各解決什麼問題？
 2. 為什麼 `uv sync` 不會建立 Django 資料表？
-3. `django>=5.2,<5.3` 接受哪些版本？
+3. `django>=6.1.1,<6.2` 接受哪些版本？
 4. `uv run python manage.py seed_demo` 中，誰選環境？誰是專案入口？
 5. 為什麼 `runserver` 成功還不代表可正式部署？
 
@@ -1613,9 +1613,9 @@ MVT 分別是 Model、View、Template。
 ## 2-44 查閱來源與參考資料
 
 - [uv 安裝](https://docs.astral.sh/uv/getting-started/installation/)、[專案操作](https://docs.astral.sh/uv/guides/projects/)、[專案檔案結構](https://docs.astral.sh/uv/concepts/projects/layout/)
-- [Django 5.2 入門第一部分](https://docs.djangoproject.com/en/5.2/intro/tutorial01/)
-- [Django 命令列工具](https://docs.djangoproject.com/en/5.2/ref/django-admin/)
-- [Django URL dispatcher](https://docs.djangoproject.com/en/5.2/topics/http/urls/)
+- [Django 6.1.1 入門第一部分](https://docs.djangoproject.com/en/6.1/intro/tutorial01/)
+- [Django 命令列工具](https://docs.djangoproject.com/en/6.1/ref/django-admin/)
+- [Django URL dispatcher](https://docs.djangoproject.com/en/6.1/topics/http/urls/)
 
 教學實作採用本份 `django_lab` 範例；F 段才是既有專案實際對照。
 安裝、指令及路由觀念已依官方文件核對。
@@ -3526,7 +3526,7 @@ Pagination link 不只要改 `page`，還要保留 q/category：
 
 目前 partial 直接使用 `page_obj`、`query`、`selected_category`；但它也被留言板共用，因此這些 catalog-only names 會讓 reusable boundary 變窄。
 
-**補充／進階｜Django 5.2 generic query preservation**
+**補充／進階｜Django 6.1.1 generic query preservation**
 
 ```django
 <a href="{% querystring page=page_obj.next_page_number %}">

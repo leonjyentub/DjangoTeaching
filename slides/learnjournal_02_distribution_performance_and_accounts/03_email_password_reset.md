@@ -13,7 +13,12 @@ Email 本身不難；難的是 token、身份、重送與 side effect。
 # 先用 console backend
 
 ```python
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.console.EmailBackend",
+        "OPTIONS": {},
+    }
+}
 ```
 
 好處：

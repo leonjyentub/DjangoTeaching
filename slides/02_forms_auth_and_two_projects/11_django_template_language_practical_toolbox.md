@@ -4,7 +4,7 @@ theme: django-teal
 size: 16:9
 paginate: true
 header: "Django Template Language｜實用工具箱"
-footer: "補充教材｜Django 5.2"
+footer: "補充教材｜Django 6.1.1"
 ---
 
 <!-- _class: cover -->
@@ -730,10 +730,10 @@ API call
 
 ## 參考資料
 
-- Django 5.2 Template language：<https://docs.djangoproject.com/en/5.2/ref/templates/language/>
-- Built-in tags / filters：<https://docs.djangoproject.com/en/5.2/ref/templates/builtins/>
-- Humanize：<https://docs.djangoproject.com/en/5.2/ref/contrib/humanize/>
-- Time zones in templates：<https://docs.djangoproject.com/en/5.2/topics/i18n/timezones/>
+- Django 6.1.1 Template language：<https://docs.djangoproject.com/en/6.1/ref/templates/language/>
+- Built-in tags / filters：<https://docs.djangoproject.com/en/6.1/ref/templates/builtins/>
+- Humanize：<https://docs.djangoproject.com/en/6.1/ref/contrib/humanize/>
+- Time zones in templates：<https://docs.djangoproject.com/en/6.1/topics/i18n/timezones/>
 
 ---
 
