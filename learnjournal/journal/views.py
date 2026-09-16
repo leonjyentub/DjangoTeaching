@@ -1,16 +1,21 @@
+import secrets
+
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import redirect_to_login
+from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
+from django.views.decorators.http import require_POST
 from django.views.generic import CreateView, ListView, UpdateView
 from django.views.generic.dates import MonthArchiveView, YearArchiveView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormMixin
 
 from journal.forms import ArticleForm, CommentForm, RegistrationForm, SubscriptionForm
-from journal.models import Article, Category, Tag, User
+from journal.models import Article, Category, Subscription, Tag, User
 
 
 class HomeView(ListView):
@@ -28,6 +33,12 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["query"] = self.request.GET.get("q", "")
+
+        # Session = server-side per-browser state. Keep only IDs in the session,
+        # then load fresh Article rows so titles/URLs never become stale.
+        recent_ids = self.request.session.get("recent_article_ids", [])
+        recent_map = {article.pk: article for article in Article.published.filter(pk__in=recent_ids)}
+        context["recent_articles"] = [recent_map[pk] for pk in recent_ids if pk in recent_map]
         return context
 
 
@@ -65,12 +76,6 @@ class AuthorView(HomeView):
 
 
 class ArticleDetailView(FormMixin, DetailView):
-    """slug + 日期網址的文章頁，並用 FormMixin 掛上留言表單。
-
-    回扣 LearnMart：`add_review` 是手工 function view；這裡用 FormMixin 讓 DetailView
-    同時處理「顯示文章」與「接收留言 POST」。
-    """
-
     template_name = "journal/article_detail.html"
     context_object_name = "article"
     form_class = CommentForm
@@ -90,7 +95,12 @@ class ArticleDetailView(FormMixin, DetailView):
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.register_view()  # F() 原子遞增
+        self.object.register_view()
+
+        # Server-side session example: remember the five most recent articles.
+        previous = request.session.get("recent_article_ids", [])
+        request.session["recent_article_ids"] = [self.object.pk] + [pk for pk in previous if pk != self.object.pk][:4]
+
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 
@@ -98,9 +108,7 @@ class ArticleDetailView(FormMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context.setdefault("form", self.get_form())
         context["top_comments"] = self.object.comments.filter(parent__isnull=True, is_approved=True)
-        context["reaction_counts"] = (
-            self.object.reactions.values("kind").annotate(n=Count("id"))
-        )
+        context["reaction_counts"] = self.object.reactions.values("kind").annotate(n=Count("id"))
         return context
 
     def post(self, request, *args, **kwargs):
@@ -122,8 +130,6 @@ class ArticleDetailView(FormMixin, DetailView):
 
 
 class ArticlePreviewView(LoginRequiredMixin, DetailView):
-    """草稿預覽：只有作者本人（或共同作者）看得到，用 pk 而非日期網址。"""
-
     template_name = "journal/article_detail.html"
     context_object_name = "article"
 
@@ -174,7 +180,7 @@ def register(request):
 
 
 class AuthorRequiredMixin(LoginRequiredMixin):
-    """任何登入者都能寫文章（教學版）；正式版會用 Django 權限框架限制（Deck 03B 第 12 章）。"""
+    """Login is the door; ownership and publish permission are separate checks."""
 
 
 class ArticleCreateView(AuthorRequiredMixin, CreateView):
@@ -184,11 +190,11 @@ class ArticleCreateView(AuthorRequiredMixin, CreateView):
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs["author"] = self.request.user
+        kwargs["user"] = self.request.user
         return kwargs
 
     def form_valid(self, form):
-        form.instance.author = self.request.user  # server-owned（回扣 author/seller）
+        form.instance.author = self.request.user
         messages.success(self.request, "文章已儲存。")
         return super().form_valid(form)
 
@@ -199,12 +205,11 @@ class ArticleUpdateView(AuthorRequiredMixin, UpdateView):
     template_name = "journal/article_form.html"
 
     def get_queryset(self):
-        # 物件擁有權：只能編輯自己是作者的文章（回扣 MessageUpdateView / ProductUpdateView）。
         return Article.objects.filter(author=self.request.user)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs["author"] = self.request.user
+        kwargs["user"] = self.request.user
         return kwargs
 
     def form_valid(self, form):
@@ -221,14 +226,51 @@ class DashboardView(AuthorRequiredMixin, ListView):
 
 
 def subscribe(request):
-    import secrets
-
     form = SubscriptionForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         sub = form.save(commit=False)
         sub.token = secrets.token_urlsafe(32)
+        sub.is_confirmed = False
         sub.save()
-        # Deck 03B 第 10 章：這裡寄出含 token 的確認信。
+
+        confirm_url = request.build_absolute_uri(reverse("journal:confirm-subscription", args=[sub.token]))
+        send_mail(
+            subject="確認 LearnJournal 電子報訂閱",
+            message=f"請開啟以下連結完成訂閱：\n{confirm_url}",
+            from_email=None,
+            recipient_list=[sub.email],
+        )
         messages.success(request, "確認信已寄出（開發階段請看終端機）。")
         return redirect("journal:home")
     return render(request, "journal/subscribe.html", {"form": form})
+
+
+def confirm_subscription(request, token):
+    sub = get_object_or_404(Subscription, token=token)
+    if not sub.is_confirmed:
+        sub.is_confirmed = True
+        sub.save(update_fields=["is_confirmed"])
+        messages.success(request, "電子報訂閱已確認。")
+    else:
+        messages.info(request, "這個訂閱已經確認過了。")
+    return redirect("journal:home")
+
+
+@require_POST
+def set_reading_mode(request):
+    """Client-side cookie example: compact vs comfortable reading density."""
+
+    mode = request.POST.get("mode")
+    if mode not in {"comfortable", "compact"}:
+        messages.error(request, "不支援的閱讀模式。")
+        return redirect("journal:home")
+
+    response = redirect(request.POST.get("next") or "journal:home")
+    response.set_cookie(
+        "reading_mode",
+        mode,
+        max_age=60 * 60 * 24 * 365,
+        samesite="Lax",
+        secure=not request.is_secure() and False,  # classroom HTTP remains usable
+    )
+    return response
