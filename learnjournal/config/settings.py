@@ -1,10 +1,13 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-learnjournal-classroom-only-change-in-production"
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+# Classroom defaults keep a fresh clone runnable. Production should always set
+# these values through environment variables (covered by the Deployment deck).
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-learnjournal-classroom-only-change-in-production")
+DEBUG = os.getenv("DJANGO_DEBUG", "1") == "1"
+ALLOWED_HOSTS = [host.strip() for host in os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if host.strip()]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -20,13 +23,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "journal.middleware.ResponseTimeMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    # MaintenanceModeMiddleware needs request.user, so it comes after auth.
+    "journal.middleware.MaintenanceModeMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # Deck 03B 第 9 章：自訂 middleware（瀏覽計數 / X-Response-Time）會加在這裡。
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -41,6 +46,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "journal.context_processors.site_nav",
+                "journal.context_processors.reader_preferences",
             ],
         },
     }
@@ -48,7 +54,21 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
+# SQLite remains the zero-setup classroom default. Set DJANGO_DB_ENGINE=postgresql
+# and the DJANGO_DB_* variables to exercise PostgreSQL/full-text search.
+if os.getenv("DJANGO_DB_ENGINE", "sqlite") == "postgresql":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("DJANGO_DB_NAME", "learnjournal"),
+            "USER": os.getenv("DJANGO_DB_USER", "learnjournal"),
+            "PASSWORD": os.getenv("DJANGO_DB_PASSWORD", ""),
+            "HOST": os.getenv("DJANGO_DB_HOST", "127.0.0.1"),
+            "PORT": os.getenv("DJANGO_DB_PORT", "5432"),
+        }
+    }
+else:
+    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -64,6 +84,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -73,17 +94,29 @@ LOGIN_REDIRECT_URL = "journal:home"
 LOGOUT_REDIRECT_URL = "journal:home"
 LOGIN_URL = "login"
 
-# Bootstrap 使用 danger，而 Django 預設的錯誤標籤是 error。
+# Bootstrap uses `danger`; Django's default error message tag is `error`.
 MESSAGE_TAGS = {40: "danger"}
 
-# Deck 03B 第 10 章：開發階段把信寄到 console，方便觀察密碼重設與電子報。
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "LearnJournal <no-reply@learnjournal.example>"
+# Development sends mail to the console. Deployment can replace this backend
+# and SMTP settings via environment variables without editing application code.
+EMAIL_BACKEND = os.getenv("DJANGO_EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend")
+DEFAULT_FROM_EMAIL = os.getenv("DJANGO_DEFAULT_FROM_EMAIL", "LearnJournal <no-reply@learnjournal.example>")
 
-# Deck 03B 第 8 章：預設的本機記憶體快取；正式環境改 Redis。
+# Local memory is deliberately used for class. A multi-process production
+# deployment should use a shared cache such as Redis.
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "learnjournal-locmem",
+        "BACKEND": os.getenv("DJANGO_CACHE_BACKEND", "django.core.cache.backends.locmem.LocMemCache"),
+        "LOCATION": os.getenv("DJANGO_CACHE_LOCATION", "learnjournal-locmem"),
     }
 }
+
+# Classroom switch used by MaintenanceModeMiddleware.
+MAINTENANCE_MODE = os.getenv("DJANGO_MAINTENANCE_MODE", "0") == "1"
+
+# Production-oriented cookie/header defaults become active automatically when
+# DEBUG is disabled. The Deployment deck explains reverse-proxy HTTPS details.
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
