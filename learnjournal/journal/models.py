@@ -121,7 +121,9 @@ class Article(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        if self.published_at:
+        # Drafts and scheduled articles must stay on the authenticated preview
+        # route; only a currently-live article has a public date URL.
+        if self.is_live:
             local = timezone.localtime(self.published_at)
             return reverse(
                 "journal:article-detail",
