@@ -2,7 +2,7 @@
 
 > Branch: `chatgpt/curriculum-audit-2026-09-16`
 >
-> 本文件由 ChatGPT 於 2026-09-16 依 `master` 現況整理。目的在於提供授課者一個集中式的專案結構、教學覆蓋、缺口與後續優先級視圖；不取代各專案 README 與 `slides/03_next_project_plan.md`。
+> 本文件由 ChatGPT 於 2026-09-16 依 repository 現況整理。目的在於提供授課者一個集中式的專案結構、教學覆蓋、缺口與後續優先級視圖；不取代各專案 README 與 `slides/03_next_project_plan.md`。
 
 ## 1. 整體結構
 
@@ -76,20 +76,11 @@
 
 ### A. Repository 級「全課程地圖」不足
 
-各專案 README 都寫得完整，但根目錄 README 偏簡介，學生或助教若第一次進 repo，仍要自行拼湊：
+各專案 README 都寫得完整，但根目錄 README 原本偏簡介。此 branch 已補上三階段能力地圖與本盤點文件入口。
 
-- 哪些內容已完成？
-- 哪些只是規劃中？
-- 三個專案各自新增了哪些 Django 能力？
-- 同一概念應該在哪個專案回顧？
+### B. LearnJournal 的完成度與後續路線需要持續維護
 
-建議把「三階段能力矩陣」放到根目錄 README，並連結本盤點文件。
-
-### B. LearnJournal 的完成度與後續路線需要更清楚標示
-
-目前 LearnJournal 已有 Deck 03A 對應實作，但 03B / 04 仍屬後續目標。學生容易把 README 的「尚未實作」與 slides README 的「規劃中」混在一起。
-
-建議明確區分：
+目前 LearnJournal 已有 Deck 03A 對應實作，但 03B / 04 仍屬後續目標。現況應持續明確區分：
 
 - 已完成並可操作
 - 已有掛鉤點但未完成
@@ -99,7 +90,7 @@
 
 三個專案都會提到正式環境還需要環境變數、HTTPS、DEBUG=False、監控等，但尚未形成一個真正的 deployment / operations 模組。
 
-這很適合作為最後一個跨專案總結單元：
+適合作為最後一個跨專案總結單元：
 
 - settings split
 - environment variables
@@ -130,7 +121,7 @@
 
 建議維持：
 
-`00a Python` → `00b HTML/CSS` → `LearnBoard` → `LearnMart` → `LearnJournal 03A` → `LearnJournal 03B` → `Deployment / Operations`
+`Python 先備` → `HTML/CSS 先備` → `LearnBoard` → `LearnMart` → `LearnJournal 03A` → `LearnJournal 03B` → `Deployment / Operations`
 
 其中每一階段應有明確 completion milestone：
 
@@ -140,13 +131,22 @@
 - LearnJournal 03B：能加入 cache、middleware、email、search、feed、permission、scheduling。
 - Deployment：能把「教學版」與「可部署版」的差異逐項說明並實作。
 
-## 6. 建議下一批教材優先級
+## 6. 後續教材優先級
 
-### P0：先完成導航與一致性
+### P0：導航與一致性 — 已完成第一輪
+
+本 branch 已完成：
 
 1. 根目錄 README 加入三階段能力矩陣。
 2. 明確標出 LearnJournal 03A 已完成、03B/04 規劃中。
 3. README 加入本盤點文件入口。
+4. 核對 `slides/` 實際教材檔案與 README 連結。
+5. 修正舊的 `00a_*` / `00b_*` 路徑名稱。
+6. 修正 Deck 01 被誤寫成「每章一檔」的敘述；目前共通 Deck 01 為單一整合 Marp。
+7. 修正 LearnBoard / LearnMart README 中失效的 Marp CLI 範例。
+8. 更新 `slides/SOURCE_MAP.md`，明確列出單檔與分章教材的差異。
+9. 核對 workbook 檔名存在。
+10. 核對 LearnBoard 為 9 個 test methods、LearnJournal 為 11 個 test methods；README 宣告與實際一致。
 
 ### P1：完成 LearnJournal 03B
 
@@ -180,9 +180,40 @@ uv run python manage.py test
 - 各 README 宣告的測試數是否與實際一致
 - slides overview 的章節數與實際檔案數是否一致
 - 已完成 / 規劃中狀態是否一致
+- Marp CLI 範例所指向的檔案是否存在
 
-## 8. 本次 ChatGPT 修訂範圍
+長期建議把上述教材檢查自動化成 CI script，避免之後重新命名或拆章時又產生 stale links。
 
-本 branch 只處理「教學導航與盤點」，不改 Django runtime 行為、不改 model schema、不新增 migration，也不直接修改 `master`。
+## 8. P0 一致性檢查紀錄（2026-09-16）
+
+### 已發現並修正
+
+| 類型 | 原狀況 | 修正 |
+|---|---|---|
+| 先備教材路徑 | 文件引用 `00a_python_syntax_essentials` / `00b_html_css_page_basics` | 改為實際 `00_python_syntax_essentials` / `00_html_css_page_basics` |
+| 先備教材入口 | 文件引用不存在的 `00_overview.md` | 直接連到實際單一 Marp |
+| 共通 Deck 01 | 文件引用不存在的 `00_overview.md`、`01_chapter_01.md` | 改連 `01_django_foundations_and_two_projects.md` |
+| 教材形態描述 | 多處宣稱根目錄主教材全部「每章一檔」 | 改為明確區分單一 Marp與分章教材 |
+| slides README | 前段稱專案內原始 slides 仍保留，後段又稱已刪除 | 統一描述為已整理到根 `slides/` |
+| SOURCE_MAP | 使用已不存在的舊命名 | 依現有檔案重建對照 |
+| Marp 指令 | LearnBoard / LearnMart README 有指向不存在檔案的範例 | 改為目前可存在的檔案路徑 |
+| 測試數 | 需要確認 README 是否過期 | LearnBoard 9、LearnJournal 11，均與實際 test methods 一致 |
+| workbook | 需要確認 README 所列檔名 | LearnBoard、LearnMart、LearnJournal workbook 均存在 |
+
+### 現況教材形態摘要
+
+- `00_python_syntax_essentials/`：單一主 Marp + `00_git.md`
+- `00_html_css_page_basics/`：單一 Marp
+- `01_django_foundations_and_two_projects/`：單一整合 Marp
+- `02_forms_auth_and_two_projects/`：7 章分檔，另有 comparison / integration
+- `learnboard_01_*`：6 章分檔
+- `learnboard_02_*`：6 章分檔
+- `learnmart_01_*`：6 章分檔 + summary
+- `learnmart_02_*`：7 章分檔 + integration
+- `learnjournal_01_*`：6 章分檔 + summary
+
+## 9. 本次 ChatGPT 修訂範圍
+
+本 branch 只處理「教學導航、盤點與一致性文件」，不改 Django runtime 行為、不改 model schema、不新增 migration，也不直接修改 `master`。
 
 後續若要實作 P1/P2，建議從這個 branch 再拆更小的 feature branches，讓每個教學單元可獨立 review。
