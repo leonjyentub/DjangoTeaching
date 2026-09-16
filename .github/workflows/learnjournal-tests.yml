@@ -12,175 +12,8 @@ permissions:
   contents: write
 
 jobs:
-  prepare-upgrade:
-    if: github.ref == 'refs/heads/chatgpt/curriculum-audit-2026-09-16' && github.event.head_commit.message != 'chore: finalize Django 6.1.1 curriculum upgrade (ChatGPT)'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: chatgpt/curriculum-audit-2026-09-16
-      - uses: astral-sh/setup-uv@v6
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.14.7"
-      - name: Upgrade version references across teaching sources
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          root = Path('.')
-          text_suffixes = {'.md', '.py', '.toml', '.yml', '.yaml', '.txt'}
-          skip_names = {
-              'uv.lock',
-              '01_django_foundations_and_two_projects_compressed.pdf',
-          }
-
-          replacements = [
-              ('https://docs.djangoproject.com/en/5.2/', 'https://docs.djangoproject.com/en/6.1/'),
-              ('django>=5.2,<5.3', 'django>=6.1.1,<6.2'),
-              ('Django 5.2 LTS', 'Django 6.1.1'),
-              ('Django 5.2 系列', 'Django 6.1.1 系列'),
-              ('Django 5.2', 'Django 6.1.1'),
-              ('5.2.x', '6.1.x'),
-              ('Python 3.13', 'Python 3.14.7'),
-              ('python 3.13', 'python 3.14.7'),
-              ('--python 3.13', '--python 3.14.7'),
-              ('pin 3.13', 'pin 3.14.7'),
-              ('install 3.13', 'install 3.14.7'),
-              ('python-version: "3.13"', 'python-version: "3.14.7"'),
-              ("python-version: '3.13'", "python-version: '3.14.7'"),
-              ('requires-python = ">=3.13"', 'requires-python = ">=3.14,<3.15"'),
-          ]
-
-          changed = []
-          for path in root.rglob('*'):
-              if not path.is_file() or path.suffix.lower() not in text_suffixes:
-                  continue
-              if '.git' in path.parts or 'migrations' in path.parts or path.name in skip_names:
-                  continue
-              try:
-                  old = path.read_text(encoding='utf-8')
-              except UnicodeDecodeError:
-                  continue
-              new = old
-              for before, after in replacements:
-                  new = new.replace(before, after)
-              if new != old:
-                  path.write_text(new, encoding='utf-8')
-                  changed.append(str(path))
-
-          # Pin all three teaching projects to the exact classroom Python release.
-          for project in ('learnboard', 'learnmart', 'learnjournal'):
-              path = Path(project) / '.python-version'
-              path.write_text('3.14.7\n', encoding='utf-8')
-
-          print(f'Updated {len(changed)} text files.')
-          for item in changed:
-              print('-', item)
-          PY
-
-      - name: Ensure Django 6.1 MAILERS example is current
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          # Django 6.1 introduced MAILERS and deprecated EMAIL_BACKEND/EMAIL_*.
-          # Keep code examples aligned where the older console backend snippet occurs.
-          for path in Path('slides').rglob('*.md'):
-              text = path.read_text(encoding='utf-8')
-              old = 'EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"'
-              new = '''MAILERS = {\n    "default": {\n        "BACKEND": "django.core.mail.backends.console.EmailBackend",\n        "OPTIONS": {},\n    }\n}'''
-              if old in text:
-                  path.write_text(text.replace(old, new), encoding='utf-8')
-          PY
-
-      - name: Build one combined Django 02 deck in filename order
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          folder = Path('slides/02_forms_auth_and_two_projects')
-          output = folder / '02_forms_auth_and_two_projects.md'
-          sources = sorted(
-              p for p in folder.glob('*.md')
-              if p.name != output.name
-          )
-
-          def strip_frontmatter(text: str) -> str:
-              lines = text.splitlines()
-              if not lines or lines[0].strip() != '---':
-                  return text.strip()
-              for i in range(1, len(lines)):
-                  if lines[i].strip() == '---':
-                      return '\n'.join(lines[i + 1:]).strip()
-              return text.strip()
-
-          chunks = []
-          for index, path in enumerate(sources):
-              text = path.read_text(encoding='utf-8').strip()
-              if index == 0:
-                  chunks.append(text)
-              else:
-                  body = strip_frontmatter(text)
-                  chunks.append(
-                      f'\n\n---\n\n<!-- merged source: {path.name} -->\n\n{body}'
-                  )
-
-          output.write_text(''.join(chunks).rstrip() + '\n', encoding='utf-8')
-          print('Combined in order:')
-          for path in sources:
-              print('-', path.name)
-          print('=>', output)
-          PY
-
-      - name: Refresh uv lock files for Python 3.14.7 and Django 6.1.1
-        run: |
-          for project in learnboard learnmart learnjournal; do
-            echo "== $project =="
-            (cd "$project" && uv lock --upgrade)
-          done
-
-      - name: Add Django 6.1 migration notes to curriculum audit
-        run: |
-          cat >> CURRICULUM_AUDIT_CHATGPT.md <<'EOF'
-
-## 10. Django 6.1.1 / Python 3.14.7 升級（2026-09-16）
-
-本 branch 已將三個教學專案與教材基線升級到 **Python 3.14.7 + Django 6.1.1**。
-
-- 三個專案的 `pyproject.toml`：`requires-python = ">=3.14,<3.15"`、`django>=6.1.1,<6.2`
-- 三份 `.python-version`：固定 `3.14.7`
-- 三份 `uv.lock`：重新解析並鎖定新版依賴
-- Django 官方文件連結：由 5.2 文件更新為 6.1 文件
-- LearnJournal email：改用 Django 6.1 `MAILERS`，不再把 `EMAIL_BACKEND` 當作目前建議設定
-- CI：LearnBoard、LearnMart、LearnJournal 都使用 Python 3.14.7 驗證 `check`、migration drift 與 tests
-- `slides/02_forms_auth_and_two_projects/02_forms_auth_and_two_projects.md`：依檔名順序整合該資料夾全部 Markdown，保留第一份 Marp front matter，其餘 front matter 移除後串接。
-
-> Migration 檔案頂端的 `Generated by Django 5.2.x` 屬於歷史 migration metadata，刻意保留，不應為了版本美觀而改寫既有 migration 歷史。
-EOF
-
-      - name: Commit upgrade results
-        run: |
-          if git diff --quiet; then
-            echo "No generated upgrade changes."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "chore: finalize Django 6.1.1 curriculum upgrade (ChatGPT)"
-          git push origin HEAD:chatgpt/curriculum-audit-2026-09-16
-
   django:
-    if: github.event.head_commit.message == 'chore: finalize Django 6.1.1 curriculum upgrade (ChatGPT)' || github.ref == 'refs/heads/master' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        project: [learnboard, learnmart, learnjournal]
-    defaults:
-      run:
-        working-directory: ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -189,15 +22,43 @@ EOF
       - uses: actions/setup-python@v5
         with:
           python-version: "3.14.7"
-      - name: Sync dependencies from lock
-        run: uv sync --frozen
-      - name: Show runtime versions
+
+      - name: Finalize Django 6.1.1 teaching sources
+        if: github.ref == 'refs/heads/chatgpt/curriculum-audit-2026-09-16'
+        run: python scripts/finalize_django61_upgrade.py
+
+      - name: Refresh lock files
+        if: github.ref == 'refs/heads/chatgpt/curriculum-audit-2026-09-16'
         run: |
-          uv run python --version
-          uv run python -m django --version
-      - name: Django system check
-        run: uv run python manage.py check
-      - name: Migration drift check
-        run: uv run python manage.py makemigrations --check
-      - name: Run tests
-        run: uv run python manage.py test
+          for project in learnboard learnmart learnjournal; do
+            echo "== lock: $project =="
+            (cd "$project" && uv lock --upgrade)
+          done
+
+      - name: Verify runtime versions and Django projects
+        run: |
+          set -e
+          for project in learnboard learnmart learnjournal; do
+            echo "===== $project ====="
+            cd "$project"
+            uv sync --frozen
+            uv run python --version
+            uv run python -m django --version
+            uv run python manage.py check
+            uv run python manage.py makemigrations --check
+            uv run python manage.py test
+            cd ..
+          done
+
+      - name: Commit generated upgrade changes
+        if: github.ref == 'refs/heads/chatgpt/curriculum-audit-2026-09-16'
+        run: |
+          if git diff --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: finalize Django 6.1.1 curriculum upgrade (ChatGPT)"
+          git push origin HEAD:chatgpt/curriculum-audit-2026-09-16
