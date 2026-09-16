@@ -1,17 +1,21 @@
-# 投影片拆分對照表
+# 投影片來源／現況對照表
 
-原始來源檔案已從專案內移除；每個來源檔案對應一個保留下來的資料夾。`00_overview.md` 是導覽／前言，其後依序是章節或附錄。
+教材歷經整理後，目前不是所有資料夾都採相同的「overview + 每章一檔」格式。這份表記錄來源脈絡與 repository 現況，避免沿用舊檔名造成失效連結。
 
-| 來源檔案 | 新資料夾 |
-|---|---|
-| `slides/00a_python_syntax_essentials.md` | [`00a_python_syntax_essentials/`](00a_python_syntax_essentials/) |
-| `slides/00b_html_css_page_basics.md` | [`00b_html_css_page_basics/`](00b_html_css_page_basics/) |
-| `learnboard/slides/01_django_foundations_and_message_board.md` | [`learnboard_01_django_foundations_and_message_board/`](learnboard_01_django_foundations_and_message_board/) |
-| `learnmart/slides/01_django_foundations_and_data_backed_catalog.md` | [`learnmart_01_django_foundations_and_data_backed_catalog/`](learnmart_01_django_foundations_and_data_backed_catalog/) |
-| `slides/01_django_foundations_and_two_projects.md` | [`01_django_foundations_and_two_projects/`](01_django_foundations_and_two_projects/) |
-| `learnboard/slides/02_forms_auth_and_board_workflows.md` | [`learnboard_02_forms_auth_and_board_workflows/`](learnboard_02_forms_auth_and_board_workflows/) |
-| `learnmart/slides/02_forms_auth_and_marketplace_workflows.md` | [`learnmart_02_forms_auth_and_marketplace_workflows/`](learnmart_02_forms_auth_and_marketplace_workflows/) |
-| `slides/02_forms_auth_and_two_projects.md` | [`02_forms_auth_and_two_projects/`](02_forms_auth_and_two_projects/) |
-| （無來源；直接以每章一檔撰寫） | [`learnjournal_01_content_model_and_publishing/`](learnjournal_01_content_model_and_publishing/) |
+| 教材來源／主題 | repository 目前位置 | 現況 |
+|---|---|---|
+| Python 語法先備 | [`00_python_syntax_essentials/`](00_python_syntax_essentials/) | 單一主 Marp：`00_python_syntax_essentials.md`；另有 `00_git.md` |
+| HTML/CSS 先備 | [`00_html_css_page_basics/`](00_html_css_page_basics/) | 單一 Marp：`00_html_css_page_basics.md` |
+| LearnBoard 01 | [`learnboard_01_django_foundations_and_message_board/`](learnboard_01_django_foundations_and_message_board/) | `00_overview.md` + 6 章 |
+| LearnMart 01 | [`learnmart_01_django_foundations_and_data_backed_catalog/`](learnmart_01_django_foundations_and_data_backed_catalog/) | `00_overview.md` + 6 章 + summary |
+| Django 01 共通基礎 | [`01_django_foundations_and_two_projects/`](01_django_foundations_and_two_projects/) | 單一整合 Marp：`01_django_foundations_and_two_projects.md` |
+| LearnBoard 02 | [`learnboard_02_forms_auth_and_board_workflows/`](learnboard_02_forms_auth_and_board_workflows/) | `00_overview.md` + 6 章 |
+| LearnMart 02 | [`learnmart_02_forms_auth_and_marketplace_workflows/`](learnmart_02_forms_auth_and_marketplace_workflows/) | `00_overview.md` + 7 章 + integration |
+| Django 02 共通工作流程 | [`02_forms_auth_and_two_projects/`](02_forms_auth_and_two_projects/) | `00_overview.md` + 7 章 + comparison/integration |
+| LearnJournal 01 | [`learnjournal_01_content_model_and_publishing/`](learnjournal_01_content_model_and_publishing/) | `00_overview.md` + 6 章 + summary；直接以分章形式撰寫 |
 
-`learnjournal_01_*` 是第三階段新教材，一開始就按「每章一檔」建立，沒有對應的單一來源 Marp。規劃見 [`03_next_project_plan.md`](03_next_project_plan.md)。
+## 命名注意事項
+
+舊文件曾使用 `00a_python_syntax_essentials`、`00b_html_css_page_basics` 等名稱；目前實際目錄是 `00_python_syntax_essentials` 與 `00_html_css_page_basics`。同樣地，`01_django_foundations_and_two_projects/` 目前沒有 `00_overview.md` 或 `01_chapter_01.md`，而是單一 `01_django_foundations_and_two_projects.md`。
+
+第三階段後續規劃見 [`03_next_project_plan.md`](03_next_project_plan.md)。
