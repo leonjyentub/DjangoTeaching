@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+THIS_FILE = Path(__file__).resolve()
 TEXT_SUFFIXES = {".md", ".py", ".toml", ".yml", ".yaml", ".txt"}
 
 REPLACEMENTS = [
@@ -36,7 +37,16 @@ def update_version_references() -> list[Path]:
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
             continue
-        if ".git" in path.parts or "migrations" in path.parts or path.name == "uv.lock":
+        # Existing migrations are historical records. Workflow files are edited
+        # explicitly through the GitHub connector because Actions tokens cannot
+        # rewrite workflows without the separate workflows permission.
+        if (
+            ".git" in path.parts
+            or ".github" in path.parts
+            or "migrations" in path.parts
+            or path.name == "uv.lock"
+            or path.resolve() == THIS_FILE
+        ):
             continue
         try:
             old = path.read_text(encoding="utf-8")
