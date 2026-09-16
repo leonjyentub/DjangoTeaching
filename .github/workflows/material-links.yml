@@ -21,3 +21,5 @@ jobs:
           python-version: "3.14.7"
       - name: Check repository-local Markdown links
         run: python scripts/check_material_links.py
+      - name: Check teaching version baseline
+        run: python scripts/check_version_baseline.py
