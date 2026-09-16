@@ -97,9 +97,18 @@ LOGIN_URL = "login"
 # Bootstrap uses `danger`; Django's default error message tag is `error`.
 MESSAGE_TAGS = {40: "danger"}
 
-# Development sends mail to the console. Deployment can replace this backend
-# and SMTP settings via environment variables without editing application code.
-EMAIL_BACKEND = os.getenv("DJANGO_EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend")
+# Django 6.1 introduces MAILERS and deprecates EMAIL_BACKEND plus the older
+# EMAIL_* connection settings. Development uses the console backend so students
+# can inspect password-reset and subscription messages without an SMTP service.
+MAILERS = {
+    "default": {
+        "BACKEND": os.getenv(
+            "DJANGO_MAILER_BACKEND",
+            "django.core.mail.backends.console.EmailBackend",
+        ),
+        "OPTIONS": {},
+    }
+}
 DEFAULT_FROM_EMAIL = os.getenv("DJANGO_DEFAULT_FROM_EMAIL", "LearnJournal <no-reply@learnjournal.example>")
 
 # Local memory is deliberately used for class. A multi-process production
