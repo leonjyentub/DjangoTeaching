@@ -1,5 +1,6 @@
 import secrets
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -33,9 +34,6 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["query"] = self.request.GET.get("q", "")
-
-        # Session = server-side per-browser state. Keep only IDs in the session,
-        # then load fresh Article rows so titles/URLs never become stale.
         recent_ids = self.request.session.get("recent_article_ids", [])
         recent_map = {article.pk: article for article in Article.published.filter(pk__in=recent_ids)}
         context["recent_articles"] = [recent_map[pk] for pk in recent_ids if pk in recent_map]
@@ -96,11 +94,8 @@ class ArticleDetailView(FormMixin, DetailView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.register_view()
-
-        # Server-side session example: remember the five most recent articles.
         previous = request.session.get("recent_article_ids", [])
         request.session["recent_article_ids"] = [self.object.pk] + [pk for pk in previous if pk != self.object.pk][:4]
-
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 
@@ -232,7 +227,6 @@ def subscribe(request):
         sub.token = secrets.token_urlsafe(32)
         sub.is_confirmed = False
         sub.save()
-
         confirm_url = request.build_absolute_uri(reverse("journal:confirm-subscription", args=[sub.token]))
         send_mail(
             subject="確認 LearnJournal 電子報訂閱",
@@ -258,8 +252,6 @@ def confirm_subscription(request, token):
 
 @require_POST
 def set_reading_mode(request):
-    """Client-side cookie example: compact vs comfortable reading density."""
-
     mode = request.POST.get("mode")
     if mode not in {"comfortable", "compact"}:
         messages.error(request, "不支援的閱讀模式。")
@@ -271,6 +263,6 @@ def set_reading_mode(request):
         mode,
         max_age=60 * 60 * 24 * 365,
         samesite="Lax",
-        secure=not request.is_secure() and False,  # classroom HTTP remains usable
+        secure=not settings.DEBUG,
     )
     return response
