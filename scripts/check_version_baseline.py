@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+THIS_FILE = Path(__file__).resolve()
 TEXT_SUFFIXES = {".md", ".py", ".toml", ".yml", ".yaml", ".txt"}
 FORBIDDEN = {
     "Django 5.2": "use the Django 6.1.1 teaching baseline",
@@ -16,7 +17,16 @@ errors: list[str] = []
 for path in ROOT.rglob("*"):
     if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
         continue
-    if ".git" in path.parts or "migrations" in path.parts:
+    # Existing migrations intentionally retain their historical generator
+    # metadata. The audit document is also allowed to discuss the old baseline
+    # when recording how the curriculum was upgraded. Finally, skip this script
+    # itself because its job is to contain the forbidden patterns it searches for.
+    if (
+        ".git" in path.parts
+        or "migrations" in path.parts
+        or path.resolve() == THIS_FILE
+        or path.name == "CURRICULUM_AUDIT_CHATGPT.md"
+    ):
         continue
     try:
         text = path.read_text(encoding="utf-8")
