@@ -1,15 +1,15 @@
 # Django 教學投影片（LearnBoard × LearnMart × LearnJournal）
 
-這是三個教學專案共用的投影片入口。原始教材仍保留在各自專案的 `slides/`，本資料夾則把重複的 Marp 基礎整合成一套教材，並在必要處並列各專案的實際檔案、命名與工作流程。
+這是三個教學專案共用的投影片入口。早期各專案內的來源教材已整理到根目錄 `slides/`；目前同時保留部分單檔 Marp、原始分章版本，以及整合後的分章教材。實際檔案形態以本頁與 [`SOURCE_MAP.md`](SOURCE_MAP.md) 為準。
 
 ## 建議閱讀順序
 
-1. [00a Python 語法先備](00a_python_syntax_essentials/00_overview.md)（每章一檔）
-2. [00b HTML/CSS 先備](00b_html_css_page_basics/00_overview.md)（每章一檔）
-3. [01 Django 共通基礎](01_django_foundations_and_two_projects/00_overview.md)（每章一檔）
-4. [02 表單、身份驗證與工作流程](02_forms_auth_and_two_projects/00_overview.md)（每章一檔）
-5. [LearnJournal 01 內容模型與發佈](learnjournal_01_content_model_and_publishing/00_overview.md)（每章一檔；第三階段）
-6. LearnJournal 02 傳播、效能與帳號（規劃中，見 `03_next_project_plan.md`）
+1. [Python 語法先備](00_python_syntax_essentials/00_python_syntax_essentials.md)（目前為單一 Marp；另有 `00_git.md`）
+2. [HTML/CSS 先備](00_html_css_page_basics/00_html_css_page_basics.md)（目前為單一 Marp）
+3. [01 Django 共通基礎](01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md)（目前為單一整合 Marp）
+4. [02 表單、身份驗證與工作流程](02_forms_auth_and_two_projects/00_overview.md)（7 章分檔）
+5. [LearnJournal 01 內容模型與發佈](learnjournal_01_content_model_and_publishing/00_overview.md)（6 章分檔；第三階段）
+6. LearnJournal 02 傳播、效能與帳號（規劃中，見 [`03_next_project_plan.md`](03_next_project_plan.md)）
 7. 03 部署與營運（規劃中）
 
 ## 三條實作路線
@@ -26,19 +26,21 @@
 
 ## 配套手冊
 
-整合投影片的章末連結會帶到整理後的 workbook：
+整理後的 workbook 位於 `workbooks/`：
 
 - LearnBoard：`workbooks/learnboard_*_workbook.md`
 - LearnMart：`workbooks/learnmart_*_workbook.md`
 - LearnJournal：`workbooks/learnjournal_*_workbook.md`
 
-`assets/` 只保留去重後的五張圖解：`box_model`、`mvt_model`、`request_flow`、`trust_boundary`、`transaction_rollback`。
+`assets/` 保留共用圖解資產；重製提示詞見 [`diagram_prompts.md`](diagram_prompts.md)。
 
 ## 原始版本與整合版本
 
-為了保留兩邊曾經修改過的內容，根目錄同時保留兩類分章資料夾：
+根目錄目前有三種教材形態：
 
-- `learnboard_*`／`learnmart_*`：刪除來源資料夾前，各自原始 Marp 檔的分章版本。
-- `01_*_two_projects`／`02_*_two_projects`：整合版與額外新增的 LearnBoard 對照內容。
+- `learnboard_*`／`learnmart_*`：各專案來源教材整理出的分章版本。
+- `01_*_two_projects`：LearnBoard × LearnMart 的共通基礎整合版，目前保留為單一 Marp。
+- `02_*_two_projects`：LearnBoard × LearnMart 的整合分章版。
+- `learnjournal_*`：第三階段教材，一開始即以分章形式撰寫。
 
-你可以依章節手動挑選、合併，不需要再回到已刪除的專案內 `slides/`。
+Python 與 HTML/CSS 先備目前也保留為單一 Marp，因此不要假設所有資料夾都有 `00_overview.md` 或 `01_chapter_01.md`。需要核對來源與現況時，請查 [`SOURCE_MAP.md`](SOURCE_MAP.md)。
