@@ -25,8 +25,8 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "journal.middleware.ResponseTimeMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # Deck 03B 第 9 章：自訂 middleware（瀏覽計數 / X-Response-Time）會加在這裡。
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -73,17 +73,22 @@ LOGIN_REDIRECT_URL = "journal:home"
 LOGOUT_REDIRECT_URL = "journal:home"
 LOGIN_URL = "login"
 
+# Sessions：使用 Django 預設 database-backed session。教學時可在 article detail
+# 觀察匿名最近瀏覽；SESSION_COOKIE_HTTPONLY 預設為 True，正式站還要搭配 HTTPS/Secure。
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 14
+
 # Bootstrap 使用 danger，而 Django 預設的錯誤標籤是 error。
 MESSAGE_TAGS = {40: "danger"}
 
-# Deck 03B 第 10 章：開發階段把信寄到 console，方便觀察密碼重設與電子報。
+# 開發階段把信寄到 console，方便觀察密碼重設、留言通知與電子報 double opt-in。
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "LearnJournal <no-reply@learnjournal.example>"
 
-# Deck 03B 第 8 章：預設的本機記憶體快取；正式環境改 Redis。
+# 課堂先用 process-local LocMemCache，部署章再比較 Redis 的跨 process 特性。
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
         "LOCATION": "learnjournal-locmem",
+        "TIMEOUT": 300,
     }
 }
