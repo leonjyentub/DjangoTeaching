@@ -1,5 +1,7 @@
 from django.urls import path, register_converter
 
+from journal.feeds import LatestArticlesFeed
+
 from . import views
 
 
@@ -23,6 +25,9 @@ urlpatterns = [
     path("", views.HomeView.as_view(), name="home"),
     path("register/", views.register, name="register"),
     path("subscribe/", views.subscribe, name="subscribe"),
+    path("subscribe/confirm/<str:token>/", views.confirm_subscription, name="subscription-confirm"),
+    path("preferences/reading-mode/", views.set_reading_mode, name="set-reading-mode"),
+    path("feed/", LatestArticlesFeed(), name="feed"),
 
     # 寫作後台
     path("write/", views.ArticleCreateView.as_view(), name="article-create"),
