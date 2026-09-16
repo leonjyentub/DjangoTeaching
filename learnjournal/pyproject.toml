@@ -9,6 +9,11 @@ dependencies = [
     "markdown>=3.7",
 ]
 
+[project.optional-dependencies]
+postgres = [
+    "psycopg[binary]>=3.2,<4",
+]
+
 [dependency-groups]
 dev = [
     "coverage>=7.6",
