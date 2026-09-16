@@ -1,12 +1,9 @@
-"""建立 LearnJournal 課堂示範資料（可重複執行）。
-
-Deck 03B 第 13 章會用 `add_arguments` 讓指令接受參數；這裡先維持與前兩個專案一致的
-無參數版本，方便第一次對照。
-"""
+"""Create repeatable LearnJournal classroom demo data."""
 
 import textwrap
 
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group, Permission
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.utils.text import slugify
@@ -17,7 +14,7 @@ User = get_user_model()
 
 
 class Command(BaseCommand):
-    help = "建立 LearnJournal 課堂示範帳號、分類、標籤與文章（可重複執行）"
+    help = "建立 LearnJournal 課堂示範帳號、群組、分類、標籤與文章（可重複執行）"
 
     def handle(self, *args, **options):
         users = {}
@@ -29,6 +26,17 @@ class Command(BaseCommand):
                 user.set_password(f"{name}12345")
                 user.save()
             users[name] = user
+
+        # Group/Permission example: capabilities are assigned to a group rather
+        # than encoded as a custom `role` string on User.
+        editors, _ = Group.objects.get_or_create(name="Editors")
+        permissions = Permission.objects.filter(
+            content_type__app_label="journal",
+            content_type__model="article",
+            codename__in=["add_article", "change_article", "view_article", "publish_article"],
+        )
+        editors.permissions.set(permissions)
+        users["editor"].groups.add(editors)
 
         categories = {}
         for name, slug in [("Django", "django"), ("Python", "python"), ("前端", "frontend")]:
@@ -103,4 +111,8 @@ class Command(BaseCommand):
             root = Comment.objects.create(article=first, author=users["ben"], body="這個對照表很有用。")
             Comment.objects.create(article=first, author=users["amy"], parent=root, body="謝謝，第 6 章還會再擴充。")
 
-        self.stdout.write(self.style.SUCCESS("示範資料完成。editor/editor12345、amy/amy12345、ben/ben12345"))
+        self.stdout.write(
+            self.style.SUCCESS(
+                "示範資料完成。editor/editor12345（Editors，可發佈）、amy/amy12345、ben/ben12345"
+            )
+        )
