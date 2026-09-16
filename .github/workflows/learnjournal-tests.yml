@@ -1,4 +1,4 @@
-name: LearnJournal checks
+name: Django project checks
 
 on:
   push:
@@ -14,9 +14,13 @@ permissions:
 jobs:
   django:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [learnboard, learnmart, learnjournal]
     defaults:
       run:
-        working-directory: learnjournal
+        working-directory: ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -24,9 +28,13 @@ jobs:
           enable-cache: true
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.14.7"
       - name: Sync dependencies
         run: uv sync
+      - name: Show runtime versions
+        run: |
+          uv run python --version
+          uv run python -m django --version
       - name: Django system check
         run: uv run python manage.py check
       - name: Migration drift check
