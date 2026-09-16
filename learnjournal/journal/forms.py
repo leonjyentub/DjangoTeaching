@@ -28,26 +28,38 @@ class RegistrationForm(BootstrapFormMixin, UserCreationForm):
 class ArticleForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Article
-        # author、published_at、view_count 由伺服器決定，不放進表單（回扣 seller 不在 fields）。
-        fields = ("title", "slug", "category", "coauthors", "excerpt", "body", "status")
+        # author and view_count remain server-owned. published_at is exposed here
+        # because Deck 03B now implements scheduled publishing end-to-end.
+        fields = ("title", "slug", "category", "coauthors", "excerpt", "body", "status", "published_at")
         widgets = {
             "body": forms.Textarea(attrs={"rows": 12, "placeholder": "支援 Markdown"}),
             "excerpt": forms.Textarea(attrs={"rows": 2}),
+            "published_at": forms.DateTimeInput(attrs={"type": "datetime-local"}, format="%Y-%m-%dT%H:%M"),
         }
 
-    def __init__(self, *args, author=None, **kwargs):
+    def __init__(self, *args, user=None, **kwargs):
         super().__init__(*args, **kwargs)
+        self.user = user
         self.fields["slug"].required = False
-        if author is not None:
-            # 動態縮小 queryset：共同作者不能選自己。
-            self.fields["coauthors"].queryset = User.objects.exclude(pk=author.pk)
+        self.fields["published_at"].input_formats = ["%Y-%m-%dT%H:%M"]
+        if user is not None:
+            self.fields["coauthors"].queryset = User.objects.exclude(pk=user.pk)
+            if not user.has_perm("journal.publish_article"):
+                self.fields["status"].help_text = "一般作者只能儲存草稿；Editors 群組可以排程與發佈。"
         self.apply_bootstrap()
 
     def clean(self):
         cleaned = super().clean()
-        if cleaned.get("status") == Article.Status.SCHEDULED and not cleaned.get("published_at"):
-            # 教學版：排程時間簡化為「存檔後由編輯在 admin 補上」，這裡只擋明顯錯誤。
-            pass
+        status = cleaned.get("status")
+        published_at = cleaned.get("published_at")
+
+        if status == Article.Status.SCHEDULED and not published_at:
+            self.add_error("published_at", "排程文章必須指定發佈時間。")
+
+        if status in {Article.Status.SCHEDULED, Article.Status.PUBLISHED}:
+            if self.user is None or not self.user.has_perm("journal.publish_article"):
+                self.add_error("status", "你沒有排程或發佈文章的權限，請先儲存為草稿。")
+
         return cleaned
 
 
