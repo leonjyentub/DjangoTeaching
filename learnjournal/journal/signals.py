@@ -1,31 +1,63 @@
-"""Signals：把「儲存文章」的副作用集中在一處。
+"""Signals used by LearnJournal's publishing pipeline.
 
-Deck 03A 第 6 章先示範一個 signal：文章存檔時把 Markdown 渲染成 HTML 快取。
-Deck 03B 第 9 章再擴充：留言通知寄信、清首頁快取、`m2m_changed` 更新標籤計數。
+Teaching goals:
+- post_save can maintain derived data (`body_html`).
+- post_save can trigger a decoupled side effect (comment notification email).
+- cache invalidation is a concrete reason to react to model changes.
 
-課堂討論點：這段邏輯也可以直接寫在 `Article.save()`。signal 的好處是「發訊者不需要
-知道有誰在聽」，壞處是「副作用藏在別的檔案，難追蹤」。不是所有東西都該用 signal。
+Signals are intentionally kept small. Business rules that a caller must be able
+to reason about synchronously should still live in normal functions/services.
 """
 
 import markdown as md
-from django.db.models.signals import post_save
+from django.core.cache import cache
+from django.core.mail import send_mail
+from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
-from journal.models import Article, Comment
+from journal.context_processors import NAV_CACHE_KEY
+from journal.models import Article, Category, Comment
 
 
 @receiver(post_save, sender=Article)
 def render_markdown(sender, instance, **kwargs):
     html = md.markdown(instance.body or "", extensions=["fenced_code", "tables", "toc"])
     if html != instance.body_html:
-        # update() 不會再觸發 post_save，避免無限迴圈。
+        # update() does not emit post_save, which avoids an infinite signal loop.
         Article.objects.filter(pk=instance.pk).update(body_html=html)
+
+    # Template-fragment cache keys used by the sidebar.
+    cache.delete_many(["template.cache.sidebar_latest", "template.cache.sidebar_tags"])
+
+
+@receiver(post_delete, sender=Article)
+def invalidate_article_fragments_on_delete(sender, instance, **kwargs):
+    cache.delete_many(["template.cache.sidebar_latest", "template.cache.sidebar_tags"])
+
+
+@receiver(post_save, sender=Category)
+@receiver(post_delete, sender=Category)
+def invalidate_navigation_cache(sender, instance, **kwargs):
+    cache.delete(NAV_CACHE_KEY)
 
 
 @receiver(post_save, sender=Comment)
 def notify_author_on_comment(sender, instance, created, **kwargs):
     if not created:
         return
-    # Deck 03B 第 10 章會在這裡呼叫 send_mail 通知文章作者。
-    # 目前只留掛鉤，避免測試期間送出真的信。
-    return
+    author = instance.article.author
+    if not author.email or author_id_equals_commenter(instance, author):
+        return
+    send_mail(
+        subject=f"你的文章有新留言：{instance.article.title}",
+        message=f"{instance.author.get_username()} 留言：\n\n{instance.body}\n\n{instance.article.get_absolute_url()}",
+        from_email=None,
+        recipient_list=[author.email],
+        fail_silently=True,
+    )
+
+
+def author_id_equals_commenter(comment, author):
+    """Named helper makes the self-notification rule easy to unit test/read."""
+
+    return comment.author_id == author.pk
