@@ -10,6 +10,16 @@ body {
   font-size: 1.05rem;
 }
 
+.reading-compact .article-body {
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.reading-compact .card-body {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .article-body h2,
 .article-body h3 {
   margin-top: 1.6em;

@@ -1,20 +1,51 @@
-{% load journal_extras %}
+{% load cache journal_extras %}
+{% cache 300 sidebar_latest %}
 <div class="card mb-3">
   <div class="card-body">
     <h2 class="h6">最新文章</h2>
     {% latest_articles 5 %}
   </div>
 </div>
+{% endcache %}
+
+{% cache 300 sidebar_tags %}
 <div class="card mb-3">
   <div class="card-body">
     <h2 class="h6">熱門標籤</h2>
     {% tag_cloud 20 %}
   </div>
 </div>
+{% endcache %}
+
+{% if recent_articles %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="h6">最近看過（session）</h2>
+    <ul class="list-unstyled small mb-0">
+      {% for article in recent_articles %}
+        <li class="mb-1"><a href="{{ article.get_absolute_url }}">{{ article.title|truncatechars:32 }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="h6">閱讀密度（cookie）</h2>
+    <form method="post" action="{% url 'journal:set-reading-mode' %}" class="d-flex gap-2">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button class="btn btn-sm {% if reading_mode == 'comfortable' %}btn-primary{% else %}btn-outline-primary{% endif %}" name="mode" value="comfortable">舒適</button>
+      <button class="btn btn-sm {% if reading_mode == 'compact' %}btn-primary{% else %}btn-outline-primary{% endif %}" name="mode" value="compact">緊湊</button>
+    </form>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-body">
     <h2 class="h6">訂閱電子報</h2>
-    <p class="small text-secondary">每週精選，直接寄到信箱。</p>
+    <p class="small text-secondary">每週精選，double opt-in 後才會寄送。</p>
     <a class="btn btn-sm btn-outline-primary" href="{% url 'journal:subscribe' %}">前往訂閱</a>
   </div>
 </div>

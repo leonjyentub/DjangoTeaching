@@ -10,10 +10,10 @@ from journal.managers import ArticleQuerySet, PublishedManager
 
 
 class User(AbstractUser):
-    """自訂 User 必須在第一次 migration 前決定（回扣 LearnMart）。
+    """Custom user chosen before the first migration (recap from LearnMart).
 
-    LearnMart 用一個 `role` 欄位分買家／賣家；LearnJournal 改用 Django 內建的
-    Group／Permission（Deck 03B 第 12 章），這個欄位只留人類看的簡介。
+    LearnMart used a role field. LearnJournal deliberately uses Django Groups
+    and Permissions for editorial capabilities instead.
     """
 
     bio = models.CharField("個人簡介", max_length=200, blank=True)
@@ -39,11 +39,6 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    """多對多的另一端：一篇文章有多個標籤，一個標籤有多篇文章。
-
-    這是 LearnBoard／LearnMart 都沒有的結構——它們只有 ForeignKey。
-    """
-
     name = models.CharField("標籤", max_length=40, unique=True)
     slug = models.SlugField("網址代稱", max_length=40, unique=True, allow_unicode=True)
 
@@ -69,7 +64,6 @@ class Article(models.Model):
         related_name="articles",
         verbose_name="主要作者",
     )
-    # 同一個模型的第二個 M2M：共同作者。related_name 一定要跟上面的反向名稱區隔。
     coauthors = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name="coauthored_articles",
@@ -82,7 +76,6 @@ class Article(models.Model):
         related_name="articles",
         verbose_name="分類",
     )
-    # through 指定中介模型，讓「精選排序」這種關聯上的資料有地方放（回扣 OrderItem）。
     tags = models.ManyToManyField(Tag, through="ArticleTag", related_name="articles", blank=True, verbose_name="標籤")
 
     title = models.CharField("標題", max_length=160)
@@ -98,8 +91,8 @@ class Article(models.Model):
     created_at = models.DateTimeField("建立時間", auto_now_add=True)
     updated_at = models.DateTimeField("更新時間", auto_now=True)
 
-    objects = ArticleQuerySet.as_manager()  # 全部文章，含草稿
-    published = PublishedManager()          # 只有公開文章
+    objects = ArticleQuerySet.as_manager()
+    published = PublishedManager()
 
     class Meta:
         ordering = ["-published_at", "-created_at"]
@@ -108,11 +101,13 @@ class Article(models.Model):
             models.Index(fields=["slug"]),
         ]
         constraints = [
-            # 已發佈的文章一定要有發佈時間——這是資料庫層的防線，不是只在表單擋。
             models.CheckConstraint(
                 name="published_article_has_timestamp",
                 condition=~Q(status="published") | Q(published_at__isnull=False),
             ),
+        ]
+        permissions = [
+            ("publish_article", "Can publish and schedule articles"),
         ]
 
     def __str__(self):
@@ -126,10 +121,9 @@ class Article(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        # slug + 日期網址：/2026/08/29/<slug>/
-        # 用 localtime：日期網址的年月日必須跟 ORM 的 __year/__month/__day 一致，
-        # 而那些 lookup 在 USE_TZ=True 時是以 TIME_ZONE 換算的（教學重點）。
-        if self.published_at:
+        # Drafts and scheduled articles must stay on the authenticated preview
+        # route; only a currently-live article has a public date URL.
+        if self.is_live:
             local = timezone.localtime(self.published_at)
             return reverse(
                 "journal:article-detail",
@@ -142,18 +136,16 @@ class Article(models.Model):
         return self.status == self.Status.PUBLISHED and self.published_at and self.published_at <= timezone.now()
 
     def register_view(self):
-        """原子遞增：不讀進 Python 再寫回，避免 LearnMart 扣庫存那種 race condition。"""
+        """Atomic increment avoids the read-modify-write race shown in LearnMart."""
         Article.objects.filter(pk=self.pk).update(view_count=F("view_count") + 1)
 
     @property
     def reading_minutes(self):
-        words = max(len(self.body.split()), len(self.body))  # 中英混排的粗估
+        words = max(len(self.body.split()), len(self.body))
         return max(1, round(words / 400))
 
 
 class ArticleTag(models.Model):
-    """M2M 的中介模型：關聯本身帶資料（精選順序）。"""
-
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     featured_order = models.PositiveSmallIntegerField("精選排序", default=0)
@@ -166,7 +158,6 @@ class ArticleTag(models.Model):
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments")
-    # 自我關聯：一則留言可以是另一則留言的回覆。
     parent = models.ForeignKey(
         "self", on_delete=models.CASCADE, null=True, blank=True, related_name="replies", verbose_name="回覆對象"
     )
@@ -182,8 +173,6 @@ class Comment(models.Model):
 
 
 class Reaction(models.Model):
-    """user × article × kind 的 M2M through：一個人對一篇文章每種反應只留一筆。"""
-
     class Kind(models.TextChoices):
         LIKE = "like", "讚"
         INSIGHTFUL = "insightful", "有收穫"
@@ -199,7 +188,7 @@ class Reaction(models.Model):
 
 
 class Subscription(models.Model):
-    """電子報訂閱：double opt-in（Deck 03B 第 10 章）。"""
+    """Newsletter subscription with a double opt-in confirmation token."""
 
     email = models.EmailField("電子郵件", unique=True)
     is_confirmed = models.BooleanField("已確認", default=False)

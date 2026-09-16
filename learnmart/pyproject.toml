@@ -3,9 +3,9 @@ name = "learnmart"
 version = "0.1.0"
 description = "A teaching-oriented Django marketplace project"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14,<3.15"
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=6.1.1,<6.2",
     "pillow>=11.0",
 ]
 
@@ -16,4 +16,3 @@ dev = [
 
 [tool.uv]
 package = false
-

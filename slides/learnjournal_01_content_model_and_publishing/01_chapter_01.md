@@ -49,7 +49,7 @@ learnjournal/
 
 ```toml
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=6.1.1,<6.2",
     "markdown>=3.7",
 ]
 ```
@@ -71,7 +71,12 @@ uv sync   # 安裝 django 與 markdown
 ```python
 INSTALLED_APPS = [..., "django.contrib.sitemaps", "django.contrib.humanize", "journal"]
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"   # Deck 03B 第 10 章
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.console.EmailBackend",
+        "OPTIONS": {},
+    }
+}   # Deck 03B 第 10 章
 
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache", ...}}  # Deck 03B 第 8 章
 ```

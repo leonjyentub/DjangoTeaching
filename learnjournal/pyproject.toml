@@ -3,10 +3,15 @@ name = "learnjournal"
 version = "0.1.0"
 description = "A teaching-oriented Django publishing platform (course project 3 of 3)"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14,<3.15"
 dependencies = [
-    "django>=5.2,<5.3",
+    "django>=6.1.1,<6.2",
     "markdown>=3.7",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "psycopg[binary]>=3.2,<4",
 ]
 
 [dependency-groups]

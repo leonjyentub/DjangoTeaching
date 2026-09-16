@@ -10,7 +10,7 @@
 
 已建立 `learnjournal/` 骨架 ＋ Deck 03A（第 1–6 章）對應的可跑實作：
 
-- uv 環境（Django 5.2 ＋ `markdown`）、`journal` app、`config` settings（含 email console backend、locmem cache、`sitemaps`／`humanize`）
+- uv 環境（Django 6.1.1 ＋ `markdown`）、`journal` app、`config` settings（含 email console backend、locmem cache、`sitemaps`／`humanize`）
 - Models：`User`／`Category`／`Tag`／`Article`／`ArticleTag`(through)／`Comment`(self-FK)／`Reaction`／`Subscription`；`F()` 原子遞增、`CheckConstraint`、`Meta.indexes`、`unique_for_date`、`allow_unicode` slug
 - `journal/managers.py`：`ArticleQuerySet` ＋ `PublishedManager`
 - Views：`HomeView`／分類／標籤／作者、`ArticleDetailView`（`FormMixin` ＋日期網址 ＋`F()` 遞增）、`YearArchiveView`／`MonthArchiveView`、草稿預覽、寫作 CRUD、訂閱

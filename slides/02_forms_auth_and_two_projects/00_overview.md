@@ -29,7 +29,7 @@ LearnBoard 是較小的原型；LearnMart 在相同骨架上加入角色、圖�
 | `author` FK 的 migration 演進 | 訂單快照、constraint 與交易 |
 | 擁有權 mixin（403/404） | `SellerRequiredMixin`、多方限制 |
 | CSRF／XSS／IDOR 三課 | 同三課＋transaction 一致性 |
-| 9 支 `TestCase` | 流程測試與回歸防護 |
+| 9 個 LearnBoard test methods | 商城流程測試與回歸防護 |
 
 **先用 LearnBoard 理解規則，再用 LearnMart 觀察同一規則如何擴展。**
 
@@ -54,7 +54,7 @@ Browser → URLconf → View → ORM → Template → Response
 3. 多筆資料要一起成功或一起失敗，怎麼保證？
 
 <!--
-授課提示：開場先花 3 分鐘複習 Deck 01 的 6-17A 完整資料流圖；本冊所有 POST 流程都建立在那張圖上。
+授課提示：開場先花 3 分鐘複習 Deck 01 的完整資料流圖；本冊所有 POST 流程都建立在那張圖上。
 -->
 
 ---
@@ -112,6 +112,17 @@ Browser → URLconf → View → ORM → Template → Response
 | 登入門禁 | `LoginRequiredMixin` | `LoginRequiredMixin`、`SellerRequiredMixin` |
 | 物件擁有權 | `MessageUpdateView.get_queryset()` | `ProductUpdateView.get_queryset()`、訂單 buyer filter |
 | POST-only 操作 | 發文、編輯、刪除 | cart、checkout、出貨、review |
-| 回歸測試 | `learnboard/board/tests.py`，9 個測試方法 | `learnmart/marketplace/tests.py`，商城流程測試 |
+| 回歸測試 | `learnboard/board/tests.py` | `learnmart/marketplace/tests.py` |
 
 **選擇一個專案完成 lab 即可；完成後用另一欄做 code reading，不要把兩個資料庫混用。**
+
+---
+
+## 第一次操作建議搭配兩份補充
+
+若學生第一次真正自己輸入 Django 指令、POST 表單與測試，建議在主教材之外加入：
+
+- [`10_first_contact_forms_auth_testing_lab.md`](10_first_contact_forms_auth_testing_lab.md)：DevTools、POST/CSRF、PRG、session/auth、403/404、`refresh_from_db()`、單支測試與 failure 分類。
+- [`11_django_template_language_practical_toolbox.md`](11_django_template_language_practical_toolbox.md)：時間、相對時間、過長文字、humanize、querystring 分頁、集合呈現與 template security。
+
+這兩份是補充 lab，不改變原本 7 章的概念順序；可依班級熟練度穿插使用。

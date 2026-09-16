@@ -1,0 +1,38 @@
+name: Django project checks
+
+on:
+  push:
+    branches:
+      - master
+      - "chatgpt/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  django:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14.7"
+      - name: Verify runtime versions and Django projects
+        run: |
+          set -e
+          for project in learnboard learnmart learnjournal; do
+            echo "===== $project ====="
+            cd "$project"
+            uv sync --frozen
+            uv run python --version
+            uv run python -m django --version
+            uv run python manage.py check
+            uv run python manage.py makemigrations --check
+            uv run python manage.py test
+            cd ..
+          done

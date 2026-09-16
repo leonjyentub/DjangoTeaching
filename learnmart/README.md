@@ -4,8 +4,8 @@
 
 ## 技術選擇
 
-- Python 3.13，由 uv 管理 `.venv`、依賴與 `uv.lock`
-- Django 5.2 LTS
+- Python 3.14.7，由 uv 管理 `.venv`、依賴與 `uv.lock`
+- Django 6.1.1
 - SQLite
 - Pillow（商品圖片）
 - Bootstrap 5.3 CDN + 少量自訂 CSS，採 mobile-first RWD
@@ -30,9 +30,9 @@ uv run python manage.py runserver
 
 本專案是課程的**第二階段**。第一階段是姊妹專案 [LearnBoard 學言板](../learnboard/)——一個功能完整的個人留言板教學專案，涵蓋帳號、資料庫設計、版面設計與擁有權權限：
 
-- 先備自學教材位於根目錄 `../slides/00a_python_syntax_essentials/` 與 `../slides/00b_html_css_page_basics/`
-- LearnBoard／LearnMart 的原始版本與共用整合版本都已按章整理於 `../slides/`
-- 本專案的商城章節可從共用 Deck 01／02 的 LearnMart 對照頁開始
+- 先備自學教材位於 `../slides/00_python_syntax_essentials/` 與 `../slides/00_html_css_page_basics/`
+- LearnBoard／LearnMart 的原始分章版本與共用整合版本都整理於 `../slides/`
+- 本專案的商城章節可從共用 Deck 01／02 與 LearnMart 原始分章教材交叉對照
 
 全新資料庫第一次執行 `seed_demo` 時會建立示範帳號：
 
@@ -76,37 +76,39 @@ learnmart/
 
 ## 教材主題地圖
 
-課程不綁定固定週次，而是依概念先備關係分成「先備自學（在 LearnBoard 專案）」與兩份主教材。建議順序：00a → 00b → LearnBoard Deck 01／02 → 完整掌握本專案 Deck 01 → 再進入 Deck 02：
+課程不綁定固定週次，而是依概念先備關係分成「先備自學（在 LearnBoard 階段）」與主教材。建議順序：Python 先備 → HTML/CSS 先備 → LearnBoard Deck 01／02 → LearnMart Deck 01 → LearnMart Deck 02：
 
-| 教材 | 頁數 | 性質 | 主題章節 | 完成里程碑 |
-|---|---:|---|---|---|
-| [00a Python 語法先備](../slides/00a_python_syntax_essentials/00_overview.md) | 13 章 | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂兩個專案的 Python |
-| [00b HTML/CSS 先備](../slides/00b_html_css_page_basics/00_overview.md) | 6 章 | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
+| 教材 | 形式 | 性質 | 主題章節 | 完成里程碑 |
+|---|---|---|---|---|
+| [Python 語法先備](../slides/00_python_syntax_essentials/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
+| [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
 | [LearnBoard 01 原始分章教材](../slides/learnboard_01_django_foundations_and_message_board/00_overview.md) | 6 章 | 第一階段原始教材 | HTTP／URL／View、Template、Model、migration、ORM、留言牆 | 對照小型留言板原型 |
 | [LearnBoard 02 原始分章教材](../slides/learnboard_02_forms_auth_and_board_workflows/00_overview.md) | 6 章 | 第一階段原始教材 | 表單、登入、author migration、ownership、安全、測試 | 對照留言板完整流程 |
-| [01 Django 共通基礎](../slides/01_django_foundations_and_two_projects/00_overview.md) | 6 章 | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／migration、ORM、兩種資料驅動頁面 | 能從請求追到資料庫與模板 |
+| [01 Django 共通基礎](../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md) | 單一整合 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／migration、ORM、兩種資料驅動頁面 | 能從請求追到資料庫與模板 |
 | [02 表單、身份驗證與工作流程](../slides/02_forms_auth_and_two_projects/00_overview.md) | 7 章 | 共用主教材 | Form、登入、ownership、購物車、訂單、交易、安全、測試 | 能實作並驗證商城流程 |
+| [LearnMart 01 原始分章教材](../slides/learnmart_01_django_foundations_and_data_backed_catalog/00_overview.md) | 6 章 + summary | 第二階段原始教材 | 商品目錄、資料模型與 ORM | 對照商城資料驅動頁面 |
+| [LearnMart 02 原始分章教材](../slides/learnmart_02_forms_auth_and_marketplace_workflows/00_overview.md) | 7 章 + integration | 第二階段原始教材 | 表單、角色、購物車、訂單與交易 | 對照商城完整 workflow |
 
-主教材每章末附觀念檢核題；解答、實作步驟與前後程式碼節錄在同名的普通 Markdown 實作手冊中。LearnBoard 的教材同樣配有 workbook；先備教材的練習與簡答直接內嵌在投影片中。
+主教材每章末附觀念檢核題；解答、實作步驟與前後程式碼節錄在普通 Markdown 實作手冊中。完整檔案形態與來源對照見 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)。
 
 ## 投影片與實作手冊
 
-根目錄教材已按章拆成獨立 Marp 檔案；概念題解答、實作步驟與前後程式碼節錄放在 `../slides/workbooks/`：
+概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`：
 
 - `../slides/learnmart_01_django_foundations_and_data_backed_catalog/`
 - `../slides/workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md`
 - `../slides/learnmart_02_forms_auth_and_marketplace_workflows/`
 - `../slides/workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md`
 
-圖解資產集中於 `../slides/assets/*.svg`，重製方式與提示詞見 `../slides/diagram_prompts.md`。重複的 SVG 已去重；教材 CSS 與 SVG 使用繁中字型鏈。
+圖解資產集中於 `../slides/assets/*.svg`，重製方式與提示詞見 `../slides/diagram_prompts.md`。教材 CSS 與 SVG 使用繁中字型鏈。
 
-每一章先閱讀投影片中的概念、語法與檢核題，再依章末連結開啟對應手冊。手冊內的程式碼是課堂練習指引，不代表所有練習都已預先套用到目前的 Django 原始碼。主教材的重點頁與先備教材全冊皆含 `<!-- 授課提示 -->` 講者備註（Marp 簡報模式可見）。
+手冊內的程式碼是課堂練習指引，不代表所有練習都已預先套用到目前的 Django 原始碼。主教材的重點頁與先備教材含 `<!-- 授課提示 -->` 講者備註（Marp 簡報模式可見）。
 
-若已安裝 Marp CLI，可在 workspace 根目錄匯出任一章：
+若已安裝 Marp CLI，可在 workspace 根目錄匯出：
 
 ```bash
 marp ../slides/learnmart_01_django_foundations_and_data_backed_catalog/01_chapter_01.md --pdf
-marp ../slides/01_django_foundations_and_two_projects/01_chapter_01.md --pdf
+marp ../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md --pdf
 marp ../slides/02_forms_auth_and_two_projects/01_chapter_01.md --pdf
 ```
 
@@ -126,12 +128,12 @@ uv run python manage.py test
 
 ## 主要參考資料
 
-- [Django 5.2 官方文件](https://docs.djangoproject.com/en/5.2/)
-- [Django 官方入門教學](https://docs.djangoproject.com/en/5.2/intro/tutorial01/)
-- [Django Models and databases](https://docs.djangoproject.com/en/5.2/topics/db/)
-- [Django Authentication](https://docs.djangoproject.com/en/5.2/topics/auth/)
-- [Django Class-based views](https://docs.djangoproject.com/en/5.2/topics/class-based-views/)
-- [Django Testing](https://docs.djangoproject.com/en/5.2/topics/testing/)
+- [Django 6.1.1 官方文件](https://docs.djangoproject.com/en/6.1/)
+- [Django 官方入門教學](https://docs.djangoproject.com/en/6.1/intro/tutorial01/)
+- [Django Models and databases](https://docs.djangoproject.com/en/6.1/topics/db/)
+- [Django Authentication](https://docs.djangoproject.com/en/6.1/topics/auth/)
+- [Django Class-based views](https://docs.djangoproject.com/en/6.1/topics/class-based-views/)
+- [Django Testing](https://docs.djangoproject.com/en/6.1/topics/testing/)
 - [uv Projects](https://docs.astral.sh/uv/guides/projects/)
 - [Bootstrap 5.3 Introduction](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Bootstrap Grid](https://getbootstrap.com/docs/5.3/layout/grid/)
