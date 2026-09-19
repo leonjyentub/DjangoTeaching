@@ -10,6 +10,19 @@ paginate: true
 
 ---
 
+# 先備回顧：資料模型與檔案
+
+[01B 資料模型、ORM 與 Django Admin](../01b_models_orm_and_admin/01b_models_orm_and_admin.md) 已建立本章需要的觀念：
+
+- Model 描述資料；migration 記錄結構的變更。
+- unique／constraint 加入前，既有資料也必須符合規則。
+- ImageField 保存 storage 路徑參照；DB 備份不包含圖片內容。
+- Admin 改資料與修改 schema 不同；後台操作也需權限與紀錄。
+
+本章接著處理正式部署順序、備份及復原。
+
+---
+
 # Migration 是版本化 schema 變更
 
 部署前先確認：

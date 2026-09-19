@@ -59,6 +59,20 @@ Browser → URLconf → View → ORM → Template → Response
 
 ---
 
+## Model、表單與 Admin 的先備連結
+
+若還不熟欄位、關聯或後台，先完成 [01B 詳解](../01b_models_orm_and_admin/01b_models_orm_and_admin.md)。
+
+| 層次 | 責任 | 本冊接續 |
+|---|---|---|
+| Model／Model.Meta | 型別、關聯、排序與資料規則 | 表單驗證與交易 |
+| ModelForm.Meta | model 與可編輯 fields | 自訂前台表單 |
+| ModelAdmin | 內部後台列表與編輯介面 | 與前台權限比較 |
+
+01B 用 Admin 完成第一輪管理；本冊用 View／Form 建立使用者工作流程。
+
+---
+
 ## 本冊最終成果
 
 完成後，你能解釋並追蹤：
@@ -120,12 +134,12 @@ Browser → URLconf → View → ORM → Template → Response
 
 ## 第一次操作建議搭配兩份補充
 
-若學生第一次真正自己輸入 Django 指令、POST 表單與測試，建議在主教材之外加入：
+若學生第一次操作 Django 指令、POST 表單與測試，可穿插本檔後半已整合的內容：
 
-- [`10_first_contact_forms_auth_testing_lab.md`](10_first_contact_forms_auth_testing_lab.md)：DevTools、POST/CSRF、PRG、session/auth、403/404、`refresh_from_db()`、單支測試與 failure 分類。
-- [`11_django_template_language_practical_toolbox.md`](11_django_template_language_practical_toolbox.md)：時間、相對時間、過長文字、humanize、querystring 分頁、集合呈現與 template security。
+- **「從 HTML Form 到 Database Change」**：DevTools、POST/CSRF、PRG、session/auth、403/404、`refresh_from_db()`、單支測試與 failure 分類。
+- **「實用工具箱」**：時間、相對時間、過長文字、humanize、querystring 分頁、集合呈現與 template security。
 
-這兩份是補充 lab，不改變原本 7 章的概念順序；可依班級熟練度穿插使用。
+這兩部分是補充 lab，不改變原本 7 章的概念順序；可依班級熟練度穿插使用。
 
 ---
 

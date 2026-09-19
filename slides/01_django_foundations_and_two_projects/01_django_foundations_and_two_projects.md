@@ -2131,6 +2131,19 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 ---
 
+## 資料模型與 Admin 詳解：01B
+
+初次學習請在本章搭配 [01B 資料模型、ORM 與 Django Admin](../01b_models_orm_and_admin/01b_models_orm_and_admin.md)。
+
+- 從空專案建立第一組 Model、資料表與管理後台。
+- 完整說明主鍵、唯一性、文字／數字／時間／slug／圖片欄位。
+- 說明一對一、一對多、多對多與 Meta 的設定。
+- 用 LearnBoard／LearnMart 對照 CRUD、關聯查詢與 Admin。
+
+本冊第 4～5 章保留為摘要複習；初學者先完成 01B，再回第 6 章組合頁面。
+
+---
+
 <!-- _class: cover -->
 
 # 第四章

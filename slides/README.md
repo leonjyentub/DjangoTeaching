@@ -8,12 +8,11 @@
 2. [HTML/CSS 先備](00_html_css_page_basics/00_html_css_page_basics.md)（目前為單一 Marp）
 3. [01 Django 共通基礎](01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md)（單一整合 Marp）
    - [第一次實作／除錯補充](01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md)
-4. [02 表單、身份驗證與工作流程](02_forms_auth_and_two_projects/00_overview.md)（7 章分檔）
-   - [第一次表單／Auth／測試補充](02_forms_auth_and_two_projects/10_first_contact_forms_auth_testing_lab.md)
-   - [Django Template Language 實用工具箱](02_forms_auth_and_two_projects/11_django_template_language_practical_toolbox.md)
-5. [LearnJournal 01 內容模型與發佈](learnjournal_01_content_model_and_publishing/00_overview.md)（6 章分檔；第三階段 03A）
-6. [LearnJournal 02 傳播、效能與帳號](learnjournal_02_distribution_performance_and_accounts/00_overview.md)（7 章分檔；第三階段 03B）
-7. [03 Deployment / Operations](03_deployment_and_operations/00_overview.md)（跨三專案共用；6 章）
+4. [01B 資料模型、ORM 與 Django Admin 詳解](01b_models_orm_and_admin/01b_models_orm_and_admin.md)（初學者完整教學；01 第 3 章後使用，原第 4～5 章作摘要複習）
+5. [02 表單、身份驗證與工作流程](02_forms_auth_and_two_projects/02_forms_auth_and_two_projects.md)（單一整合 Marp，含第一次實作與 DTL 補充）
+6. [LearnJournal 01 內容模型與發佈](learnjournal_01_content_model_and_publishing/00_overview.md)（6 章分檔；第三階段 03A）
+7. [LearnJournal 02 傳播、效能與帳號](learnjournal_02_distribution_performance_and_accounts/00_overview.md)（7 章分檔；第三階段 03B）
+8. [03 Deployment / Operations](03_deployment_and_operations/00_overview.md)（跨三專案共用；6 章）
 
 ## 三條實作路線
 
@@ -55,7 +54,8 @@ GitHub Actions 的 `.github/workflows/material-links.yml` 也會在 PR 與 `mast
 
 - `learnboard_*`／`learnmart_*`：各專案來源教材整理出的分章版本。
 - `01_*_two_projects`：LearnBoard × LearnMart 的共通基礎整合版，主教材目前為單一 Marp，另加 first-contact 補充 lab。
-- `02_*_two_projects`：LearnBoard × LearnMart 的整合分章版，另加 first-contact 與 DTL 實用補充。
+- `01b_models_orm_and_admin`：完整 Model／ORM／Admin 教學；[內容與來源索引](01b_models_orm_and_admin/README.md)。
+- `02_*_two_projects`：LearnBoard × LearnMart 的單檔整合版，含 first-contact 與 DTL 實用補充。
 - `learnjournal_*`：第三階段教材，03A / 03B 都直接以分章形式撰寫。
 - `03_deployment_and_operations/`：跨三專案的 production / operations 收尾單元。
 
