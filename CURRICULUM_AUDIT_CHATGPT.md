@@ -70,7 +70,7 @@ Workbook：[`slides/workbooks/learnjournal_02_distribution_performance_and_accou
 
 ## 4. P2 Deployment / Operations（本 branch 已完成）
 
-新增跨三專案共用單元：[`slides/03_deployment_and_operations/`](slides/03_deployment_and_operations/)
+新增跨三專案共用單元，現已收進[Django 連續教學教材的部署章節](slides/16_部署設定與正式環境.md)（第 22～24 章）與[服務運行與發布維護](slides/17_服務運行與發布維護.md)（第 25～27 章）。
 
 六章：
 
@@ -89,7 +89,7 @@ Workbook：[`slides/workbooks/03_deployment_and_operations_workbook.md`](slides/
 
 ### Django 01 補充
 
-[`slides/01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md`](slides/01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md)
+此 lab 內容已分散併入[Django 連續教學教材](slides/01_開發環境與專案建立.md)的環境、路由、模板、migration 與測試各章（原 [`slides/01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md`](slides/SOURCE_MAP.md) 來源已整併移除）。
 
 新增重點：
 
@@ -101,7 +101,7 @@ Workbook：[`slides/workbooks/03_deployment_and_operations_workbook.md`](slides/
 
 ### Django 02 補充
 
-[`slides/02_forms_auth_and_two_projects/10_first_contact_forms_auth_testing_lab.md`](slides/02_forms_auth_and_two_projects/10_first_contact_forms_auth_testing_lab.md)
+此 lab 內容已分散併入連續教材的[表單與資料驗證](slides/09_表單與資料驗證.md)、[帳號登入與Session](slides/10_帳號登入與Session.md)及[安全與回歸測試整合](slides/15_安全與回歸測試整合.md)（當時規劃的 `10_first_contact_forms_auth_testing_lab.md` 未以獨立檔產生）。
 
 新增重點：
 
@@ -114,7 +114,7 @@ Workbook：[`slides/workbooks/03_deployment_and_operations_workbook.md`](slides/
 
 ## 6. Django Template Language 補強
 
-新增：[`slides/02_forms_auth_and_two_projects/11_django_template_language_practical_toolbox.md`](slides/02_forms_auth_and_two_projects/11_django_template_language_practical_toolbox.md)
+新增：[`slides/08_DTL進階與元件整理.md`](slides/08_DTL進階與元件整理.md)（原規劃的 `11_django_template_language_practical_toolbox.md` 未以獨立檔產生）
 
 依 Django 6.1.1 官方文件與常用情境補充：
 

@@ -1,0 +1,8146 @@
+{
+  "schema": 1,
+  "description": "27 章 / 17 份可編輯 Marp；每筆來源投影片均有保留或合併去向",
+  "note": "連續授課教材於 2026-09-19 由 slides/django_course/ 移到 slides/ 根目錄；原始四個資料夾（01、01B、02、03）已移除。下方 sources.path 記錄整合當時的原始位置，保留 sha256 供稽核；原文可於 git 歷史取得。",
+  "sources": {
+    "A": {
+      "path": "slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md",
+      "sha256": "62516c8bbe979a5685ab7b4171e7efb239ca78c9865c36404698cd27689fcf75",
+      "slides": 154
+    },
+    "L": {
+      "path": "slides/01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md",
+      "sha256": "610d8d823191035bf329ce75a34758505f7268cccb52a7f874f8eef696f98434",
+      "slides": 22
+    },
+    "B": {
+      "path": "slides/01b_models_orm_and_admin/01b_models_orm_and_admin.md",
+      "sha256": "4e03257344d098abb30aeceb17d5c751e0ba37df6b9988b36cc0a2737ffffdd5",
+      "slides": 116
+    },
+    "C": {
+      "path": "slides/02_forms_auth_and_two_projects/02_forms_auth_and_two_projects.md",
+      "sha256": "b8856f3928e45118d7417aa2d23f1dcf672a8cd540b972087ad58266e3bbf76f",
+      "slides": 253
+    },
+    "D0": {
+      "path": "slides/03_deployment_and_operations/00_overview.md",
+      "sha256": "bf7751799ebb59f165095a948785c0ac4c947a6839cc666b96dc32d78e8b0a3a",
+      "slides": 6
+    },
+    "D1": {
+      "path": "slides/03_deployment_and_operations/01_settings_and_environment.md",
+      "sha256": "3c4aec80c6696f79bdd2f320e14c01a0d827da3c49f0e39405dc10ad95b1c114",
+      "slides": 8
+    },
+    "D2": {
+      "path": "slides/03_deployment_and_operations/02_static_media_database.md",
+      "sha256": "a6962d4718a5b66d0ae4762a262a0b802be7e8c37ebcda05959cfad40abb7191",
+      "slides": 9
+    },
+    "D3": {
+      "path": "slides/03_deployment_and_operations/03_security_and_check_deploy.md",
+      "sha256": "789f5e10b746ac9865dd8f2afb89b08707b403d96ed1f725ed0b257db3994750",
+      "slides": 8
+    },
+    "D4": {
+      "path": "slides/03_deployment_and_operations/04_process_proxy_logging.md",
+      "sha256": "0d780ecd3968ae4d560885bcbcc8b3d841b76adb0e6db55e77037ab2b4599400",
+      "slides": 10
+    },
+    "D5": {
+      "path": "slides/03_deployment_and_operations/05_migrations_backup_recovery.md",
+      "sha256": "0c37575c8cfca653a7de5f6339658fa4edb65e3b7ab41b862b79da8f6a28f4e1",
+      "slides": 10
+    },
+    "D6": {
+      "path": "slides/03_deployment_and_operations/06_ci_and_release_checklist.md",
+      "sha256": "72c83536b327a6862c5eff34486db44302b2e9a5ca1c009210e7a0ebc7785a7f",
+      "slides": 9
+    },
+    "D7": {
+      "path": "slides/03_deployment_and_operations/07_summary.md",
+      "sha256": "1585e645fe5734a01252839eb0c598e97fa07ce40c5950a2b50c9173360f91f6",
+      "slides": 5
+    }
+  },
+  "files": [
+    {
+      "file": "01_開發環境與專案建立.md",
+      "chapters": [
+        1,
+        2
+      ],
+      "slides": 53,
+      "sha256": "468855a5c1c5638801f7cc4477851e18cf5930be5333c635e554c09cba4b3a19"
+    },
+    {
+      "file": "02_HTTP路由與View.md",
+      "chapters": [
+        3
+      ],
+      "slides": 37,
+      "sha256": "83688b9c2f99383716d3377a921dfefde18448c29633ccbcca705e0ff0d02a63"
+    },
+    {
+      "file": "03_Template與頁面呈現.md",
+      "chapters": [
+        4,
+        5
+      ],
+      "slides": 45,
+      "sha256": "9dacf237139c01d32462f21c3582b5f032d7e0218d323edab20b4fcc5be9fe7b"
+    },
+    {
+      "file": "04_Model與欄位設計.md",
+      "chapters": [
+        6,
+        7
+      ],
+      "slides": 60,
+      "sha256": "6bb7e6d97746ec6e3301f0c80575698f2f5dccc63ac9e1d207fdfed05fdc62cc"
+    },
+    {
+      "file": "05_模型關聯與Migration.md",
+      "chapters": [
+        8,
+        9
+      ],
+      "slides": 42,
+      "sha256": "e4b8c3f34b46ea5954ba45a2b2a72fb13b1ec3b8c3579f84643cf93ea824def1"
+    },
+    {
+      "file": "06_ORM與Admin.md",
+      "chapters": [
+        10,
+        11
+      ],
+      "slides": 49,
+      "sha256": "383dd82365daa05b103c2bbdda68d622ceb8f4b6ad7c843f1106a155b2e96abd"
+    },
+    {
+      "file": "07_資料列表搜尋與分頁.md",
+      "chapters": [
+        12,
+        13
+      ],
+      "slides": 56,
+      "sha256": "2a2fd91c9a1bc1b48ab54c64aa72596060ffc17fbdbd08fa00cc110842b2142e"
+    },
+    {
+      "file": "08_DTL進階與元件整理.md",
+      "chapters": [
+        14
+      ],
+      "slides": 42,
+      "sha256": "1d19f11525ce177bd7f0c5b2ce2186c6375aef2b3d96ef7118e6848eb874fa66"
+    },
+    {
+      "file": "09_表單與資料驗證.md",
+      "chapters": [
+        15
+      ],
+      "slides": 38,
+      "sha256": "48d4acc844342373e515d8ab893f078d08099b0ab32215fa3b98a5f6f39b0db9"
+    },
+    {
+      "file": "10_帳號登入與Session.md",
+      "chapters": [
+        16
+      ],
+      "slides": 27,
+      "sha256": "4e34201f98daff682292f026c2690a233ad073f0da40294e6f13009c086c255b"
+    },
+    {
+      "file": "11_CRUD與物件權限.md",
+      "chapters": [
+        17
+      ],
+      "slides": 23,
+      "sha256": "8c57704d71ae47fc5bbba269ccc3f5db1619f0f7f9a8747da8ebc6952f0a0680"
+    },
+    {
+      "file": "12_購物車與流程測試.md",
+      "chapters": [
+        18
+      ],
+      "slides": 36,
+      "sha256": "75da42f902d6f394490f30fb96bfe6076a71363fcf70b3694a06a5654ce72503"
+    },
+    {
+      "file": "13_訂單結帳與交易.md",
+      "chapters": [
+        19
+      ],
+      "slides": 35,
+      "sha256": "33c70d244a7d5a24770a0581dfa1cdfd7a8b15e9bc1ecd14b2c9b090402d4f02"
+    },
+    {
+      "file": "14_出貨評價與狀態規則.md",
+      "chapters": [
+        20
+      ],
+      "slides": 22,
+      "sha256": "a5b86f073bf73715f18a76f402eab1ed33efacdbab79b4b2a0bd56fc87a63287"
+    },
+    {
+      "file": "15_安全與回歸測試整合.md",
+      "chapters": [
+        21
+      ],
+      "slides": 31,
+      "sha256": "81faf002c16e970b8aa0ffe3211a02bb0308484c03e7d526d83f07bdae8f9c05"
+    },
+    {
+      "file": "16_部署設定與正式環境.md",
+      "chapters": [
+        22,
+        23,
+        24
+      ],
+      "slides": 41,
+      "sha256": "6815d97dce789fb308e45baf284d2c509aaaabdcc62703c34882f0705a28cb57"
+    },
+    {
+      "file": "17_服務運行與發布維護.md",
+      "chapters": [
+        25,
+        26,
+        27
+      ],
+      "slides": 42,
+      "sha256": "92aaf2e56c479d1f66c65690e19a074baa166b314ea50e60728f4edd7323be7c"
+    }
+  ],
+  "source_slides": [
+    {
+      "source": "A",
+      "source_slide": 1,
+      "source_line": 9,
+      "title": "Django 01 / 專案的共通基礎",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 2,
+      "source_line": 20,
+      "title": "0-1 這份整合教材服務哪兩個專案？",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 3,
+      "source_line": 40,
+      "title": "0-2 學完後要能讀懂什麼？",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 4,
+      "source_line": 59,
+      "title": "0-3 課程地圖：基礎、資料層與頁面整合",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 5,
+      "source_line": 74,
+      "title": "0-4 學習方式：每章都走同一個循環",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 6,
+      "source_line": 90,
+      "title": "0-5 兩個專案的讀檔路線",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 7,
+      "source_line": 106,
+      "title": "第一章 / 環境準備、專案骨架與開發伺服器",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 8,
+      "source_line": 120,
+      "title": "1-0 第一章學習順序與各段成果",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 9,
+      "source_line": 135,
+      "title": "1-1 先認識 uv：管理 Python 專案的工具",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 5,
+        "section": "1-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 10,
+      "source_line": 152,
+      "title": "1-2 安裝 uv，再重新開啟終端機",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 6,
+        "section": "1-2"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 11,
+      "source_line": 175,
+      "title": "1-3 venv 與 `.venv/` 是什麼？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 7,
+        "section": "1-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 12,
+      "source_line": 192,
+      "title": "1-4 Python：真正執行程式的直譯器",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 8,
+        "section": "1-4"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 13,
+      "source_line": 210,
+      "title": "1-5 建立自己的空練習資料夾",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 10,
+        "section": "1-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 14,
+      "source_line": 230,
+      "title": "1-6 初始化 Python 專案與虛擬環境",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 11,
+        "section": "1-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 15,
+      "source_line": 249,
+      "title": "1-7 確認執行的是哪一個 Python",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 12,
+        "section": "1-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 16,
+      "source_line": 266,
+      "title": "1-8 安裝 Django，確認 django-admin 可用",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 14,
+        "section": "1-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 17,
+      "source_line": 284,
+      "title": "1-9 `python -m` 到底是什麼？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 15,
+        "section": "1-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 18,
+      "source_line": 303,
+      "title": "1-10 傳統 venv：另一種環境準備方式",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 16,
+        "section": "1-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 19,
+      "source_line": 338,
+      "title": "1-11 先分清楚 project 與 app",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 26,
+        "section": "2-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 20,
+      "source_line": 355,
+      "title": "1-12 用 django-admin 建立 project",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 27,
+        "section": "2-2"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 21,
+      "source_line": 374,
+      "title": "1-13 透過 manage.py 建立第一個 app",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 28,
+        "section": "2-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 22,
+      "source_line": 392,
+      "title": "1-14 先看外層：每一項由誰建立？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 29,
+        "section": "2-4"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 23,
+      "source_line": 410,
+      "title": "1-15 config：網站共用設定與入口",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 30,
+        "section": "2-5"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 24,
+      "source_line": 425,
+      "title": "1-16 pages：功能程式從這裡開始",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 31,
+        "section": "2-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 25,
+      "source_line": 441,
+      "title": "1-17 `manage.py` 如何知道要用哪份設定？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 32,
+        "section": "2-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 26,
+      "source_line": 462,
+      "title": "1-18 Git：記錄你每次完成的修改",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 33,
+        "section": "2-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 27,
+      "source_line": 482,
+      "title": "1-19 `.gitignore`：哪些檔案可以重建？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 34,
+        "section": "2-9"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 28,
+      "source_line": 502,
+      "title": "1-20 保存第一個可比較的版本",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 35,
+        "section": "2-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 29,
+      "source_line": 520,
+      "title": "1-21 三個環境檔案各管什麼？",
+      "status": "adapted",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 17,
+        "section": "1-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 30,
+      "source_line": 534,
+      "title": "1-22 讀懂 pyproject.toml 的基本語法",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 18,
+        "section": "1-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 31,
+      "source_line": 554,
+      "title": "1-23 版本範圍與鎖檔的精確版本",
+      "status": "adapted",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 19,
+        "section": "1-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 32,
+      "source_line": 570,
+      "title": "1-24 直接依賴、開發依賴與同步",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 20,
+        "section": "1-16"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 33,
+      "source_line": 589,
+      "title": "1-25 settings 是 Python：先註冊自己的 app",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 36,
+        "section": "2-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 34,
+      "source_line": 612,
+      "title": "1-26 settings 地圖：先知道要去哪裡找",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 37,
+        "section": "2-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 35,
+      "source_line": 628,
+      "title": "1-27 settings 地圖：資料、語言與靜態資源",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 38,
+        "section": "2-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 36,
+      "source_line": 644,
+      "title": "1-28 App 註冊與 template 搜尋的差別",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 39,
+        "section": "2-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 37,
+      "source_line": 663,
+      "title": "1-29 本機開發設定的使用邊界",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 40,
+        "section": "2-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 38,
+      "source_line": 681,
+      "title": "1-30 資料庫：持續保存網站資料",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 41,
+        "section": "2-16"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 39,
+      "source_line": 702,
+      "title": "1-31 第一次 migrate：建立內建功能的資料表",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 43,
+        "section": "2-18"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 40,
+      "source_line": 722,
+      "title": "1-32 分清楚之後會用到的資料指令",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 44,
+        "section": "2-19"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 41,
+      "source_line": 737,
+      "title": "1-33 啟動開發伺服器",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 45,
+        "section": "2-20"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 42,
+      "source_line": 758,
+      "title": "1-34 第一次 preview：看到 Django 歡迎頁",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 46,
+        "section": "2-21"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 43,
+      "source_line": 774,
+      "title": "1-35 啟動前後的檢查不能互相取代",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 47,
+        "section": "2-22"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 44,
+      "source_line": 789,
+      "title": "第二章 / HTTP 協定、URL 路由與 View 視圖",
+      "status": "consolidated",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 45,
+      "source_line": 800,
+      "title": "2-1 HTTP：瀏覽器與伺服器交換訊息",
+      "status": "adapted",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 5,
+        "section": "3-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 46,
+      "source_line": 851,
+      "title": "2-2 拆開網址，找出路由真正比對的部分",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 7,
+        "section": "3-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 47,
+      "source_line": 869,
+      "title": "2-3 在 Network 看見 request 與 response",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 8,
+        "section": "3-4"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 48,
+      "source_line": 886,
+      "title": "2-4 常見 response status",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 9,
+        "section": "3-5"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 49,
+      "source_line": 900,
+      "title": "2-5 第一個 View：先回傳固定文字",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 10,
+        "section": "3-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 50,
+      "source_line": 920,
+      "title": "2-6 自行新增 app 的 urls.py",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 11,
+        "section": "3-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 51,
+      "source_line": 941,
+      "title": "2-7 `path()` 四個重要位置",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 12,
+        "section": "3-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 52,
+      "source_line": 956,
+      "title": "2-8 把 project URL 接到 app URL",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 13,
+        "section": "3-9"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 53,
+      "source_line": 976,
+      "title": "2-9 立刻驗收：第一個頁面確實可用",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 14,
+        "section": "3-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 54,
+      "source_line": 995,
+      "title": "2-10 動態路徑：把網址片段傳入函式",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 15,
+        "section": "3-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 55,
+      "source_line": 1015,
+      "title": "2-11 常用 converter",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 16,
+        "section": "3-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 56,
+      "source_line": 1036,
+      "title": "2-12 Query string 由 request.GET 讀取",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 17,
+        "section": "3-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 57,
+      "source_line": 1058,
+      "title": "2-13 命名 URL：把名稱與路徑分開 / urlpatterns 內：",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 18,
+        "section": "3-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 58,
+      "source_line": 1078,
+      "title": "2-14 在 Python 反向產生網址",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 19,
+        "section": "3-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 59,
+      "source_line": 1099,
+      "title": "2-15 在 template 反向產生網址",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 20,
+        "section": "3-16"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 60,
+      "source_line": 1116,
+      "title": "2-16 `HttpResponse` 與安全顯示",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 21,
+        "section": "3-17"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 61,
+      "source_line": 1135,
+      "title": "2-17 需要 HTML 時，明確處理使用者輸入",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 22,
+        "section": "3-18"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 62,
+      "source_line": 1155,
+      "title": "2-18 追蹤一次最小 request 的旅程",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 23,
+        "section": "3-19"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 63,
+      "source_line": 1175,
+      "title": "2-19 404 與 500：沿著流程找問題",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 24,
+        "section": "3-20"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 64,
+      "source_line": 1192,
+      "title": "2-20 按順序排除常見問題",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 25,
+        "section": "3-21"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 65,
+      "source_line": 1208,
+      "title": "2-21 把驗收寫進 tests.py",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 26,
+        "section": "3-22"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 66,
+      "source_line": 1230,
+      "title": "2-22 再確認動態網址、query 與 404",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 27,
+        "section": "3-23"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 67,
+      "source_line": 1252,
+      "title": "2-23 先完成自己的練習，再進行專案對照",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 31,
+        "section": "3-27"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 68,
+      "source_line": 1267,
+      "title": "2-24 現在才打開 LearnBoard × LearnMart",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 23,
+        "section": "6-19"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 69,
+      "source_line": 1284,
+      "title": "2-25 教材根目錄與 Django 應用根目錄",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 24,
+        "section": "6-20"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 70,
+      "source_line": 1304,
+      "title": "2-26 環境對照：共同版本與 Pillow 差異",
+      "status": "adapted",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 25,
+        "section": "6-21"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 71,
+      "source_line": 1322,
+      "title": "2-27 實際 TOML 節錄可以這樣讀",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 26,
+        "section": "6-22"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 72,
+      "source_line": 1346,
+      "title": "2-28 settings 對照：先找共同設定",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 27,
+        "section": "6-23"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 73,
+      "source_line": 1362,
+      "title": "2-29 settings 對照：功能增加後的差異",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 28,
+        "section": "6-24"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 74,
+      "source_line": 1378,
+      "title": "2-30 建立指令：完成專案只讀取，不再重跑 / LearnBoard 骨架的等價建立指令（只供對照）",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 29,
+        "section": "6-25"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 75,
+      "source_line": 1398,
+      "title": "2-31 從完成專案啟動",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 30,
+        "section": "6-26"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 76,
+      "source_line": 1420,
+      "title": "2-32 `seed_demo` 建立哪些資料？",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 31,
+        "section": "6-27"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 77,
+      "source_line": 1437,
+      "title": "2-33 預覽完成專案並記錄結果",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 32,
+        "section": "6-28"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 78,
+      "source_line": 1454,
+      "title": "2-34 URL、View 與反向解析的實際對照",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 33,
+        "section": "6-29"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 79,
+      "source_line": 1470,
+      "title": "2-35 對照動態路由與反向產生網址",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 34,
+        "section": "6-30"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 80,
+      "source_line": 1493,
+      "title": "2-36 從文字回應走向資料頁",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 32,
+        "section": "3-28"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 81,
+      "source_line": 1501,
+      "title": "2-37 從自己的最小流程擴充到完整頁面",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 33,
+        "section": "3-29"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 82,
+      "source_line": 1517,
+      "title": "2-38 專案對照實作：先找檔案，再說明理由",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 8,
+        "section": "12-4"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 83,
+      "source_line": 1531,
+      "title": "2-39 兩個首頁目前各自做了哪些事？",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 52,
+        "section": "13-28"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 84,
+      "source_line": 1548,
+      "title": "2-40 從一個 `Message` 到商城的關聯圖",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 18,
+        "section": "8-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 85,
+      "source_line": 1561,
+      "title": "2-41 專案版教材如何接續使用",
+      "status": "consolidated",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 86,
+      "source_line": 1576,
+      "title": "2-42 觀念檢核：環境與啟動",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 51,
+        "section": "2-26"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 87,
+      "source_line": 1591,
+      "title": "2-43 觀念檢核：URL 與 request flow",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 34,
+        "section": "3-30"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 88,
+      "source_line": 1606,
+      "title": "2-44 查閱來源與參考資料",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 35,
+        "section": "3-31"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 89,
+      "source_line": 1618,
+      "title": "第三章 / Template、static 與響應式頁面",
+      "status": "consolidated",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 90,
+      "source_line": 1633,
+      "title": "3-1 從字串 response 到 template",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 5,
+        "section": "4-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 91,
+      "source_line": 1651,
+      "title": "3-2 `render()` 的三個核心參數",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 6,
+        "section": "4-2"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 92,
+      "source_line": 1687,
+      "title": "3-2 步驟 A：MVT 心智模型",
+      "status": "adapted",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 7,
+        "section": "4-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 93,
+      "source_line": 1697,
+      "title": "3-2 步驟 B：MVT 如何分工圖解",
+      "status": "adapted",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 9,
+        "section": "4-5"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 94,
+      "source_line": 1707,
+      "title": "3-3 Template 到底放在哪裡？",
+      "status": "adapted",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 10,
+        "section": "4-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 95,
+      "source_line": 1733,
+      "title": "3-4 三種 Django template delimiter",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 11,
+        "section": "4-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 96,
+      "source_line": 1755,
+      "title": "3-5 變數與 dot lookup",
+      "status": "adapted",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 12,
+        "section": "4-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 97,
+      "source_line": 1780,
+      "title": "3-6 Template autoescaping 的正確邊界",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 13,
+        "section": "4-9"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 98,
+      "source_line": 1800,
+      "title": "3-7 Filter：改變顯示，不改資料庫",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 14,
+        "section": "4-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 99,
+      "source_line": 1819,
+      "title": "3-8 `if`：依狀態決定顯示",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 15,
+        "section": "4-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 100,
+      "source_line": 1837,
+      "title": "3-9 `for` 與 `{% empty %}`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 16,
+        "section": "4-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 101,
+      "source_line": 1854,
+      "title": "3-10 URL tag 接回上一章的命名路由",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 17,
+        "section": "4-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 102,
+      "source_line": 1871,
+      "title": "3-11 Template inheritance：先看 parent",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 30,
+        "section": "5-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 103,
+      "source_line": 1895,
+      "title": "3-12 Template inheritance：再看 child",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 31,
+        "section": "5-2"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 104,
+      "source_line": 1917,
+      "title": "3-13 `include` 與 `extends` 的工作不同",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 32,
+        "section": "5-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 105,
+      "source_line": 1933,
+      "title": "3-14 static：開發者提供的固定資產",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 33,
+        "section": "5-4"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 106,
+      "source_line": 1954,
+      "title": "3-15 static 與 media 不要混淆",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 34,
+        "section": "5-5"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 107,
+      "source_line": 1973,
+      "title": "3-16 Bootstrap 與 Django 各做什麼？",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 35,
+        "section": "5-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 108,
+      "source_line": 1991,
+      "title": "3-17 viewport 為何必須放在 `<head>`？",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 36,
+        "section": "5-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 109,
+      "source_line": 2005,
+      "title": "3-18 Bootstrap grid 的 12 欄心智模型",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 37,
+        "section": "5-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 110,
+      "source_line": 2023,
+      "title": "3-19 Mobile-first：breakpoint 代表「以上」",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 38,
+        "section": "5-9"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 111,
+      "source_line": 2042,
+      "title": "3-20 商品網格：完整父子結構",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 39,
+        "section": "5-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 112,
+      "source_line": 2062,
+      "title": "3-21 Utility class 要讀成組合語言",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 40,
+        "section": "5-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 113,
+      "source_line": 2080,
+      "title": "3-22 語意與無障礙不是最後才補",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 41,
+        "section": "5-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 114,
+      "source_line": 2095,
+      "title": "3-23 常見 template 問題如何定位？",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 42,
+        "section": "5-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 115,
+      "source_line": 2109,
+      "title": "第三章｜觀念檢核與實作",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 5,
+        "slide": 43,
+        "section": "5-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 116,
+      "source_line": 2127,
+      "title": "4-1 資料模型銜接：頁面的資料從哪裡來？",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 5,
+        "section": "6-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 117,
+      "source_line": 2142,
+      "title": "4-2 專案導覽：先看資料之間的關係",
+      "status": "adapted",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 19,
+        "section": "8-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 118,
+      "source_line": 2151,
+      "title": "4-3 學習路線：在 01B 完成資料層",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 119,
+      "source_line": 2167,
+      "title": "5-1 回到頁面前：資料層檢核",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 5,
+        "section": "12-1"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 120,
+      "source_line": 2183,
+      "title": "5-2 整合準備：後台資料與前台頁面",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 6,
+        "section": "12-2"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 121,
+      "source_line": 2197,
+      "title": "5-3 整合任務：沿著一筆資料追蹤頁面",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 7,
+        "section": "12-3"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 122,
+      "source_line": 2214,
+      "title": "第六章 / 組合成可搜尋的資料驅動商品目錄",
+      "status": "consolidated",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 123,
+      "source_line": 2229,
+      "title": "6-1 步驟 A：Vertical slice 前半（Request 轉 QuerySet）",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 45,
+        "section": "13-21"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 124,
+      "source_line": 2249,
+      "title": "6-1 步驟 B：Vertical slice 後半（Context 轉 HTML）",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 46,
+        "section": "13-22"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 125,
+      "source_line": 2269,
+      "title": "6-2 先用 Function View 看清全部責任",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 9,
+        "section": "12-5"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 126,
+      "source_line": 2289,
+      "title": "6-3 List 與 Detail 是兩種不同查詢形狀 / List",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 10,
+        "section": "12-6"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 127,
+      "source_line": 2325,
+      "title": "6-4 `get_object_or_404` 做了什麼？",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 11,
+        "section": "12-7"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 128,
+      "source_line": 2347,
+      "title": "6-5 GET 搜尋表單先建立 URL 狀態",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 12,
+        "section": "12-8"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 129,
+      "source_line": 2373,
+      "title": "6-6 Query string 由 `request.GET` 讀取",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 13,
+        "section": "12-9"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 130,
+      "source_line": 2393,
+      "title": "6-7 搜尋名稱或說明",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 14,
+        "section": "12-10"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 131,
+      "source_line": 2414,
+      "title": "6-8 把搜尋字串送回 template",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 15,
+        "section": "12-11"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 132,
+      "source_line": 2436,
+      "title": "6-9 分類篩選同樣是 GET state",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 16,
+        "section": "12-12"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 133,
+      "source_line": 2461,
+      "title": "6-10 步驟 A：多個 query parameters 連結語法",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 17,
+        "section": "12-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 134,
+      "source_line": 2479,
+      "title": "6-10 步驟 B：辨識目前 UI 的狀態保持邊界",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 18,
+        "section": "12-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 135,
+      "source_line": 2493,
+      "title": "6-11 Pagination 是 QuerySet 與 UI 的共同狀態",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 43,
+        "section": "13-19"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 136,
+      "source_line": 2521,
+      "title": "6-12 `include` 適合抽出分頁 UI",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 44,
+        "section": "13-20"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 137,
+      "source_line": 2543,
+      "title": "6-13 商品卡會讀 relation，所以先載入",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 19,
+        "section": "12-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 138,
+      "source_line": 2564,
+      "title": "6-14 圖片、fallback 與 alt 要在同一段理解",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 20,
+        "section": "12-16"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 139,
+      "source_line": 2584,
+      "title": "6-15 空結果不是錯誤，是正常 UI state",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12,
+        "slide": 21,
+        "section": "12-17"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 140,
+      "source_line": 2603,
+      "title": "6-16 步驟 A：從 Function View 收斂至 LearnMart",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 41,
+        "section": "13-17"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 141,
+      "source_line": 2625,
+      "title": "6-16 步驟 B：目前 source 的 query state 優化細節",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 42,
+        "section": "13-18"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 142,
+      "source_line": 2642,
+      "title": "6-17 步驟 A：完整 request flow 逐層解析",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 47,
+        "section": "13-23"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 143,
+      "source_line": 2657,
+      "title": "6-17 步驟 B：圖解 Catalog 的完整資料流",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 48,
+        "section": "13-24"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 144,
+      "source_line": 2667,
+      "title": "6-18 步驟 A：手動驗證 catalog 行為",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 49,
+        "section": "13-25"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 145,
+      "source_line": 2685,
+      "title": "6-18 步驟 B：用 focused test 固定搜尋行為",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 50,
+        "section": "13-26"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 146,
+      "source_line": 2705,
+      "title": "第六章｜觀念檢核與實作",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 51,
+        "section": "13-27"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 147,
+      "source_line": 2723,
+      "title": "第七章 / LearnBoard 留言板對照實作",
+      "status": "consolidated",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 148,
+      "source_line": 2734,
+      "title": "7-1 同一個 vertical slice，資料領域不同",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 37,
+        "section": "13-13"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 149,
+      "source_line": 2755,
+      "title": "列表比較表",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 38,
+        "section": "13-14"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 150,
+      "source_line": 2763,
+      "title": "7-2 專案對照：用資料規則解讀留言牆",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 39,
+        "section": "13-15"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 151,
+      "source_line": 2779,
+      "title": "7-3 LearnBoard 的搜尋與模板輸出",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 40,
+        "section": "13-16"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 152,
+      "source_line": 2803,
+      "title": "課程總結 / 共通基礎回顧與下一階段地圖",
+      "status": "consolidated",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 12
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "A",
+      "source_slide": 153,
+      "source_line": 2814,
+      "title": "總結-1 你已經能追蹤資料驅動頁面",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 53,
+        "section": "13-29"
+      }
+    },
+    {
+      "source": "A",
+      "source_slide": 154,
+      "source_line": 2831,
+      "title": "總結-2 下一份教材會加入什麼？",
+      "status": "adapted",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 54,
+        "section": "13-30"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 1,
+      "source_line": 9,
+      "title": "Django 01 補充 Lab / 第一次從 Terminal 走到 Django Page",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "L",
+      "source_slide": 2,
+      "source_line": 18,
+      "title": "0. 每次先確認「我在哪裡」",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 9,
+        "section": "1-5"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 3,
+      "source_line": 40,
+      "title": "1. `uv sync` 到底做什麼？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 21,
+        "section": "1-17"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 4,
+      "source_line": 57,
+      "title": "2. `uv run` 的心智模型",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 13,
+        "section": "1-9"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 5,
+      "source_line": 75,
+      "title": "3. 第一次先跑 `check`",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 48,
+        "section": "2-23"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 6,
+      "source_line": 91,
+      "title": "4. Migration 三步驟不要背成一團",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 37,
+        "section": "9-14"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 7,
+      "source_line": 110,
+      "title": "5. `makemigrations --check` 是什麼？",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 38,
+        "section": "9-15"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 8,
+      "source_line": 122,
+      "title": "6. 看 migration，不要只相信它",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 39,
+        "section": "9-16"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 9,
+      "source_line": 139,
+      "title": "7. 啟動 server 後 Terminal 不會回 prompt",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 49,
+        "section": "2-24"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 10,
+      "source_line": 155,
+      "title": "8. 成功啟動長什麼樣？",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 50,
+        "section": "2-25"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 11,
+      "source_line": 174,
+      "title": "9. Request log 是第一個 debugger",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 28,
+        "section": "3-24"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 12,
+      "source_line": 192,
+      "title": "10. 常見 status code 怎麼讀？",
+      "status": "consolidated",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3
+      },
+      "reason": "常見狀態碼併入 HTTP response status"
+    },
+    {
+      "source": "L",
+      "source_slide": 13,
+      "source_line": 205,
+      "title": "11. Traceback 要從哪裡開始？",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 29,
+        "section": "3-25"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 14,
+      "source_line": 225,
+      "title": "12. `ModuleNotFoundError` 常見原因",
+      "status": "retained",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 1,
+        "slide": 22,
+        "section": "1-18"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 15,
+      "source_line": 241,
+      "title": "13. `TemplateDoesNotExist`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 26,
+        "section": "4-22"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 16,
+      "source_line": 257,
+      "title": "14. `NoReverseMatch`",
+      "status": "retained",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3,
+        "slide": 30,
+        "section": "3-26"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 17,
+      "source_line": 284,
+      "title": "15. ORM 先在 shell 小步驗證",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 22,
+        "section": "10-18"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 18,
+      "source_line": 300,
+      "title": "16. 修改 model 後的固定節奏",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 40,
+        "section": "9-17"
+      }
+    },
+    {
+      "source": "L",
+      "source_slide": 19,
+      "source_line": 315,
+      "title": "17. 測試不要一次只會「全部跑」",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "單支測試命令併入流程測試定位"
+    },
+    {
+      "source": "L",
+      "source_slide": 20,
+      "source_line": 339,
+      "title": "18. 測試 failure 怎麼讀？",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "failure 判讀併入測試失敗分類"
+    },
+    {
+      "source": "L",
+      "source_slide": 21,
+      "source_line": 359,
+      "title": "19. 每次 lab 的完成條件",
+      "status": "consolidated",
+      "target": {
+        "file": "02_HTTP路由與View.md",
+        "chapter": 3
+      },
+      "reason": "Lab 完成條件併入每章驗收頁"
+    },
+    {
+      "source": "L",
+      "source_slide": 22,
+      "source_line": 373,
+      "title": "20. 第一次 Django 的固定節奏",
+      "status": "consolidated",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2
+      },
+      "reason": "固定操作節奏併入環境、路由、migration 各章驗收"
+    },
+    {
+      "source": "B",
+      "source_slide": 1,
+      "source_line": 9,
+      "title": "Django 01B / 資料模型、ORM 與 Django Admin",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 2,
+      "source_line": 18,
+      "title": "0-1 本冊在課程中的位置",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 3,
+      "source_line": 37,
+      "title": "0-2 學習成果與課堂安排",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 4,
+      "source_line": 56,
+      "title": "0-3 兩個專案提供的真實案例",
+      "status": "adapted",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 35,
+        "section": "6-31"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 5,
+      "source_line": 76,
+      "title": "0-4 先學 Django，再對照專案",
+      "status": "adapted",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 36,
+        "section": "6-32"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 6,
+      "source_line": 92,
+      "title": "0-5 最小練習專案：從空資料夾開始",
+      "status": "adapted",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 13,
+        "section": "6-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 7,
+      "source_line": 111,
+      "title": "0-6 把 app 加入設定",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 14,
+        "section": "6-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 8,
+      "source_line": 132,
+      "title": "0-7 最小 models.py：分類",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 16,
+        "section": "6-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 9,
+      "source_line": 158,
+      "title": "0-8 最小 models.py：商品",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 17,
+        "section": "6-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 10,
+      "source_line": 183,
+      "title": "0-9 建表：migration 是資料結構的版本紀錄",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 18,
+        "section": "6-14"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 11,
+      "source_line": 201,
+      "title": "0-10 Shell：建立第一筆資料",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 19,
+        "section": "6-15"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 12,
+      "source_line": 224,
+      "title": "0-11 Shell：查詢、修改與刪除",
+      "status": "adapted",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 23,
+        "section": "10-19"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 13,
+      "source_line": 245,
+      "title": "0-12 最小 Admin：把資料放到後台",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 20,
+        "section": "6-16"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 14,
+      "source_line": 269,
+      "title": "0-13 圖片顯示所需的開發設定",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 21,
+        "section": "6-17"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 15,
+      "source_line": 285,
+      "title": "0-13B 開發環境的 media 路由",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 22,
+        "section": "6-18"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 16,
+      "source_line": 304,
+      "title": "0-14 切換案例前先確認環境",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 37,
+        "section": "6-33"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 17,
+      "source_line": 321,
+      "title": "第 1 章 / Model、主鍵與唯一性",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 18,
+      "source_line": 328,
+      "title": "1-1 Model 的三種對應",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 6,
+        "section": "6-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 19,
+      "source_line": 348,
+      "title": "1-2 一個 Model 的完整骨架",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 7,
+        "section": "6-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 20,
+      "source_line": 378,
+      "title": "1-2B `__str__`：物件顯示的文字",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 8,
+        "section": "6-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 21,
+      "source_line": 398,
+      "title": "1-2C Model 方法與商品詳情網址",
+      "status": "consolidated",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17
+      },
+      "reason": "get_absolute_url 解釋併入編輯型 CBV 的成功 redirect"
+    },
+    {
+      "source": "B",
+      "source_slide": 22,
+      "source_line": 417,
+      "title": "1-3 Primary key：資料的穩定身分",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 9,
+        "section": "6-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 23,
+      "source_line": 439,
+      "title": "1-4 自訂主鍵與 UUID",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 10,
+        "section": "6-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 24,
+      "source_line": 466,
+      "title": "1-5 Primary key、unique、複合唯一",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 11,
+        "section": "6-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 25,
+      "source_line": 489,
+      "title": "1-6 用資料列理解複合唯一",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 6,
+        "slide": 12,
+        "section": "6-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 26,
+      "source_line": 509,
+      "title": "第 2 章 / 欄位型別與參數：從需求做選擇",
+      "status": "consolidated",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 27,
+      "source_line": 516,
+      "title": "2-1 設計欄位先問五個問題",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 41,
+        "section": "7-1"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 28,
+      "source_line": 535,
+      "title": "2-2 常用欄位選擇表",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 42,
+        "section": "7-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 29,
+      "source_line": 555,
+      "title": "2-3 讀懂一個欄位宣告",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 43,
+        "section": "7-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 30,
+      "source_line": 581,
+      "title": "2-4 CharField 與 TextField / Product",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 44,
+        "section": "7-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 31,
+      "source_line": 607,
+      "title": "2-5 blank 與 null：兩個不同層次",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 45,
+        "section": "7-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 32,
+      "source_line": 631,
+      "title": "2-6 default、editable 與驗證",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 46,
+        "section": "7-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 33,
+      "source_line": 646,
+      "title": "2-6B full_clean 與 save 分開理解",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 47,
+        "section": "7-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 34,
+      "source_line": 668,
+      "title": "2-7 整數欄位：0 算不算合法？",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 48,
+        "section": "7-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 35,
+      "source_line": 693,
+      "title": "2-8 DecimalField 與 FloatField / Python 金額使用 Decimal(\"199.90\")",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 49,
+        "section": "7-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 36,
+      "source_line": 717,
+      "title": "2-9 Boolean 與 choices",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 50,
+        "section": "7-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 37,
+      "source_line": 743,
+      "title": "2-10 日期、時間、日期時間",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 51,
+        "section": "7-11"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 38,
+      "source_line": 764,
+      "title": "2-11 三種時間設定怎麼選？",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 52,
+        "section": "7-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 39,
+      "source_line": 789,
+      "title": "2-12 時區與未發生的事件",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 53,
+        "section": "7-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 40,
+      "source_line": 813,
+      "title": "2-13 SlugField：可讀的網址代稱",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 54,
+        "section": "7-14"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 41,
+      "source_line": 836,
+      "title": "2-14 Slug 生成與重複值",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 55,
+        "section": "7-15"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 42,
+      "source_line": 861,
+      "title": "2-15 圖片：資料庫存路徑，storage 存檔案",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 56,
+        "section": "7-16"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 43,
+      "source_line": 885,
+      "title": "2-16 圖片從上傳到顯示",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 57,
+        "section": "7-17"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 44,
+      "source_line": 909,
+      "title": "2-17 欄位設計練習（20 分鐘）",
+      "status": "retained",
+      "target": {
+        "file": "04_Model與欄位設計.md",
+        "chapter": 7,
+        "slide": 58,
+        "section": "7-18"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 45,
+      "source_line": 930,
+      "title": "第 3 章 / 一對一、一對多、多對多",
+      "status": "consolidated",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 46,
+      "source_line": 937,
+      "title": "3-1 關聯先看兩個方向的數量",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 5,
+        "section": "8-1"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 47,
+      "source_line": 956,
+      "title": "3-2 LearnBoard：留言指向作者",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 6,
+        "section": "8-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 48,
+      "source_line": 983,
+      "title": "3-3 外鍵值與關聯物件",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 7,
+        "section": "8-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 49,
+      "source_line": 1007,
+      "title": "3-4 on_delete 與刪除方向",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 8,
+        "section": "8-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 50,
+      "source_line": 1028,
+      "title": "3-5 一對一：帳號的額外資料",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 9,
+        "section": "8-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 51,
+      "source_line": 1055,
+      "title": "3-6 一對一的正反向都是單一物件",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 10,
+        "section": "8-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 52,
+      "source_line": 1080,
+      "title": "3-7 多對多：商品可以貼多個標籤",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 11,
+        "section": "8-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 53,
+      "source_line": 1105,
+      "title": "3-8 多對多的資料其實在第三張表",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 12,
+        "section": "8-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 54,
+      "source_line": 1126,
+      "title": "3-9 add、remove、set、clear",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 13,
+        "section": "8-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 55,
+      "source_line": 1152,
+      "title": "3-10 進階｜through：關係本身還有資料",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 14,
+        "section": "8-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 56,
+      "source_line": 1181,
+      "title": "3-11 CartItem 與 OrderItem 的建模意義",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 15,
+        "section": "8-11"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 57,
+      "source_line": 1200,
+      "title": "3-11B 訂單快照：保留購買當下的資料",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 16,
+        "section": "8-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 58,
+      "source_line": 1217,
+      "title": "3-12 關聯練習（20 分鐘）",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 17,
+        "section": "8-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 59,
+      "source_line": 1237,
+      "title": "第 4 章 / Meta、資料驗證與 migration",
+      "status": "consolidated",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 60,
+      "source_line": 1244,
+      "title": "4-1 Model、表單與 Admin 的設定位置",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 24,
+        "section": "9-1"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 61,
+      "source_line": 1265,
+      "title": "4-2 ordering 與顯示名稱",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 25,
+        "section": "9-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 62,
+      "source_line": 1290,
+      "title": "4-3 進階｜db_table 與 indexes",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 26,
+        "section": "9-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 63,
+      "source_line": 1315,
+      "title": "4-4 完整的 Meta.constraints",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 27,
+        "section": "9-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 64,
+      "source_line": 1343,
+      "title": "4-4B Review 評價唯一約束",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 28,
+        "section": "9-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 65,
+      "source_line": 1360,
+      "title": "4-5 CheckConstraint：範圍與跨欄位規則",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 29,
+        "section": "9-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 66,
+      "source_line": 1386,
+      "title": "4-6 驗證不是只有一個入口",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 30,
+        "section": "9-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 67,
+      "source_line": 1409,
+      "title": "4-6B 專案初始化前的 User 決定",
+      "status": "adapted",
+      "target": {
+        "file": "01_開發環境與專案建立.md",
+        "chapter": 2,
+        "slide": 42,
+        "section": "2-17"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 68,
+      "source_line": 1427,
+      "title": "4-7 Model、migration 與資料表",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 31,
+        "section": "9-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 69,
+      "source_line": 1450,
+      "title": "4-7B 取得專案與修改模型的操作差異 / clone／取得既有 repository",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 32,
+        "section": "9-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 70,
+      "source_line": 1476,
+      "title": "4-7C migration 訊息與狀態檢查",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 33,
+        "section": "9-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 71,
+      "source_line": 1500,
+      "title": "4-8 新增欄位的操作與證據",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 34,
+        "section": "9-11"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 72,
+      "source_line": 1515,
+      "title": "4-8B 產生、檢查並套用 migration",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 35,
+        "section": "9-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 73,
+      "source_line": 1535,
+      "title": "4-9 既有資料讓變更更困難",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 9,
+        "slide": 36,
+        "section": "9-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 74,
+      "source_line": 1555,
+      "title": "第 5 章 / ORM 操作：先看回傳值，再組查詢",
+      "status": "consolidated",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 75,
+      "source_line": 1562,
+      "title": "5-1 Manager、QuerySet、instance",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 5,
+        "section": "10-1"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 76,
+      "source_line": 1582,
+      "title": "5-2 建立與修改：記憶體不等於已存檔",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 6,
+        "section": "10-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 77,
+      "source_line": 1608,
+      "title": "5-2B 建立商品前先取得必要關聯",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 7,
+        "section": "10-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 78,
+      "source_line": 1631,
+      "title": "5-2C 刪除單筆練習商品",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 8,
+        "section": "10-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 79,
+      "source_line": 1649,
+      "title": "5-3 篩選、排除、排序與切片",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 9,
+        "section": "10-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 80,
+      "source_line": 1672,
+      "title": "5-4 常用 lookup 與 Q",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 10,
+        "section": "10-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 81,
+      "source_line": 1696,
+      "title": "5-5 values 與 values_list 的結果 / 每列像 {\"id\": 17, \"name\": \"鍵盤\"}",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 11,
+        "section": "10-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 82,
+      "source_line": 1719,
+      "title": "5-6 關聯查詢與 distinct",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 12,
+        "section": "10-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 83,
+      "source_line": 1742,
+      "title": "5-7 Lazy evaluation 與查詢成本",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 13,
+        "section": "10-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 84,
+      "source_line": 1763,
+      "title": "5-7B N+1：列表逐筆讀取關聯的成本",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 14,
+        "section": "10-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 85,
+      "source_line": 1787,
+      "title": "5-8 關聯預載取決於資料形狀",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 15,
+        "section": "10-11"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 86,
+      "source_line": 1811,
+      "title": "5-9 aggregate 與 annotate / 整份集合 → 一個摘要字典",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 16,
+        "section": "10-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 87,
+      "source_line": 1833,
+      "title": "5-9B 商品平均評分的查詢行為",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 17,
+        "section": "10-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 88,
+      "source_line": 1853,
+      "title": "5-10 進階｜更新、刪除與原子運算",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 18,
+        "section": "10-14"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 89,
+      "source_line": 1877,
+      "title": "5-11 get_or_create 與 update_or_create",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 19,
+        "section": "10-15"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 90,
+      "source_line": 1902,
+      "title": "5-11B seed_demo 重跑會發生什麼？",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 20,
+        "section": "10-16"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 91,
+      "source_line": 1923,
+      "title": "5-12 ORM 操作練習（25 分鐘）",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 10,
+        "slide": 21,
+        "section": "10-17"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 92,
+      "source_line": 1943,
+      "title": "第 6 章 / Django Admin：可操作的資料管理後台",
+      "status": "consolidated",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 93,
+      "source_line": 1950,
+      "title": "6-1 Admin 在系統中的角色",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 27,
+        "section": "11-1"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 94,
+      "source_line": 1969,
+      "title": "6-2 第一次啟動 Admin",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 28,
+        "section": "11-2"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 95,
+      "source_line": 1993,
+      "title": "6-3 最小註冊與 ModelAdmin / app 的 admin.py；以下兩種擇一",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 29,
+        "section": "11-3"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 96,
+      "source_line": 2020,
+      "title": "6-4 LearnBoard：留言列表與搜尋",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 30,
+        "section": "11-4"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 97,
+      "source_line": 2047,
+      "title": "6-5 LearnMart：商品列表的三個設定",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 31,
+        "section": "11-5"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 98,
+      "source_line": 2071,
+      "title": "6-6 編輯表單：fields、fieldsets、readonly",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 32,
+        "section": "11-6"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 99,
+      "source_line": 2096,
+      "title": "6-7 Admin 的 slug 輸入提示",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 33,
+        "section": "11-7"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 100,
+      "source_line": 2121,
+      "title": "6-8 關聯選單、autocomplete 與查詢",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 34,
+        "section": "11-8"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 101,
+      "source_line": 2146,
+      "title": "6-9 訂單 Inline：同頁看父子資料",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 35,
+        "section": "11-9"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 102,
+      "source_line": 2173,
+      "title": "6-10 訂單明細唯讀的教學設計",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 36,
+        "section": "11-10"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 103,
+      "source_line": 2200,
+      "title": "6-11 staff、superuser、Group 與模型權限",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 37,
+        "section": "11-11"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 104,
+      "source_line": 2222,
+      "title": "6-12 進階｜權限與資料範圍",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 38,
+        "section": "11-12"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 105,
+      "source_line": 2243,
+      "title": "6-13 現有 UserAdmin 為何另有一個 class？",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 39,
+        "section": "11-13"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 106,
+      "source_line": 2270,
+      "title": "6-14 進階｜Admin action：批次下架",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 40,
+        "section": "11-14"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 107,
+      "source_line": 2295,
+      "title": "6-15 Admin 操作實驗（35 分鐘）",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 41,
+        "section": "11-15"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 108,
+      "source_line": 2316,
+      "title": "6-15B 整合 migration 與 Admin 的精選欄位",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 42,
+        "section": "11-16"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 109,
+      "source_line": 2331,
+      "title": "6-16 Admin 常見問題排查",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 43,
+        "section": "11-17"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 110,
+      "source_line": 2352,
+      "title": "第 7 章 / 整合練習與後續課程",
+      "status": "consolidated",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 111,
+      "source_line": 2359,
+      "title": "7-1 一對一與多對多實作路線",
+      "status": "retained",
+      "target": {
+        "file": "05_模型關聯與Migration.md",
+        "chapter": 8,
+        "slide": 20,
+        "section": "8-16"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 112,
+      "source_line": 2383,
+      "title": "7-2 綜合設計：商品、標籤與管理後台",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 44,
+        "section": "11-18"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 113,
+      "source_line": 2403,
+      "title": "7-3 離堂檢核",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 45,
+        "section": "11-19"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 114,
+      "source_line": 2424,
+      "title": "7-4 01、02、03 的銜接",
+      "status": "consolidated",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "B",
+      "source_slide": 115,
+      "source_line": 2443,
+      "title": "7-5 官方參考：Model 與 ORM",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 46,
+        "section": "11-20"
+      }
+    },
+    {
+      "source": "B",
+      "source_slide": 116,
+      "source_line": 2462,
+      "title": "7-6 官方參考：關聯、檔案與 Admin",
+      "status": "retained",
+      "target": {
+        "file": "06_ORM與Admin.md",
+        "chapter": 11,
+        "slide": 47,
+        "section": "11-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 1,
+      "source_line": 9,
+      "title": "Django 02 / 兩個專案的表單、身份驗證與工作流程",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 2,
+      "source_line": 20,
+      "title": "兩個專案共用同一套安全骨架",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 3,
+      "source_line": 41,
+      "title": "這份教材接續什麼？",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 4,
+      "source_line": 61,
+      "title": "Model、表單與 Admin 的先備連結",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 5,
+      "source_line": 75,
+      "title": "本冊最終成果",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 6,
+      "source_line": 88,
+      "title": "閱讀標籤",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 7,
+      "source_line": 101,
+      "title": "本冊章節地圖",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 8,
+      "source_line": 117,
+      "title": "兩個專案的實作路線",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 9,
+      "source_line": 134,
+      "title": "第一次操作建議搭配兩份補充",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 10,
+      "source_line": 145,
+      "title": "第 1 章 / 完整表單生命週期",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 11,
+      "source_line": 160,
+      "title": "為什麼不能直接相信 `request.POST`？",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 5,
+        "section": "15-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 12,
+      "source_line": 175,
+      "title": "HTML form 的四個核心部分",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 6,
+        "section": "15-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 13,
+      "source_line": 192,
+      "title": "GET：查詢，不改變資料",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 7,
+        "section": "15-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 14,
+      "source_line": 211,
+      "title": "GET 參數要保留在畫面上",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 8,
+        "section": "15-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 15,
+      "source_line": 227,
+      "title": "POST：要求伺服器改變狀態",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 9,
+        "section": "15-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 16,
+      "source_line": 241,
+      "title": "Form 與 ModelForm",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 10,
+        "section": "15-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 17,
+      "source_line": 252,
+      "title": "<span class=\"label\">教學用最小範例</span> 先從 Form 開始",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 11,
+        "section": "15-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 18,
+      "source_line": 268,
+      "title": "Unbound form：還沒有收到資料",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 12,
+        "section": "15-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 19,
+      "source_line": 285,
+      "title": "Bound form：已經收到資料",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 13,
+        "section": "15-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 20,
+      "source_line": 304,
+      "title": "初學時先寫明確的 GET／POST 分支",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 14,
+        "section": "15-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 21,
+      "source_line": 322,
+      "title": "為什麼不先教 `request.POST or None`？",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 15,
+        "section": "15-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 22,
+      "source_line": 336,
+      "title": "`is_valid()` 做了什麼？",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 16,
+        "section": "15-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 23,
+      "source_line": 357,
+      "title": "顯示錯誤，不要丟掉使用者輸入",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 17,
+        "section": "15-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 24,
+      "source_line": 375,
+      "title": "自訂單一欄位驗證",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 18,
+        "section": "15-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 25,
+      "source_line": 394,
+      "title": "跨欄位驗證使用 `clean()`（1／2）",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 19,
+        "section": "15-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 26,
+      "source_line": 410,
+      "title": "跨欄位驗證使用 `clean()`（2／2）",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 20,
+        "section": "15-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 27,
+      "source_line": 430,
+      "title": "ModelForm 的 `Meta`",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 22,
+        "section": "15-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 28,
+      "source_line": 448,
+      "title": "為什麼 `seller` 不在 `fields`？",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 23,
+        "section": "15-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 29,
+      "source_line": 464,
+      "title": "`save()` 與 `save(commit=False)`",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 24,
+        "section": "15-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 30,
+      "source_line": 480,
+      "title": "CSRF：防止跨站 mutation 濫用既有 session",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 25,
+        "section": "15-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 31,
+      "source_line": 499,
+      "title": "PRG：成功 POST 後 redirect",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 26,
+        "section": "15-22"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 32,
+      "source_line": 521,
+      "title": "Messages：跨 redirect 的一次性回饋",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 27,
+        "section": "15-23"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 33,
+      "source_line": 543,
+      "title": "圖片上傳：HTML 必須改 encoding",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 28,
+        "section": "15-24"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 34,
+      "source_line": 562,
+      "title": "Function View 要同時綁定 POST 與 FILES",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 29,
+        "section": "15-25"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 35,
+      "source_line": 582,
+      "title": "Generic editing view 如何處理檔案？",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 19,
+        "section": "17-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 36,
+      "source_line": 597,
+      "title": "第 1 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 35,
+        "section": "15-31"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 37,
+      "source_line": 613,
+      "title": "第 1 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 36,
+        "section": "15-32"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 38,
+      "source_line": 628,
+      "title": "第 2 章 / 身份驗證、Session 與帳號流程",
+      "status": "consolidated",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 39,
+      "source_line": 643,
+      "title": "Authentication 與 Authorization",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 5,
+        "section": "16-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 40,
+      "source_line": 658,
+      "title": "自訂 User 必須很早決定",
+      "status": "adapted",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 6,
+        "section": "16-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 41,
+      "source_line": 676,
+      "title": "三種 User 參照方式不要混為一談",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 7,
+        "section": "16-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 42,
+      "source_line": 691,
+      "title": "LearnMart User 繼承 AbstractUser",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 8,
+        "section": "16-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 43,
+      "source_line": 711,
+      "title": "Role 是商業角色，不是 Django admin 權限",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 9,
+        "section": "16-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 44,
+      "source_line": 727,
+      "title": "教學版的 seller 註冊限制",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 10,
+        "section": "16-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 45,
+      "source_line": 743,
+      "title": "密碼不是加密後可還原",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 11,
+        "section": "16-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 46,
+      "source_line": 763,
+      "title": "建立 User 的正確方法",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 12,
+        "section": "16-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 47,
+      "source_line": 783,
+      "title": "`create_user()` 不等於跑過所有 password validators",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 13,
+        "section": "16-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 48,
+      "source_line": 797,
+      "title": "LearnMart RegistrationForm",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 14,
+        "section": "16-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 49,
+      "source_line": 815,
+      "title": "註冊 View 的完整結果",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 15,
+        "section": "16-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 50,
+      "source_line": 831,
+      "title": "Session：跨 request 記住登入狀態",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 16,
+        "section": "16-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 51,
+      "source_line": 851,
+      "title": "為什麼 `request.user` 存在？",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 17,
+        "section": "16-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 52,
+      "source_line": 867,
+      "title": "`request.user` 的兩種狀態",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 18,
+        "section": "16-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 53,
+      "source_line": 883,
+      "title": "LoginView：使用成熟的內建流程",
+      "status": "adapted",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 19,
+        "section": "16-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 54,
+      "source_line": 901,
+      "title": "`next`：登入後回到原本目的地",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 20,
+        "section": "16-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 55,
+      "source_line": 921,
+      "title": "Logout 應使用 POST",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 21,
+        "section": "16-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 56,
+      "source_line": 940,
+      "title": "Login redirects 在 settings 定義",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 22,
+        "section": "16-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 57,
+      "source_line": 956,
+      "title": "302、403、404 的身份／權限語意",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 23,
+        "section": "16-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 58,
+      "source_line": 968,
+      "title": "第 2 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 24,
+        "section": "16-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 59,
+      "source_line": 984,
+      "title": "第 2 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16,
+        "slide": 25,
+        "section": "16-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 60,
+      "source_line": 999,
+      "title": "第 3 章 / Class-based View、Mixin 與物件權限",
+      "status": "consolidated",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 61,
+      "source_line": 1014,
+      "title": "先補 Django class 需要的 Python 語法",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 25,
+        "section": "13-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 62,
+      "source_line": 1029,
+      "title": "Override：改寫繼承來的方法",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 26,
+        "section": "13-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 63,
+      "source_line": 1042,
+      "title": "`super()`：保留父類別既有工作",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 27,
+        "section": "13-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 64,
+      "source_line": 1059,
+      "title": "`*args` 與 `**kwargs` 在 Django 常出現",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 28,
+        "section": "13-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 65,
+      "source_line": 1074,
+      "title": "Decorator 與 Mixin 的角色",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 5,
+        "section": "17-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 66,
+      "source_line": 1094,
+      "title": "為什麼 URLconf 不能直接放 CBV class？",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 29,
+        "section": "13-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 67,
+      "source_line": 1110,
+      "title": "CBV request 流程簡圖",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 30,
+        "section": "13-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 68,
+      "source_line": 1127,
+      "title": "目前 LearnMart ProductListView",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 31,
+        "section": "13-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 69,
+      "source_line": 1143,
+      "title": "`get_queryset()` 決定可見資料",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 32,
+        "section": "13-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 70,
+      "source_line": 1164,
+      "title": "`get_context_data()` 增加模板需要的資料",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 33,
+        "section": "13-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 71,
+      "source_line": 1179,
+      "title": "DetailView：單筆查詢仍可縮小 queryset",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 34,
+        "section": "13-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 72,
+      "source_line": 1195,
+      "title": "CreateView：成功表單的 hook",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 15,
+        "section": "17-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 73,
+      "source_line": 1212,
+      "title": "`get_absolute_url()` 與成功 redirect",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 9,
+        "section": "17-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 74,
+      "source_line": 1228,
+      "title": "三層授權模型",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 6,
+        "section": "17-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 75,
+      "source_line": 1240,
+      "title": "LoginRequiredMixin 要放在 generic view 前",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 7,
+        "section": "17-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 76,
+      "source_line": 1255,
+      "title": "SellerRequiredMixin：角色層",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 13,
+        "section": "17-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 77,
+      "source_line": 1273,
+      "title": "角色正確仍不代表擁有物件",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 14,
+        "section": "17-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 78,
+      "source_line": 1296,
+      "title": "UpdateView 應一開始就是 ownership-safe",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 16,
+        "section": "17-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 79,
+      "source_line": 1313,
+      "title": "IDOR：問題不是 ID 可猜，而是存取未被限制",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 17,
+        "section": "17-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 80,
+      "source_line": 1332,
+      "title": "403、404、405 放在不同層",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 18,
+        "section": "17-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 81,
+      "source_line": 1342,
+      "title": "Pagination 也是 CBV 的既有能力",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 35,
+        "section": "13-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 82,
+      "source_line": 1355,
+      "title": "CBV 常見錯誤",
+      "status": "retained",
+      "target": {
+        "file": "07_資料列表搜尋與分頁.md",
+        "chapter": 13,
+        "slide": 36,
+        "section": "13-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 83,
+      "source_line": 1369,
+      "title": "第 3 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 20,
+        "section": "17-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 84,
+      "source_line": 1385,
+      "title": "第 3 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 21,
+        "section": "17-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 85,
+      "source_line": 1400,
+      "title": "第 4 章 / 購物車、POST 操作與第一批流程測試",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 86,
+      "source_line": 1415,
+      "title": "CartItem 的資料規則",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 6,
+        "section": "18-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 87,
+      "source_line": 1434,
+      "title": "Database constraint 防止重複 cart row",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 7,
+        "section": "18-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 88,
+      "source_line": 1450,
+      "title": "加入購物車必須是 POST",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 8,
+        "section": "18-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 89,
+      "source_line": 1469,
+      "title": "取得 Product 也要限制狀態",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 9,
+        "section": "18-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 90,
+      "source_line": 1483,
+      "title": "解析 quantity：瀏覽器限制不是安全規則",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 10,
+        "section": "18-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 91,
+      "source_line": 1503,
+      "title": "`get_or_create()` 有兩條路",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 11,
+        "section": "18-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 92,
+      "source_line": 1523,
+      "title": "目前累加行為與提示有一個細節",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 12,
+        "section": "18-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 93,
+      "source_line": 1538,
+      "title": "Cart 顯示只取目前 user 的資料",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 13,
+        "section": "18-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 94,
+      "source_line": 1551,
+      "title": "更新 cart item 先縮小 ownership",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 14,
+        "section": "18-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 95,
+      "source_line": 1565,
+      "title": "更新與移除都使用 POST",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 15,
+        "section": "18-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 96,
+      "source_line": 1586,
+      "title": "Context processor：每頁都需要 cart count",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 16,
+        "section": "18-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 97,
+      "source_line": 1610,
+      "title": "Context processor 必須在 settings 註冊",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 17,
+        "section": "18-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 98,
+      "source_line": 1625,
+      "title": "Context processor 的成本也會遍及每頁",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 18,
+        "section": "18-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 99,
+      "source_line": 1643,
+      "title": "Mutation route matrix（1／2）",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 19,
+        "section": "18-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 100,
+      "source_line": 1658,
+      "title": "Mutation route matrix（2／2）",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 20,
+        "section": "18-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 101,
+      "source_line": 1671,
+      "title": "開始寫流程測試：Arrange–Act–Assert",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 21,
+        "section": "18-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 102,
+      "source_line": 1687,
+      "title": "`TestCase` 與真實 transaction 測試",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 22,
+        "section": "18-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 103,
+      "source_line": 1702,
+      "title": "`setUp()` 每個 test method 前執行",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 23,
+        "section": "18-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 104,
+      "source_line": 1718,
+      "title": "測試匿名 cart redirect",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 24,
+        "section": "18-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 105,
+      "source_line": 1735,
+      "title": "測試 client 預設不強制 CSRF",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 25,
+        "section": "18-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 106,
+      "source_line": 1753,
+      "title": "測試登入後的 database state",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 26,
+        "section": "18-22"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 107,
+      "source_line": 1772,
+      "title": "`login()` 與 `force_login()`",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 27,
+        "section": "18-23"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 108,
+      "source_line": 1781,
+      "title": "第 4 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 28,
+        "section": "18-24"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 109,
+      "source_line": 1797,
+      "title": "第 4 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 29,
+        "section": "18-25"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 110,
+      "source_line": 1812,
+      "title": "第 5 章 / 訂單、結帳、Transaction 與鎖定",
+      "status": "consolidated",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 111,
+      "source_line": 1827,
+      "title": "為什麼需要 Order 與 OrderItem？",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 5,
+        "section": "19-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 112,
+      "source_line": 1842,
+      "title": "Order 保存交易層資訊",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 6,
+        "section": "19-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 113,
+      "source_line": 1859,
+      "title": "OrderItem 為什麼同時有 FK 與快照？",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 7,
+        "section": "19-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 114,
+      "source_line": 1880,
+      "title": "訂單總額也由伺服器保存快照",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 8,
+        "section": "19-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 115,
+      "source_line": 1898,
+      "title": "CheckoutForm 的 allowlist",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 9,
+        "section": "19-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 116,
+      "source_line": 1913,
+      "title": "Checkout 的入口先處理身份與 cart",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 10,
+        "section": "19-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 117,
+      "source_line": 1933,
+      "title": "`list(queryset)` 讓查詢立即執行",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 11,
+        "section": "19-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 118,
+      "source_line": 1945,
+      "title": "GET 與 POST 在 checkout 扮演不同角色",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 12,
+        "section": "19-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 119,
+      "source_line": 1954,
+      "title": "POST 先建立 bound CheckoutForm",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 13,
+        "section": "19-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 120,
+      "source_line": 1966,
+      "title": "寫入前再次檢查庫存",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 14,
+        "section": "19-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 121,
+      "source_line": 1982,
+      "title": "`commit=False` 補上 buyer 與 total",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 15,
+        "section": "19-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 122,
+      "source_line": 1995,
+      "title": "建立 OrderItem 快照",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 16,
+        "section": "19-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 123,
+      "source_line": 2013,
+      "title": "扣庫存並清 cart",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 17,
+        "section": "19-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 124,
+      "source_line": 2026,
+      "title": "最後 redirect 到 buyer-scoped 訂單",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 18,
+        "section": "19-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 125,
+      "source_line": 2037,
+      "title": "`transaction.atomic` 的核心保證",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 19,
+        "section": "19-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 126,
+      "source_line": 2055,
+      "title": "圖解：Checkout 的成功路徑與 rollback 路徑",
+      "status": "adapted",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 20,
+        "section": "19-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 127,
+      "source_line": 2065,
+      "title": "為什麼 validation 要盡量在寫入前？",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 21,
+        "section": "19-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 128,
+      "source_line": 2081,
+      "title": "Atomicity 與 locking 是不同問題",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 22,
+        "section": "19-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 129,
+      "source_line": 2094,
+      "title": "`select_for_update()` 的意圖與範圍",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 23,
+        "section": "19-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 130,
+      "source_line": 2106,
+      "title": "SQLite 不提供這個 row-lock 保證",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 24,
+        "section": "19-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 131,
+      "source_line": 2120,
+      "title": "優先明確鎖定 Product",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 25,
+        "section": "19-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 132,
+      "source_line": 2133,
+      "title": "Buyer 只能看自己的 Order",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 26,
+        "section": "19-22"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 133,
+      "source_line": 2149,
+      "title": "Snapshot template 不依賴目前 Product 名稱／價格",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 27,
+        "section": "19-23"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 134,
+      "source_line": 2162,
+      "title": "目前 checkout test 已保護哪些行為？",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 28,
+        "section": "19-24"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 135,
+      "source_line": 2178,
+      "title": "Order privacy test 是 IDOR regression test",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 29,
+        "section": "19-25"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 136,
+      "source_line": 2193,
+      "title": "第 5 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 30,
+        "section": "19-26"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 137,
+      "source_line": 2209,
+      "title": "第 5 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 31,
+        "section": "19-27"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 138,
+      "source_line": 2224,
+      "title": "第 6 章 / 賣家出貨、評價與多方交易限制",
+      "status": "consolidated",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 139,
+      "source_line": 2239,
+      "title": "Seller 如何找到有自己商品的訂單？",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 5,
+        "section": "20-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 140,
+      "source_line": 2254,
+      "title": "Seller order list 還有一個 N+1 觀察點",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 6,
+        "section": "20-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 141,
+      "source_line": 2268,
+      "title": "出貨操作的四層檢查",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 7,
+        "section": "20-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 142,
+      "source_line": 2290,
+      "title": "目前只實作 PENDING → SHIPPED",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 8,
+        "section": "20-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 143,
+      "source_line": 2305,
+      "title": "狀態轉換要定義五件事",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 9,
+        "section": "20-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 144,
+      "source_line": 2319,
+      "title": "多賣家訂單的核心限制",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 10,
+        "section": "20-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 145,
+      "source_line": 2333,
+      "title": "限制還會影響 Review",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 11,
+        "section": "20-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 146,
+      "source_line": 2348,
+      "title": "Review 規則要分層描述",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 12,
+        "section": "20-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 147,
+      "source_line": 2361,
+      "title": "Eligibility 在 View 查詢",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 13,
+        "section": "20-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 148,
+      "source_line": 2378,
+      "title": "Rating 1–5 由 validators／form 驗證",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 14,
+        "section": "20-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 149,
+      "source_line": 2393,
+      "title": "每人每商品一列由 database unique constraint",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 15,
+        "section": "20-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 150,
+      "source_line": 2406,
+      "title": "`update_or_create()` 讓重送變成編輯",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 16,
+        "section": "20-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 151,
+      "source_line": 2427,
+      "title": "評價輸出仍需 template escaping",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 17,
+        "section": "20-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 152,
+      "source_line": 2439,
+      "title": "出貨與 Review 應有哪些測試？",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 18,
+        "section": "20-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 153,
+      "source_line": 2452,
+      "title": "第 6 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 19,
+        "section": "20-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 154,
+      "source_line": 2468,
+      "title": "第 6 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "14_出貨評價與狀態規則.md",
+        "chapter": 20,
+        "slide": 20,
+        "section": "20-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 155,
+      "source_line": 2483,
+      "title": "第 7 章 / 安全與回歸測試整合",
+      "status": "consolidated",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 156,
+      "source_line": 2498,
+      "title": "安全不是最後才加的一頁",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 5,
+        "section": "21-1"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 157,
+      "source_line": 2513,
+      "title": "Trust boundary 地圖",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 6,
+        "section": "21-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 158,
+      "source_line": 2530,
+      "title": "圖解：信任邊界與五層伺服器防線",
+      "status": "adapted",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 7,
+        "section": "21-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 159,
+      "source_line": 2540,
+      "title": "XSS：Template autoescaping 的邊界",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 8,
+        "section": "21-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 160,
+      "source_line": 2563,
+      "title": "Raw HttpResponse 不會套 Template autoescaping",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 9,
+        "section": "21-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 161,
+      "source_line": 2581,
+      "title": "BoardPost 是 stored XSS 的實際觀察點",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 10,
+        "section": "21-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 162,
+      "source_line": 2595,
+      "title": "SQL injection：ORM value 會參數化 / 危險示意，不要用 f-string 拼接 user input",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 11,
+        "section": "21-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 163,
+      "source_line": 2619,
+      "title": "Dynamic field name 仍需要 allowlist",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 12,
+        "section": "21-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 164,
+      "source_line": 2635,
+      "title": "CSRF、Login、Role、Ownership 不可互相替代",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 13,
+        "section": "21-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 165,
+      "source_line": 2653,
+      "title": "Upload：ImageField 不是完整安全策略",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 14,
+        "section": "21-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 166,
+      "source_line": 2672,
+      "title": "開發 settings 不等於 production baseline",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 17,
+        "section": "22-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 167,
+      "source_line": 2686,
+      "title": "`check` 與 `check --deploy` 不同",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 39,
+        "section": "24-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 168,
+      "source_line": 2702,
+      "title": "現有六個測試保護什麼？",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 15,
+        "section": "21-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 169,
+      "source_line": 2715,
+      "title": "測試矩陣：一個 workflow 至少看五面",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 16,
+        "section": "21-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 170,
+      "source_line": 2727,
+      "title": "Response 與 database assertion 都重要",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 17,
+        "section": "21-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 171,
+      "source_line": 2743,
+      "title": "`refresh_from_db()` 避免看舊 object",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "refresh_from_db 併入資料庫狀態驗證"
+    },
+    {
+      "source": "C",
+      "source_slide": 172,
+      "source_line": 2755,
+      "title": "Rollback test 要讓失敗發生在寫入之後",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 32,
+        "section": "19-28"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 173,
+      "source_line": 2773,
+      "title": "一次跑完整與單一測試",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 18,
+        "section": "21-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 174,
+      "source_line": 2790,
+      "title": "Migration drift 不是 behavior test",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 19,
+        "section": "21-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 175,
+      "source_line": 2809,
+      "title": "Security regression 的優先順序",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 20,
+        "section": "21-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 176,
+      "source_line": 2825,
+      "title": "課堂版與正式商城的界線",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 21,
+        "section": "21-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 177,
+      "source_line": 2848,
+      "title": "第 7 章概念檢核",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 22,
+        "section": "21-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 178,
+      "source_line": 2864,
+      "title": "第 7 章 LearnMart 實作",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 23,
+        "section": "21-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 179,
+      "source_line": 2879,
+      "title": "空白頁",
+      "status": "consolidated",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21
+      },
+      "reason": "移除連續分隔線造成的空白頁"
+    },
+    {
+      "source": "C",
+      "source_slide": 180,
+      "source_line": 2881,
+      "title": "LearnBoard 對照實作 / 表單與 server-owned author",
+      "status": "adapted",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 8,
+        "section": "17-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 181,
+      "source_line": 2904,
+      "title": "LearnBoard 對照實作 / 兩種 ownership 防線",
+      "status": "adapted",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17,
+        "slide": 10,
+        "section": "17-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 182,
+      "source_line": 2928,
+      "title": "LearnBoard 對照實作 / 測試矩陣如何遷移到商城？",
+      "status": "adapted",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 34,
+        "section": "18-30"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 183,
+      "source_line": 2945,
+      "title": "全冊整合：兩個專案的兩條旅程",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 24,
+        "section": "21-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 184,
+      "source_line": 2967,
+      "title": "你現在應該能回答",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 25,
+        "section": "21-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 185,
+      "source_line": 2977,
+      "title": "建議驗證命令",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 26,
+        "section": "21-22"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 186,
+      "source_line": 2989,
+      "title": "Django 02 補充 Lab / 從 HTML Form 到 Database Change",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 187,
+      "source_line": 3000,
+      "title": "1. POST flow 先畫出來",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 30,
+        "section": "15-26"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 188,
+      "source_line": 3024,
+      "title": "2. HTML 有欄位，不代表 server 信任它",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "HTML 欄位信任邊界併入 request.POST／fields 白名單"
+    },
+    {
+      "source": "C",
+      "source_slide": 189,
+      "source_line": 3039,
+      "title": "3. 先觀察 request.POST",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 31,
+        "section": "15-27"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 190,
+      "source_line": 3053,
+      "title": "4. Form lifecycle 要會逐步問",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "表單生命週期併入 bound／is_valid／錯誤回顯"
+    },
+    {
+      "source": "C",
+      "source_slide": 191,
+      "source_line": 3067,
+      "title": "5. 驗證錯誤不等於 exception",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 32,
+        "section": "15-28"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 192,
+      "source_line": 3082,
+      "title": "6. CSRF 失敗時先看哪裡？",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 33,
+        "section": "15-29"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 193,
+      "source_line": 3101,
+      "title": "7. Browser DevTools 是表單 debugger",
+      "status": "retained",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15,
+        "slide": 34,
+        "section": "15-30"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 194,
+      "source_line": 3115,
+      "title": "8. PRG：為什麼成功後 redirect？",
+      "status": "consolidated",
+      "target": {
+        "file": "09_表單與資料驗證.md",
+        "chapter": 15
+      },
+      "reason": "PRG 解釋併入成功 POST 後 redirect"
+    },
+    {
+      "source": "C",
+      "source_slide": 195,
+      "source_line": 3129,
+      "title": "9. LoginRequired：302 不一定是錯",
+      "status": "consolidated",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16
+      },
+      "reason": "登入轉址併入 next 與身份狀態碼"
+    },
+    {
+      "source": "C",
+      "source_slide": 196,
+      "source_line": 3141,
+      "title": "10. `request.user` 從哪裡來？",
+      "status": "consolidated",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16
+      },
+      "reason": "request.user 來源併入 session／middleware"
+    },
+    {
+      "source": "C",
+      "source_slide": 197,
+      "source_line": 3157,
+      "title": "11. Authentication ≠ Authorization",
+      "status": "consolidated",
+      "target": {
+        "file": "10_帳號登入與Session.md",
+        "chapter": 16
+      },
+      "reason": "身份與授權差異併入帳號章開場"
+    },
+    {
+      "source": "C",
+      "source_slide": 198,
+      "source_line": 3171,
+      "title": "12. 403 與 404 的教學差別",
+      "status": "consolidated",
+      "target": {
+        "file": "11_CRUD與物件權限.md",
+        "chapter": 17
+      },
+      "reason": "403／404 併入物件擁有權與回應語意"
+    },
+    {
+      "source": "C",
+      "source_slide": 199,
+      "source_line": 3184,
+      "title": "13. 測試的 Arrange / Act / Assert / Arrange",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "AAA 併入開始寫流程測試"
+    },
+    {
+      "source": "C",
+      "source_slide": 200,
+      "source_line": 3202,
+      "title": "14. `self.client.login` vs `force_login`",
+      "status": "consolidated",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18
+      },
+      "reason": "login／force_login 併入測試登入方法"
+    },
+    {
+      "source": "C",
+      "source_slide": 201,
+      "source_line": 3218,
+      "title": "15. 每個重要 POST 至少驗證兩件事",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 30,
+        "section": "18-26"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 202,
+      "source_line": 3237,
+      "title": "16. `refresh_from_db()` 為什麼重要？",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 31,
+        "section": "18-27"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 203,
+      "source_line": 3249,
+      "title": "17. Transaction 測試要驗證 rollback",
+      "status": "retained",
+      "target": {
+        "file": "13_訂單結帳與交易.md",
+        "chapter": 19,
+        "slide": 33,
+        "section": "19-29"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 204,
+      "source_line": 3263,
+      "title": "18. 單支測試定位",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 32,
+        "section": "18-28"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 205,
+      "source_line": 3274,
+      "title": "19. Test failure 常見類型",
+      "status": "retained",
+      "target": {
+        "file": "12_購物車與流程測試.md",
+        "chapter": 18,
+        "slide": 33,
+        "section": "18-29"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 206,
+      "source_line": 3288,
+      "title": "20. 安全測試不是「掃描器章節」",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 27,
+        "section": "21-23"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 207,
+      "source_line": 3303,
+      "title": "21. 每個 lab 的最終 checklist",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 28,
+        "section": "21-24"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 208,
+      "source_line": 3318,
+      "title": "下一步",
+      "status": "retained",
+      "target": {
+        "file": "15_安全與回歸測試整合.md",
+        "chapter": 21,
+        "slide": 29,
+        "section": "21-25"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 209,
+      "source_line": 3336,
+      "title": "Django Template Language / 實用工具箱",
+      "status": "consolidated",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "C",
+      "source_slide": 210,
+      "source_line": 3347,
+      "title": "DTL 的定位",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 6,
+        "section": "14-2"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 211,
+      "source_line": 3367,
+      "title": "Filter 可以串接",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 18,
+        "section": "4-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 212,
+      "source_line": 3386,
+      "title": "`default` vs `default_if_none`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 19,
+        "section": "4-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 213,
+      "source_line": 3402,
+      "title": "日期格式 `date`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 20,
+        "section": "4-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 214,
+      "source_line": 3421,
+      "title": "只顯示時間：`time`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 21,
+        "section": "4-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 215,
+      "source_line": 3431,
+      "title": "相對時間：`timesince`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 7,
+        "section": "14-3"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 216,
+      "source_line": 3451,
+      "title": "未來還有多久：`timeuntil`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 8,
+        "section": "14-4"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 217,
+      "source_line": 3467,
+      "title": "Template 裡取得現在時間：`{% now %}`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 9,
+        "section": "14-5"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 218,
+      "source_line": 3484,
+      "title": "更自然的時間：`humanize`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 10,
+        "section": "14-6"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 219,
+      "source_line": 3511,
+      "title": "大數字：`intcomma` / `intword`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 11,
+        "section": "14-7"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 220,
+      "source_line": 3530,
+      "title": "長文字：`truncatechars`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 22,
+        "section": "4-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 221,
+      "source_line": 3547,
+      "title": "長文字：`truncatewords`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 23,
+        "section": "4-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 222,
+      "source_line": 3559,
+      "title": "HTML 截斷版本要小心",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 12,
+        "section": "14-8"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 223,
+      "source_line": 3575,
+      "title": "純文字換行：`linebreaks`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 24,
+        "section": "4-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 224,
+      "source_line": 3593,
+      "title": "檔案大小：`filesizeformat`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 13,
+        "section": "14-9"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 225,
+      "source_line": 3611,
+      "title": "小數格式：`floatformat`",
+      "status": "retained",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4,
+        "slide": 25,
+        "section": "4-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 226,
+      "source_line": 3629,
+      "title": "`length` / `wordcount`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 14,
+        "section": "14-10"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 227,
+      "source_line": 3642,
+      "title": "List helpers",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 15,
+        "section": "14-11"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 228,
+      "source_line": 3657,
+      "title": "`dictsort`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 16,
+        "section": "14-12"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 229,
+      "source_line": 3671,
+      "title": "`yesno`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 17,
+        "section": "14-13"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 230,
+      "source_line": 3687,
+      "title": "`pluralize`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 18,
+        "section": "14-14"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 231,
+      "source_line": 3699,
+      "title": "`urlize` / `urlizetrunc`",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 19,
+        "section": "14-15"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 232,
+      "source_line": 3712,
+      "title": "`{% with %}`：替長 lookup 取名字",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 20,
+        "section": "14-16"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 233,
+      "source_line": 3729,
+      "title": "`{% firstof %}`：多個 fallback",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 21,
+        "section": "14-17"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 234,
+      "source_line": 3741,
+      "title": "`{% cycle %}`：輪流值",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 22,
+        "section": "14-18"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 235,
+      "source_line": 3758,
+      "title": "`{% ifchanged %}`：分組顯示",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 23,
+        "section": "14-19"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 236,
+      "source_line": 3773,
+      "title": "`{% regroup %}`：Template 層分組",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 24,
+        "section": "14-20"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 237,
+      "source_line": 3792,
+      "title": "`{% querystring %}`：分頁超實用",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 25,
+        "section": "14-21"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 238,
+      "source_line": 3812,
+      "title": "搜尋＋分頁的典型寫法",
+      "status": "adapted",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 26,
+        "section": "14-22"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 239,
+      "source_line": 3838,
+      "title": "`url` tag：不要手拼路徑",
+      "status": "consolidated",
+      "target": {
+        "file": "03_Template與頁面呈現.md",
+        "chapter": 4
+      },
+      "reason": "url tag 併入命名路由與 Template 基礎"
+    },
+    {
+      "source": "C",
+      "source_slide": 240,
+      "source_line": 3854,
+      "title": "`json_script`：安全把資料交給 JS",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 27,
+        "section": "14-23"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 241,
+      "source_line": 3872,
+      "title": "Autoescape 是預設安全線",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 28,
+        "section": "14-24"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 242,
+      "source_line": 3890,
+      "title": "`safe` 要非常克制",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 29,
+        "section": "14-25"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 243,
+      "source_line": 3906,
+      "title": "`striptags|safe` 不是 sanitizer",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 30,
+        "section": "14-26"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 244,
+      "source_line": 3922,
+      "title": "Template 裡不要呼叫帶參數方法",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 31,
+        "section": "14-27"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 245,
+      "source_line": 3944,
+      "title": "什麼時候做 custom filter？",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 32,
+        "section": "14-28"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 246,
+      "source_line": 3960,
+      "title": "什麼時候做 inclusion tag？",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 33,
+        "section": "14-29"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 247,
+      "source_line": 3979,
+      "title": "LearnBoard 可以立刻用的補強",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 34,
+        "section": "14-30"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 248,
+      "source_line": 3996,
+      "title": "LearnMart 可以立刻用的補強",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 35,
+        "section": "14-31"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 249,
+      "source_line": 4013,
+      "title": "LearnJournal 可以立刻用的補強",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 36,
+        "section": "14-32"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 250,
+      "source_line": 4030,
+      "title": "判斷「該放哪一層」",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 37,
+        "section": "14-33"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 251,
+      "source_line": 4049,
+      "title": "本章實作題",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 38,
+        "section": "14-34"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 252,
+      "source_line": 4059,
+      "title": "參考資料",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 39,
+        "section": "14-35"
+      }
+    },
+    {
+      "source": "C",
+      "source_slide": 253,
+      "source_line": 4068,
+      "title": "最後記住三件事",
+      "status": "retained",
+      "target": {
+        "file": "08_DTL進階與元件整理.md",
+        "chapter": 14,
+        "slide": 40,
+        "section": "14-36"
+      }
+    },
+    {
+      "source": "D0",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "03 Deployment / Operations / 從「本機可跑」到「可部署、可維護」",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D0",
+      "source_slide": 2,
+      "source_line": 13,
+      "title": "為什麼做成共用單元？",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 5,
+        "section": "22-1"
+      }
+    },
+    {
+      "source": "D0",
+      "source_slide": 3,
+      "source_line": 30,
+      "title": "本機與 production 的差別",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 6,
+        "section": "22-2"
+      }
+    },
+    {
+      "source": "D0",
+      "source_slide": 4,
+      "source_line": 52,
+      "title": "這個單元不綁供應商",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 7,
+        "section": "22-3"
+      }
+    },
+    {
+      "source": "D0",
+      "source_slide": 5,
+      "source_line": 66,
+      "title": "建議順序",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D0",
+      "source_slide": 6,
+      "source_line": 77,
+      "title": "配套手冊",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D1",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-1 Settings / Environment Variables",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D1",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "哪些值不該硬編碼？",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 9,
+        "section": "22-5"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 3,
+      "source_line": 25,
+      "title": "Classroom default vs production override",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 10,
+        "section": "22-6"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 4,
+      "source_line": 41,
+      "title": "讀環境變數",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 12,
+        "section": "22-8"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 5,
+      "source_line": 65,
+      "title": "不要提交 `.env`",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 13,
+        "section": "22-9"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 6,
+      "source_line": 80,
+      "title": "ALLOWED_HOSTS",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 14,
+        "section": "22-10"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 7,
+      "source_line": 92,
+      "title": "Settings split 要不要做？",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 15,
+        "section": "22-11"
+      }
+    },
+    {
+      "source": "D1",
+      "source_slide": 8,
+      "source_line": 109,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 22,
+        "slide": 16,
+        "section": "22-12"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-2 Static / Media / Database",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D2",
+      "source_slide": 2,
+      "source_line": 16,
+      "title": "`runserver` 幫你做了很多事",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 21,
+        "section": "23-1"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 3,
+      "source_line": 24,
+      "title": "`collectstatic`",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 22,
+        "section": "23-2"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 4,
+      "source_line": 40,
+      "title": "Media 不等於 Static",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 23,
+        "section": "23-3"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 5,
+      "source_line": 54,
+      "title": "上傳安全",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 24,
+        "section": "23-4"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 6,
+      "source_line": 66,
+      "title": "SQLite 到 PostgreSQL",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 25,
+        "section": "23-5"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 7,
+      "source_line": 82,
+      "title": "切 DB 不等於搬資料",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 26,
+        "section": "23-6"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 8,
+      "source_line": 96,
+      "title": "`dumpdata` / `loaddata` 的定位",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 27,
+        "section": "23-7"
+      }
+    },
+    {
+      "source": "D2",
+      "source_slide": 9,
+      "source_line": 109,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 23,
+        "slide": 28,
+        "section": "23-8"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-3 Security / `check --deploy`",
+      "status": "consolidated",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D3",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "先跑 Django 自己的檢查",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 32,
+        "section": "24-1"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 3,
+      "source_line": 25,
+      "title": "DEBUG 必須關",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 33,
+        "section": "24-2"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 4,
+      "source_line": 38,
+      "title": "HTTPS 與 secure cookies",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 34,
+        "section": "24-3"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 5,
+      "source_line": 53,
+      "title": "CSRF / XSS / Clickjacking",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 35,
+        "section": "24-4"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 6,
+      "source_line": 65,
+      "title": "Security headers",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 36,
+        "section": "24-5"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 7,
+      "source_line": 78,
+      "title": "Rate limiting / brute force",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 37,
+        "section": "24-6"
+      }
+    },
+    {
+      "source": "D3",
+      "source_slide": 8,
+      "source_line": 94,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "16_部署設定與正式環境.md",
+        "chapter": 24,
+        "slide": 38,
+        "section": "24-7"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-4 Process / Reverse Proxy / Logging",
+      "status": "consolidated",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D4",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "Production request path",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 5,
+        "section": "25-1"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 3,
+      "source_line": 30,
+      "title": "Reverse proxy 常做什麼？",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 6,
+        "section": "25-2"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 4,
+      "source_line": 44,
+      "title": "WSGI / ASGI server",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 7,
+        "section": "25-3"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 5,
+      "source_line": 57,
+      "title": "Process manager 要解決什麼？",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 8,
+        "section": "25-4"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 6,
+      "source_line": 70,
+      "title": "Log 不只 `print()`",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 9,
+        "section": "25-5"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 7,
+      "source_line": 83,
+      "title": "Django logging 心智模型",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 10,
+        "section": "25-6"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 8,
+      "source_line": 96,
+      "title": "可觀測性",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 11,
+        "section": "25-7"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 9,
+      "source_line": 108,
+      "title": "Health check",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 12,
+        "section": "25-8"
+      }
+    },
+    {
+      "source": "D4",
+      "source_slide": 10,
+      "source_line": 123,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 25,
+        "slide": 13,
+        "section": "25-9"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-5 Migrations / Backup / Recovery",
+      "status": "consolidated",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D5",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "先備回顧：資料模型與檔案",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 17,
+        "section": "26-1"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 3,
+      "source_line": 25,
+      "title": "Migration 是版本化 schema 變更",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 18,
+        "section": "26-2"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 4,
+      "source_line": 38,
+      "title": "Deploy 順序要能相容",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 19,
+        "section": "26-3"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 5,
+      "source_line": 52,
+      "title": "Data migration 也會失敗",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 20,
+        "section": "26-4"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 6,
+      "source_line": 66,
+      "title": "Backup 的最低標準",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 21,
+        "section": "26-5"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 7,
+      "source_line": 81,
+      "title": "RPO / RTO",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 22,
+        "section": "26-6"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 8,
+      "source_line": 92,
+      "title": "Rollback 不只是 git revert",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 23,
+        "section": "26-7"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 9,
+      "source_line": 106,
+      "title": "Classroom recovery drill / 做一個破壞性操作",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 24,
+        "section": "26-8"
+      }
+    },
+    {
+      "source": "D5",
+      "source_slide": 10,
+      "source_line": 120,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 26,
+        "slide": 25,
+        "section": "26-9"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "P2-6 CI / Release Checklist",
+      "status": "consolidated",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D6",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "最小 CI gate",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 29,
+        "section": "27-1"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 3,
+      "source_line": 30,
+      "title": "為什麼 `makemigrations --check`？",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 30,
+        "section": "27-2"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 4,
+      "source_line": 43,
+      "title": "CI 不應保存 production secrets",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 31,
+        "section": "27-3"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 5,
+      "source_line": 55,
+      "title": "Release 前 checklist",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 32,
+        "section": "27-4"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 6,
+      "source_line": 71,
+      "title": "Release 後驗證",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 33,
+        "section": "27-5"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 7,
+      "source_line": 85,
+      "title": "監看 deployment",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 34,
+        "section": "27-6"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 8,
+      "source_line": 100,
+      "title": "Roll forward vs rollback",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 35,
+        "section": "27-7"
+      }
+    },
+    {
+      "source": "D6",
+      "source_slide": 9,
+      "source_line": 112,
+      "title": "本章檢核",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 36,
+        "section": "27-8"
+      }
+    },
+    {
+      "source": "D7",
+      "source_slide": 1,
+      "source_line": 6,
+      "title": "Deployment / Operations Summary",
+      "status": "consolidated",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27
+      },
+      "reason": "原封面／課程導覽改寫為新章首、README 與每份先備／驗收／銜接"
+    },
+    {
+      "source": "D7",
+      "source_slide": 2,
+      "source_line": 12,
+      "title": "Production readiness 地圖",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 37,
+        "section": "27-9"
+      }
+    },
+    {
+      "source": "D7",
+      "source_slide": 3,
+      "source_line": 32,
+      "title": "三個專案各自回扣",
+      "status": "adapted",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 38,
+        "section": "27-10"
+      }
+    },
+    {
+      "source": "D7",
+      "source_slide": 4,
+      "source_line": 44,
+      "title": "最後驗證",
+      "status": "retained",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 39,
+        "section": "27-11"
+      }
+    },
+    {
+      "source": "D7",
+      "source_slide": 5,
+      "source_line": 68,
+      "title": "完成這門課後應具備的能力",
+      "status": "adapted",
+      "target": {
+        "file": "17_服務運行與發布維護.md",
+        "chapter": 27,
+        "slide": 40,
+        "section": "27-12"
+      }
+    }
+  ],
+  "new_slides": [
+    {
+      "file": "02_HTTP路由與View.md",
+      "chapter": 3,
+      "slide": 6,
+      "title": "3-2 Request 與 Response 的內容",
+      "derived_from": {
+        "source": "A",
+        "source_slide": 45,
+        "reason": "將原 HTTP 圖解與訊息欄位分成兩頁"
+      }
+    },
+    {
+      "file": "03_Template與頁面呈現.md",
+      "chapter": 4,
+      "slide": 8,
+      "title": "4-4 MVT 各層的責任",
+      "derived_from": {
+        "source": "A",
+        "source_slide": 92,
+        "reason": "將原圖解與各層責任分成兩頁"
+      }
+    },
+    {
+      "file": "04_Model與欄位設計.md",
+      "chapter": 6,
+      "slide": 15,
+      "title": "6-11 最小資料練習的完整操作路線"
+    },
+    {
+      "file": "08_DTL進階與元件整理.md",
+      "chapter": 14,
+      "slide": 5,
+      "title": "14-1 工具箱的範例資料與使用方式"
+    },
+    {
+      "file": "09_表單與資料驗證.md",
+      "chapter": 15,
+      "slide": 21,
+      "title": "15-17 LearnBoard 的最小 ModelForm"
+    },
+    {
+      "file": "11_CRUD與物件權限.md",
+      "chapter": 17,
+      "slide": 11,
+      "title": "17-7 LearnBoard：DeleteView 的確認與執行"
+    },
+    {
+      "file": "11_CRUD與物件權限.md",
+      "chapter": 17,
+      "slide": 12,
+      "title": "17-8 刪除驗收：畫面與資料都要確認"
+    },
+    {
+      "file": "12_購物車與流程測試.md",
+      "chapter": 18,
+      "slide": 5,
+      "title": "18-1 從留言操作擴充到購物車"
+    },
+    {
+      "file": "16_部署設定與正式環境.md",
+      "chapter": 22,
+      "slide": 8,
+      "title": "22-4 部署練習的起點與配套手冊"
+    },
+    {
+      "file": "16_部署設定與正式環境.md",
+      "chapter": 22,
+      "slide": 11,
+      "title": "22-7 將環境設定接到所選專案"
+    }
+  ]
+}

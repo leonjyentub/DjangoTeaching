@@ -1023,7 +1023,7 @@ class 是視覺大小，兩者獨立。此題值得當場點名。
 - [ ] 能說出 `row-cols-md-3` 的生效範圍
 - [ ] 打開 base.html 能區分 HTML 與 `{% %}`／`{{ }}`
 
-全部打勾 → 你已準備好進入 [Deck 01：兩個 Django 專案的共通基礎](../01_django_foundations_and_two_projects/00_overview.md)。
+全部打勾 → 你已準備好進入 [Deck 01：Django 連續教學教材](../01_開發環境與專案建立.md)。
 
 <!--
 授課提示：checklist 可當闖關單。全冊授課時間建議 2~3 小時。

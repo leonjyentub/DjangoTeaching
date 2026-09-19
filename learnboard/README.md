@@ -71,8 +71,7 @@ learnboard/
 |---|---|---|---|---|
 | [Python 語法先備](../slides/00_python_syntax_essentials/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
 | [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
-| [01 Django 共通基礎](../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md) | 單一整合 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／migration、ORM、留言牆與商品目錄 | 能從請求追到資料庫與模板 |
-| [02 表單、身份驗證與工作流程](../slides/02_forms_auth_and_two_projects/00_overview.md) | 7 章分檔 | 共用主教材 | Form、登入、ownership、購物車、訂單、交易、安全、測試 | 完成兩個專案的流程對照 |
+| [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、留言牆與商品目錄 | 能從請求追到資料庫與模板並完成流程對照 |
 
 LearnBoard 自己的原始分章教材仍保留為 6 章版本：
 
@@ -100,8 +99,8 @@ LearnBoard 自己的原始分章教材仍保留為 6 章版本：
 
 ```bash
 marp ../slides/00_python_syntax_essentials/00_python_syntax_essentials.md --pdf
-marp ../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md --pdf
-marp ../slides/02_forms_auth_and_two_projects/01_chapter_01.md --pdf
+marp ../slides/01_開發環境與專案建立.md --pdf
+marp ../slides/09_表單與資料驗證.md --pdf
 ```
 
 ## 驗證

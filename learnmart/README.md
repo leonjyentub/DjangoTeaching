@@ -84,8 +84,7 @@ learnmart/
 | [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
 | [LearnBoard 01 原始分章教材](../slides/learnboard_01_django_foundations_and_message_board/00_overview.md) | 6 章 | 第一階段原始教材 | HTTP／URL／View、Template、Model、migration、ORM、留言牆 | 對照小型留言板原型 |
 | [LearnBoard 02 原始分章教材](../slides/learnboard_02_forms_auth_and_board_workflows/00_overview.md) | 6 章 | 第一階段原始教材 | 表單、登入、author migration、ownership、安全、測試 | 對照留言板完整流程 |
-| [01 Django 共通基礎](../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md) | 單一整合 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／migration、ORM、兩種資料驅動頁面 | 能從請求追到資料庫與模板 |
-| [02 表單、身份驗證與工作流程](../slides/02_forms_auth_and_two_projects/00_overview.md) | 7 章 | 共用主教材 | Form、登入、ownership、購物車、訂單、交易、安全、測試 | 能實作並驗證商城流程 |
+| [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、購物車／訂單／交易、安全測試、部署維運 | 能從請求追到資料庫與模板並完成流程驗證 |
 | [LearnMart 01 原始分章教材](../slides/learnmart_01_django_foundations_and_data_backed_catalog/00_overview.md) | 6 章 + summary | 第二階段原始教材 | 商品目錄、資料模型與 ORM | 對照商城資料驅動頁面 |
 | [LearnMart 02 原始分章教材](../slides/learnmart_02_forms_auth_and_marketplace_workflows/00_overview.md) | 7 章 + integration | 第二階段原始教材 | 表單、角色、購物車、訂單與交易 | 對照商城完整 workflow |
 
@@ -108,8 +107,8 @@ learnmart/
 
 ```bash
 marp ../slides/learnmart_01_django_foundations_and_data_backed_catalog/01_chapter_01.md --pdf
-marp ../slides/01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md --pdf
-marp ../slides/02_forms_auth_and_two_projects/01_chapter_01.md --pdf
+marp ../slides/01_開發環境與專案建立.md --pdf
+marp ../slides/09_表單與資料驗證.md --pdf
 ```
 
 ## 驗證

@@ -42,16 +42,12 @@ LearnJournal 03A 與 03B 現在都有可執行程式與分章教材；最後另�
 
 ## 建議學習順序
 
-1. Python 與 HTML/CSS 先備教材。
-2. Django 01 共通基礎；第一次接觸者搭配 first-contact / debugging 補充。
-3. LearnBoard：完成 CRUD + auth + ownership 的最小完整循環。
-4. Django 02 + LearnMart：表單、權限、購物車、訂單、transaction、安全與測試。
-5. Django Template Language 實用工具箱：時間、截斷文字、humanize、querystring、集合與安全標籤。
-6. LearnJournal 03A：內容模型、M2M、發佈與進階 ORM。
-7. LearnJournal 03B：state/cache、middleware、email、permissions、feed、scheduler、PostgreSQL search。
-8. Deployment / Operations：environment、static/media、PostgreSQL、安全、process/logging、migration/backup、CI/release。
+1. Python、Git 與 HTML/CSS 先備教材。
+2. [Django 連續教學教材](slides/README.md)：27 章、17 份 Marp，整合環境、頁面、資料層、表單、權限、商城流程、安全測試及部署維運。
+3. LearnJournal 03A：內容模型、M2M、發佈與進階 ORM。
+4. LearnJournal 03B：state/cache、middleware、email、permissions、feed、scheduler、PostgreSQL search；再將部署維運檢核套到第三專案。
 
-詳細入口請從 [`slides/README.md`](slides/README.md) 開始。
+主線按 `slides/` 下的連續教材檔名順序授課；LearnBoard／LearnMart 作章內案例，LearnJournal 為後續延伸。原 01、01B、02、03 教材已整併至連續教材並移除，逐頁去向見 [來源索引](slides/SOURCE_MAP.md)。全部教材入口見 [slides/README.md](slides/README.md)。
 
 ## Repository 級教材驗證
 

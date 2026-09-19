@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 265" width="1120" role="img" aria-label="HTTP request 從瀏覽器送往 Django，response 再由 Django 回到瀏覽器">
+  <defs>
+    <linearGradient id="http-browser" x1="0" x2="1">
+      <stop stop-color="#E6FFFB"/><stop offset="1" stop-color="#CCFBF1"/>
+    </linearGradient>
+    <linearGradient id="http-django" x1="0" x2="1">
+      <stop stop-color="#ECFDF5"/><stop offset="1" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <marker id="http-arrow-request" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L10,5.5 L0,11 Z" fill="#0F766E"/>
+    </marker>
+    <marker id="http-arrow-response" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L10,5.5 L0,11 Z" fill="#2563EB"/>
+    </marker>
+  </defs>
+  <rect x="28" y="52" width="230" height="158" rx="24" fill="url(#http-browser)" stroke="#14B8A6" stroke-width="3"/>
+  <text x="143" y="112" text-anchor="middle" font-size="48">🌐</text>
+  <text x="143" y="151" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="25" font-weight="700" fill="#134E4A">Browser</text>
+  <text x="143" y="181" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="17" fill="#0F766E">使用者的瀏覽器</text>
+
+  <line x1="290" y1="96" x2="830" y2="96" stroke="#0F766E" stroke-width="7" stroke-linecap="round" marker-end="url(#http-arrow-request)"/>
+  <rect x="445" y="54" width="230" height="47" rx="23" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+  <text x="560" y="85" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" fill="#115E59">REQUEST  請求 →</text>
+  <text x="560" y="126" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="16" fill="#115E59">GET /products/3/?q=鍵盤</text>
+
+  <line x1="830" y1="184" x2="290" y2="184" stroke="#2563EB" stroke-width="7" stroke-linecap="round" marker-end="url(#http-arrow-response)"/>
+  <rect x="445" y="160" width="230" height="47" rx="23" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="560" y="191" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" fill="#1D4ED8">← RESPONSE  回應</text>
+  <text x="560" y="235" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="16" fill="#1D4ED8">200 OK ＋ HTML</text>
+
+  <rect x="862" y="52" width="230" height="158" rx="24" fill="url(#http-django)" stroke="#22C55E" stroke-width="3"/>
+  <text x="977" y="112" text-anchor="middle" font-size="48">⚙️</text>
+  <text x="977" y="151" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="25" font-weight="700" fill="#166534">Django</text>
+  <text x="977" y="181" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="17" fill="#15803D">網站伺服器</text>
+</svg>

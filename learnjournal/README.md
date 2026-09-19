@@ -151,7 +151,7 @@ python ../scripts/check_material_links.py --root ..
 - production SMTP / async job queue
 - rate limit、spam moderation、監控與 object storage
 
-跨三專案共用的 production 基礎已整理到 [`../slides/03_deployment_and_operations/`](../slides/03_deployment_and_operations/)。
+跨三專案共用的 production 基礎已收進連續教學教材的 [部署設定與正式環境](../slides/16_部署設定與正式環境.md)（第 22～24 章）與 [服務運行與發布維護](../slides/17_服務運行與發布維護.md)（第 25～27 章）。
 
 ## 教學設計說明
 

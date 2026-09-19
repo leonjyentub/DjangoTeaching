@@ -2624,7 +2624,7 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 - [ ] 看到 `@require_POST` 能說出「包一層先擋 method」
 - [ ] 看到 `-> QuerySet` 知道那是回傳值標註而非魔法
 
-全部打勾 → 進入 [HTML/CSS 先備](../00b_html_css_page_basics/00_overview.md)，然後開始 [Deck 01：兩個 Django 專案的共通基礎](../01_django_foundations_and_two_projects/00_overview.md)。
+全部打勾 → 進入 [HTML/CSS 先備](../00_html_css_page_basics/00_html_css_page_basics.md)，然後開始 [Django 連續教學教材](../01_開發環境與專案建立.md)。
 
 **配套指令複習：**
 
