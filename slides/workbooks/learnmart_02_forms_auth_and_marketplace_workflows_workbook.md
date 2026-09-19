@@ -1,9 +1,9 @@
 # LearnMart 02 配套實作手冊
 
-**對應投影片：** `../learnmart_02_forms_auth_and_marketplace_workflows/00_overview.md`  
+**對應課程：** [Django 課程教材](../README.md) 的 LearnMart 第二階段  
 **用途：** 概念檢核解答、逐步實作、聚焦前後程式碼與驗收方式。  
 **注意：** 這是一般 Markdown，不是 Marp 投影片。  
-**返回投影片：** [02 Forms, Auth and Marketplace Workflows](./../learnmart_02_forms_auth_and_marketplace_workflows/00_overview.md)
+**返回課程：** [Django 課程教材](../README.md)
 
 本手冊以目前 repository 中的 LearnMart 為基準。每個練習先要求你讀現有行為，再以小範圍修改或測試固定規則；不要一次複製整個檔案。
 

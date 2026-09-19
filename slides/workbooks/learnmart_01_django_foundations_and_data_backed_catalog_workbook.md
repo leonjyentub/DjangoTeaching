@@ -1,6 +1,6 @@
 # LearnMart 01 配套實作手冊
 
-本手冊對應 [Django 基礎與資料驅動商品目錄](../learnmart_01_django_foundations_and_data_backed_catalog/00_overview.md)。投影片保留問題與任務；本手冊提供答案、推理、實作步驟與驗收方式。
+本手冊在 [Django 課程教材](../README.md) 的 LearnMart 第一階段配合使用；主教材保留問題與任務，本手冊提供答案、推理、實作步驟與驗收方式。
 
 > 建議先獨立回答，再查看解答。涉及 source code 的練習請在個人練習 branch 進行；不要直接把所有答案貼進正式專案。每段「修改後」只顯示焦點 excerpt，不代表整個檔案。
 

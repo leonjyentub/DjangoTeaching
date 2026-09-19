@@ -31,7 +31,7 @@ footer: "初學者教材｜觀念 → 語法 → LearnJournal 實作"
 | 二 | LearnMart 學購商城 | 交易 ＋資料完整性 | 多筆寫入一起成功或一起失敗 |
 | **三** | **LearnJournal 學誌** | **內容發佈與傳播 ＋效能** | **內容做出來 → 被找到 → 被回應** |
 
-前兩階段見 `../learnboard_01_*`／`../learnboard_02_*`／`../learnmart_01_*`／`../learnmart_02_*`。
+前兩階段見 [Django 課程教材](../README.md) 的 LearnBoard 與 LearnMart 章節。
 
 > 本冊不再雙軌對照。LearnJournal 是單一專案；需要對照時直接回指 LearnBoard／LearnMart 的具體檔案。
 

@@ -116,11 +116,11 @@ GitHub Actions 的 `.github/workflows/material-links.yml` 也會在 PR 與 `mast
 
 ## 剩餘教材形態
 
-已整併的來源資料夾（01、01B、02、03）不再單獨存在；目前根目錄的教材形態如下：
+已整併的來源資料夾（01、01B、02、03）與 LearnBoard／LearnMart 的原始分章版本均已整併進主教材；目前根目錄的教材形態如下：
 
-- `learnboard_*`／`learnmart_*`：各專案來源教材整理出的分章版本。
-- `learnjournal_*`：第三階段教材，03A / 03B 都直接以分章形式撰寫。
 - `00_python_syntax_essentials`／`00_html_css_page_basics`：先備單一 Marp。
+- `learnboard_01_django_foundations_and_message_board`／`learnboard_02_forms_auth_and_board_workflows`：LearnBoard 分章教材整併後僅存的專屬補充（視覺 CSS、BootstrapFormMixin 定義、權限感知按鈕、測試類別逐字稿）。
+- `learnjournal_*`：第三階段教材，03A / 03B 都直接以分章形式撰寫。
 - `workbooks/`：三個專案與部署維運的實作手冊。
 
 不要假設所有資料夾都有 `00_overview.md` 或 `01_chapter_01.md`。需要核對來源與現況時，請查 [`SOURCE_MAP.md`](SOURCE_MAP.md)。

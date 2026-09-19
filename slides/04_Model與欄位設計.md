@@ -742,7 +742,7 @@ LearnBoard 也以 `<int:pk>` 定位要編輯或刪除的留言。
 <!--
 官方依據：
 https://docs.djangoproject.com/en/6.1/topics/db/models/
-來源：slides/learnboard_01_django_foundations_and_message_board/04_chapter_04.md；slides/learnmart_01_django_foundations_and_data_backed_catalog/03_chapter_03.md、04_chapter_04.md、05_chapter_05.md；learnboard/board/admin.py；learnmart/marketplace/admin.py。
+來源：LearnBoard 01 原第 4 章與 LearnMart 01 原第 3～5 章；learnboard/board/admin.py；learnmart/marketplace/admin.py。
 -->
 
 ---

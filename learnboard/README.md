@@ -73,22 +73,15 @@ learnboard/
 | [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
 | [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、留言牆與商品目錄 | 能從請求追到資料庫與模板並完成流程對照 |
 
-LearnBoard 自己的原始分章教材仍保留為 6 章版本：
-
-- [`learnboard_01_django_foundations_and_message_board/`](../slides/learnboard_01_django_foundations_and_message_board/)
-- [`learnboard_02_forms_auth_and_board_workflows/`](../slides/learnboard_02_forms_auth_and_board_workflows/)
-
-完成 Deck 02 後即可用 [LearnMart 原始分章教材](../slides/learnmart_01_django_foundations_and_data_backed_catalog/00_overview.md) 對照第二階段。
+LearnBoard 案例已整併進 [Django 連續教學教材](../slides/README.md)；專案僅保留少量未重現在主教材的專屬補充（視覺 CSS、BootstrapFormMixin 定義、權限感知按鈕、測試類別逐字稿）。
 
 ## 投影片與實作手冊
 
-教材目前同時存在「單一 Marp」與「分章版」，不要假設每個資料夾都有 `00_overview.md`。完整現況可參考 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)。概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`：
+概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`；完整現況可參考 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)：
 
 - `../slides/00_python_syntax_essentials/00_python_syntax_essentials.md`
 - `../slides/00_html_css_page_basics/00_html_css_page_basics.md`
-- `../slides/learnboard_01_django_foundations_and_message_board/`
 - `../slides/workbooks/learnboard_01_django_foundations_and_message_board_workbook.md`
-- `../slides/learnboard_02_forms_auth_and_board_workflows/`
 - `../slides/workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md`
 
 圖解資產：`../slides/assets/*.svg`，重製提示詞見 `../slides/diagram_prompts.md`。教材 CSS 與 SVG 使用繁中字型鏈。

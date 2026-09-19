@@ -322,7 +322,7 @@ Admin 列表也會讀關聯；list_select_related 可處理相同問題。
 官方依據：
 https://docs.djangoproject.com/en/6.1/topics/db/queries/
 https://docs.djangoproject.com/en/6.1/ref/contrib/admin/
-來源：slides/learnmart_01_django_foundations_and_data_backed_catalog/05_chapter_05.md。
+來源：LearnMart 01 原第 5 章。
 -->
 
 ---

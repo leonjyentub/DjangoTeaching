@@ -1,6 +1,6 @@
 # LearnBoard 02 配套實作手冊
 
-本手冊對應 [表單、帳號與留言權限](../learnboard_02_forms_auth_and_board_workflows/00_overview.md)。投影片保留問題與任務；本手冊提供答案、推理、實作步驟與前後程式碼對照。
+本手冊在 [Django 課程教材](../README.md) 的 LearnBoard 第二階段配合使用；主教材保留問題與任務，本手冊提供答案、推理、實作步驟與前後程式碼對照。
 
 > 建議先獨立回答，再查看解答。涉及 source code 的練習請在個人練習 branch 進行。每段「修改後」只顯示焦點 excerpt，不代表整個檔案。
 
@@ -333,4 +333,4 @@ def test_edit_updates_timestamp_and_marks_edited(self):
 
 全部打勾 → 你已完成個人留言板課程，具備進入 LearnMart 商城教材的全部前置能力。
 
-下一站：[LearnMart 01：Django 基礎與資料驅動商品目錄](../learnmart_01_django_foundations_and_data_backed_catalog/00_overview.md)
+下一站：[Django 課程教材](../README.md) 的 LearnMart 章節。
