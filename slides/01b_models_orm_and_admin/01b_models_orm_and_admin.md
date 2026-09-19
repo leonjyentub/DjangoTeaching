@@ -20,10 +20,10 @@ footer: "共通教材｜LearnBoard × LearnMart"
 
 01 第 1～3 章：環境、Request、Template
 → **01B：資料模型與後台管理**
-→ 01 第 6～7 章：商品目錄與留言牆
+→ 01 第 5 章檢核，再進入第 6～7 章：商品目錄與留言牆
 → 02：表單、身份驗證、交易 → 03：部署與維運
 
-- 01 第 4～5 章可作摘要複習；本冊提供詳細教學。
+- 01 第 4～5 章只保留六頁銜接與檢核；資料層完整教學集中於本冊。
 - 基準：Django 6.1 官方文件；範例以兩個專案的資料命名。
 - 「現有實作」可回查專案；「教學延伸」需自行建立，不能直接假設存在。
 
@@ -393,6 +393,25 @@ def __str__(self):
 不要在這裡任意改資料；若讀取其他關聯，也可能增加查詢。
 
 <!-- 官方依據：https://docs.djangoproject.com/en/6.1/ref/models/instances/#str -->
+
+---
+
+## 1-2C Model 方法與商品詳情網址
+
+```python
+@property
+def average_rating(self):
+    result = self.reviews.aggregate(avg=models.Avg("rating"))["avg"]
+    return round(result, 1) if result else None
+
+def get_absolute_url(self):
+    return reverse("marketplace:product-detail", kwargs={"pk": self.pk})
+```
+
+- `@property`：以 attribute 方式讀取計算值
+- `get_absolute_url()`：定義商品標準詳情網址
+
+**目前 LearnMart 實作：** 商品 template 以它建立連結；`ProductCreateView`／`ProductUpdateView` 沒有另設 `success_url`，成功儲存後也已透過它決定 redirect。
 
 ---
 
@@ -1179,6 +1198,23 @@ https://docs.djangoproject.com/en/6.1/topics/db/models/
 
 ---
 
+## 3-11B 訂單快照：保留購買當下的資料
+
+OrderItem 同時保留 relation 與購買當下資料：
+
+```python
+product = models.ForeignKey(Product, on_delete=models.PROTECT, ...)
+product_name = models.CharField(max_length=150)
+unit_price = models.DecimalField(max_digits=10, decimal_places=0)
+quantity = models.PositiveIntegerField()
+```
+
+商品日後改名或漲價，舊訂單仍顯示購買當時名稱與單價。
+
+本 Deck 先理解 schema 決策；建立快照、扣庫存與 transaction 的完整 checkout 放在 Deck 2。
+
+---
+
 ## 3-12 關聯練習（20 分鐘）
 
 畫出 User、Profile、Message、Product、Tag 的關係。
@@ -1305,6 +1341,23 @@ https://docs.djangoproject.com/en/6.1/ref/models/constraints/
 
 ---
 
+## 4-4B Review 評價唯一約束
+
+**目前 LearnMart 節錄｜`Review.Meta.constraints`**
+
+```python
+models.UniqueConstraint(
+    fields=["product", "author"],
+    name="one_review_per_product",
+)
+```
+
+同一 author/product 只保留一筆 review；目前 workflow 使用 `update_or_create()` 更新內容。
+
+這個 database uniqueness 與 rating 1–5 validator 是不同規則、不同防線。
+
+---
+
 ## 4-5 CheckConstraint：範圍與跨欄位規則
 
 **教學延伸｜可加入 CartItem.Meta.constraints**
@@ -1354,6 +1407,24 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 
 ---
 
+## 4-6B 專案初始化前的 User 決定
+
+**目前 LearnMart 節錄｜`config/settings.py`**
+
+```python
+AUTH_USER_MODEL = "marketplace.User"
+```
+
+新專案應在第一次正式建立 schema 前設定：
+
+- 後期切換 user model 涉及 migration 與多個關聯，操作困難
+- LearnMart 從一開始就繼承 `AbstractUser` 並加入 `role`
+- 本章只先認識這個架構決定；密碼、session、權限放在 Deck 2
+
+可重用 app 的 model 關聯常用 `settings.AUTH_USER_MODEL`；runtime 查詢常用 `get_user_model()`。本專案同一 app 的 models 目前直接參照本地 `User` class。
+
+---
+
 ## 4-7 Model、migration 與資料表
 
 ```text
@@ -1374,6 +1445,56 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 https://docs.djangoproject.com/en/6.1/topics/db/models/
 
 -->
+
+---
+
+## 4-7B 取得專案與修改模型的操作差異
+
+### clone／取得既有 repository
+
+```bash
+uv run python manage.py migrate
+```
+
+Migration 已存在；把它套用到本機 database。
+
+### 你真的改了 model
+
+```bash
+uv run python manage.py makemigrations
+# 先閱讀產生的 migration
+uv run python manage.py migrate
+```
+
+`showmigrations` 是檢查套用狀態；不是每次必須的第三個 schema-changing 步驟。
+
+<!--
+授課提示：警告：repo 已含 migration，自行亂改 model 會讓 makemigrations --check 失敗；練習請開分支。
+-->
+
+---
+
+## 4-7C migration 訊息與狀態檢查
+
+```text
+No changes detected
+```
+
+通常表示 Django 比較 model state 與 migration state 後沒有新差異；在完成版 LearnMart 上這可能是正常結果。
+
+```text
+Your models ... have changes that are not yet reflected in a migration
+```
+
+表示 model 與 migration 不一致。
+
+驗證指令：
+
+```bash
+uv run python manage.py makemigrations --check
+```
+
+成功退出表示沒有未建立的 model migration。
 
 ---
 
@@ -1482,6 +1603,47 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 https://docs.djangoproject.com/en/6.1/ref/models/instances/
 
 -->
+
+---
+
+## 5-2B 建立商品前先取得必要關聯
+
+**LearnMart shell｜先確認 seed_demo 已建立 seller 帳號與 tech 分類。**
+
+```python
+from marketplace.models import Category, Product, User
+
+seller = User.objects.get(username="seller")
+category = Category.objects.get(slug="tech")
+
+product = Product.objects.create(
+    seller=seller, category=category,
+    name="教學鍵盤", description="練習 ORM",
+    price=990, stock=5,
+)
+```
+
+`.create()` 會立即 INSERT 並回傳已儲存 instance；成功後 `product.pk` 有值。
+
+注意：一般 `.create()`／`.save()` 不等同自動呼叫完整 `full_clean()`。
+
+---
+
+## 5-2C 刪除單筆練習商品
+
+接續上一頁，只操作剛建立且尚未被訂單引用的商品。
+
+```python
+practice_pk = product.pk
+product.delete()
+Product.objects.filter(pk=practice_pk).exists()  # False
+```
+
+- `.delete()` 是執行刪除的動作；`on_delete` 決定關聯對象被刪除時的規則。
+- 刪商品不會反過來刪除它的分類或賣家。
+- 若商品已被 OrderItem 保護，刪除會受阻；回查 3-4 的關聯圖。
+
+驗收：查不到練習商品，原分類與賣家仍存在。批次刪除差異見 5-10。
 
 ---
 
@@ -1599,6 +1761,30 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 
 ---
 
+## 5-7B N+1：列表逐筆讀取關聯的成本
+
+```python
+products = Product.objects.all()
+for product in products:
+    print(product.seller.username)
+```
+
+可能發生：
+
+- 1 次查 products
+- 每個 product 再查 seller
+- 20 商品可能約 21 次 query
+
+問題不是 Python loop 本身，而是每次讀尚未載入的 relation 都觸發 database access。
+
+先觀察問題，再選擇 optimization。
+
+<!--
+授課提示：用 connection.queries 或 debug-toolbar 展示 N+1 實際筆數，數字最有說服力。
+-->
+
+---
+
 ## 5-8 關聯預載取決於資料形狀
 
 **抽入 LearnMart 原第 5 章的列表／詳情案例**
@@ -1642,6 +1828,26 @@ Product.average_rating 是現有 property，逐件呼叫可能逐件查詢。
 https://docs.djangoproject.com/en/6.1/topics/db/queries/
 
 -->
+
+---
+
+## 5-9B 商品平均評分的查詢行為
+
+**目前 LearnMart 實作的注意點｜`Product.average_rating`**
+
+一般 `@property` 不會自動 cache。若 template 在 `{% if product.average_rating %}` 與輸出時各讀一次，背後的 `aggregate()` 也可能執行兩次。
+
+**補充／進階｜只評估一次的 template 寫法**
+
+```django
+{% with rating=product.average_rating %}
+  {% if rating %}
+    <span class="text-warning">★ {{ rating }}</span>
+  {% endif %}
+{% endwith %}
+```
+
+`prefetch_related("reviews__author")` 不會讓 `aggregate()` 自動改用 prefetched rows；需要依實際 query 測量再設計。
 
 ---
 
@@ -1694,6 +1900,27 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 
 ---
 
+## 5-11B seed_demo 重跑會發生什麼？
+
+**LearnMart 現有初始化指令｜節錄帳號建立流程**
+
+```python
+seller, created = User.objects.get_or_create(
+    username="seller", defaults={"role": User.Role.SELLER},
+)
+if created:
+    seller.set_password("seller12345")
+    seller.save()
+```
+
+- 帳號已存在時，defaults 不會重設 role，密碼也不會重設。
+- 分類與商品也用 get_or_create 避免反覆新增相同查詢鍵的資料。
+- 重跑能補缺少的資料，不能把既有資料庫還原成固定初始狀態。
+
+<!-- 來源：learnmart/marketplace/management/commands/seed_demo.py；移自 01 原 5-17。 -->
+
+---
+
 ## 5-12 ORM 操作練習（25 分鐘）
 
 先用 LearnMart 練習資料，在 shell 完成：
@@ -1701,7 +1928,7 @@ https://docs.djangoproject.com/en/6.1/topics/db/queries/
 1. 查詢有庫存商品，依價格與 pk 排序，取前 5 筆。
 2. 只取名稱與價格，說明回傳的是物件、字典還是 tuple。
 3. 查特定分類的商品，列出賣家帳號，比較預載前後的 query 數。
-4. 新增、修改一筆專用分類，再確認 refresh_from_db 的結果。
+4. 依 5-2B～5-2C 建立、修改並刪除練習商品，確認資料庫結果。
 
 驗收：交查詢程式、實際結果與回傳型別；空資料時要能說明原因。
 多對多加分題：查兩個標籤並解釋 distinct 的用途。
@@ -2087,6 +2314,21 @@ https://docs.djangoproject.com/en/6.1/topics/auth/default/
 
 ---
 
+## 6-15B 整合 migration 與 Admin 的精選欄位
+
+接續第 4 章的 is_featured 練習，在同一個 LearnMart 分支操作。
+
+1. 確認已閱讀並套用新增欄位的 migration。
+2. 在現有 ProductAdmin 的 list_display、list_filter 加入 is_featured。
+3. 將一件商品設為精選，檢查列表顯示與篩選結果。
+4. 執行 makemigrations --check，確認沒有遺漏的模型變更。
+
+ProductForm.Meta.fields 目前不含 is_featured，前台商品表單不會自動新增此欄。
+
+**配套手冊：** LearnMart [第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)、[第 5 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)；LearnBoard [第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)、[第 5 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)。
+
+---
+
 ## 6-16 Admin 常見問題排查
 
 | 現象 | 優先檢查 |
@@ -2184,7 +2426,7 @@ https://docs.djangoproject.com/en/6.1/ref/contrib/admin/
 
 | 接續教材 | 已具備的基礎 | 下一步 |
 |---|---|---|
-| 01 第 6～7 章 | Model 與 QuerySet | 組成商品目錄／留言牆 |
+| 01 第 5～7 章 | Model 與 QuerySet | 先檢核，再組成商品目錄／留言牆 |
 | 02 第 1 章 | 欄位驗證、ModelForm.Meta | 自訂表單與圖片上傳 |
 | 02 身份／交易章 | 關聯、唯一約束、原子更新 | 權限、結帳與交易一致性 |
 | 03 migration／備份 | schema 與 media 的差異 | 部署順序與復原 |

@@ -30,7 +30,7 @@ footer: "初學者教材｜共通觀念 → 兩個專案對照"
 | `ListView`＋分頁 | `ListView`＋分頁＋圖片／分類 |
 | `templates/board/` | `templates/marketplace/` |
 
-本冊以共通 Django 模型為主，商城的額外欄位與查詢則作為加深案例；若某些步驟覺得眼熟，那是設計好的。
+本冊以環境、Request 與頁面整合為主；Model、ORM 與 Admin 的完整教學集中在 01B。
 
 <!--
 授課提示：開場用這頁做前測——請學生在兩個專案中各指出一個 URL、View、Template 與 Model。答得出的共通內容快速帶過，把時間留給差異。
@@ -40,7 +40,7 @@ footer: "初學者教材｜共通觀念 → 兩個專案對照"
 
 ## 0-2 學完後要能讀懂什麼？
 
-完成本份教材後，你應該能：
+完成本冊並搭配 01B 後，你應該能：
 
 - 從零同步並啟動 LearnBoard 與 LearnMart 的本機環境
 - 說明一次 HTTP request 如何得到 response
@@ -57,24 +57,18 @@ footer: "初學者教材｜共通觀念 → 兩個專案對照"
 
 ---
 
-## 0-3 六章課程地圖：由環境走到兩種資料驅動頁面
+## 0-3 課程地圖：基礎、資料層與頁面整合
 
-| 章 | 核心問題 | 可觀察成果 |
-|---:|---|---|
-| 1 | 如何讓每台電腦使用同一套 Python 依賴？ | 兩個專案都可啟動 |
-| 2 | Request 如何找到 View？ | 能追蹤 200／404／500 |
-| 3 | 資料如何安全形成響應式 HTML？ | Template＋static 頁面 |
-| 4 | 資料如何持久化並建立關聯？ | `Message`／`Product`＋migration＋admin |
-| 5 | 如何查詢、組合並驗證資料規則？ | ORM＋QuerySet；商城再加 optimization |
-| 6 | 各層如何組成資料驅動頁面？ | 留言牆與商品目錄兩條 vertical slice |
+| 學習順序 | 核心問題 | 可觀察成果 |
+|---|---|---|
+| 01 第 1～3 章 | 環境、Request 與 Template 如何合作？ | 能啟動並顯示頁面 |
+| 01 第 4 章 | 頁面資料如何持久化？ | 認識資料角色與關係圖 |
+| 01B 第 0～7 章 | 如何設計、查詢與管理資料？ | Model、ORM、Admin 實作 |
+| 01 第 5 章 | 是否準備好接回頁面？ | 完成資料層檢核 |
+| 01 第 6～7 章 | 如何組成商品目錄與留言牆？ | 搜尋、詳情與分頁 |
 
-每章只新增前一章所需的下一層；Deck 02 再進入表單、權限與商城交易流程。
-
-> LearnBoard 與 LearnMart 的 POST、登入與物件權限會在 Deck 02 並列；商城再加上購物車、訂單與交易一致性。
-
-<!--
-授課提示：時間分配參考：第 1 章可指定課前自學；第 4、5 章資訊量最大，建議各排雙倍課時。
--->
+第 4～5 章保留六頁銜接，不另排一輪 Model／ORM 完整教學。
+Deck 02 再進入表單、身份驗證、權限與商城交易流程。
 
 ---
 
@@ -2131,1094 +2125,90 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 ---
 
-## 資料模型與 Admin 詳解：01B
+## 4-1 資料模型銜接：頁面的資料從哪裡來？
 
-初次學習請在本章搭配 [01B 資料模型、ORM 與 Django Admin](../01b_models_orm_and_admin/01b_models_orm_and_admin.md)。
+Python list 可用來練習顯示；網站需要資料庫保存可持續查詢的資料。
 
-- 從空專案建立第一組 Model、資料表與管理後台。
-- 完整說明主鍵、唯一性、文字／數字／時間／slug／圖片欄位。
-- 說明一對一、一對多、多對多與 Meta 的設定。
-- 用 LearnBoard／LearnMart 對照 CRUD、關聯查詢與 Admin。
+| 程式中的角色 | 資料庫對應 | 商品頁的例子 |
+|---|---|---|
+| Model class | 資料表 | Product |
+| Model instance | 一筆資料 | 某一件商品 |
+| Field | 欄位 | name、price |
 
-本冊第 4～5 章保留為摘要複習；初學者先完成 01B，再回第 6 章組合頁面。
-
----
-
-<!-- _class: cover -->
-
-# 第四章
-## Model、關聯與 migration
-
-<div class="box">資料表結構 ｜ 欄位型別與參數 ｜ ForeignKey 一對多關聯 ｜ Migration 演進</div>
-
-能由需求讀出資料表結構，解釋欄位參數與關聯，並正確區分首次 migrate 與模型變更流程
-
-<!--
-授課提示：資訊量最大的一章，建議拆兩次課：4-1～4-12 欄位與型別一次、關聯與 migration 一次。
--->
+Model 定義資料，ORM 提供 Python 操作介面，View 決定本次頁面需要什麼。
+主鍵、外鍵與欄位設計接續 01B，本冊後段使用這些資料組合頁面。
 
 ---
 
-## 4-1 為什麼 Python list 不夠？
+## 4-2 專案導覽：先看資料之間的關係
 
-```python
-products = ["鍵盤", "筆記本"]
-```
-
-伺服器停止後，記憶體內容就消失；多人同時存取也需要可靠的一致資料來源。
-
-Database 提供：
-
-- 持久化保存
-- 查詢、排序、篩選
-- 關聯與限制
-- transaction 等一致性機制
-
-Django Model 是 Python class；ORM 會把 model 操作轉成資料庫操作。
-
----
-
-## 4-2 關聯式資料庫的基本詞彙
-
-| 資料庫詞彙 | LearnMart 例子 |
-|---|---|
-| table | `marketplace_product` |
-| row | 一件商品 |
-| column | `name`、`price`、`stock` |
-| primary key | 自動產生的 `id` / `pk` |
-| foreign key | Product 指向 Category 或 User |
-| constraint | user + product 不可重複的購物車規則 |
-
-Model class 描述 table；model instance 對應一個 row；field 大致對應 column。
-
----
-
-## 4-3 先看完整領域關係，而不是孤立 class
-
-![w:1120](../assets/learnmart_domain_relationship.svg)
+![w:1060](../assets/learnmart_domain_relationship.svg)
 
 `1 ── *` 表示一對多。User 在不同關係中扮演 buyer、seller、author。
-
-Model 不是把畫面欄位全部塞在同一張表；關係與歷史需求會影響拆分。
-
----
-
-## 4-4 自訂 User 必須在初始 migration 前決定
-
-**目前 LearnMart 節錄｜`config/settings.py`**
-
-```python
-AUTH_USER_MODEL = "marketplace.User"
-```
-
-新專案應在第一次正式建立 schema 前設定：
-
-- 後期切換 user model 涉及 migration 與多個關聯，操作困難
-- LearnMart 從一開始就繼承 `AbstractUser` 並加入 `role`
-- 本章只先認識這個架構決定；密碼、session、權限放在 Deck 2
-
-可重用 app 的 model 關聯常用 `settings.AUTH_USER_MODEL`；runtime 查詢常用 `get_user_model()`。本專案同一 app 的 models 目前直接參照本地 `User` class。
+先找出商品連到哪些資料；完整關聯與刪除規則在 01B 第 3 章學習。
 
 ---
 
-## 4-5 步驟 A：繼承與 field declarations
+## 4-3 學習路線：在 01B 完成資料層
 
-**目前 LearnMart 節錄／重排｜`marketplace/models.py` 的 `Category`**
+接續 [01B 資料模型、ORM 與 Django Admin](../01b_models_orm_and_admin/01b_models_orm_and_admin.md)。
 
-```python
-class Category(models.Model):
-    name = models.CharField(
-        "分類名稱", max_length=80, unique=True,
-    )
-    slug = models.SlugField(
-        "網址代稱", max_length=80, unique=True,
-    )
-```
-
-- 繼承 `models.Model`，成為 Django model
-- Field declarations 是 class attributes
-- 每個 field 描述 Python／validation／schema contract 的一部分
-
----
-
-## 4-5 步驟 B：Meta 與 instance method
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Category`**
-
-```python
-class Meta:
-    verbose_name = "商品分類"
-    verbose_name_plural = "商品分類"
-    ordering = ["name"]
-
-def __str__(self):
-    return self.name
-```
-
-- `Meta` 是所在 model 的 nested configuration class
-- `__str__` 是 instance method，第一個參數是 `self`
-- Admin／shell 顯示 instance 時會使用 `__str__`
-
----
-
-## 4-6 Field declaration 的參數層次
-
-```python
-name = models.CharField(
-    "商品名稱",
-    max_length=150,
-)
-```
-
-- `name`：Python attribute，也是 ORM 欄位名稱
-- `CharField`：欄位型別
-- 第一個 positional argument：人類可讀名稱 `verbose_name`
-- `max_length=150`：Django validation 與 generated form 的長度契約，也影響 schema declaration
-
-**補充／進階：** database 是否獨立強制長度取決於 backend；LearnMart 的 SQLite 不會自行拒絕超長 `varchar`。一般 `.save()` 也不會自動呼叫 `full_clean()`。
-
-讀 field 時要分辨：Django validation、schema 描述，以及真正的 database constraint。
-
----
-
-## 4-7 Product 的核心 scalar fields
-
-**目前 LearnMart 節錄／重排｜`marketplace/models.py` 的 `Product` scalar fields**
-
-```python
-name = models.CharField("商品名稱", max_length=150)
-description = models.TextField("商品說明")
-price = models.DecimalField("售價", max_digits=10, decimal_places=0)
-stock = models.PositiveIntegerField("庫存", default=0)
-is_active = models.BooleanField("上架", default=True)
-```
-
-- `CharField`：有明確長度的短文字
-- `TextField`：長文字
-- `PositiveIntegerField`：非負整數
-- `BooleanField`：True/False
-
-Field type 會影響 Python value、database column 與自動生成的 form field。
-
----
-
-## 4-8 `blank` 與 `null` 不同層
-
-```python
-image = models.ImageField(..., blank=True)
-shipped_at = models.DateTimeField(..., null=True, blank=True)
-```
-
-- `blank=True`：Django validation/form 層允許空值
-- `null=True`：database column 允許 SQL `NULL`
-
-字串欄位通常使用空字串表示「沒有文字」，不一定要 `null=True`。
-
-LearnMart 的圖片可不填，因此 `blank=True`；尚未出貨時沒有時間，因此 `shipped_at` 同時允許 database NULL 與 form 空白。
-
-<!--
-授課提示：快問：Product.image 需要 null=True 嗎？（不必，blank=True 即可）答對代表分層觀念成立。
--->
-
----
-
-## 4-9 預設值、唯一性與時間欄位
-
-```python
-stock = models.PositiveIntegerField(default=0)
-slug = models.SlugField(max_length=80, unique=True)
-created_at = models.DateTimeField(auto_now_add=True)
-updated_at = models.DateTimeField(auto_now=True)
-```
-
-- `default`：建立時未提供值就使用預設
-- `unique=True`：資料庫不得有重複值
-- `auto_now_add`：建立 instance 的第一次 save 時自動寫入
-- `auto_now`：一般 `Model.save()` 且欄位參與此次寫入時更新
-
-**常見錯誤：**`save(update_fields=["stock"])` 沒包含 `updated_at`，所以它不會更新；`QuerySet.update()` 也不會自動執行 `auto_now`。
-
----
-
-## 4-10 金額為何不用 float？
-
-二進位浮點數不能精確表示所有十進位小數；金額需要可預測的十進位運算。
-
-```python
-price = models.DecimalField(
-    "售價",
-    max_digits=10,
-    decimal_places=0,
-)
-```
-
-- `max_digits=10`：Django validation 宣告總位數最多 10 位
-- `decimal_places=0`：Django validation 宣告小數點後 0 位
-- Field conversion 在 Python 端使用 `Decimal`，不是 float
-
-**補充／進階：** 這些參數也影響 generated form 與 schema declaration；SQLite 不把精度當成獨立 database invariant。若必須由 database 保證，需依 backend 與 constraint 設計再驗證。
-
-<!--
-授課提示：現場跑 print(0.1 + 0.2) 對照 Decimal 版本，眼見為憑勝過十句解釋。
--->
-
----
-
-## 4-11 ImageField、Pillow 與儲存路徑
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Product.image`**
-
-```python
-image = models.ImageField(
-    "商品圖片",
-    upload_to="products/%Y/%m/",
-    blank=True,
-)
-```
-
-- `ImageField` 建立「檔案路徑參照」，圖片本體存於 storage
-- Pillow 協助圖片欄位驗證／處理
-- `upload_to` 讓檔案依年月放在 `products/YYYY/MM/`
-- `blank=True` 允許沒有圖片
-
-Form 的 multipart 與 `request.FILES` 會在 Deck 2 與完整上傳流程一起教。
-
----
-
-## 4-12 media 在開發環境如何被存取？
-
-**目前 LearnMart 節錄｜`config/settings.py` 與 `config/urls.py`**
-
-```python
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
-```
-
-```python
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT,
-    )
-```
-
-- `MEDIA_ROOT`：本機檔案實際儲存位置
-- `MEDIA_URL`：瀏覽器 URL 前綴
-- Django 這段 serving 僅供 `DEBUG` 開發環境
-- production 通常使用專門 web server 或 object storage
-
----
-
-## 4-13 ForeignKey：資料庫存 ID，Python 看物件
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Product.seller`**
-
-```python
-seller = models.ForeignKey(
-    User,
-    on_delete=models.CASCADE,
-    related_name="products",
-    verbose_name="賣家",
-)
-```
-
-- 第一個參數：關聯目標 model
-- database 主要保存 seller 的 key
-- `product.seller` 取得 User instance
-- `on_delete` 決定目標被刪除時的處理
-- `related_name` 命名反向查詢入口
-
-<!--
-授課提示：強調兩個世界：SQL 欄位存 id、Python 拿到 instance。第 5 章 select_related 全靠這個觀念。
--->
-
----
-
-## 4-14 正向與反向關聯要成對理解
-
-```python
-product.seller
-# Product → User，單一物件
-
-seller.products.all()
-# User → Product，RelatedManager / QuerySet
-```
-
-因為一位 seller 可有多個 products：
-
-- 正向 ForeignKey 是「一個」
-- 反向 relation 是「多個」，所以需要 `.all()`、`.filter()` 等 manager 方法
-
-Category 同樣可使用：
-
-```python
-product.category
-category.products.all()
-```
-
----
-
-## 4-15 `on_delete` 是商業決策
-
-| LearnMart 關聯 | 行為 | 原因 |
-|---|---|---|
-| Product → Category | `PROTECT` | 有商品時避免刪掉分類 |
-| Product → seller | `CASCADE` | 刪 seller 時會嘗試連帶刪商品 |
-| Order → buyer | `PROTECT` | 保留訂單歷史 |
-| OrderItem → Order | `CASCADE` | 刪訂單時明細一起刪 |
-| OrderItem → Product/seller | `PROTECT` | 防止破壞購買歷史參照 |
-
-`on_delete` 只描述一條 relation 的收集規則。若 seller 或商品已被 `OrderItem` 的 `PROTECT` 關聯引用，整次 seller deletion 仍會被阻止；最終結果要看整張 relation graph。
-
-`SET_NULL` 需要 field 同時允許 `null=True`。
-
-<!--
-授課提示：提問：刪 Category 時商品該怎樣？刪 User 呢？讓學生先表態再揭曉 PROTECT / CASCADE 的理由。
--->
-
----
-
-## 4-16 `related_name` 讓反向語意可讀
-
-```python
-buyer.orders.all()
-seller.products.all()
-order.items.all()
-product.reviews.all()
-```
-
-這些名稱分別來自 ForeignKey 的 `related_name`。
-
-沒有良好命名時，Django 會產生較泛用的預設名稱；在同一 User 扮演 buyer、seller、author 時，明確命名尤其重要。
-
-`related_name` 也可用在跨 relation lookup，例如：
-
-```python
-Order.objects.filter(items__seller=seller)
-```
-
----
-
-## 4-17 `TextChoices`：穩定代碼與人類文字
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Order.Status`**
-
-```python
-class Status(models.TextChoices):
-    PENDING = "pending", "待出貨"
-    SHIPPED = "shipped", "已出貨"
-    COMPLETED = "completed", "已完成"
-    CANCELLED = "cancelled", "已取消"
-```
-
-資料庫存 `pending` 等穩定值；畫面可顯示中文 label。
-
-```python
-order.status == Order.Status.PENDING
-order.get_status_display()  # 「待出貨」
-```
-
-定義 choices 不代表每個狀態轉換都已實作。
-
----
-
-## 4-18 步驟 A：Product.Meta 設定
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Product.Meta`**
-
-```python
-class Product(models.Model):
-    # fields 省略
-
-    class Meta:
-        ordering = ["-created_at"]
-```
-
-Product 目前只有預設排序，沒有自訂 `verbose_name`。
-
-`Meta` 是 nested configuration class；它屬於所在的 model，不能把另一個 model 的選項拼進來。
-
----
-
-## 4-18 步驟 B：Category.Meta 設定
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Category.Meta`**
-
-```python
-class Meta:
-    verbose_name = "商品分類"
-    verbose_name_plural = "商品分類"
-    ordering = ["name"]
-```
-
-- `verbose_name`／`verbose_name_plural` 影響 admin 等人類可讀名稱
-- `ordering` 提供沒有明確 `order_by()` 時的 default ordering
-
-**常見錯誤：** 看到兩個 class 都叫 `Meta`，不代表它們共享設定。
-
----
-
-## 4-19 `__str__`、property 與 URL helper
-
-```python
-def __str__(self):
-    return self.name
-
-@property
-def average_rating(self):
-    result = self.reviews.aggregate(avg=models.Avg("rating"))["avg"]
-    return round(result, 1) if result else None
-
-def get_absolute_url(self):
-    return reverse("marketplace:product-detail", kwargs={"pk": self.pk})
-```
-
-- `__str__`：shell/admin 顯示名稱
-- `@property`：以 attribute 方式讀取計算值
-- `get_absolute_url()`：定義商品標準詳情網址
-
-**目前 LearnMart 實作：** 商品 template 以它建立連結；`ProductCreateView`／`ProductUpdateView` 沒有另設 `success_url`，成功儲存後也已透過它決定 redirect。
-
----
-
-## 4-20 Model 改動如何變成資料庫步驟？
-
-```text
-models.py（希望的 model state）
-        │ makemigrations
-        ▼
-migrations/0001_...py（可追蹤 operations）
-        │ migrate
-        ▼
-database schema（實際資料表）
-```
-
-Migration 是 Python 檔案與版本史，不是直接把目前 models.py 每次重新建立整個 database。
-
-LearnMart 已有 `marketplace/migrations/0001_initial.py`，其中可看到 `CreateModel` 與 `AddConstraint`。
-
----
-
-## 4-21 clone／取得既有 repository 與修改 model 是兩條流程
-
-### clone／取得既有 repository
-
-```bash
-uv run python manage.py migrate
-```
-
-Migration 已存在；把它套用到本機 database。
-
-### 你真的改了 model
-
-```bash
-uv run python manage.py makemigrations
-# 先閱讀產生的 migration
-uv run python manage.py migrate
-```
-
-`showmigrations` 是檢查套用狀態；不是每次必須的第三個 schema-changing 步驟。
-
-<!--
-授課提示：警告：repo 已含 migration，自行亂改 model 會讓 makemigrations --check 失敗；練習請開分支。
--->
-
----
-
-## 4-22 migration 的常見訊息代表什麼？
-
-```text
-No changes detected
-```
-
-通常表示 Django 比較 model state 與 migration state 後沒有新差異；在完成版 LearnMart 上這可能是正常結果。
-
-```text
-Your models ... have changes that are not yet reflected in a migration
-```
-
-表示 model 與 migration 不一致。
-
-驗證指令：
-
-```bash
-uv run python manage.py makemigrations --check
-```
-
-成功退出表示沒有未建立的 model migration。
-
----
-
-## 4-23 Admin 是資料管理介面，不是資料模型本身
-
-**目前 LearnMart 節錄｜`marketplace/admin.py` 節錄**
-
-```python
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "category", "seller", "price", "stock", "is_active")
-    list_filter = ("category", "is_active")
-    search_fields = ("name", "description")
-```
-
-- Model 決定資料結構
-- Admin registration 決定後台如何呈現與操作
-- `createsuperuser` 建立可登入 `/admin/` 的帳號
-- Admin 很適合檢查教學資料，但不是商城使用者 UI
-- Chapter lab 的 `is_featured` 只加入 model/admin；目前 `ProductForm.Meta.fields` 不含它，因此商城表單不會自動出現 checkbox
-
----
-
-## 4-24 使用 Django shell 觀察 model
-
-```bash
-uv run python manage.py shell
-```
-
-```python
-from marketplace.models import Category, Product
-
-Product.objects.count()
-Product.objects.first()
-Category.objects.all()
-```
-
-Django shell 會載入專案設定，適合小步檢查 ORM。
-
-離開：
-
-```python
-exit()
-```
-
-先觀察回傳型別與內容，再進入下一章 CRUD/QuerySet。
-
----
-
-## 4-25 Model 常見錯誤
-
-- 修改 model 後忘記建立／套用 migration
-- 把 `blank=True` 與 `null=True` 當同義詞
-- 金額使用 float
-- ForeignKey 沒有思考 `on_delete`
-- 改了 `related_name` 卻沒更新反向查詢
-- 認為 model validator 一定會在所有 `.save()` 自動執行
-- 把完成版 repository 的 `No changes detected` 誤判成環境壞掉
-
-除錯時分開檢查：model state、migration files、database schema。
-
----
-
-## 第四章｜觀念檢核與實作
-
-1. `blank=True` 與 `null=True` 分別作用在哪一層？
-2. `max_digits=10, decimal_places=0` 如何限制售價？SQLite 又保證到哪一層？
-3. 為什麼 Product→Category 使用 `PROTECT`？
-4. clone／取得既有 repository 只需 `migrate`；什麼時候才需 `makemigrations`？
-5. 為什麼 custom User 應在 initial migration 前決定？
-
-**概念產出：** 畫出 Category、Product、seller 與 OrderItem 的正向／反向 relation，標出可能阻止 deletion 的 `PROTECT`。
-
-**實作任務：** 在練習 branch 為 Product 加入 `is_featured`，產生並閱讀 `AddField` migration、套用後於 `ProductAdmin` 顯示／篩選，最後執行 migration drift check。
-
-**配套實作手冊：** LearnMart [第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)；LearnBoard [類比第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)
-
-<!--
-授課提示：blank/null 與 on_delete 幾乎必考；workbook「精選欄位」任務請當堂完成前兩步。
--->
-
----
-
-<!-- _class: cover -->
-
-# 第五章
-## ORM、QuerySet 與資料規則
-
-<div class="box">CRUD 合約 ｜ Lookup 雙底線查詢 ｜ N+1 效能調優 ｜ 商業約束與種子資料</div>
-
-能分辨 manager、QuerySet、instance，完成 CRUD、關聯查詢與第一輪 query optimization
-
-<!--
-授課提示：進入前先複習 4-13 反向關聯語法；本章大量使用 related_name。
--->
-
----
-
-## 5-1 三種物件不要混在一起
-
-```python
-Product.objects
-Product.objects.filter(is_active=True)
-Product.objects.get(pk=1)
-```
-
-| 表達式 | 回傳／角色 |
+| 01B 章節 | 學習重點 |
 |---|---|
-| `Product.objects` | Manager：建立查詢入口 |
-| `.filter(...)` | QuerySet：可能有 0 到多筆 |
-| `.get(...)` | 一個 Product instance；找不到／多筆會例外 |
+| 第 0 章 | 最小專案帶做，先看見資料與後台 |
+| 第 1～2 章 | Model、主鍵、唯一性與欄位 |
+| 第 3～4 章 | 外鍵、關聯刪除規則、Meta 與 migration |
+| 第 5～6 章 | ORM 操作、查詢成本與 Admin 管理 |
 
-Instance 有 `name`、`save()`；QuerySet 有 `filter()`、`count()`；兩者方法不同。
-
----
-
-## 5-2 Create：先準備必要關聯
-
-```python
-from marketplace.models import Category, Product, User
-
-seller = User.objects.get(username="seller")
-category = Category.objects.get(slug="tech")
-
-product = Product.objects.create(
-    seller=seller,
-    category=category,
-    name="教學鍵盤",
-    description="練習 ORM",
-    price=990,
-    stock=5,
-)
-```
-
-`.create()` 會立即 INSERT 並回傳已儲存 instance；成功後 `product.pk` 有值。
-
-注意：一般 `.create()`／`.save()` 不等同自動呼叫完整 `full_clean()`。
+完成後回到本冊 5-1 檢核，再進入第 6～7 章。
+第 4～5 章共六頁，只作銜接與應用準備。
 
 ---
 
-## 5-3 Read：`get()` 與 `filter()` 的契約
+## 5-1 回到頁面前：資料層檢核
 
-```python
-Product.objects.get(pk=1)
-Product.objects.filter(is_active=True)
-```
+請用 01B 的練習成果回答，不必重新建立一次專案。
 
-- `get()`：期待恰好一筆
-  - 0 筆：`Product.DoesNotExist`
-  - 多筆：`Product.MultipleObjectsReturned`
-- `filter()`：永遠回 QuerySet；0 筆也是空 QuerySet
-- `pk` 是 primary key 的通用別名，本專案對應自動 `id`
+| 檢核問題 | 不確定時回查 01B |
+|---|---|
+| pk 如何定位一筆資料？外鍵如何連到另一筆？ | 第 1、3 章 |
+| 刪分類、商品、作者時，哪些資料可能受影響？ | 3-4、5-2C |
+| Model 改動何時需要 migration？ | 第 4 章 |
+| 查詢回傳單一物件還是 QuerySet？ | 第 5 章 |
+| 如何在 Admin 建立並搜尋教學資料？ | 第 6 章 |
 
-若條件本來就可能多筆，不要用 `get()`。
-
----
-
-## 5-4 Update 與 Delete
-
-```python
-product.stock = 8
-product.save(update_fields=["stock"])
-```
-
-`update_fields` 讓 UPDATE 只送指定欄位；它不是 validation allowlist。
-
-```python
-product.delete()
-```
-
-Delete 會依關聯的 `on_delete` 產生 cascade 或保護錯誤。刪除前先確認歷史資料與關聯規則。
-
-大量更新另有 `QuerySet.update()`；其 hook/訊號行為與逐筆 `save()` 不完全相同。
+驗收：能指出自己的操作結果，並說明理由；卡住的項目回 01B 補練習。
 
 ---
 
-## 5-5 Lookup：雙底線拆成路徑與操作
+## 5-2 整合準備：後台資料與前台頁面
 
-```python
-Product.objects.filter(
-    name__icontains="鍵盤",
-    price__lte=2000,
-)
-```
+切回 LearnMart 或 LearnBoard，確認使用的是同一個專案環境與資料庫。
 
-- `name__icontains`：name 包含文字，通常不分大小寫
-- `price__lte`：price 小於或等於
-- 多個 keyword conditions 預設是 AND
+1. 依第 1 章啟動流程執行既有 migration，啟動伺服器。
+2. 用已建立的管理帳號登入 `/admin/`。
+3. 在既有商品或留言後台，新增或確認一筆可辨識的練習資料。
+4. 開啟前台列表，確認能找到這筆資料。
 
-雙底線也可跨 relation：
-
-```python
-Product.objects.filter(category__slug="tech")
-```
-
-先走 `category`，再比較其 `slug`。
+商品請確認上架與篩選條件；查不到時，先比對 View 的查詢條件。
+後台尚未設定完成時，回 01B 第 6 章完成註冊與管理帳號設定。
 
 ---
 
-## 5-6 `Q` object 表達 OR
+## 5-3 整合任務：沿著一筆資料追蹤頁面
 
-```python
-from django.db.models import Q
+接下來第 6～7 章，選一條主線操作，另一條用來比較。
 
-products = Product.objects.filter(
-    Q(name__icontains=q) |
-    Q(description__icontains=q)
-)
-```
+| 主線 | 追蹤路徑 | 驗收結果 |
+|---|---|---|
+| LearnMart | Product、商品列表 View、商品卡模板 | 找到商品並開啟詳情 |
+| LearnBoard | Message、留言列表 View、留言模板 | 找到留言並完成搜尋 |
 
-- `Q(...)` 包裝查詢條件
-- `|` 組成 SQL OR
-- `&` 組成 SQL AND
-- `~` 表示 NOT
-- 括號會影響組合優先順序
+- 指出 View 如何取得資料、用什麼 context 名稱交給模板。
+- 說明列表與詳情頁需要的查詢結果有何不同。
+- 欄位、CRUD 與 Admin 設定回查 01B；本冊專注查詢與畫面的合作。
 
-這裡不能改成 Python `or`；`Q` 使用 operator overloading 建立查詢樹。
-
----
-
-## 5-7 QuerySet 的 lazy 心智模型
-
-```python
-qs = Product.objects.filter(is_active=True)
-qs = qs.filter(stock__gt=0)
-```
-
-上面通常只是在建立／組合 query，尚未立即讀 database。
-
-常見 evaluation 時機：
-
-- iteration：`for product in qs`
-- `list(qs)`、`len(qs)`、`bool(qs)`
-- indexing/slicing 的某些形式
-- template 迭代
-
-QuerySet method 通常回傳新的 QuerySet，不會原地修改舊變數所代表的查詢。
-
-<!--
-授課提示：shell 三步演示：建 queryset 不查庫 → print(qs.query) 看 SQL → list(qs) 才執行。
--->
-
----
-
-## 5-8 `count()`、`exists()` 與取整份資料
-
-如果只要數量：
-
-```python
-qs.count()
-```
-
-如果只問有沒有：
-
-```python
-qs.exists()
-```
-
-若之後本來就要遍歷全部資料，重複 `exists()` 再 iterate 可能造成兩次 query。選擇方法時要看後續需求，而不是背「永遠最快」。
-
-QuerySet 評估後可有結果 cache，但建立新 QuerySet 或不同操作仍可能再查一次。
-
----
-
-## 5-9 N+1：一個列表為何變很多 SQL？
-
-```python
-products = Product.objects.all()
-for product in products:
-    print(product.seller.username)
-```
-
-可能發生：
-
-- 1 次查 products
-- 每個 product 再查 seller
-- 20 商品可能約 21 次 query
-
-問題不是 Python loop 本身，而是每次讀尚未載入的 relation 都觸發 database access。
-
-先觀察問題，再選擇 optimization。
-
-<!--
-授課提示：用 connection.queries 或 debug-toolbar 展示 N+1 實際筆數，數字最有說服力。
--->
-
----
-
-## 5-10 `select_related`：單值關聯使用 JOIN
-
-**目前 LearnMart 節錄／重排｜`marketplace/views.py` 的 `ProductListView.get_queryset()`**
-
-```python
-queryset = Product.objects.filter(
-    is_active=True,
-).select_related("category", "seller")
-```
-
-適合：ForeignKey、OneToOne 等單值 relation。
-
-因為商品卡會讀：
-
-```django
-{{ product.category.name }}
-{{ product.seller.username }}
-```
-
-同一 query 先帶回 category/seller，可避免每張卡片再查。
-
----
-
-## 5-11 `prefetch_related`：多值關聯分批查再組合
-
-**目前 LearnMart 節錄｜`marketplace/views.py` 的 `ProductDetailView.get_queryset()`**
-
-```python
-Product.objects.prefetch_related("reviews__author")
-```
-
-適合：
-
-- reverse ForeignKey
-- ManyToMany
-- 其他多值 relation
-
-Django 通常執行額外 query，再於 Python 把結果對應回 parent。Detail template 會 iterate reviews 並讀 author，因此這是有實際用途的例子。
-
----
-
-## 5-12 選 optimization 前先問 relation 形狀
-
-```text
-product.category       一個 → select_related
-product.seller         一個 → select_related
-product.reviews.all()  多個 → prefetch_related
-order.items.all()      多個 → prefetch_related
-```
-
-不要把所有 relation 都塞進兩種方法：
-
-- 先看 template/View 是否真的會讀
-- 確認關聯方向與數量
-- 測量 query 數
-- 不必要 prefetch 也會增加查詢與記憶體
-
-Optimization 應由使用方式驅動。
-
----
-
-## 5-13 步驟 A：aggregate() 整個集合回一組摘要
-
-**目前 LearnMart 節錄｜`marketplace/models.py` 的 `Product.average_rating`**
-
-```python
-result = self.reviews.aggregate(
-    avg=models.Avg("rating")
-)["avg"]
-```
-
-`aggregate()` 回 dictionary，表示整個 QuerySet 的摘要：
-
-```python
-{"avg": 4.5}
-```
-
-常見函式：`Count`、`Sum`、`Avg`、`Min`、`Max`。
-
-若每個 product 都呼叫 property，列表可能每件商品多一次 aggregate query。
-
----
-
-## 5-13 步驟 B：同一個 property 的查詢行為
-
-**目前 LearnMart 實作的注意點｜`Product.average_rating`**
-
-一般 `@property` 不會自動 cache。若 template 在 `{% if product.average_rating %}` 與輸出時各讀一次，背後的 `aggregate()` 也可能執行兩次。
-
-**補充／進階｜只評估一次的 template 寫法**
-
-```django
-{% with rating=product.average_rating %}
-  {% if rating %}
-    <span class="text-warning">★ {{ rating }}</span>
-  {% endif %}
-{% endwith %}
-```
-
-`prefetch_related("reviews__author")` 不會讓 `aggregate()` 自動改用 prefetched rows；需要依實際 query 測量再設計。
-
----
-
-## 5-14 `annotate()`：替每一列加計算欄位
-
-```python
-from django.db.models import Avg
-
-products = Product.objects.annotate(
-    avg_rating=Avg("reviews__rating")
-)
-```
-
-- `aggregate()`：整個集合得到一份摘要
-- `annotate()`：QuerySet 每個結果多一個計算 attribute
-
-```django
-{{ product.avg_rating }}
-```
-
-若要在商品列表一次顯示每件平均分數，`annotate()` 通常比逐件 property query 更適合。
-
----
-
-## 5-15 Validator 與 database constraint 是不同防線
-
-```python
-rating = models.PositiveSmallIntegerField(
-    validators=[MinValueValidator(1), MaxValueValidator(5)]
-)
-```
-
-Validator 在 ModelForm／明確 validation 流程中檢查 1–5；一般 `.save()` 不保證自動跑 `full_clean()`。
-
-```python
-models.UniqueConstraint(
-    fields=["product", "author"],
-    name="one_review_per_product",
-)
-```
-
-UniqueConstraint 由 database 協助防止重複 row。兩者保護的規則與時機不同。
-
-<!--
-授課提示：左右表格朗讀一遍；Deck 02 測試章會回收「validator 擋 form、constraint 擋所有寫入路徑」。
--->
-
----
-
-## 5-16 步驟 A：CartItem 購物車單一記錄約束
-
-**目前 LearnMart 節錄｜`CartItem.Meta.constraints`**
-
-```python
-models.UniqueConstraint(
-    fields=["user", "product"],
-    name="unique_cart_product",
-)
-```
-
-同一 user/product 只保留一筆 row；數量放在 `quantity`，而不是重複插入多筆。
-
-- 新增 constraint 需要 migration
-- Application 仍要正確處理競態下可能的 `IntegrityError`
-
----
-
-## 5-16 步驟 B：Review 評價唯一約束
-
-**目前 LearnMart 節錄｜`Review.Meta.constraints`**
-
-```python
-models.UniqueConstraint(
-    fields=["product", "author"],
-    name="one_review_per_product",
-)
-```
-
-同一 author/product 只保留一筆 review；目前 workflow 使用 `update_or_create()` 更新內容。
-
-這個 database uniqueness 與 rating 1–5 validator 是不同規則、不同防線。
-
----
-
-## 5-17 步驟 A：seed_demo 與 get_or_create()
-
-**目前 LearnMart 節錄｜`marketplace/management/commands/seed_demo.py`**
-
-```python
-seller, created = User.objects.get_or_create(
-    username="seller",
-    defaults={"role": User.Role.SELLER},
-)
-if created:
-    seller.set_password("seller12345")
-    seller.save()
-```
-
-- `get_or_create()` 回 `(object, created)`
-- `created=True` 才進入 password hashing 與 save
-- `defaults` 只在建立新 row 時套用
-
----
-
-## 5-17 步驟 B：「可重跑」不等於「重設既有資料」
-
-- 新帳號才執行 `set_password()`；role/email defaults 也只在建立時套用
-- 同名帳號已存在時，password、role、email 都不會被 reset
-- 商品與分類也使用 `get_or_create()`，避免無限複製同名 seed rows
-
-因此它是：
-
-> 重跑不持續新增同名資料的 idempotent-ish seed。
-
-它**不是**把既有 database 還原成固定狀態的 reset command。Fresh database 與已有同名 rows 的結果必須分開描述。
-
----
-
-## 5-18 Admin 顯示也使用 ORM 關聯
-
-**目前 LearnMart 節錄／重排｜`marketplace/admin.py` 的 `ProductAdmin`**
-
-```python
-list_display = (
-    "name", "category", "seller", "price", "stock", "is_active",
-)
-list_filter = ("category", "is_active")
-search_fields = ("name", "description")
-```
-
-- `list_display`：列表欄位
-- `list_filter`：側邊篩選器
-- `search_fields`：admin 搜尋欄位
-
-OrderAdmin 另用 `OrderItemInline` 顯示快照明細。Admin configuration 不改變 schema，但會影響管理體驗。
-
----
-
-## 5-19 訂單快照先理解「為什麼」
-
-OrderItem 同時保留 relation 與購買當下資料：
-
-```python
-product = models.ForeignKey(Product, on_delete=models.PROTECT, ...)
-product_name = models.CharField(max_length=150)
-unit_price = models.DecimalField(max_digits=10, decimal_places=0)
-quantity = models.PositiveIntegerField()
-```
-
-商品日後改名或漲價，舊訂單仍顯示購買當時名稱與單價。
-
-本 Deck 先理解 schema 決策；建立快照、扣庫存與 transaction 的完整 checkout 放在 Deck 2。
-
----
-
-## 5-20 ORM 常見錯誤
-
-- 把 QuerySet 當單一 instance：`qs.name`
-- 把 instance 當 QuerySet：`product.filter(...)`
-- 用 `get()` 查可能多筆的條件
-- 建立必要 ForeignKey 時傳入不存在的變數
-- 忘記 `.save()`，只改到記憶體
-- 在 template loop 中逐筆觸發 relation query
-- 把 `aggregate()` 與 `annotate()` 用途混淆
-- 認為 model validator 等於 database constraint
-
-先印出 `type(...)`、觀察 query 與回傳形狀。
-
----
-
-## 第五章｜觀念檢核與實作
-
-1. Manager、QuerySet、model instance 各能做什麼？
-2. `get()` 找不到與 `filter()` 找不到時有何差異？
-3. `select_related` 與 `prefetch_related` 分別適合什麼 relation？
-4. 列表顯示每件商品平均評分時，為何要考慮 `annotate()`？
-5. Validator 與 database constraint 有何差異？
-
-**實作任務：** 在 shell 完成 CRUD、relation traversal、`Q` 查詢，並用 query counter 比較未最佳化與 `select_related()` 的 query 數。
-
-**配套實作手冊：** LearnMart [第 5 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)；LearnBoard [類比第 5 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)
-
-<!--
-授課提示：select_related / prefetch_related 選擇題務必全班舉手作答，最能區分理解的單題。
--->
+<!-- 授課提示：01B 負責資料層完整教學。本冊第 6～7 章保留相同 API 的應用情境，不重講 API 定義。 -->
 
 ---
 
@@ -3771,36 +2761,19 @@ class MessageListView(ListView):
 
 ---
 
-## 7-2 LearnBoard 的資料模型與 migration 故事
+## 7-2 專案對照：用資料規則解讀留言牆
 
-<div class="two-column">
-<div>
+運用 01B 學過的關聯與 migration，回查兩個專案的實際檔案。
 
-```python
-class Message(models.Model):
-  author = models.ForeignKey(
-    settings.AUTH_USER_MODEL,
-    on_delete=models.SET_NULL,
-    null=True,
-    blank=True,
-    related_name="messages",
-  )
-  content = models.TextField(max_length=500)
-  created_at = models.DateTimeField(auto_now_add=True)
-  updated_at = models.DateTimeField(auto_now=True)
-```
+| 比較項目 | LearnBoard | LearnMart |
+|---|---|---|
+| 頁面主要資料 | Message | Product |
+| 使用者角色 | 留言作者 author | 商品賣家 seller |
+| 作者／帳號演進 | 0002 加入可空的 author | 初始 migration 已使用自訂 User |
+| 頁面需考慮的情境 | 沒有作者時如何顯示？ | 商品如何顯示分類與賣家？ |
 
-</div>
-<div>
-
-- `0001_initial.py` 先建立留言與時間欄位
-- `0002_message_author.py` 再加入可為空的 `author`
-- `SET_NULL` 保留使用者刪除後的留言內容
-
-</div>
-</div>
-
-LearnMart 則從初始 migration 就使用自訂 `marketplace.User`，再由 `Product`、`Order` 等模型建立較完整的關聯。
+**任務：** 指出留言模板處理空作者的位置，再追蹤 View 如何載入作者資料。
+關聯規則回查 01B 3-2～3-4；migration 演進回查 01B 4-9。
 
 ---
 
