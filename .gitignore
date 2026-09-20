@@ -32,4 +32,4 @@ Thumbs.db
 .antrigravity/
 *.pdf
 
-!output/pdf/*.pdf
+!output/pdf/courses/*.pdf
