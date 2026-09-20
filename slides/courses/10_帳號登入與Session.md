@@ -29,7 +29,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -449,7 +449,7 @@ LOGOUT_REDIRECT_URL = "marketplace:home"
 - session 跨 request 保留
 - logout GET 不作為操作入口，POST 含 CSRF
 
-[LearnMart 步驟與觀察表](workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-2)；[LearnBoard 對應練習](workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-2)
+[LearnMart 步驟與觀察表](../workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-2)；[LearnBoard 對應練習](../workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-2)
 
 ---
 
@@ -461,7 +461,7 @@ LOGOUT_REDIRECT_URL = "marketplace:home"
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 02 原第 2 章](workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-2)；[LearnMart 02 原第 2 章](workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-2)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 02 原第 2 章](../workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-2)；[LearnMart 02 原第 2 章](../workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-2)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -470,5 +470,5 @@ LOGOUT_REDIRECT_URL = "marketplace:home"
 下一份：[11_CRUD與物件權限](11_CRUD與物件權限.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

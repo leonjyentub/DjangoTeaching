@@ -4,7 +4,7 @@
 [學言 LearnBoard](../learnboard/)（社群 CRUD 與擁有權）與 [學購 LearnMart](../learnmart/)
 （交易與資料完整性）之後，這個專案的主題是**內容的發佈與傳播，以及效能**。
 
-最初規劃與缺口盤點保留於 [`../slides/03_next_project_plan.md`](../slides/03_next_project_plan.md)；03A 與 03B 現在都已有對應可執行實作與教材。
+03A 與 03B 都已有對應可執行實作與教材；後續延伸候選見[教材維護摘要](../docs/MAINTENANCE.md)。
 
 ## 技術選擇
 
@@ -151,7 +151,7 @@ python ../scripts/check_material_links.py --root ..
 - production SMTP / async job queue
 - rate limit、spam moderation、監控與 object storage
 
-跨三專案共用的 production 基礎已收進連續教學教材的 [部署設定與正式環境](../slides/16_部署設定與正式環境.md)（第 22～24 章）與 [服務運行與發布維護](../slides/17_服務運行與發布維護.md)（第 25～27 章）。
+跨三專案共用的 production 基礎已收進連續教學教材的 [部署設定與正式環境](../slides/courses/16_部署設定與正式環境.md)（第 22～24 章）與 [服務運行與發布維護](../slides/courses/17_服務運行與發布維護.md)（第 25～27 章）。
 
 ## 教學設計說明
 

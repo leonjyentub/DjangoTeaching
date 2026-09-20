@@ -6,6 +6,9 @@ paginate: true
 header: "Django 教學 02｜HTTP路由與View"
 footer: "Django 共通教材｜第 3 章"
 style: |
+  section.pdf-compact { font-size: 24px; }
+  section.pdf-dense { font-size: 21px; }
+  section.pdf-box-model img { max-height: 420px; width: auto; }
   section.compact { font-size: 26px; }
   section p:has(> img) { text-align: center; }
 ---
@@ -29,7 +32,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -61,7 +64,7 @@ style: |
 
 瀏覽器送出 **request**，Django 回傳 **response**：
 
-![w:1100](assets/http_request_response.svg)
+![w:1100](../assets/http_request_response.svg)
 
 ---
 
@@ -565,6 +568,8 @@ ExceptionType: 最終錯誤訊息
 
 <!-- source: L:016 | 01_django_foundations_and_two_projects/02_first_contact_lab_and_debugging.md | line 257 -->
 
+<!-- _class: pdf-compact -->
+
 ## 3-26 `NoReverseMatch`
 
 常見訊息：
@@ -613,7 +618,7 @@ reverse("board:list")
 
 ## 3-28 從文字回應走向資料頁
 
-![w:1120](assets/request_flow.svg)
+![w:1120](../assets/request_flow.svg)
 
 圖中以 `product_detail(request, pk)` 示意；LearnMart 實際使用 `ProductDetailView.as_view()`。
 
@@ -649,7 +654,7 @@ MVT 分別是 Model、View、Template。
 
 **繳交：** 命名路由、200 / 404 紀錄、reverse 結果、測試與流程圖。
 
-配套手冊：[LearnBoard 原第 2 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-2)、[LearnMart 原第 2 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-2)。
+配套手冊：[LearnBoard 原第 2 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-2)、[LearnMart 原第 2 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-2)。
 接著在第 4～5 章完成 Template，再於第 6～11 章建立資料層。
 
 ---
@@ -676,7 +681,7 @@ MVT 分別是 Model、View、Template。
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 2 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-2)；[LearnMart 01 原第 2 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-2)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 2 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-2)；[LearnMart 01 原第 2 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-2)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -685,5 +690,5 @@ MVT 分別是 Model、View、Template。
 下一份：[03_Template與頁面呈現](03_Template與頁面呈現.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

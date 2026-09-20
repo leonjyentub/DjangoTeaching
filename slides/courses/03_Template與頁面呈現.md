@@ -30,7 +30,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -118,7 +118,7 @@ def catalog(request):
 
 ## 4-3 步驟 A：MVT 心智模型
 
-![w:1000](assets/mvt_mental_model_flow.svg)
+![w:1000](../assets/mvt_mental_model_flow.svg)
 
 ---
 
@@ -134,7 +134,7 @@ def catalog(request):
 
 ## 4-5 步驟 B：MVT 如何分工圖解
 
-![h:480](assets/mvt_model.svg)
+![h:480](../assets/mvt_model.svg)
 
 <!--
 授課提示：強調三個方塊各自住在哪個資料夾（models.py／views.py／templates/）。底部 MVC 對照常被考：Django 的 View ≈ MVC Controller、Template ≈ MVC View。若班上有人學過 MVC，務必在此對焦名詞。
@@ -489,7 +489,7 @@ TemplateDoesNotExist: board/message_list.html
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 3 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)；[LearnMart 01 原第 3 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 3 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)；[LearnMart 01 原第 3 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -793,7 +793,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 **實作任務：** 建立繼承 `base.html` 的頁面，顯示 context、命名 URL，追蹤 parent 的 static CSS 載入鏈，並驗證 HTML-looking 文字被 escape。
 
-**配套實作手冊：** LearnMart [原第 3 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)；LearnBoard [原第 3 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)
+**配套實作手冊：** LearnMart [原第 3 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)；LearnBoard [原第 3 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)
 
 <!--
 授課提示：第 5 題連向安全意識，可預告 第 15～21 章 的 XSS 與 trust boundary。
@@ -809,7 +809,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 3 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)；[LearnMart 01 原第 3 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 3 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-3)；[LearnMart 01 原第 3 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -818,5 +818,5 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 下一份：[04_Model與欄位設計](04_Model與欄位設計.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

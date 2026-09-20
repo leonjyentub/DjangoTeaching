@@ -30,7 +30,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -500,6 +500,7 @@ if settings.DEBUG:
 DjangoTeaching/          目前整份教材的 Git repository
 ├── .git/
 ├── slides/
+│   └── courses/       01～17 連續教學投影片
 ├── learnboard/          執行 LearnBoard 指令的位置
 │   ├── pyproject.toml
 │   └── manage.py
@@ -791,7 +792,7 @@ https://docs.djangoproject.com/en/6.1/topics/db/models/
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 4 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -1275,7 +1276,7 @@ https://docs.djangoproject.com/en/6.1/ref/models/fields/
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 4 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -1284,5 +1285,5 @@ https://docs.djangoproject.com/en/6.1/ref/models/fields/
 下一份：[05_模型關聯與Migration](05_模型關聯與Migration.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

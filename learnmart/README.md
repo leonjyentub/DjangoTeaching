@@ -9,7 +9,7 @@
 - SQLite
 - Pillow（商品圖片）
 - Bootstrap 5.3 CDN + 少量自訂 CSS，採 mobile-first RWD
-- 共用根目錄 `../slides/` 的 Marp 教材與配套實作手冊
+- 共用 `../slides/courses/` 的 01～17 Marp 主線教材與 `../slides/workbooks/` 配套實作手冊
 - 五張教學 SVG 圖解
 
 Bootstrap 適合這門入門課，因為不需 Node/Sass 建置就能從 CDN 開始，且 grid、navbar、card、form 都能逐步拆解。專案仍保留 `static/css/site.css`，讓學生練習在框架之上建立自己的視覺語言。
@@ -30,7 +30,7 @@ uv run python manage.py runserver
 
 本專案是課程的**第二階段**。第一階段是姊妹專案 [LearnBoard 學言板](../learnboard/)——一個功能完整的個人留言板教學專案，涵蓋帳號、資料庫設計、版面設計與擁有權權限：
 
-- 先備自學教材位於 `../slides/00_python_syntax_essentials/` 與 `../slides/00_html_css_page_basics/`
+- 先備自學教材位於 `../slides/courses/` 的三份 `00_*.md`（Python、Git、HTML/CSS）。
 - LearnBoard／LearnMart 的原始分章版本與共用整合版本都整理於 `../slides/`
 - 本專案的商城章節可從共用 Deck 01／02 與 LearnMart 原始分章教材交叉對照
 
@@ -80,8 +80,8 @@ learnmart/
 
 | 教材 | 形式 | 性質 | 主題章節 | 完成里程碑 |
 |---|---|---|---|---|
-| [Python 語法先備](../slides/00_python_syntax_essentials/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
-| [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
+| [Python 語法先備](../slides/courses/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
+| [HTML/CSS 先備](../slides/courses/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
 
 | [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、購物車／訂單／交易、安全測試、部署維運 | 能從請求追到資料庫與模板並完成流程驗證 |
 
@@ -102,8 +102,8 @@ learnmart/
 若已安裝 Marp CLI，可在 workspace 根目錄匯出：
 
 ```bash
-marp ../slides/01_開發環境與專案建立.md --pdf
-marp ../slides/09_表單與資料驗證.md --pdf
+marp ../slides/courses/01_開發環境與專案建立.md --pdf
+marp ../slides/courses/09_表單與資料驗證.md --pdf
 ```
 
 ## 驗證

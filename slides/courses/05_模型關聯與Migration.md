@@ -30,7 +30,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -401,7 +401,7 @@ https://docs.djangoproject.com/en/6.1/topics/db/models/
 
 ## 8-15 專案導覽：先看資料之間的關係
 
-![w:1060](assets/learnmart_domain_relationship.svg)
+![w:1060](../assets/learnmart_domain_relationship.svg)
 
 `1 ── *` 表示一對多。User 在不同關係中扮演 buyer、seller、author。
 先找出商品連到哪些資料；本章已學關聯與刪除規則，請逐條說明圖中的關係。
@@ -442,7 +442,7 @@ https://docs.djangoproject.com/en/6.1/topics/db/examples/many_to_many/
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 4 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -866,7 +866,7 @@ Model schema 改變需要 database 跟著改。
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 02 原第 3 章](workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-3)；[LearnMart 01 原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 02 原第 3 章](../workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-3)；[LearnMart 01 原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -875,5 +875,5 @@ Model schema 改變需要 database 跟著改。
 下一份：[06_ORM與Admin](06_ORM與Admin.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

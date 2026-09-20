@@ -1,5 +1,7 @@
 {
   "schema": 1,
+  "target_base": "slides/courses/",
+  "relocation_note": "目前 files[].file、source_slides[].target.file 與 new_slides[].file 均相對於 target_base；來源歷史路徑與整併時的頁數、雜湊保留不變。",
   "description": "27 章 / 17 份可編輯 Marp；每筆來源投影片均有保留或合併去向",
   "note": "連續授課教材於 2026-09-19 由 slides/django_course/ 移到 slides/ 根目錄；原始四個資料夾（01、01B、02、03）已移除。下方 sources.path 記錄整合當時的原始位置，保留 sha256 供稽核；原文可於 git 歷史取得。",
   "sources": {

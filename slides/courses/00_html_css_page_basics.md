@@ -5,6 +5,10 @@ size: 16:9
 paginate: true
 header: "Django 課程先備｜HTML/CSS"
 footer: "先備自學教材｜看懂網頁的骨架與化妝，再進 Django"
+style: |
+  section.pdf-compact { font-size: 24px; }
+  section.pdf-dense { font-size: 21px; }
+  section.pdf-box-model img { max-height: 420px; width: auto; }
 ---
 
 <!-- _class: cover -->
@@ -729,6 +733,8 @@ F12 → 選元素 → 看 Styles/Computed 面板找被劃掉的屬性。
 
 ---
 
+<!-- _class: pdf-box-model -->
+
 ## 4-5 Box model：每個元素都是一個盒子
 
 ![box model](../assets/box_model.svg)
@@ -787,6 +793,8 @@ Bootstrap 的 d-flex 就是 display:flex 的 class 版。
 -->
 
 ---
+
+<!-- _class: pdf-compact -->
 
 ## 第 4 章｜動手試與觀念檢核
 
@@ -984,6 +992,8 @@ HTML 與 Django 各一色，混淆立刻現形。
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 6-3 留言卡解讀練習
 
 ```html
@@ -1023,7 +1033,7 @@ class 是視覺大小，兩者獨立。此題值得當場點名。
 - [ ] 能說出 `row-cols-md-3` 的生效範圍
 - [ ] 打開 base.html 能區分 HTML 與 `{% %}`／`{{ }}`
 
-全部打勾 → 你已準備好進入 [Deck 01：Django 連續教學教材](../01_開發環境與專案建立.md)。
+全部打勾 → 你已準備好進入 [Deck 01：Django 連續教學教材](01_開發環境與專案建立.md)。
 
 <!--
 授課提示：checklist 可當闖關單。全冊授課時間建議 2~3 小時。

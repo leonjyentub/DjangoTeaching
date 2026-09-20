@@ -2,7 +2,7 @@
 
 這是一套以 Django 為主的後端網站程式設計教學專案，透過三個逐步增加難度的實作專案，搭配投影片與練習手冊，帶學生從 Python 與 Django 基礎一路學到完整網站功能與 production readiness。
 
-> ChatGPT 盤點版本：本 repository 的「專案結構＋教學內容盤點」見 [`CURRICULUM_AUDIT_CHATGPT.md`](CURRICULUM_AUDIT_CHATGPT.md)。
+> 維護決策、歷史驗證與延伸候選見[教材維護摘要](docs/MAINTENANCE.md)。
 
 ## 三階段能力地圖
 
@@ -47,7 +47,7 @@ LearnJournal 03A 與 03B 現在都有可執行程式與分章教材；最後另�
 3. LearnJournal 03A：內容模型、M2M、發佈與進階 ORM。
 4. LearnJournal 03B：state/cache、middleware、email、permissions、feed、scheduler、PostgreSQL search；再將部署維運檢核套到第三專案。
 
-主線按 `slides/` 下的連續教材檔名順序授課；LearnBoard／LearnMart 作章內案例，LearnJournal 為後續延伸。原 01、01B、02、03 教材已整併至連續教材並移除，逐頁去向見 [來源索引](slides/SOURCE_MAP.md)。全部教材入口見 [slides/README.md](slides/README.md)。
+主線按 `slides/courses/` 下的連續教材檔名順序授課；LearnBoard／LearnMart 作章內案例，LearnJournal 為後續延伸。原 01、01B、02、03 教材已整併至連續教材並移除，逐頁去向見 [來源索引](slides/SOURCE_MAP.md)。全部教材入口見 [slides/README.md](slides/README.md)。
 
 ## Repository 級教材驗證
 

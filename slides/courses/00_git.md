@@ -6,6 +6,11 @@ paginate: true
 header: "Django 課程先備 ｜ Git 版本管理"
 footer: "先備自學教材｜Git 與 GitHub"
 style: |
+  section.pdf-compact { font-size: 23px; }
+  section.pdf-dense { font-size: 21px; }
+  section.pdf-dense pre { font-size: 0.68em; }
+  section.pdf-compact pre { font-size: 0.72em; }
+  section.pdf-box-model img { max-height: 420px; width: auto; }
   section.git-tool-summary > blockquote {
     font-size: 0.72em;
     margin-top: 0.35em;
@@ -73,7 +78,7 @@ git config --global --list
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # `git init`：讓空資料夾開始記錄版本
 
@@ -126,6 +131,8 @@ my-first-program/
 -->
 
 ---
+
+<!-- _class: pdf-dense -->
 
 # `.gitignore`：排除不適合進入版本的檔案
 
@@ -363,7 +370,7 @@ git push -u origin feature/readme
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # 遠端有更新：先看清楚，再決定如何整合
 
@@ -445,7 +452,7 @@ git commit
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # `clone`：從 GitHub 取得一個已存在的專案
 
@@ -489,7 +496,7 @@ git status
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # 情境 1（A）：多次修改多個檔案，再一次 push
 
@@ -520,7 +527,7 @@ git push
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # 情境 1（B）：更新到最新版本，並先比較差異
 
@@ -582,7 +589,7 @@ git push
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-compact -->
 
 # 情境 2（合 1）：pull 之後 Git 會怎麼做
 
@@ -643,7 +650,7 @@ git push
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact pdf-dense -->
 
 # 情境 3（A）：回復到前面某一個版本
 

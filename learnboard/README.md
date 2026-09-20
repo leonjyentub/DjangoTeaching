@@ -8,8 +8,8 @@
 - Django 6.1.1
 - SQLite
 - Bootstrap 5.3 CDN + 少量自訂 CSS，採 mobile-first RWD
-- 共用根目錄 `../slides/` 的 Marp 教材與配套實作手冊
-- 根目錄教材同時對照 LearnBoard 與 LearnMart，並保留本專案的分章版本
+- 共用 `../slides/courses/` 的 01～17 Marp 主線教材與 `../slides/workbooks/` 配套實作手冊
+- 主線教材同時對照 LearnBoard 與 LearnMart，並保留本專案的分章版本
 
 刻意不使用 Pillow／自訂 User model／圖片上傳——把第一階段的程式碼壓到最小，商城階段再逐項加回。
 
@@ -69,8 +69,8 @@ learnboard/
 
 | 教材 | 形式 | 性質 | 主題章節 | 完成里程碑 |
 |---|---|---|---|---|
-| [Python 語法先備](../slides/00_python_syntax_essentials/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
-| [HTML/CSS 先備](../slides/00_html_css_page_basics/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
+| [Python 語法先備](../slides/courses/00_python_syntax_essentials.md) | 單一 Marp | 先備自學 | Python 基礎、類別、繼承、decorator、型別標註 | 讀得懂三個專案的 Python |
+| [HTML/CSS 先備](../slides/courses/00_html_css_page_basics.md) | 單一 Marp | 先備自學 | HTML、表單、CSS、box model、RWD、base.html | 能讀懂模板與 Bootstrap class |
 | [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、留言牆與商品目錄 | 能從請求追到資料庫與模板並完成流程對照 |
 
 LearnBoard 案例已整併進 [Django 連續教學教材](../slides/README.md)；專案僅保留少量未重現在主教材的專屬補充（視覺 CSS、BootstrapFormMixin 定義、權限感知按鈕、測試類別逐字稿）。
@@ -79,8 +79,8 @@ LearnBoard 案例已整併進 [Django 連續教學教材](../slides/README.md)�
 
 概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`；完整現況可參考 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)：
 
-- `../slides/00_python_syntax_essentials/00_python_syntax_essentials.md`
-- `../slides/00_html_css_page_basics/00_html_css_page_basics.md`
+- `../slides/courses/00_python_syntax_essentials.md`
+- `../slides/courses/00_html_css_page_basics.md`
 - `../slides/workbooks/learnboard_01_django_foundations_and_message_board_workbook.md`
 - `../slides/workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md`
 
@@ -91,9 +91,9 @@ LearnBoard 案例已整併進 [Django 連續教學教材](../slides/README.md)�
 若已安裝 Marp CLI，可在 workspace 根目錄匯出：
 
 ```bash
-marp ../slides/00_python_syntax_essentials/00_python_syntax_essentials.md --pdf
-marp ../slides/01_開發環境與專案建立.md --pdf
-marp ../slides/09_表單與資料驗證.md --pdf
+marp ../slides/courses/00_python_syntax_essentials.md --pdf
+marp ../slides/courses/01_開發環境與專案建立.md --pdf
+marp ../slides/courses/09_表單與資料驗證.md --pdf
 ```
 
 ## 驗證

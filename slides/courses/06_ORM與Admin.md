@@ -30,7 +30,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -525,7 +525,7 @@ product.delete()
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 5 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)；[LearnMart 01 原第 5 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 5 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)；[LearnMart 01 原第 5 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -960,7 +960,7 @@ https://docs.djangoproject.com/en/6.1/topics/auth/default/
 
 ProductForm.Meta.fields 目前不含 is_featured，前台商品表單不會自動新增此欄。
 
-**配套手冊：** LearnMart [原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)、[原第 5 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)；LearnBoard [原第 4 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)、[原第 5 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)。
+**配套手冊：** LearnMart [原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)、[原第 5 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-5)；LearnBoard [原第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)、[原第 5 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-5)。
 
 ---
 
@@ -1082,7 +1082,7 @@ https://docs.djangoproject.com/en/6.1/ref/contrib/admin/
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 01 原第 4 章](workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 01 原第 4 章](../workbooks/learnboard_01_django_foundations_and_message_board_workbook.md#chapter-4)；[LearnMart 01 原第 4 章](../workbooks/learnmart_01_django_foundations_and_data_backed_catalog_workbook.md#chapter-4)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -1091,5 +1091,5 @@ https://docs.djangoproject.com/en/6.1/ref/contrib/admin/
 下一份：[07_資料列表搜尋與分頁](07_資料列表搜尋與分頁.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

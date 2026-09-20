@@ -6,6 +6,9 @@ paginate: true
 header: "Django 課程先備 ｜Python 語法"
 footer: "先備自學教材｜你應該需要的 Python"
 style: |
+  section.pdf-compact { font-size: 24px; }
+  section.pdf-dense { font-size: 21px; }
+  section.pdf-box-model img { max-height: 420px; width: auto; }
   section.container-nesting pre {
     width: 64%;
   }
@@ -198,6 +201,8 @@ NameError 示範時故意拼錯 prodect，讓他們習慣從錯誤訊息反推�
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 1-2 四個基本型別
 
 | 型別 | 字面寫法 | 用途 | 課程專案例子 |
@@ -361,6 +366,8 @@ return round(result, 1) if result else None
 **讀程式時的問題：** 這個名稱可能沒有值嗎？如果沒有，畫面應該顯示什麼？
 
 ---
+
+<!-- _class: pdf-compact -->
 
 ## 1-8 一行多重綁定：專案常用的回傳值拆開
 
@@ -940,6 +947,8 @@ if request.method == "POST" and form.is_valid():
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 4-3 Truthy / Falsy：每個值都能放進 if
 
 | Falsey（當成 False） | Truthy（當成 True） |
@@ -1425,6 +1434,8 @@ print(count)         # 0（全域沒被改）
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 6-7 LearnBoard：同一個專案同時有 function view 與 method
 
 ```python
@@ -1538,6 +1549,8 @@ ValueError: invalid literal for int() with base 10: '三個'
 -->
 
 ---
+
+<!-- _class: pdf-compact -->
 
 ## 7-2 try / except：預期中的失敗就接住
 
@@ -1673,6 +1686,8 @@ for raw in ["3", "abc", ""]:
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 8-1 三種 import 形式
 
 ```python
@@ -1784,6 +1799,8 @@ order.shipped_at = timezone.now()
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 8-4 專案中的標準庫與框架工具
 
 ```python
@@ -1880,6 +1897,8 @@ print(item.name)      # 鍵盤
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 9-3 method：綁在物件上的函式
 
 ```python
@@ -1973,6 +1992,8 @@ TextChoices 是「有名字的常數組」，避免散落 magic string。
 -->
 
 ---
+
+<!-- _class: pdf-compact -->
 
 ## 9-6 `@property`：不用括號的聰明屬性
 
@@ -2216,6 +2237,8 @@ class ProductForm(BootstrapFormMixin, forms.ModelForm):
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 10-4 多重繼承與 mixin：Django 的日常
 
 ```python
@@ -2384,6 +2407,8 @@ f()              # 'hi' —— 透過新名字照樣呼叫
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 11-2 @ 的真面目：包一層再還给你
 
 ```python
@@ -2507,6 +2532,8 @@ Python 本體執行時不檢查（下一頁實證）。
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 12-2 常見標註形狀
 
 | 標註 | 意義 |
@@ -2614,6 +2641,8 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 自我檢查：開始 Deck 01 前，你應該能……
 
 - [ ] 用 REPL 測試一段小程式並解讀 traceback 最後一行
@@ -2624,7 +2653,7 @@ double("ab")     # 'abab'——完全合法！標註不是驗證
 - [ ] 看到 `@require_POST` 能說出「包一層先擋 method」
 - [ ] 看到 `-> QuerySet` 知道那是回傳值標註而非魔法
 
-全部打勾 → 進入 [HTML/CSS 先備](../00_html_css_page_basics/00_html_css_page_basics.md)，然後開始 [Django 連續教學教材](../01_開發環境與專案建立.md)。
+全部打勾 → 進入 [HTML/CSS 先備](00_html_css_page_basics.md)，然後開始 [Django 連續教學教材](01_開發環境與專案建立.md)。
 
 **配套指令複習：**
 

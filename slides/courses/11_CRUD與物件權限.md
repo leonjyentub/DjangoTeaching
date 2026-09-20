@@ -29,7 +29,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](README.md) · [來源索引](SOURCE_MAP.md) · [實作手冊對照](WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -170,6 +170,34 @@ class OwnerOrStaffMixin(LoginRequiredMixin, UserPassesTestMixin):
 - 編輯：scoped queryset 讓非作者得到 404
 - 刪除：`test_func()` 讓非作者得到 403，staff 可管理
 - LearnMart 同樣先檢查 seller role，再以 `seller=self.request.user` 限制商品或訂單
+
+---
+
+<!-- 整合來源：learnboard_02_forms_auth_and_board_workflows/04_chapter_04.md；原補充檔已併入本段。 -->
+
+<!-- _class: compact -->
+
+## 17-6A 模板中的權限感知按鈕
+
+**LearnBoard 節錄／重排｜`templates/board/message_list.html`；`post` 是目前留言**
+
+```django
+{% if post.author == user %}
+  <a class="btn btn-outline-primary btn-sm"
+     href="{% url 'board:update' post.pk %}">編輯</a>
+  <a class="btn btn-outline-danger btn-sm"
+     href="{% url 'board:delete' post.pk %}">刪除</a>
+{% elif user.is_staff %}
+  <a class="btn btn-outline-danger btn-sm"
+     href="{% url 'board:delete' post.pk %}">刪除</a>
+{% endif %}
+```
+
+作者看到編輯與刪除；非作者的 staff 只看到刪除；其他人不顯示按鈕。
+刪除連結先前往確認頁，下一節才以 POST 執行刪除。
+
+**按鈕控制操作介面；真正授權由 View 的 `get_queryset()`／`test_func()` 檢查。**
+驗收時以非作者直接開啟編輯／刪除網址，仍應被擋下，不能只檢查按鈕是否隱藏。
 
 ---
 
@@ -375,7 +403,7 @@ Django 的 `CreateView`／`UpdateView` 會在自己的 form-processing flow 中�
 - seller A 可編輯自己的商品
 - seller A 對 seller B 商品得到 404
 
-[LearnMart 測試資料、步驟與參考測試](workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-3)；[LearnBoard 對應練習](workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-3)
+[LearnMart 測試資料、步驟與參考測試](../workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-3)；[LearnBoard 對應練習](../workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-3)
 
 ---
 
@@ -387,7 +415,7 @@ Django 的 `CreateView`／`UpdateView` 會在自己的 form-processing flow 中�
 2. 解釋一個輸入如何得到結果，以及規則在哪一層檢查。
 3. 改變一個條件或製造一次失敗，記錄觀察與修正。
 
-**配套練習：** [LearnBoard 02 原第 4 章](workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-4)；[LearnMart 02 原第 3 章](workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
+**配套練習：** [LearnBoard 02 原第 4 章](../workbooks/learnboard_02_forms_auth_and_board_workflows_workbook.md#chapter-4)；[LearnMart 02 原第 3 章](../workbooks/learnmart_02_forms_auth_and_marketplace_workflows_workbook.md#chapter-3)。手冊保留原章號，對照表列出本課位置。
 
 ---
 
@@ -396,5 +424,5 @@ Django 的 `CreateView`／`UpdateView` 會在自己的 form-processing flow 中�
 下一份：[12_購物車與流程測試](12_購物車與流程測試.md)。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
-- 章節與實作對應可由 [全課目錄](README.md) 回查。
-- 原始教材與合併去向見 [來源索引](SOURCE_MAP.md)。
+- 章節與實作對應可由 [全課目錄](../README.md) 回查。
+- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。
