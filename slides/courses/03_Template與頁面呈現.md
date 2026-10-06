@@ -7,6 +7,8 @@ header: "Django 教學 03｜Template與頁面呈現"
 footer: "Django 共通教材｜第 4～5 章"
 style: |
   section.compact { font-size: 26px; }
+  section.code-dense { font-size: 25px; }
+  section.code-dense pre { font-size: 0.58em; line-height: 1.22; padding: 12px; }
   section p:has(> img) { text-align: center; }
 ---
 
@@ -30,7 +32,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -567,9 +569,119 @@ Parent template 定義可被 child 取代的 block：
 
 ---
 
+## 5-3 Template inheritance：整頁如何組裝
+
+![w:1180](../assets/template_inheritance_assembly.svg)
+
+<!--
+授課提示：請學生用三種顏色說明「共用區」、「child 填入的 block」與「include 插入的 partial」，再指向右側最終頁面。
+-->
+
+---
+
+<!-- _class: code-dense -->
+
+## 5-4 可執行的 parent：`templates/base.html`
+
+```django
+{% load static %}
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}學購 LearnMart{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+  <nav><a href="{% url 'marketplace:home' %}">學購 LearnMart</a></nav>
+  <main class="container py-4">
+    {% for message in messages %}
+      <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>學購 LearnMart · Django 教學專案</footer>
+</body>
+</html>
+```
+
+`head`、navbar、messages 與 footer 由 parent 統一維護；`title` 與 `content` 留給 child 決定。
+
+---
+
+<!-- _class: code-dense -->
+
+## 5-5 可執行的 child：`marketplace/home.html`
+
+```django
+{% extends "base.html" %}
+
+{% block title %}商品首頁 | {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>商品列表</h1>
+<div class="row row-cols-2 row-cols-md-3 g-3">
+  {% for product in products %}
+    <div class="col">
+      <article class="card h-100">
+        <h2>{{ product.name }}</h2>
+        <p>NT$ {{ product.price }}</p>
+        <a href="{{ product.get_absolute_url }}">查看商品</a>
+      </article>
+    </div>
+  {% empty %}
+    <p>目前找不到商品。</p>
+  {% endfor %}
+</div>
+{% include "marketplace/pagination.html" %}
+{% endblock %}
+```
+
+`block.super` 保留 parent 的預設標題；child 專注這一頁特有的商品內容。
+
+---
+
+<!-- _class: compact -->
+
+## 5-6 局部 template：`marketplace/pagination.html`
+
+<div class="two-column">
+<div>
+
+```django
+{% if is_paginated %}
+<nav aria-label="分頁">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">上一頁</a>
+  {% endif %}
+  <span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">下一頁</a>
+  {% endif %}
+</nav>
+{% endif %}
+```
+
+</div>
+<div>
+
+| 檔案 | 負責範圍 |
+|---|---|
+| `base.html` | 全站共用骨架 |
+| `home.html` | 商品首頁內容 |
+| `pagination.html` | 可重用的分頁導覽 |
+
+`include` 發生在 `content` block 內，因此 partial 的 HTML 會出現在商品網格之後、footer 之前。
+
+</div>
+</div>
+
+---
+
 <!-- source: A:104 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 1917 -->
 
-## 5-3 `include` 與 `extends` 的工作不同
+## 5-7 `include` 與 `extends` 的工作不同
 
 ```django
 {% include "marketplace/pagination.html" %}
@@ -587,7 +699,7 @@ LearnMart 把分頁導覽抽成 `pagination.html`；home template 保留商品�
 
 <!-- source: A:105 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 1933 -->
 
-## 5-4 static：開發者提供的固定資產
+## 5-8 static：開發者提供的固定資產
 
 **目前 LearnMart 節錄｜`templates/base.html`**
 
@@ -610,7 +722,7 @@ static/css/site.css
 
 <!-- source: A:106 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 1954 -->
 
-## 5-5 static 與 media 不要混淆
+## 5-9 static 與 media 不要混淆
 
 | 類型 | 誰提供 | LearnMart 範例 |
 |---|---|---|
@@ -631,7 +743,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 <!-- source: A:107 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 1973 -->
 
-## 5-6 Bootstrap 與 Django 各做什麼？
+## 5-10 Bootstrap 與 Django 各做什麼？
 
 **目前 LearnMart 節錄｜`templates/base.html`**
 
@@ -651,7 +763,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:108 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 1991 -->
 
-## 5-7 viewport 為何必須放在 `<head>`？
+## 5-11 viewport 為何必須放在 `<head>`？
 
 ```html
 <meta name="viewport"
@@ -667,7 +779,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:109 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2005 -->
 
-## 5-8 Bootstrap grid 的 12 欄心智模型
+## 5-12 Bootstrap grid 的 12 欄心智模型
 
 ```html
 <div class="container">
@@ -687,7 +799,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:110 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2023 -->
 
-## 5-9 Mobile-first：breakpoint 代表「以上」
+## 5-13 Mobile-first：breakpoint 代表「以上」
 
 | 前綴 | 起始寬度 | 說明 |
 |---|---:|---|
@@ -708,7 +820,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:111 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2042 -->
 
-## 5-10 商品網格：完整父子結構
+## 5-14 商品網格：完整父子結構
 
 **目前 LearnMart 節錄｜`templates/marketplace/home.html`**
 
@@ -730,7 +842,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:112 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2062 -->
 
-## 5-11 Utility class 要讀成組合語言
+## 5-15 Utility class 要讀成組合語言
 
 ```html
 <section class="rounded-4 p-4 p-md-5 mb-4 text-white">
@@ -750,7 +862,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:113 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2080 -->
 
-## 5-12 語意與無障礙不是最後才補
+## 5-16 語意與無障礙不是最後才補
 
 商品頁範例應同時做到：
 
@@ -767,7 +879,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:114 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2095 -->
 
-## 5-13 常見 template 問題如何定位？
+## 5-17 常見 template 問題如何定位？
 
 | 現象 | 優先檢查 |
 |---|---|
@@ -783,7 +895,7 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 <!-- source: A:115 | 01_django_foundations_and_two_projects/01_django_foundations_and_two_projects.md | line 2109 -->
 
-## 5-14 觀念檢核與實作
+## 5-18 觀念檢核與實作
 
 1. `render()` 的 template name 與 context 各扮演什麼角色？
 2. `{{ }}`、`{% %}`、`{# #}` 有何不同？
@@ -819,4 +931,3 @@ Bootstrap class 不會改變 Python 或資料庫邏輯。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
 - 章節與實作對應可由 [全課目錄](../README.md) 回查。
-- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

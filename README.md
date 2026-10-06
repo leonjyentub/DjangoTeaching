@@ -47,7 +47,7 @@ LearnJournal 03A 與 03B 現在都有可執行程式與分章教材；最後另�
 3. LearnJournal 03A：內容模型、M2M、發佈與進階 ORM。
 4. LearnJournal 03B：state/cache、middleware、email、permissions、feed、scheduler、PostgreSQL search；再將部署維運檢核套到第三專案。
 
-主線按 `slides/courses/` 下的連續教材檔名順序授課；LearnBoard／LearnMart 作章內案例，LearnJournal 為後續延伸。原 01、01B、02、03 教材已整併至連續教材並移除，逐頁去向見 [來源索引](slides/SOURCE_MAP.md)。全部教材入口見 [slides/README.md](slides/README.md)。
+主線按 `slides/courses/` 下的連續教材檔名順序授課；LearnBoard／LearnMart 作章內案例，LearnJournal 為後續延伸。原 01、01B、02、03 教材已整併至連續教材並移除。全部教材入口見 [slides/README.md](slides/README.md)。
 
 ## Repository 級教材驗證
 

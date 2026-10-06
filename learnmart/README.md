@@ -86,7 +86,7 @@ learnmart/
 | [Django 連續教學教材](../slides/README.md) | 17 份 Marp | 共用主教材 | Project/App、HTTP／URL、View／Template、Model／ORM／Admin、表單／登入／權限、購物車／訂單／交易、安全測試、部署維運 | 能從請求追到資料庫與模板並完成流程驗證 |
 
 
-主教材每章末附觀念檢核題；解答、實作步驟與前後程式碼節錄在普通 Markdown 實作手冊中。完整檔案形態與來源對照見 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)。
+主教材每章末附觀念檢核題；解答、實作步驟與前後程式碼節錄在普通 Markdown 實作手冊中。
 
 ## 投影片與實作手冊
 

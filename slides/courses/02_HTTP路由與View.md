@@ -32,7 +32,7 @@ style: |
 
 每章依序：概念、最小範例、語法、專案對照、實作與驗收。
 
-[全課目錄](../README.md) · [來源索引](../SOURCE_MAP.md) · [實作手冊對照](../WORKBOOK_MAP.md)
+[全課目錄](../README.md) · [實作手冊對照](../WORKBOOK_MAP.md)
 
 ---
 
@@ -691,4 +691,3 @@ MVT 分別是 Model、View、Template。
 
 - 保留本份操作紀錄，確認使用正確的專案與資料庫。
 - 章節與實作對應可由 [全課目錄](../README.md) 回查。
-- 原始教材與合併去向見 [來源索引](../SOURCE_MAP.md)。

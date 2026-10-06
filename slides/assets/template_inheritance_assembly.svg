@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK TC','Noto Sans TC','WenQuanYi Zen Hei','PingFang TC','Microsoft JhengHei',sans-serif">
+  <title id="title">Django template inheritance 頁面組裝圖</title>
+  <desc id="desc">base.html 提供 head、navbar、content block 與 footer。home.html 繼承 base.html，填入 title 與 content block，並在 content 中 include pagination.html，Django 最後輸出完整 HTML 頁面。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#768f94"/>
+    </marker>
+    <marker id="accent-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d96b27"/>
+    </marker>
+  </defs>
+  <style>
+    .frame { fill: #ffffff; stroke: #367d8a; stroke-width: 3; }
+    .soft { fill: #eef5f6; stroke: #b9d0d4; stroke-width: 2; }
+    .fixed { fill: #dcebed; stroke: #5f8f98; stroke-width: 2; }
+    .block { fill: #fff4eb; stroke: #d96b27; stroke-width: 3; stroke-dasharray: 10 7; }
+    .partial { fill: #f4eefe; stroke: #7654a5; stroke-width: 2.5; }
+    .stage { fill: #1a4d57; font-size: 25px; font-weight: 800; text-anchor: middle; }
+    .label { fill: #234c52; font-size: 19px; font-weight: 700; text-anchor: middle; }
+    .small { fill: #40585c; font-size: 16px; text-anchor: middle; }
+    .mono { fill: #1e2d30; font-family: 'Noto Sans Mono CJK TC','SF Mono',Consolas,monospace; font-size: 15px; text-anchor: middle; }
+    .orange { fill: #ad4f1b; }
+    .purple { fill: #62438b; }
+    .flow { fill: none; stroke: #768f94; stroke-width: 3; marker-end: url(#arrow); }
+    .insert { fill: none; stroke: #d96b27; stroke-width: 3; marker-end: url(#accent-arrow); }
+    .card { fill: #ffffff; stroke: #9fb7bb; stroke-width: 1.5; }
+  </style>
+
+  <text class="stage" x="235" y="36">1. Parent：base.html</text>
+  <text class="stage" x="720" y="36">2. Child：home.html</text>
+  <text class="stage" x="1260" y="36">3. 瀏覽器最終頁面</text>
+
+  <!-- parent page skeleton -->
+  <rect class="frame" x="70" y="60" width="330" height="465" rx="16"/>
+  <rect class="soft" x="88" y="80" width="294" height="72" rx="10"/>
+  <text class="label" x="235" y="108">&lt;head&gt;</text>
+  <text class="mono orange" x="235" y="133">{% block title %}</text>
+
+  <rect class="fixed" x="88" y="168" width="294" height="72" rx="10"/>
+  <text class="label" x="235" y="199">navbar</text>
+  <text class="small" x="235" y="224">全站共用導覽</text>
+
+  <rect class="fixed" x="88" y="254" width="294" height="48" rx="10"/>
+  <text class="small" x="235" y="284">messages</text>
+
+  <rect class="block" x="88" y="316" width="294" height="132" rx="10"/>
+  <text class="label orange" x="235" y="354">&lt;main&gt;</text>
+  <text class="mono orange" x="235" y="385">{% block content %}</text>
+  <text class="small" x="235" y="417">每頁主要內容插槽</text>
+
+  <rect class="fixed" x="88" y="464" width="294" height="42" rx="10"/>
+  <text class="small" x="235" y="491">footer</text>
+
+  <!-- inheritance arrow -->
+  <path class="flow" d="M410 285 H500"/>
+  <text class="small" x="455" y="262">繼承骨架</text>
+  <text class="mono" x="455" y="317">{% extends %}</text>
+
+  <!-- child template -->
+  <rect class="frame" x="520" y="60" width="400" height="365" rx="16"/>
+  <rect class="fixed" x="540" y="82" width="360" height="52" rx="9"/>
+  <text class="mono" x="720" y="114">{% extends "base.html" %}</text>
+
+  <rect class="block" x="540" y="148" width="360" height="62" rx="9"/>
+  <text class="mono orange" x="720" y="176">{% block title %}</text>
+  <text class="small" x="720" y="198">商品首頁</text>
+
+  <rect class="block" x="540" y="224" width="360" height="181" rx="9"/>
+  <text class="mono orange" x="720" y="253">{% block content %}</text>
+  <rect class="soft" x="562" y="269" width="316" height="43" rx="8"/>
+  <text class="small" x="720" y="296">hero 與分類按鈕</text>
+  <rect class="soft" x="562" y="322" width="316" height="43" rx="8"/>
+  <text class="small" x="720" y="349">product loop 商品網格</text>
+  <text class="mono purple" x="720" y="391">{% include "pagination.html" %}</text>
+
+  <!-- partial -->
+  <rect class="partial" x="570" y="454" width="300" height="76" rx="12"/>
+  <text class="label purple" x="720" y="482">pagination.html</text>
+  <text class="small" x="720" y="510">上一頁／頁碼／下一頁</text>
+  <path class="insert" d="M720 454 V417"/>
+  <text class="small orange" x="784" y="442">include 插入</text>
+
+  <!-- render arrow -->
+  <path class="flow" d="M940 285 H1040"/>
+  <text class="small" x="990" y="261">Django render</text>
+  <text class="small" x="990" y="313">合成 HTML</text>
+
+  <!-- final rendered page -->
+  <rect class="frame" x="1060" y="60" width="390" height="465" rx="16"/>
+  <rect class="fixed" x="1080" y="82" width="350" height="58" rx="9"/>
+  <text class="label" x="1255" y="107">學購 LearnMart</text>
+  <text class="small" x="1255" y="130">導覽、搜尋、帳號</text>
+
+  <rect class="soft" x="1080" y="154" width="350" height="42" rx="9"/>
+  <text class="small" x="1255" y="181">messages 提示區</text>
+
+  <rect class="block" x="1080" y="210" width="350" height="250" rx="9"/>
+  <rect x="1100" y="230" width="310" height="54" rx="8" fill="#367d8a"/>
+  <text x="1255" y="263" fill="#ffffff" font-size="18" font-weight="700" text-anchor="middle">學習 Django，打造購物網站</text>
+
+  <rect class="card" x="1100" y="300" width="92" height="82" rx="8"/>
+  <rect class="card" x="1209" y="300" width="92" height="82" rx="8"/>
+  <rect class="card" x="1318" y="300" width="92" height="82" rx="8"/>
+  <text class="small" x="1146" y="348">商品 A</text>
+  <text class="small" x="1255" y="348">商品 B</text>
+  <text class="small" x="1364" y="348">商品 C</text>
+
+  <rect class="partial" x="1140" y="399" width="230" height="42" rx="9"/>
+  <text class="small purple" x="1255" y="426">上一頁　1 / 3　下一頁</text>
+
+  <rect class="fixed" x="1080" y="475" width="350" height="32" rx="8"/>
+  <text class="small" x="1255" y="497">footer</text>
+
+  <!-- legend -->
+  <rect class="fixed" x="120" y="558" width="28" height="20" rx="4"/>
+  <text class="small" x="238" y="575">每頁共用、不重寫</text>
+  <rect class="block" x="515" y="558" width="28" height="20" rx="4"/>
+  <text class="small" x="672" y="575">child 填入或取代 block</text>
+  <rect class="partial" x="995" y="558" width="28" height="20" rx="4"/>
+  <text class="small" x="1146" y="575">include 插入局部 template</text>
+</svg>

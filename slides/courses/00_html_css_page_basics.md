@@ -481,7 +481,7 @@ article、img、h2、p、a、button——教完直接能讀 home.html。
 # 第 3 章
 ## 表單標籤：資料回傳伺服器的橋
 
-<div class="box">能組出 GET 搜尋表單與 POST 資料表單，說出每個屬性的角色</div>
+<div class="box">能選擇合適的 input type，組出 GET 與 POST 表單，並預測伺服器會收到的資料</div>
 
 <!--
 授課提示：本章是 Deck 02 第 1 章的直接地基。
@@ -514,111 +514,353 @@ name 屬性（3-2）是最容易被忽略卻最關鍵的一顆螺絲，務必重
 
 ---
 
-## 3-2 input：type 家族與關鍵的 name
+## 3-2 input：type 決定輸入方式
 
 ```html
 <input type="text" name="q" value="預設值" placeholder="搜尋商品">
 ```
 
-- `type`：text / number / email / password / hidden…
-- `name`：送給伺服器的 key——**沒有 name 的欄位不會被送出**
-- `value`：目前的值；`placeholder` 只是灰色提示字
+| 用途 | 常見 `type` |
+|---|---|
+| 文字 | `text` `search` `email` `password` `tel` `url` |
+| 數值與時間 | `number` `range` `date` `time` `datetime-local` |
+| 選擇 | `radio` `checkbox` `color` `file` |
+| 隱藏或動作 | `hidden` `submit` `reset` `button` |
 
-```html
-<input type="hidden" name="product" value="3">
-```
+- `name` 是送給伺服器的 key，**沒有 name 的欄位不會被送出**
+- `value` 是欄位的目前值；`placeholder` 只是畫面上的提示字
 
-hidden 一樣會被送出——也一樣能被使用者竄改（安全伏筆）。
-
-**你應該看到：** 刪掉 `name="q"` 後再搜尋，網址列不再出現 q 參數。
+> 沒寫 `type` 時，瀏覽器會以 `text` 處理。明確寫出 type 讓語意與驗證規則更清楚。
 
 <!--
-授課提示：兩件事必做：(1) 刪 name 看 GET 參數消失；
-(2) 用 F12 改 hidden value 體感「瀏覽器不可信」，Deck 02 的信任邊界圖在此埋點。
+授課提示：先建立類型地圖，後續每一頁都回到 name=value 的送出結果。
 -->
 
 ---
 
-## 3-3 label：點得到的名字
+## 3-3 文字欄位：text、email、password
+
+```html
+<label for="account">電子郵件</label>
+<input id="account" type="email" name="email"
+       autocomplete="email" required>
+
+<label for="pwd">密碼</label>
+<input id="pwd" type="password" name="password"
+       minlength="8" autocomplete="current-password" required>
+```
+
+| `type` | 瀏覽器提供的幫助 |
+|---|---|
+| `text` / `search` | 單行文字；search 表示這是搜尋詞 |
+| `email` | 檢查基本郵件格式，行動裝置可顯示合適鍵盤 |
+| `password` | 遮住畫面上的字元，不會自動加密傳輸內容 |
+
+`required` 阻止空值送出，`minlength="8"` 要求至少 8 個字元。
+
+<!--
+授課提示：用錯誤郵件與過短密碼測試內建驗證。
+強調 password 只改變畫面顯示，傳輸安全仍依賴 HTTPS。
+-->
+
+---
+
+<!-- _class: pdf-compact -->
+
+## 3-4 數值欄位：number 與 range
+
+```html
+<label for="budget">預算上限</label>
+<input id="budget" type="number" name="budget"
+       min="0" max="10000" step="100" value="1000">
+
+<label for="volume">提醒音量</label>
+<input id="volume" type="range" name="volume"
+       min="0" max="100" step="5" value="50">
+```
+
+| 屬性 | 意義 |
+|---|---|
+| `min` / `max` | 允許的最小值與最大值 |
+| `step` | 每次調整的間隔 |
+| `value` | 初始值，也是目前會被送出的值 |
+
+- `number` 適合需要精確數字的欄位
+- `range` 適合滑桿。瀏覽器通常不會自動顯示當前數字，可送出後在網址列觀察 `volume=50`
+
+---
+
+## 3-5 日期與時間欄位
+
+```html
+<label for="delivery-date">送貨日</label>
+<input id="delivery-date" type="date" name="delivery_date"
+       min="2026-10-01" max="2026-12-31" value="2026-10-15">
+
+<label for="pickup-time">取貨時間</label>
+<input id="pickup-time" type="time" name="pickup_time"
+       min="09:00" max="18:00" step="1800">
+```
+
+| `type` | 送出值範例 |
+|---|---|
+| `date` | `2026-10-15` |
+| `month` | `2026-10` |
+| `time` | `14:30` |
+| `datetime-local` | `2026-10-15T14:30` |
+
+畫面格式可依瀏覽器與系統地區設定改變，送出值仍使用標準格式。`datetime-local` 不包時區。
+
+<!--
+授課提示：請學生用中文作業系統的日期選擇器輸入，再從 GET 網址列辨識實際送出格式。
+-->
+
+---
+
+## 3-6 單選題：radio 共用同一個 name
+
+```html
+<fieldset>
+  <legend>配送方式</legend>
+
+  <label><input type="radio" name="delivery"
+                value="store" checked required> 超商取貨</label>
+  <label><input type="radio" name="delivery"
+                value="home"> 宅配</label>
+</fieldset>
+```
+
+- 同一組 radio 必須使用相同的 `name`，瀏覽器才會只保留一個選項
+- 每個選項用不同的 `value` 表示真正送出的值
+- `checked` 設定預選項；`required` 要求這組至少選一個
+- 選擇「超商取貨」會送出 `delivery=store`
+
+> `fieldset` 把選項組成一題，`legend` 提供這題的名稱。
+
+---
+
+## 3-7 複選題：checkbox 可以選零個或多個
+
+```html
+<fieldset>
+  <legend>想學的主題</legend>
+  <label><input type="checkbox" name="topics"
+                value="html" checked> HTML</label>
+  <label><input type="checkbox" name="topics"
+                value="django"> Django</label>
+</fieldset>
+
+<label><input type="checkbox" name="agree" value="yes" required>
+  我同意使用條款</label>
+```
+
+- 多個 checkbox 可共用同一個 `name`，送出多個同名值：`topics=html&topics=django`
+- **只有勾選的 checkbox 會被送出**，未勾選不會自動送出 false
+- `checked` 只是初始狀態，使用者仍可取消
+- 建議每個 checkbox 都明確寫 `value`，避免後端收到不易理解的預設值
+
+---
+
+## 3-8 顏色選擇：color
+
+```html
+<label for="theme-color">主題色</label>
+<input id="theme-color" type="color" name="theme_color"
+       value="#0d6efd">
+```
+
+- 點擊欄位後，瀏覽器或作業系統會開啟顏色選擇器
+- 基本用法的 `value` 採 `#rrggbb` 格式，例如 `#0d6efd`
+- GET 網址列會將 `#` 編碼為 `%23`，例如 `theme_color=%230d6efd`
+- 顏色選擇器的外觀會依瀏覽器與作業系統不同
+
+**何時使用：** 個人化主題、標籤顏色或圖表配色。如果只能選少數固定顏色，radio 或 select 更容易說明選項名稱。
+
+---
+
+<!-- _class: pdf-dense -->
+
+## 3-9 常用限制與瀏覽器驗證
+
+```html
+<input type="text" name="nickname"
+       required minlength="2" maxlength="20"
+       pattern="[A-Za-z0-9_]+"
+       title="只能使用英文字母、數字與底線">
+```
+
+| 屬性 | 適用情境 | 作用 |
+|---|---|---|
+| `required` | 多數可輸入欄位 | 不能留空，radio 組必須選一個 |
+| `minlength` / `maxlength` | 文字欄位 | 限制字元數 |
+| `min` / `max` / `step` | 數值、日期、時間 | 限制範圍與間隔 |
+| `pattern` | 部分文字欄位 | 以正規表示式檢查完整輸入值 |
+| `autocomplete` | 帳號、姓名、地址等 | 告訴瀏覽器這個欄位的資料用途 |
+
+> 瀏覽器驗證改善操作體驗，使用者仍可繞過它。Django 後端必須再驗證一次。
+
+---
+
+## 3-10 readonly、disabled 與 hidden
+
+```html
+<input name="username" value="amy" readonly>
+<input name="coupon" value="VIP100" disabled>
+<input type="hidden" name="product_id" value="3">
+```
+
+| 狀態 | 使用者可編輯 | 會送出 | 適合用途 |
+|---|:---:|:---:|---|
+| `readonly` | 否 | 會 | 顯示不開放修改的文字值 |
+| `disabled` | 否 | **不會** | 目前不可操作的欄位 |
+| `type="hidden"` | 畫面上看不到 | 會 | 表單流程需要一起送回的識別值 |
+
+- `readonly` 只適用於可輸入文字或數值的部分類型，不適用於 checkbox 與 radio
+- hidden 與 readonly 的值都可用 F12 修改，後端不能將它們當成可信任的權限或價格資料
+
+---
+
+<!-- _class: pdf-compact -->
+
+## 3-11 label、fieldset 與 legend
 
 ```html
 <label for="q">關鍵字</label>
 <input id="q" name="q">
+
+<fieldset>
+  <legend>聯絡偏好</legend>
+  <label><input type="radio" name="contact" value="email"> Email</label>
+  <label><input type="radio" name="contact" value="phone"> 電話</label>
+</fieldset>
 ```
 
-- `for` 對應欄位的 `id`；綁定後點文字就能聚焦欄位
-- 也是螢幕閱讀器唸出欄位名稱的依據（無障礙必備）
+- `for` 對應欄位的 `id`，點擊 label 文字也能將焦點移到欄位
+- label 也可直接包住 input，這時可不寫 `for`
+- `fieldset` 與 `legend` 讓一組 radio 或 checkbox 擁有共同題目
+- 螢幕閱讀器可依這些關聯說出「這個欄位是什麼」
 
-> id 是文件內唯一識別；name 是送出的參數名。兩者常相同但意義不同。
-
-<!--
-授課提示：示範點 label 文字讓 input 聚焦。
-id vs name 的對比請學生抄進筆記。
--->
+> `id` 是文件內的唯一識別；`name` 是送出時的參數名。兩者常相同，但用途不同。
 
 ---
 
-## 3-4 select 與 textarea
+## 3-12 select 與 textarea
 
 ```html
-<select name="rating">
+<label for="rating">評分</label>
+<select id="rating" name="rating" required>
+  <option value="">請選擇</option>
   <option value="5">★★★★★</option>
   <option value="4">★★★★</option>
 </select>
 
-<textarea name="comment" rows="3" placeholder="分享心得"></textarea>
+<label for="comment">心得</label>
+<textarea id="comment" name="comment" rows="3"
+          maxlength="500" placeholder="分享心得"></textarea>
 ```
 
-- select：下拉選單；value 才是送出的值，標籤文字只是顯示
-- textarea：多行文字；用 rows 控制高度
+- select 的 option `value` 才是送出值，畫面上的選項文字只是顯示內容
+- textarea 用開始與結束標籤夾住初始內容，不使用 `value` 屬性
+- `rows` 決定初始可見列數，`maxlength` 限制文字長度
 
-**課程專案對照：** 第一階段留言板的發表表單就是 textarea；第二階段商城的評分選單才是 select。
+**課程專案對照：** 第一階段留言板使用 textarea，第二階段商城的評分欄位使用 select。
 
 ---
 
-## 3-5 上傳檔案：enctype 特殊規格
+## 3-13 上傳檔案：file 與 enctype
 
 ```html
-<form method="post" enctype="multipart/form-data">
-  <input type="file" name="image">
+<form action="/products/new/" method="post"
+      enctype="multipart/form-data">
+  <label for="images">商品圖片</label>
+  <input id="images" type="file" name="images"
+         accept="image/png,image/jpeg" multiple required>
+  <button type="submit">上傳</button>
 </form>
 ```
 
-- 一般表單只會送文字；要傳檔案必須宣告 `multipart/form-data`
-- 忘了它 → 伺服器收不到檔案，而且不會報錯，只是沒資料
+- 有 file 欄位時，form 必須使用 `method="post"` 與 `enctype="multipart/form-data"`
+- `accept` 提示檔案選擇器可接受的類型，`multiple` 允許一次選多檔
+- accept 無法取代後端的檔案類型、大小與內容檢查
+- Django 端從 `request.FILES` 取得上傳檔案
 
-**LearnMart 對照（第二階段伏筆）：** 商品新增／編輯表單都有這一行；Django 端還要 `request.FILES` 配合。第一階段的留言表單只送文字，不需要 enctype。
+**LearnMart 對照：** 商品新增與編輯表單需要 enctype；留言表單只送文字，不需要。
+
+---
+
+<!-- _class: pdf-dense -->
+
+## 3-14 完整範例：偏好設定表單
+
+```html
+<form action="/preferences/" method="get">
+  <label for="birthday">生日</label>
+  <input id="birthday" type="date" name="birthday" required>
+
+  <fieldset>
+    <legend>配送方式</legend>
+    <label><input type="radio" name="delivery" value="store"
+                  checked required> 超商取貨</label>
+    <label><input type="radio" name="delivery" value="home"> 宅配</label>
+  </fieldset>
+
+  <label><input type="checkbox" name="topics" value="html"> HTML</label>
+  <label><input type="checkbox" name="topics" value="django"> Django</label>
+
+  <label for="volume">提醒音量</label>
+  <input id="volume" type="range" name="volume"
+         min="0" max="100" step="10" value="50">
+
+  <label for="theme">主題色</label>
+  <input id="theme" type="color" name="theme" value="#0d6efd">
+  <button type="submit">儲存偏好</button>
+</form>
+```
+
+---
+
+<!-- _class: pdf-compact -->
+
+## 3-15 從操作結果預測送出資料
+
+假設使用者選擇 2026-10-15、宅配、HTML 與 Django，音量 60，主題色 `#0d6efd`：
+
+```text
+/preferences/?birthday=2026-10-15&delivery=home
+&topics=html&topics=django&volume=60&theme=%230d6efd
+```
+
+| 畫面上的欄位 | 送出結果 |
+|---|---|
+| 宅配 radio | `delivery=home` |
+| 兩個已勾選 checkbox | 同一個 key 出現兩次 |
+| range | `volume=60` |
+| color | `#` 在網址中變成 `%23` |
+| 未勾選 checkbox | 完全不出現 |
+
+> Django 取單值可使用 `request.GET.get("delivery")`；取同名多值使用 `request.GET.getlist("topics")`。
 
 <!--
-授課提示：「忘了 enctype 不報錯只是空手」是實務超級大坑，
-請學生抄進筆記。
+授課提示：先遮住網址列範例，請學生根據操作結果寫出 key=value，再解說同名多值與網址編碼。
 -->
 
 ---
 
 ## 第 3 章｜動手試與觀念檢核
 
-**動手試：** GET 搜尋表單：
+**動手試：** 將 3-14 的表單存成 HTML，用瀏覽器完成下列測試：
 
-```html
-<form action="" method="get">
-  <label for="kw">搜尋</label>
-  <input id="kw" name="q">
-  <button type="submit">Go</button>
-</form>
-```
-
-送出後觀察網址列。
+1. 送出後從網址列找出每個 `name=value`
+2. 同時勾選兩個 topics，確認同名參數出現兩次
+3. 取消所有 topics，確認網址列中沒有 topics
+4. 在必填日期留空時送出，觀察瀏覽器提示
 
 **觀念檢核：**
 
-1. 欄位沒有 name 會怎樣？　**答：不會被送出**
-2. GET 和 POST 的用途差別？　**答：查詢 vs 改變狀態**
-3. 上傳檔案少了 enctype 會怎樣？　**答：靜默失敗，收不到檔案**
-
-<!--
-授課提示：第 1 題務必實作驗證，這是 form 最常見的初學者翻車點。
--->
+1. radio 如何成為同一組？　**答：使用相同的 name**
+2. 未勾選的 checkbox 會送出什麼？　**答：不會送出這個欄位**
+3. disabled 欄位會送出嗎？　**答：不會**
+4. 瀏覽器已做 required 驗證，Django 還需驗證嗎？　**答：需要**
 
 ---
 <!-- _class: cover -->
@@ -1027,7 +1269,7 @@ class 是視覺大小，兩者獨立。此題值得當場點名。
 
 - [ ] 能畫出 HTML 文件的樹狀結構並說出 head/body 分工
 - [ ] 認得留言卡會用到的全部標籤（a/p/div/span/article…）
-- [ ] 能組出 GET 搜尋表單，並說明 name 屬性的關鍵角色
+- [ ] 能組出 GET 表單，選擇常用 input type，並預測 name/value 送出結果
 - [ ] 能讀懂 `.card p { }` 選到了誰，以及優先權勝負
 - [ ] 能用 F12 解釋一段留白來自 padding 還是 margin
 - [ ] 能說出 `row-cols-md-3` 的生效範圍

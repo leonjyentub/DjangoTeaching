@@ -10,7 +10,7 @@
 - First-contact lab 與 DTL 工具已併入主線；部署與維運位於第 22～27 章。
 - 三個專案各自管理環境與資料庫。版本宣告以各專案 `pyproject.toml`、`.python-version` 與 `uv.lock` 為準。
 - 既有 migration 的產生版本屬歷史資訊，不為文字一致而改寫。
-- [來源索引](../slides/SOURCE_MAP.md)保留整併概要；完整逐頁對應與當時雜湊集中於 [source_manifest.json](../slides/source_manifest.json)。
+- 完整逐頁對應與當時雜湊集中於 [source_manifest.json](../slides/source_manifest.json)。
 - [Workbook 對照](../slides/WORKBOOK_MAP.md)仍用於授課；[圖解提示詞](../slides/diagram_prompts.md)仍用於重製資產。
 
 ## 歷史驗證摘要（2026-09-19）

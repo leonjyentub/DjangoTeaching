@@ -1,6 +1,6 @@
 # Django 教學投影片（LearnBoard × LearnMart × LearnJournal）
 
-這是三個教學專案共用的投影片入口。早期各專案內的來源教材已整理到 `slides/`；Python／HTML/CSS 先備、LearnBoard、LearnMart、LearnJournal 分章教材、Django 連續授課主線與部署維運 workbook 目前都以本目錄為主，其中 01～17 主線投影片集中在 `courses/`。實際檔案形態以本頁與 [`SOURCE_MAP.md`](SOURCE_MAP.md) 為準。
+這是三個教學專案共用的投影片入口。早期各專案內的來源教材已整理到 `slides/`；Python／HTML/CSS 先備、LearnBoard、LearnMart、LearnJournal 分章教材、Django 連續授課主線與部署維運 workbook 目前都以本目錄為主，其中 01～17 主線投影片集中在 `courses/`。實際檔案形態以本頁為準。
 
 ## 建議閱讀順序
 
@@ -13,7 +13,7 @@
 3. 延伸：[LearnJournal 01 內容模型與發佈](learnjournal_01_content_model_and_publishing/00_overview.md)。
 4. 延伸：[LearnJournal 02 傳播、效能與帳號](learnjournal_02_distribution_performance_and_accounts/00_overview.md)。
 
-原 01／01B／02／03 資料夾已整併進連續教材並移除，不再有獨立入口；原始內容的逐頁去向見 [SOURCE_MAP.md](SOURCE_MAP.md)，與手冊章號對照見 [WORKBOOK_MAP.md](WORKBOOK_MAP.md)。git 歷史仍保留原檔。
+原 01／01B／02／03 資料夾已整併進連續教材並移除，不再有獨立入口；與手冊章號對照見 [WORKBOOK_MAP.md](WORKBOOK_MAP.md)。git 歷史仍保留原檔。
 
 ## Django 連續教學教材
 
@@ -67,11 +67,10 @@
 - DTL 的常用格式化提前至第 4 章，其餘工具放第 14 章；安全案例在第 21 章整合。
 - 安全與測試從第一次使用就加入，最後以跨流程矩陣驗收。
 - LearnJournal 的既有提及保留為延伸；不列為本套課程必修先備。
-- 原始四個教材目錄已整併並移除，逐頁去向見 [SOURCE_MAP.md](SOURCE_MAP.md)；git 歷史保留原檔。
+- 原始四個教材目錄已整併並移除；git 歷史保留原檔。
 
 ### 資產、來源與實作
 
-- [來源索引](SOURCE_MAP.md)：原始 12 份 Marp 的整併概要與詳細清單查詢方式。
 - [機器可讀來源清單](source_manifest.json)：來源雜湊、章節、投影片數與對應位置。
 - [Workbook 對照](WORKBOOK_MAP.md)：新章號對照既有手冊章號及實作範圍。
 - 共用圖片沿用 `assets/`。HTTP 圖由原 01 的 inline SVG 原樣抽出到 [assets/http_request_response.svg](assets/http_request_response.svg)，保留可編輯向量內容。
@@ -123,4 +122,4 @@ GitHub Actions 的 `.github/workflows/material-links.yml` 也會在 PR 與 `mast
 - `learnjournal_*`：第三階段教材，03A / 03B 都直接以分章形式撰寫。
 - `workbooks/`：三個專案與部署維運的實作手冊。
 
-不要假設所有資料夾都有 `00_overview.md` 或 `01_chapter_01.md`。需要核對來源與現況時，請查 [`SOURCE_MAP.md`](SOURCE_MAP.md)。
+不要假設所有資料夾都有 `00_overview.md` 或 `01_chapter_01.md`。需要核對教材現況時，請以本頁清單與實際資料夾為準。

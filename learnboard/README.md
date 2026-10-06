@@ -77,7 +77,7 @@ LearnBoard 案例已整併進 [Django 連續教學教材](../slides/README.md)�
 
 ## 投影片與實作手冊
 
-概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`；完整現況可參考 [`../slides/SOURCE_MAP.md`](../slides/SOURCE_MAP.md)：
+概念題解答、實作步驟與程式碼節錄放在 `../slides/workbooks/`；完整教材清單如下：
 
 - `../slides/courses/00_python_syntax_essentials.md`
 - `../slides/courses/00_html_css_page_basics.md`
