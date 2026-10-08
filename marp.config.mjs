@@ -4,6 +4,7 @@
  */
 export default {
   themeSet: 'slides/themes/django-teal.css',
+  html: true,
   allowLocalFiles: true,
   pdf: {
     printBackground: true,

@@ -151,7 +151,7 @@ href=    屬性名稱        屬性值一律用引號包住
 
 ## 1-2 最小 HTML 文件
 
-<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div class="two-column">
 <div style="flex: 1;">
 
 ```html
@@ -748,6 +748,8 @@ name 屬性（3-2）是最容易被忽略卻最關鍵的一顆螺絲，務必重
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 3-12 select 與 textarea
 
 ```html
@@ -1201,7 +1203,7 @@ HTML 與 Django 各一色，混淆立刻現形。
 
 ## 6-2 base.html 下半部：骨架與洞
 
-<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div class="two-column">
 <div style="flex: 1;">
 
 ```html

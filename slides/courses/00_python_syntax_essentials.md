@@ -716,6 +716,8 @@ context["categories"] = [] # 新增一組 key-value
 
 ---
 
+<!-- _class: pdf-compact -->
+
 ## 3-5 dict 取值：`[]` 與 `.get()` 的差別
 
 ```python

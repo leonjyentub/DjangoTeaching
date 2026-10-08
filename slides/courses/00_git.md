@@ -15,6 +15,10 @@ style: |
     font-size: 0.72em;
     margin-top: 0.35em;
   }
+  section.footer-safe > blockquote {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
 ---
 
 # Git 版本管理
@@ -132,7 +136,7 @@ my-first-program/
 
 ---
 
-<!-- _class: pdf-dense -->
+<!-- _class: pdf-dense footer-safe -->
 
 # `.gitignore`：排除不適合進入版本的檔案
 
@@ -347,7 +351,7 @@ git switch main
 
 ---
 
-<!-- _class: git-compact -->
+<!-- _class: git-compact footer-safe -->
 
 # 在功能分支完成一個小修改
 
